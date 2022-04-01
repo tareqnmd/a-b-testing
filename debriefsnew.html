@@ -18,11 +18,13 @@
 			}
 			.debrief-item__img {
 				width: 40px;
+				height: 45px;
 			}
 			.debrief-item__header {
 				margin: 0;
 				font-weight: bold;
 				font-size: 24px;
+				margin-top: 6px;
 			}
 			.debrief-item__info {
 				margin: 0;
@@ -41,35 +43,90 @@
 				font-size: 14px;
 				font-weight: 500;
 			}
+			.newslwtter__test {
+				margin: 30px auto !important;
+				width: 100% !important;
+				display: flex;
+				align-items: center;
+				justify-content: space-around;
+			}
+			.newslwtter__test form {
+				width: 50%;
+			}
+			.newslwtter__test .new-news-heading-first {
+				max-width: 400px;
+				text-align: center;
+			}
+			.new-news-heading {
+				font-size: 24px;
+			}
+			.newslwtter__test {
+				max-width: 100% !important;
+			}
 			@media only screen and (max-width: 991px) {
 				.debrief-item__header {
 					font-size: 18px;
 				}
+				.new-news-heading {
+					font-size: 20px;
+				}
 			}
 			@media only screen and (max-width: 550px) {
+				.new-news-heading {
+					font-size: 16px;
+				}
+			}
+			@media only screen and (max-width: 767px) {
+				.gg-new-test {
+					grid-template-columns: repeat(1, 100%) !important;
+				}
 				.debrief-new {
 					flex-direction: column;
 				}
-			}
-			.newslwtter__test {
-				margin: auto !important;
+				.debrief-item {
+					margin-bottom: 30px;
+				}
+				.debrief-item:last-child {
+					margin-bottom: 0;
+				}
+				.newslwtter__test {
+					max-width: 90% !important;
+				}
+				.newslwtter__test {
+					flex-direction: column;
+				}
+				.newslwtter__test form {
+					width: 100%;
+				}
 			}
 		</style>
 	</head>
 	<body>
 		<div class="debrief-new">
 			<div class="debrief-item">
-				<img class="debrief-item__img" src="" alt="" />
+				<img
+					class="debrief-item__img"
+					src="https://cdn.shopify.com/s/files/1/0049/9263/0882/files/comfort-guarantee_038a08c3-223e-4d32-a884-1b1f331bd7cd_300x.png?v=1645751807"
+					alt=""
+				/>
 				<p class="debrief-item__header">Comfort Guarantee</p>
 				<p class="debrief-item__info">If you don't love your first pair, they're free</p>
 			</div>
 			<div class="debrief-item">
-				<img class="debrief-item__img" src="" alt="" />
+				<img
+					class="debrief-item__img"
+					src="https://cdn.shopify.com/s/files/1/0049/9263/0882/files/Silky-Soft_Sustainable_Fabric_01_300x.png?v=1642032070"
+					alt=""
+				/>
 				<p class="debrief-item__header">Made in Turkey</p>
 				<p class="debrief-item__info">From sustainable MicroModal</p>
 			</div>
 			<div class="debrief-item">
-				<img class="debrief-item__img" src="" alt="" />
+				<img
+					class="debrief-item__img"
+					src="https://cdn.shopify.com/s/files/1/0049/9263/0882/files/bulk-discount-icon-2_300x.png?v=1645754277"
+					alt=""
+				/>
 				<p class="debrief-item__header">Bulk Savings</p>
 				<p class="debrief-item__info">Create a multipack and save up to $99</p>
 			</div>
