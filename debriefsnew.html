@@ -102,6 +102,22 @@
 				animation: slide-down 300ms ease-out forwards;
 			}
 
+			@media only screen and (max-width: 660px) {
+				.new-modal-small {
+					width: 460px;
+				}
+			}
+
+			@media only screen and (max-width: 480px) {
+				.new-modal-small {
+					width: 360px;
+				}
+			}
+
+			.new-modal-small iframe {
+				width: 100%;
+			}
+
 			@keyframes slide-down {
 				from {
 					opacity: 0;
