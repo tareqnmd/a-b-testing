@@ -147,17 +147,15 @@
 			</section>
 		</section>
 		<script>
+			const breakingWidth = 991;
 			const prevButton = document.querySelector('.rev_prev');
 			const nextButton = document.querySelector('.rev_next');
 			const revArea = document.querySelector('.item-rev');
 			const revs = Array.from(document.querySelectorAll('.single-item-rev'));
-			prevButton.disabled = true;
-			const next = 0;
-			const prev = 0;
 
 			const initialLoad = () => {
 				const windowWidth = window.innerWidth;
-				if (windowWidth > 991) {
+				if (windowWidth > breakingWidth) {
 					initiateDisplay(revs, [2]);
 				} else {
 					initiateDisplay(revs, [1, 2]);
@@ -176,24 +174,46 @@
 
 			window.addEventListener('resize', () => {
 				const windowWidth = window.innerWidth;
-				if (windowWidth > 991) {
+				if (windowWidth > breakingWidth) {
 					initiateDisplay(revs, [2]);
 				} else {
 					initiateDisplay(revs, [1, 2]);
 				}
 			});
 
+			const clickDisplay = (type) => {
+				const disableIds = [];
+				const enableIds = [];
+				revs.map((rev, i) => {
+					rev.style.display === 'none' ? disableIds.push(i) : enableIds.push(i);
+				});
+				if (type === 'prev') {
+					if (disableIds.length === 1) {
+						initiateDisplay(revs, [2]);
+					} else {
+						initiateDisplay(
+							revs,
+							[0, 1, 2].filter((id) => id !== enableIds[0] - 1)
+						);
+					}
+				}
+				if (type === 'next') {
+					if (disableIds.length === 1) {
+						initiateDisplay(revs, [0]);
+					} else {
+						initiateDisplay(
+							revs,
+							[0, 1, 2].filter((id) => id !== enableIds[0] + 1)
+						);
+					}
+				}
+			};
+
 			prevButton.addEventListener('click', () => {
-				revs[2].style.display = 'none';
-				revs[0].style.display = 'flex';
-				prevButton.disabled = true;
-				nextButton.disabled = false;
+				clickDisplay('prev');
 			});
 			nextButton.addEventListener('click', () => {
-				revs[0].style.display = 'none';
-				revs[2].style.display = 'flex';
-				prevButton.disabled = false;
-				nextButton.disabled = true;
+				clickDisplay('next');
 			});
 			initialLoad();
 		</script>
