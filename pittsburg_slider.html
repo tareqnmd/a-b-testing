@@ -158,10 +158,9 @@
 			const initialLoad = () => {
 				const windowWidth = window.innerWidth;
 				if (windowWidth > 991) {
-					revs[2].style.display = 'none';
+					initiateDisplay(revs, [2]);
 				} else {
-					revs[1].style.display = 'none';
-					revs[2].style.display = 'none';
+					initiateDisplay(revs, [1, 2]);
 				}
 			};
 
