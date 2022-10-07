@@ -202,9 +202,9 @@
 								revs,
 								[0, 1, 2].filter((id) => id !== enableIds[0] - 1)
 							);
-						if (enableIds[0] === 0) {
+						nextButton.disabled = false;
+						if (enableIds[0] === 1) {
 							prevButton.disabled = true;
-							nextButton.disabled = false;
 						}
 					}
 				}
@@ -219,8 +219,8 @@
 								revs,
 								[0, 1, 2].filter((id) => id !== enableIds[0] + 1)
 							);
-						if (enableIds[0] === 2) {
-							prevButton.disabled = false;
+						prevButton.disabled = false;
+						if (enableIds[0] === 1) {
 							nextButton.disabled = true;
 						}
 					}
