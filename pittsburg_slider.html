@@ -14,11 +14,23 @@
 				overflow: hidden;
 				position: relative;
 			}
+
 			.rev_next,
 			.rev_prev {
 				position: absolute;
 				top: 50%;
 				transform: translateY(-50%);
+				border-radius: 50%;
+				background: white;
+				color: #212121;
+				border: 1px solid #212121;
+			}
+
+			.rev_next:disabled,
+			.rev_prev:disabled {
+				background: white;
+				color: #cecece;
+				border: 1px solid #cecece;
 			}
 
 			.rev_next {
@@ -79,6 +91,7 @@
 				margin-top: 4px;
 				color: #212121;
 			}
+
 			@media only screen and (max-width: 991px) {
 				.single-item-rev {
 					width: 100%;
