@@ -194,35 +194,31 @@
 				if (type === 'prev') {
 					if (enableIds.length === 2) {
 						initiateDisplay(revs, [2]);
-						prevButton.disabled = true;
-						nextButton.disabled = false;
 					} else {
 						enableIds[0] !== 0 &&
 							initiateDisplay(
 								revs,
 								[0, 1, 2].filter((id) => id !== enableIds[0] - 1)
 							);
-						nextButton.disabled = false;
-						if (enableIds[0] === 1) {
-							prevButton.disabled = true;
-						}
+					}
+					nextButton.disabled = false;
+					if (enableIds[0] === 1) {
+						prevButton.disabled = true;
 					}
 				}
 				if (type === 'next') {
 					if (enableIds.length === 2) {
 						initiateDisplay(revs, [0]);
-						prevButton.disabled = false;
-						nextButton.disabled = true;
 					} else {
 						enableIds[0] !== 2 &&
 							initiateDisplay(
 								revs,
 								[0, 1, 2].filter((id) => id !== enableIds[0] + 1)
 							);
-						prevButton.disabled = false;
-						if (enableIds[0] === 1) {
-							nextButton.disabled = true;
-						}
+					}
+					prevButton.disabled = false;
+					if (enableIds[enableIds.length - 1] === 1) {
+						nextButton.disabled = true;
 					}
 				}
 			};
