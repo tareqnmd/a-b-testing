@@ -170,6 +170,8 @@
 				showRev.map((rev, i) => {
 					if (i !== showRev.length - 1) {
 						rev.style.marginRight = '20px';
+					} else {
+						rev.style.marginRight = '0px';
 					}
 				});
 			};
@@ -181,7 +183,6 @@
 				} else {
 					initiateDisplay(revs, [1, 2]);
 				}
-				revDesign();
 			};
 
 			const initiateDisplay = (revs, disableIds) => {
@@ -192,6 +193,7 @@
 						rev.style.display = 'flex';
 					}
 				});
+				revDesign();
 			};
 
 			window.addEventListener('resize', () => {
