@@ -65,10 +65,6 @@
 				flex-direction: column;
 			}
 
-			.single-item-rev:last-child {
-				margin-right: 0px;
-			}
-
 			.single-item-rev .strs {
 				color: #ffd700;
 			}
@@ -170,6 +166,13 @@
 			const nextButton = document.querySelector('.rev_next');
 			const revArea = document.querySelector('.item-rev');
 			const revs = Array.from(document.querySelectorAll('.single-item-rev'));
+			const revDesign = () => {
+				revs.map((rev, i) => {
+					if (rev.style.display === 'flex') {
+						rev.style.marginRight = '10px';
+					}
+				});
+			};
 			prevButton.disabled = true;
 			const initialLoad = () => {
 				const windowWidth = window.innerWidth;
@@ -178,6 +181,7 @@
 				} else {
 					initiateDisplay(revs, [1, 2]);
 				}
+				revDesign();
 			};
 
 			const initiateDisplay = (revs, disableIds) => {
