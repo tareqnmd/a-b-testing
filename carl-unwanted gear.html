@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			.trade-unwanted {
+				background: #09324e;
+				padding: 40px;
+				text-align: center;
+				color: white;
+				max-width: 1000px;
+				width: 100%;
+				margin: auto;
+			}
+
+			.tu-header {
+				border-bottom: 2px solid white;
+			}
+
+			.tu-items {
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				margin: 60px 0;
+			}
+
+			.tu-items .main-message {
+				color: #fe8b2e;
+			}
+
+			.tu-items img {
+				width: 60px;
+				margin-bottom: 12px;
+			}
+
+			.tu-items p {
+				font-size: 18px;
+				font-weight: bold;
+				margin: 0;
+			}
+
+			.trade-unwanted a {
+				display: inline-block;
+				background: #fe8b2e;
+				padding: 16px 60px;
+				border-radius: 6px;
+				text-decoration: none;
+				font-weight: bold;
+				color: white;
+			}
+
+			@media only screen and (max-width: 768px) {
+				.tu-items {
+					flex-direction: column;
+					margin: 30px 0;
+				}
+				.tu-single {
+					margin-bottom: 20px;
+				}
+				.tu-single:last-child {
+					margin-bottom: 0;
+				}
+			}
+
+			@media only screen and (max-width: 450px) {
+				.tu-header h2 {
+					font-size: 20px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="trade-unwanted">
+			<div class="tu-header">
+				<img src="https://carlsgolfland.s3.us-east-2.amazonaws.com/cgl-mail-icon.png" />
+				<h2>TRADE-IN YOUR UNWANTED GEAR</h2>
+			</div>
+			<div class="tu-items">
+				<div class="tu-single">
+					<img src="https://carlsgolfland.s3.us-east-2.amazonaws.com/cgl-find-icon.png" />
+					<p class="main-message">1. Find Your Clubs</p>
+					<p class="sub-message">
+						Click the button below to <br />
+						start your trade.
+					</p>
+				</div>
+				<div class="tu-single">
+					<img src="https://carlsgolfland.s3.us-east-2.amazonaws.com/cgl-mail-icon.png" />
+					<p class="main-message">1. Send Them In</p>
+					<p class="sub-message">
+						Use our shippping lebels to <br />
+						save time and money.
+					</p>
+				</div>
+				<div class="tu-single">
+					<img src="https://carlsgolfland.s3.us-east-2.amazonaws.com/cgl-gc-icon.png" />
+					<p class="main-message">1. Get Paid</p>
+					<p class="sub-message">
+						Once we receive tour clubs, <br />
+						you'll get tour gift card.
+					</p>
+				</div>
+			</div>
+			<a href="https://www.carlsgolfland.com/trade-in">START MY TRADE</a>
+		</div>
+	</body>
+</html>
