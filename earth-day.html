@@ -57,6 +57,10 @@
 				align-items: center;
 				justify-content: space-between;
 			}
+			nav .sidebar-area {
+				display: none;
+				background: #dfdfdf;
+			}
 			@media only screen and (max-width: 767px) {
 				nav {
 					grid-template-columns: auto 1fr 70px;
@@ -71,12 +75,22 @@
 				nav .logo {
 					margin: auto;
 				}
+				nav .sidebar-area {
+					display: block;
+					left: 0;
+					position: fixed;
+					top: 0;
+					bottom: 0;
+					width: 320px;
+					z-index: 999;
+				}
 			}
 		</style>
 	</head>
 	<body>
 		<div class="top-message">Free Shipping $125+ and Free Returns</div>
 		<nav class="container">
+			<div class="sidebar-area"></div>
 			<div class="mobile-sidebar">
 				<svg
 					width="20"
