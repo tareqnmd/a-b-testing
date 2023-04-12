@@ -13,6 +13,7 @@
 		<title>Document</title>
 		<style>
 			@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+			@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
 			body {
 				margin: 0;
 				font-family: 'Inter', sans-serif;
@@ -59,7 +60,8 @@
 			}
 			nav .sidebar-area {
 				display: none;
-				background: #dfdfdf;
+				background: #f9f9f9;
+				transition: 0.3s;
 			}
 			@media only screen and (max-width: 767px) {
 				nav {
@@ -77,12 +79,30 @@
 				}
 				nav .sidebar-area {
 					display: block;
-					left: 0;
+					padding: 20px;
+					left: -280px;
 					position: fixed;
 					top: 0;
 					bottom: 0;
-					width: 320px;
+					width: 280px;
+					box-sizing: border-box;
 					z-index: 999;
+				}
+				nav .sidebar-area .close-area {
+					color: #777;
+					display: flex;
+					justify-content: flex-end;
+					padding: 20px 0;
+				}
+				nav .sidebar-area .mobile-links a {
+					display: block;
+					font-weight: 400;
+					font-size: 16px;
+					text-transform: uppercase;
+					color: #212121;
+					padding: 10px 0;
+					border-bottom: 1px solid #777;
+					text-decoration: none;
 				}
 			}
 		</style>
@@ -90,8 +110,28 @@
 	<body>
 		<div class="top-message">Free Shipping $125+ and Free Returns</div>
 		<nav class="container">
-			<div class="sidebar-area"></div>
-			<div class="mobile-sidebar">
+			<div
+				id="mobileSidebar"
+				class="sidebar-area"
+			>
+				<div class="close-area">
+					<i
+						id="closeSidebar"
+						class="fa fa-times fa-xl"
+					></i>
+				</div>
+				<div class="mobile-links">
+					<a href="">shop</a>
+					<a href="">mealtime guide</a>
+					<a href="">about us</a>
+					<a href="">evidence</a>
+					<a href="">schools</a>
+				</div>
+			</div>
+			<div
+				id="openSidebar"
+				class="mobile-sidebar"
+			>
 				<svg
 					width="20"
 					height="18"
@@ -171,5 +211,16 @@
 				</a>
 			</div>
 		</nav>
+		<script>
+			const sidebar = document.querySelector('#mobileSidebar');
+			const closeSidebarButton = document.querySelector('#closeSidebar');
+			const openSidebarButton = document.querySelector('#openSidebar');
+			openSidebarButton.addEventListener('click', () => {
+				sidebar.style.left = '0px';
+			});
+			closeSidebarButton.addEventListener('click', () => {
+				sidebar.style.left = '-280px';
+			});
+		</script>
 	</body>
 </html>
