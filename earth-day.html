@@ -221,6 +221,11 @@
 			closeSidebarButton.addEventListener('click', () => {
 				sidebar.style.left = '-280px';
 			});
+			document.body.addEventListener('click', () => {
+				if (!sidebar.contains(event.target) && !openSidebarButton.contains(event.target)) {
+					sidebar.style.left = '-280px';
+				}
+			});
 		</script>
 	</body>
 </html>
