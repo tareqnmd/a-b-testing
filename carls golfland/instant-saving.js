@@ -1,7 +1,7 @@
 const instant_saving_html = `
 <style>
 	.instant-saving-img-cnt {
-		display: flex;
+		display: flex!important;
 		align-items: center;
 		justify-content: space-between;
 	}
@@ -21,6 +21,5 @@ const interval = setInterval(() => {
 	if (cyber_monday && !document.querySelector('.instant-saving-img-cnt')) {
 		cyber_monday.classList.add('instant-saving-img-cnt');
 		cyber_monday.insertAdjacentHTML('beforeend', instant_saving_html);
-		clearInterval(interval);
 	}
-}, 10);
+}, 1);
