@@ -1,4 +1,16 @@
 const low_price_html = `
+<style>
+	.low-price-html{
+		color: #F00;
+		font-family: Roboto;
+		font-size: 12px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: normal;
+		display: block;
+		margin-bottom: 6px;
+	}
+</style>
 <span class="low-price-html">🔥 Our Lowest Price ever!</span>
 `;
 
@@ -21,7 +33,7 @@ setInterval(() => {
 			'.product-list.product-list--collection .column'
 		),
 	];
-	items?.map((item) => {
+	items.map((item) => {
 		const current_price = item.querySelector('.current_price .money .money');
 		const was_price = item.querySelector('.was_price .money .money');
 		if (
