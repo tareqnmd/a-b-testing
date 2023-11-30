@@ -92,25 +92,42 @@ const clock_html = `
 <div class="header-clock">
 	<h2>CYBER WEEK SALE ENDS IN</h2>
 	<div class="clock-timer">
-		<div class="clock-area">
+		<div class="clock-area days">
 			<span>00</span>
 			<small>DAYS</small>
 		</div>
-		<div class="clock-area">
+		<div class="clock-area hrs">
 			<span>00</span>
 			<small>HRS</small>
 		</div>
-		<div class="clock-area">
+		<div class="clock-area min">
 			<span>00</span>
 			<small>MIN</small>
 		</div>
-		<div class="clock-area">
+		<div class="clock-area sec">
 			<span>00</span>
 			<small>SEC</small>
 		</div>
 	</div>
 </div>
 `;
+
+const toTwoDigits = (number) => {
+	return number.toString().padStart(2, '0');
+};
+
+const addDaysUntilPositiveMilliseconds = (date, add_day) => {
+	let daysToAdd = 0;
+	let milliseconds = date.getTime() - new Date();
+
+	while (milliseconds < 0) {
+		daysToAdd += add_day;
+		milliseconds += 86400000 * add_day;
+	}
+
+	return new Date(date.getTime() + daysToAdd * 86400000);
+};
+
 const header_clock_int = setInterval(() => {
 	const header_top = document.querySelector('.header .top-bar');
 	const header = document.querySelector('#header');
@@ -125,5 +142,43 @@ const header_clock_int = setInterval(() => {
 		header_top.insertAdjacentHTML('beforebegin', clock_html);
 		header.insertAdjacentHTML('beforebegin', clock_html);
 		clearInterval(header_clock_int);
+	}
+}, 10);
+
+const getTimeDiff = () => {
+	const expire_date = new Date('2023-11-30');
+	const today = new Date();
+	let milliseconds;
+	if (expire_date - today > 0) {
+		milliseconds = expire_date - today;
+	} else {
+		milliseconds = addDaysUntilPositiveMilliseconds(expire_date, 3) - today;
+	}
+	const sec = Math.floor(milliseconds / 1000);
+	const min = Math.floor(sec / 60);
+	const hrs = Math.floor(min / 60);
+	const days = Math.floor(hrs / 24);
+	return { days, hrs: hrs % 24, min: min % 60, sec: sec % 60 };
+};
+
+const setTime = (clock) => {
+	const day_elm = clock.querySelector('.days span');
+	const hour_elm = clock.querySelector('.hrs span');
+	const min_elm = clock.querySelector('.min span');
+	const sec_elm = clock.querySelector('.sec span');
+	const { days, hrs, min, sec } = getTimeDiff();
+	day_elm.innerHTML = toTwoDigits(days);
+	hour_elm.innerHTML = toTwoDigits(hrs);
+	min_elm.innerHTML = toTwoDigits(min);
+	sec_elm.innerHTML = toTwoDigits(sec);
+};
+
+const timer_int = setInterval(() => {
+	const clock_areas = [...document.querySelectorAll('.header-clock')];
+	if (clock_areas.length === 2) {
+		clock_areas.map((clock_area) => {
+			setInterval(() => setTime(clock_area), 1000);
+		});
+		clearInterval(timer_int);
 	}
 }, 10);
