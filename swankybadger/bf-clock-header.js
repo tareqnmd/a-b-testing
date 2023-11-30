@@ -1,5 +1,5 @@
 /* CUSTOM CODE */
-const clock_html = `
+const style = `
 <style>
 	.header-clock {
 		background: #0f0f0f;
@@ -18,6 +18,7 @@ const clock_html = `
 		font-style: normal;
 		font-weight: 700;
         margin: 0;
+        letter-spacing:1px;
 	}
 	.header-clock .clock-timer {
 		display: inline-flex;
@@ -52,7 +53,42 @@ const clock_html = `
 		font-style: normal;
 		font-weight: 500;
 	}
+    @media only screen and (max-width:700px){
+        .header-clock {
+            gap: 20px;
+        }
+        .header-clock h2 {
+            font-size: 16px;
+            line-height: 16px;
+        }
+        .header-clock .clock-area {
+            padding: 4px 8px;
+            gap: 2px;
+        }
+        .header-clock .clock-area span {
+            font-size: 12px;
+            line-height: 12px;
+        }
+        .header-clock .clock-area small {
+            font-size: 8px;
+            line-height: 8px;
+        }
+    }
+    @media only screen and (max-width:420px){
+        .header-clock {
+            gap: 10px;
+        }
+        .header-clock h2 {
+            font-size: 14px;
+            line-height: 14px;
+        }
+        .header-clock .clock-timer {
+            gap: 6px;
+        }
+    }
 </style>
+`;
+const clock_html = `
 <div class="header-clock">
 	<h2>CYBER WEEK SALE ENDS IN</h2>
 	<div class="clock-timer">
@@ -76,11 +112,17 @@ const clock_html = `
 </div>
 `;
 const header_clock_int = setInterval(() => {
-const header = document.querySelector('.header .top-bar'); 
+	const header_top = document.querySelector('.header .top-bar');
+	const header = document.querySelector('#header');
+	const head = document.querySelector('head');
 	if (
 		header &&
-		!document.querySelector('.header-clock') 
+		header_top &&
+		head &&
+		!document.querySelector('.header-clock')
 	) {
+		head.insertAdjacentHTML('beforeend', style);
+		header_top.insertAdjacentHTML('beforebegin', clock_html);
 		header.insertAdjacentHTML('beforebegin', clock_html);
 		clearInterval(header_clock_int);
 	}
