@@ -194,7 +194,6 @@ const save_html = (price) => `
 
 function numberOnly(string) {
 	return parseFloat(string.replace(/\$/g, ''));
-	return parseFloat('Tk 9,500.00'.replace(/\$/g, ''));
 }
 
 let old_org_price = 0;
