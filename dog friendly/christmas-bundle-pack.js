@@ -61,10 +61,11 @@ const style_html = `
         gap:8px;
 
     }
-    #product_price_in_cart,.product-block product-block--price vs_testing{
+    #product_price_in_cart,.product-block.product-block--price.vs_testing{
         display: flex;
         align-items: center;
         gap: 10px;
+        flex-wrap: wrap;
     }
     #product_price_in_cart .igPrice{
     	color: #000;
@@ -185,7 +186,7 @@ const test_int = setInterval(() => {
 
 const save_html = (price, currency) => `
 <span class="price-save">
-	SAVE ${currency}${price}
+	SAVE ${currency} ${price}
 </span>
 `;
 
@@ -214,7 +215,7 @@ setInterval(() => {
 			if (document.querySelector('.price-save')) {
 				document.querySelector('.price-save').innerHTML = `SAVE ${currencyOnly(
 					dis_price
-				)}${price.toFixed(2)}`;
+				)} ${price.toFixed(2)}`;
 			} else {
 				price_elm.insertAdjacentHTML(
 					'beforeend',
