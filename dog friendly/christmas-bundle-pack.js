@@ -84,6 +84,9 @@ const style_html = `
         line-height: normal;
         text-decoration-line: strikethrough;
     }
+    .btn.add-to-cart{
+        border-radius: 30px!important;
+    }
 </style>
 `;
 
