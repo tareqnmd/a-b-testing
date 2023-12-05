@@ -40,6 +40,52 @@ const style_html = `
 		font-weight: 400;
 		line-height: 16px;
 	}
+    .price-save {
+        display: inline-flex;
+        padding: 4px 16px;
+        align-items: flex-start;
+        gap: 10px;
+        border-radius: 4px;
+        background: #00c595;
+        color: #fff;
+        text-align: center;
+        font-family: Poppins;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        text-transform: uppercase;
+    }
+    .product-block.product-block--price{
+        padding: 0;
+        background: none;
+        border-radius: 0;
+        justify-content: flex-start;
+        gap:8px;
+
+    }
+    #product_price_in_cart,.product-block product-block--price vs_testing{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    #product_price_in_cart .igPrice{
+    	color: #000;
+        font-family: Bebas Neue;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+    #product_price_in_cart .igComparePrice{
+        color: #A7A7A7!important;
+        font-family: Bebas Neue;
+        font-size: 24px!important;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-decoration-line: strikethrough;
+    }
 </style>
 `;
 
@@ -131,7 +177,47 @@ const test_int = setInterval(() => {
 	) {
 		head.insertAdjacentHTML('beforeend', style_html);
 		header.insertAdjacentHTML('afterend', order_warning_html);
+		const price_elm = document.querySelector(
+			'.product-block.product-block--price.vs_testing'
+		);
+		header.insertAdjacentElement('afterend', price_elm);
 		main_content.insertAdjacentHTML('afterbegin', top_usp_html);
 		clearInterval(test_int);
 	}
 }, 10);
+
+const save_html = (price) => `
+<span class="price-save">
+	save $${price}
+</span>
+`;
+
+function numberOnly(string) {
+	return parseFloat(string.replace(/\$/g, ''));
+	return parseFloat('Tk 9,500.00'.replace(/\$/g, ''));
+}
+
+let old_org_price = 0;
+
+setInterval(() => {
+	const price_elm = document.querySelector(
+		'.product-block.product-block--price.vs_testing'
+	);
+	if (price_elm) {
+		const dis_price = price_elm.querySelector('.igPrice').innerText;
+		const org_price = price_elm.querySelector('.igComparePrice').innerText;
+		const num_org_price = numberOnly(org_price);
+		const num_dis_price = numberOnly(dis_price);
+		const price = num_org_price - num_dis_price;
+		if (old_org_price !== num_org_price && price) {
+			old_org_price = num_org_price;
+			if (document.querySelector('.price-save')) {
+				document.querySelector(
+					'.price-save'
+				).innerHTML = `Save $${price.toFixed(2)}`;
+			} else {
+				price_elm.insertAdjacentHTML('beforeend', save_html(price.toFixed(2)));
+			}
+		}
+	}
+}, 1);
