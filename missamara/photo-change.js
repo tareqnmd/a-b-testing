@@ -21,8 +21,9 @@ const test_sec_int = setInterval(() => {
 		'#shopify-section-0b438056-01c6-4e1d-b266-294fe61ed8bd'
 	);
 	if (photo_area && type_area) {
+		photo_area.querySelector('a').innerHTML =
+			'<img src="https://i.ibb.co/Xx3xH6b/Sydney-Team-ABTest-Desktop4-gotham-1.png">';
 		type_area.insertAdjacentElement('beforebegin', photo_area);
-		photo_area.querySelector('img').src = 'https://i.ibb.co/Xx3xH6b/Sydney-Team-ABTest-Desktop4-gotham-1.png';
 		clearInterval(test_sec_int);
 	}
 }, 10);
