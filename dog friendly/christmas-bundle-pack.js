@@ -31,7 +31,7 @@ const style_html = `
 		justify-content: center;
 		align-items: center;
 		gap: 10px;
-        margin-bottom: 20px;
+        margin: 20px 0;
 	}
 	.order-warning span {
 		color: #ff004d;
@@ -193,7 +193,7 @@ const save_html = (price) => `
 `;
 
 function numberOnly(string) {
-	return parseFloat(string.replace(/\$/g, ''));
+	return parseFloat(string.replace(/[^0-9\-+\.]/g, ''));
 }
 
 let old_org_price = 0;
@@ -213,7 +213,9 @@ setInterval(() => {
 			if (document.querySelector('.price-save')) {
 				document.querySelector(
 					'.price-save'
-				).innerHTML = `Save $${price.toFixed(2)}`;
+				).innerHTML = `Save ${dis_price.replace(/[0-9]+/g, '')}${price.toFixed(
+					2
+				)}`;
 			} else {
 				price_elm.insertAdjacentHTML('beforeend', save_html(price.toFixed(2)));
 			}
