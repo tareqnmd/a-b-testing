@@ -41,20 +41,17 @@ const style_html = `
 		line-height: 16px;
 	}
     .price-save {
-        display: inline-flex;
-        padding: 4px 16px;
-        align-items: flex-start;
+        background: #00C595;
+        display: flex;
+        height: 30px;
+        padding: 10px;
+        justify-content: center;
+        align-items: center;
         gap: 10px;
-        border-radius: 4px;
-        background: #00c595;
-        color: #fff;
-        text-align: center;
-        font-family: Poppins;
-        font-size: 12px;
+        color: #FFF;
+        font-size: 16px;
         font-style: normal;
-        font-weight: 600;
-        line-height: normal;
-        text-transform: uppercase;
+        font-weight: 400;
     }
     .product-block.product-block--price{
         padding: 0;
@@ -186,14 +183,18 @@ const test_int = setInterval(() => {
 	}
 }, 10);
 
-const save_html = (price) => `
+const save_html = (price, currency) => `
 <span class="price-save">
-	save $${price}
+	SAVE ${currency}${price}
 </span>
 `;
 
 function numberOnly(string) {
 	return parseFloat(string.replace(/[^0-9\-+\.]/g, ''));
+}
+
+function currencyOnly(string) {
+	return string.replace(/[0-9,. ]/g, '');
 }
 
 let old_org_price = 0;
@@ -211,13 +212,14 @@ setInterval(() => {
 		if (old_org_price !== num_org_price && price) {
 			old_org_price = num_org_price;
 			if (document.querySelector('.price-save')) {
-				document.querySelector(
-					'.price-save'
-				).innerHTML = `Save ${dis_price.replace(/[0-9]+/g, '')}${price.toFixed(
-					2
-				)}`;
+				document.querySelector('.price-save').innerHTML = `SAVE ${currencyOnly(
+					dis_price
+				)}${price.toFixed(2)}`;
 			} else {
-				price_elm.insertAdjacentHTML('beforeend', save_html(price.toFixed(2)));
+				price_elm.insertAdjacentHTML(
+					'beforeend',
+					save_html(price.toFixed(2), currencyOnly(dis_price))
+				);
 			}
 		}
 	}
