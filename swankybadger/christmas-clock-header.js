@@ -83,6 +83,7 @@ const style = `
 	@media only screen and (max-width: 767px) {
 		.header-clock {
 			gap: 10px;
+			background-image:none;
 		}
 		.header-clock h2 {
 			font-size: 18px;
