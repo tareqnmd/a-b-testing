@@ -1,7 +1,15 @@
 const style = `
 <style>
 	.header-clock {
-		background: #f2fff6;
+		background-image: url('https://i.ibb.co/zfrc4Rd/bg3.png'),
+		url('https://i.ibb.co/Hxx3K92/bg4.png'),
+		url('https://i.ibb.co/5hzMvWY/bg5.png'),
+		url('https://i.ibb.co/mNZ1tfm/bg1.png'),
+		url('https://i.ibb.co/DtN1LFf/bg2.png');
+		background-position: 5%,30%,10%,90%,80%;
+		background-size: 20px,30px,30px,20px,50px;
+		background-repeat: no-repeat;
+		background-color: #f2fff6;
 		padding: 12px;
 		display: flex;
 		align-items: center;
