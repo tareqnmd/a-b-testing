@@ -156,6 +156,18 @@ setInterval(() => {
 		save.innerHTML = save.innerHTML.replace('You ', '');
 	}
 }, 10);
+
+const device_date = () => {
+	const options = {
+		day: 'numeric',
+		month: 'long',
+		ordinal: true,
+	};
+	const today = new Date();
+	const formatter = new Intl.DateTimeFormat('en-US', options);
+	return formatter.format(today);
+};
+
 const limited_html = `
 <style>
 .christmas-product {
@@ -190,7 +202,7 @@ const limited_html = `
         src="https://i.ibb.co/ydx99FL/christmas-tree-green.png"
         alt=""
     />
-    <span>Hurry! Order by December 8th to receive before Christmas</span>
+    <span>Hurry! Order by ${device_date()} to receive before Christmas</span>
 </div>
 `;
 const low_price = setInterval(() => {
