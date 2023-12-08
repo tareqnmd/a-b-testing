@@ -1,0 +1,48 @@
+<style>
+	.christmas-product {
+		border-radius: 6px;
+		background: #ef0039;
+		display: flex;
+		padding: 10px;
+		justify-content: center;
+		align-items: center;
+		gap: 10px;
+		background-image: url('https://i.ibb.co/Gn5GGG3/bg-snow.png'),
+			url('https://i.ibb.co/Gn5GGG3/bg-snow.png'),
+			url('https://i.ibb.co/Gn5GGG3/bg-snow.png');
+		background-repeat: no-repeat;
+		background-size: 16px, 24px, 24px;
+		background-position: left 10px top 10px, right 10px top 10px,
+			right 10px bottom -8px;
+		width: 100%;
+		max-width: 400px;
+		margin-bottom: 12px;
+	}
+	.christmas-product span {
+		color: #fff;
+		font-size: 14px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 18px;
+	}
+</style>
+<div class="christmas-product">
+	<img
+		src="https://i.ibb.co/ydx99FL/christmas-tree-green.png"
+		alt=""
+	/>
+	<span>Hurry! Order by ${device_date()} to receive before Christmas</span>
+</div>
+
+<script>
+	const device_date = () => {
+		const options = {
+			day: 'numeric',
+			month: 'long',
+			ordinal: true,
+		};
+		const today = new Date();
+		const formatter = new Intl.DateTimeFormat('en-US', options);
+		return formatter.format(today);
+	};
+</script>
