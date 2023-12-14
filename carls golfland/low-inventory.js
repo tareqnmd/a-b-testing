@@ -67,6 +67,7 @@ const message_int = setInterval(() => {
 	if (
 		cart &&
 		sku_area &&
+		!document.querySelector('.low-inv-area') &&
 		low_text &&
 		low_text.innerText.trim() === 'low inventory'
 	) {
