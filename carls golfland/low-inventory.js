@@ -39,6 +39,7 @@ const style = `
 const low_inv_html = (message) => `
 <span>
 	<svg
+		class="new-low-chk"
 		stroke="currentColor"
 		fill="currentColor"
 		stroke-width="0"
@@ -67,7 +68,7 @@ const message_int = setInterval(() => {
 	if (
 		cart &&
 		sku_area &&
-		!document.querySelector('.low-inv-area') &&
+		!document.querySelector('.new-low-chk') &&
 		low_text &&
 		low_text.innerText.trim() === 'low inventory'
 	) {
