@@ -61,8 +61,15 @@ const style = `
         }
     }
     @media only screen and (max-width:640px){
+        .benefit-info h3{
+            font-size: 20px;
+        }
         .benefit-info{
             padding: 60px 10px;
+        }
+        .benefit-info-details li, .benefit-info-details p{
+            font-size: 12px;
+            line-height: 16px;
         }
     }
 </style>
