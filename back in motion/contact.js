@@ -102,6 +102,9 @@ const style = `
             font-size: 12px;
             line-height: 16px;
         }
+        #multi-form .multi-step-form .gform_page_fields{
+            padding: 0;
+        }
     }
 </style>
 `;
