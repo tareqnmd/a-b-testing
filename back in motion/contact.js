@@ -23,21 +23,25 @@ const style = `
         line-height: 28px;
         margin-bottom: 60px;
     }
-    .client-revs > dev{
+    .client-revs {
+        display:grid;
+        grid-template-columns:repeat(3,1fr);
+    }
+    .client-revs > div{
         border-radius: 16px;
         background: #FFF;
         display:flex;
         flex-direction:column;
         padding:20px;
     }
-    .client-revs > dev p{
+    .client-revs > div p{
         color: #3A3957;
         font-size: 15px;
         font-style: normal;
         font-weight: 400;
         line-height: 160%; 
     }
-    .client-revs > dev small{
+    .client-revs > div small{
         color: #6B7280;
         font-size: 11px;
         font-style: normal;
