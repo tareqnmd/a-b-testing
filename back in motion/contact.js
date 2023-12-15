@@ -42,10 +42,11 @@ const style = `
     }
     @media only screen and (max-width:767px){
         .benefit-info{
-            padding: 30px 10px;
+            padding: 30px 20px;
         }
         .benefit-info-details{
             gap:30px;
+            grid-template-columns:1fr;        
         }
         .benefit-info h3{
             margin-bottom: 30px;
