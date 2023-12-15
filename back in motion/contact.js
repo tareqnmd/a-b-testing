@@ -26,6 +26,7 @@ const style = `
     .client-revs {
         display:grid;
         grid-template-columns:repeat(3,1fr);
+        gap:20px;
     }
     .client-revs > div{
         border-radius: 16px;
@@ -33,6 +34,7 @@ const style = `
         display:flex;
         flex-direction:column;
         padding:20px;
+        gap:10px;
     }
     .client-revs > div p{
         color: #3A3957;
@@ -47,6 +49,15 @@ const style = `
         font-style: normal;
         font-weight: 400;
         line-height: 100%;
+        text-align: end;
+    }
+    .rev-info {
+        display: grid;
+        grid-template-columns: 50px 1fr;
+        gap: 0 10px;
+    }
+    .rev-info img{
+        grid-row: 1/sapn 2;
     }
     .fusion-chk {
         padding-top: 0!important;
@@ -101,8 +112,13 @@ const style = `
     #multi-form .multi-step-form .gform_page_footer{
         background: none!important;
     }
-    .gform_page_fields,.gform-theme-button.button{
+    .gform_page_footer.top_label{
+        display:grid;
+        gap:10px;
+    }
+    .gform_page_fields,.gform_page_footer.top_label input{
         width:100%!important;
+        margin:0!important;
     }
     body #multi-form .multi-step-form .gform_page_footer{
         padding:0!important;
@@ -149,19 +165,23 @@ const style = `
         line-height: 28px;
     }
     @media only screen and (max-width:1220px){
-        .benefit-info{
+        .benefit-info,.client-review{
             padding: 60px 30px;
         }
     }
     @media only screen and (max-width:767px){
-        .benefit-info{
+        .benefit-info,.client-review{
             padding: 30px 30px;
         }
         .benefit-info-details{
             gap:20px;
             grid-template-columns:1fr;        
         }
-        .benefit-info h3{
+        .client-revs {
+            grid-template-columns: 1fr;
+            gap:20px;
+        }
+        .benefit-info h3,.client-review h3{
             margin-bottom: 30px;
         }
         .benefit-info-details > ul{
@@ -169,10 +189,10 @@ const style = `
         }
     }
     @media only screen and (max-width:640px){
-        .benefit-info h3{
+        .benefit-info h3,.client-review h3{
             font-size: 20px;
         }
-        .benefit-info{
+        .benefit-info,.client-review{
             padding: 60px 10px;
         }
         .benefit-info-details li, .benefit-info-details p{
@@ -488,14 +508,13 @@ const interval = setInterval(() => {
 }, 10);
 
 setInterval(() => {
-	const button = document.querySelector('.gform-theme-button.button');
+	const button = document.querySelector('.gform_page_footer.top_label');
 	const fusion = document.querySelector(
 		'.fusion-builder-column-7 .fusion-column-wrapper.fusion-column-has-shadow'
 	);
 	if (button && !document.querySelector('.btn-chk')) {
 		button.classList.add('btn-chk');
-		button.innerText = 'Request my callback';
-		button.insertAdjacentHTML('afterend', response_html);
+		button.insertAdjacentHTML('beforeend', response_html);
 	}
 	if (fusion && !document.querySelector('.fusion-chk')) {
 		fusion.classList.add('fusion-chk');
