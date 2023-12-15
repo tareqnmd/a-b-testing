@@ -9,6 +9,7 @@ const style = `
         width: 100%;
         margin: auto;
         padding: 60px 10px;
+        padding-top:0;
     }
     .client-review *{
         margin: 0;
@@ -108,6 +109,9 @@ const style = `
     .gform_page {
         width:100%!important;
         padding:0 60px;
+    }
+    #multi-form .multi-step-form input[type="submit"]{
+        width:100%!important;
     }
     #multi-form .multi-step-form .gform_page_footer{
         background: none!important;
@@ -508,13 +512,18 @@ const interval = setInterval(() => {
 }, 10);
 
 setInterval(() => {
-	const button = document.querySelector('.gform_page_footer.top_label');
+	const forms = [...document.querySelectorAll('.gform_page')];
 	const fusion = document.querySelector(
 		'.fusion-builder-column-7 .fusion-column-wrapper.fusion-column-has-shadow'
 	);
-	if (button && !document.querySelector('.btn-chk')) {
-		button.classList.add('btn-chk');
-		button.insertAdjacentHTML('beforeend', response_html);
+	if (forms.length > 0 && !document.querySelector('.btn-chk')) {
+		forms.map((item) => {
+			const footer_top_label = item.querySelector(
+				'.gform_page_footer.top_label'
+			);
+			footer_top_label.classList.add('btn-chk');
+			footer_top_label.insertAdjacentHTML('beforeend', response_html);
+		});
 	}
 	if (fusion && !document.querySelector('.fusion-chk')) {
 		fusion.classList.add('fusion-chk');
