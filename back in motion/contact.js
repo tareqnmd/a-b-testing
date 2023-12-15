@@ -17,17 +17,19 @@ const style = `
         font-weight: 400;
         line-height: normal;
     }
-    .gform_page_fields{
+    .gform_page {
         width:100%!important;
         padding:0 60px;
     }
-    .gform_page_footer {
-        width: 100%;
-        padding-left:60px!important;
-        padding-right:60px!important;
+    #multi-form .multi-step-form .gform_page_footer{
+        background: none!important;
     }
-    .gform-theme-button.button{
-        width:100%;
+    .gform_page_fields,.gform-theme-button.button{
+        width:100%!important;
+    }
+    body #multi-form .multi-step-form .gform_page_footer{
+        padding:0!important;
+        margin:30px 0!important;
     }
     .benefit-area{
         background: #174B6A;
