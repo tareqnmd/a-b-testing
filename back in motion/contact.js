@@ -12,6 +12,9 @@ const style = `
         margin-bottom:20px!important;
         gap:30px;
     }
+    .fusion-chk .usp svg{
+        flex-shrink: 0;
+    }
     .fusion-chk .usp > div{
         display: flex;
         justify-content: center;
@@ -136,6 +139,21 @@ const style = `
         }
         .response-info span{
             font-size: 12px;
+        }
+        .fusion-chk .usp{
+            padding: 10px 20px;
+            gap:10px;
+        }
+        .fusion-chk .usp svg{
+            flex-shrink: 0;
+            width: 20px;
+        }
+        .fusion-chk .usp > div{
+            gap: 4px;
+        }
+        .fusion-chk .usp span{
+            font-size: 10px;
+            line-height: 16px;
         }
     }
 </style>
