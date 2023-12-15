@@ -105,6 +105,12 @@ const style = `
         #multi-form .multi-step-form .gform_page_fields{
             padding: 0;
         }
+        .gform_page {
+            padding:0 20px;
+        }
+        .response-info span{
+            font-size: 12px;
+        }
     }
 </style>
 `;
