@@ -1,5 +1,49 @@
 const style = `
 <style>
+    .client-review-area{
+        background: #003A5D;
+        width:100%;
+    }
+    .client-review{
+        max-width: 1200px;
+        width: 100%;
+        margin: auto;
+        padding: 60px 10px;
+    }
+    .client-review *{
+        margin: 0;
+        padding: 0;
+    }
+    .client-review h3{
+        color: #FFF;
+        text-align: center;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 28px;
+        margin-bottom: 60px;
+    }
+    .client-revs > dev{
+        border-radius: 16px;
+        background: #FFF;
+        display:flex;
+        flex-direction:column;
+        padding:20px;
+    }
+    .client-revs > dev p{
+        color: #3A3957;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 160%; 
+    }
+    .client-revs > dev small{
+        color: #6B7280;
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 100%;
+    }
     .fusion-chk {
         padding-top: 0!important;
     }
@@ -371,54 +415,59 @@ const five_star = `
 `;
 
 const client_html = `
-<div class="review">
-	<div>
-		<div class="rev-info">
-			<img
-				src="https://i.ibb.co/kxxhJBx/Ellipse-110.png"
-				alt="user-img"
-			/>
-			<strong>Brooklyn Simmons</strong>
-			${five_star}
+<div class="client-review-area">
+	<div class="client-review">
+		<h3>What Our Clients Say</h3>
+		<div class="client-revs">
+			<div>
+				<div class="rev-info">
+					<img
+						src="https://i.ibb.co/kxxhJBx/Ellipse-110.png"
+						alt="user-img"
+					/>
+					<strong>Brooklyn Simmons</strong>
+					${five_star}
+				</div>
+				<p>
+					“Porem ipsum dolor sit amet consectetur. Metus volutpat pulvinar
+					pulvinar pellentesque accumsan. Risus porta in pellentesque vulputate
+					egestas integer proin. Tincidunt et adipiscing pharetra mi.”
+				</p>
+				<small>4 Jun 2023</small>
+			</div>
+			<div>
+				<div class="rev-info">
+					<img
+						src="https://i.ibb.co/kxxhJBx/Ellipse-110.png"
+						alt="user-img"
+					/>
+					<strong>Brooklyn Simmons</strong>
+					${five_star}
+				</div>
+				<p>
+					“Porem ipsum dolor sit amet consectetur. Metus volutpat pulvinar
+					pulvinar pellentesque accumsan. Risus porta in pellentesque vulputate
+					egestas integer proin. Tincidunt et adipiscing pharetra mi.”
+				</p>
+				<small>4 Jun 2023</small>
+			</div>
+			<div>
+				<div class="rev-info">
+					<img
+						src="https://i.ibb.co/kxxhJBx/Ellipse-110.png"
+						alt="user-img"
+					/>
+					<strong>Brooklyn Simmons</strong>
+					${five_star}
+				</div>
+				<p>
+					“Porem ipsum dolor sit amet consectetur. Metus volutpat pulvinar
+					pulvinar pellentesque accumsan. Risus porta in pellentesque vulputate
+					egestas integer proin. Tincidunt et adipiscing pharetra mi.”
+				</p>
+				<small>4 Jun 2023</small>
+			</div>
 		</div>
-		<p>
-			“Porem ipsum dolor sit amet consectetur. Metus volutpat pulvinar pulvinar
-			pellentesque accumsan. Risus porta in pellentesque vulputate egestas
-			integer proin. Tincidunt et adipiscing pharetra mi.”
-		</p>
-		<small>4 Jun 2023</small>
-	</div>
-	<div>
-		<div class="rev-info">
-			<img
-				src="https://i.ibb.co/kxxhJBx/Ellipse-110.png"
-				alt="user-img"
-			/>
-			<strong>Brooklyn Simmons</strong>
-			${five_star}
-		</div>
-		<p>
-			“Porem ipsum dolor sit amet consectetur. Metus volutpat pulvinar pulvinar
-			pellentesque accumsan. Risus porta in pellentesque vulputate egestas
-			integer proin. Tincidunt et adipiscing pharetra mi.”
-		</p>
-		<small>4 Jun 2023</small>
-	</div>
-	<div>
-		<div class="rev-info">
-			<img
-				src="https://i.ibb.co/kxxhJBx/Ellipse-110.png"
-				alt="user-img"
-			/>
-			<strong>Brooklyn Simmons</strong>
-			${five_star}
-		</div>
-		<p>
-			“Porem ipsum dolor sit amet consectetur. Metus volutpat pulvinar pulvinar
-			pellentesque accumsan. Risus porta in pellentesque vulputate egestas
-			integer proin. Tincidunt et adipiscing pharetra mi.”
-		</p>
-		<small>4 Jun 2023</small>
 	</div>
 </div>
 `;
@@ -428,8 +477,8 @@ const interval = setInterval(() => {
 	const head = document.querySelector('head');
 	if (main && head && !document.querySelector('.benefit-area')) {
 		head.insertAdjacentHTML('beforeend', style);
-		main.insertAdjacentHTML('beforeend', client_html);
 		main.insertAdjacentHTML('afterend', benefit_html);
+		main.insertAdjacentHTML('afterend', client_html);
 		clearInterval(interval);
 	}
 }, 10);
