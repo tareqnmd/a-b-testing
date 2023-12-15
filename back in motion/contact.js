@@ -40,16 +40,29 @@ const style = `
         font-weight: 400;
         line-height: 28px;
     }
+    @media only screen and (max-width:1220px){
+        .benefit-info{
+            padding: 60px 30px;
+        }
+    }
     @media only screen and (max-width:767px){
         .benefit-info{
-            padding: 30px 20px;
+            padding: 30px 30px;
         }
         .benefit-info-details{
-            gap:30px;
+            gap:20px;
             grid-template-columns:1fr;        
         }
         .benefit-info h3{
             margin-bottom: 30px;
+        }
+        .benefit-info-details > ul{
+            margin-left: 20px;
+        }
+    }
+    @media only screen and (max-width:640px){
+        .benefit-info{
+            padding: 60px 10px;
         }
     }
 </style>
