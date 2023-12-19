@@ -192,3 +192,12 @@ const timer_int = setInterval(() => {
 		clearInterval(timer_int);
 	}
 }, 10);
+
+const extraCheckMin = (min) => {
+	if (60 >= min && min > 50) return min - 50;
+	if (50 >= min && min > 40) return min - 40;
+	if (40 >= min && min > 30) return min - 30;
+	if (30 >= min && min > 20) return min - 20;
+	if (20 >= min && min > 10) return min - 10;
+	return min;
+};
