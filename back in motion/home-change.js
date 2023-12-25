@@ -1,4 +1,3 @@
-/* CUSTOM CODE */
 const style = `
 <style>
 .float-btn-area{
@@ -20,7 +19,7 @@ const style = `
         align-items: center;
         gap: 20px;
         max-width:1000px;
-        width:100%;
+        width:max-content;
     }
     .float-btn span{
         color: #111827;
@@ -45,7 +44,7 @@ font-style: normal;
 font-weight: 800;
 line-height: normal;
     }
-    .fusion-builder-row-4{
+    .fusion-builder-row-4,.fusion-builder-nested-column-1 > div:nth-of-type(1){
         display:none!important;
     }
 	.motion-banner{
@@ -143,6 +142,7 @@ line-height: normal;
         }
         .float-btn{
             padding: 10px;
+        width:100%;
         }
     }
     @media only screen and (max-width:640px){
@@ -240,7 +240,7 @@ Get a Quick Callback
 const interval = setInterval(() => {
 	const main = document.querySelector('#main');
 	const head = document.querySelector('head');
-	const header_first = document.querySelector('.fusion-tb-header>div>div');
+	const header_first = document.querySelector('.fusion-tb-header>div>div .fusion-builder-column-1');
 	const last_nav_li = document.querySelector('#menu-item-48449');
 	const last_nav_li_a = last_nav_li.querySelector('a');
 	if (
