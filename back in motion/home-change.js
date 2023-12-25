@@ -87,6 +87,9 @@ const style = `
         }
     }
     @media only screen and (max-width:640px){
+        .motion-banner{
+            padding: 40px 10px;
+        }
         .motion-banner li {
             font-size: 12px;
             line-height: 20px;
@@ -97,6 +100,9 @@ const style = `
         }
         .quick-call{
             font-size: 14px;
+        }
+        .quick-call{
+            padding: 12px 20px;
         }
     }
 </style>
