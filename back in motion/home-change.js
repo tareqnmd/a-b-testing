@@ -47,6 +47,7 @@ line-height: normal;
     .fusion-builder-row-4,.fusion-builder-nested-column-1 > div:nth-of-type(1){
         display:none!important;
     }
+    
 	.motion-banner{
     	background:url('https://i.ibb.co/28MPfFD/motionbg.png');
         display:flex;
@@ -127,7 +128,16 @@ line-height: normal;
         max-width:320px;
         margin-top:16px;
     }
-    
+    .new-btn{
+        width:200px;
+    }
+    .fusion-builder-column-1 > div:nth-of-type(1){
+        width: 200px!important;
+        margin-left: auto!important;
+    }
+    .fusion-builder-column-1 > div:nth-of-type(1)>div>div{
+        width: 100%!important;
+    }
     @media only screen and (max-width:991px){
         .motion-banner-info{
             width:100%;
@@ -240,7 +250,9 @@ Get a Quick Callback
 const interval = setInterval(() => {
 	const main = document.querySelector('#main');
 	const head = document.querySelector('head');
-	const header_first = document.querySelector('.fusion-tb-header>div>div .fusion-builder-column-1');
+	const header_first = document.querySelector(
+		'.fusion-tb-header>div>div .fusion-builder-column-1'
+	);
 	const last_nav_li = document.querySelector('#menu-item-48449');
 	const last_nav_li_a = last_nav_li.querySelector('a');
 	if (
@@ -254,6 +266,7 @@ const interval = setInterval(() => {
 		main.insertAdjacentHTML('beforebegin', new_banner);
 		main.insertAdjacentHTML('beforebegin', float_btn);
 		header_first.insertAdjacentElement('beforeend', last_nav_li_a);
+		last_nav_li_a.classList.add('new-btn');
 		last_nav_li.remove();
 		clearInterval(interval);
 	}
