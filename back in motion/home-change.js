@@ -7,7 +7,7 @@ const style = `
         justify-content:center;
         padding: 80px 30px;
         background-repeat: no-repeat;
-        background-size: 100% 100%;
+        background-size: cover;
     }
     .motion-area {
         max-width: 1220px;
