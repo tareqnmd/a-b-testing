@@ -56,6 +56,9 @@ const style = `
         align-items:center;
         gap:4px;
     }
+    .motion-banner li svg {
+        flex-shrink:0;
+    }
     .quick-call{
         display: flex;
         padding: 20px 28px;
@@ -76,6 +79,25 @@ const style = `
         width:100%;
         max-width:320px;
         margin-top:16px;
+    }
+    
+    @media only screen and (max-width:991px){
+        .motion-banner-info{
+            width:100%;
+        }
+    }
+    @media only screen and (max-width:640px){
+        .motion-banner li {
+            font-size: 12px;
+            line-height: 20px;
+        }
+        .motion-banner h2 {
+            font-size: 30px;
+            line-height: 40px;
+        }
+        .quick-call{
+            font-size: 14px;
+        }
     }
 </style>
 `;
