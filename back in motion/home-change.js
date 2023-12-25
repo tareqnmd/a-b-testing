@@ -1,6 +1,9 @@
 /* CUSTOM CODE */
 const style = `
 <style>
+    .fusion-builder-row-4{
+        display:none!important;
+    }
 	.motion-banner{
     	background:url('https://i.ibb.co/28MPfFD/motionbg.png');
         display:flex;
@@ -45,6 +48,7 @@ const style = `
         font-style: normal;
         font-weight: 700;
         line-height: 48px;
+        margin-bottom:10px;
     }
     .motion-banner li {
         color: #1F2937;
@@ -163,13 +167,23 @@ const new_banner = `
 </div>
 `;
 
-
 const interval = setInterval(() => {
 	const main = document.querySelector('#main');
 	const head = document.querySelector('head');
-	if (main && head && !document.querySelector('.motion-banner')) {
+	const header_first = document.querySelector('.fusion-tb-header>div>div');
+	const last_nav_li = document.querySelector('#menu-item-48449');
+	const last_nav_li_a = last_nav_li.querySelector('a');
+	if (
+		main &&
+		head &&
+		last_nav_li_a &&
+		header_first &&
+		!document.querySelector('.motion-banner')
+	) {
 		head.insertAdjacentHTML('beforeend', style);
 		main.insertAdjacentHTML('beforebegin', new_banner);
+		header_first.insertAdjacentElement('beforeend', last_nav_li_a);
+		last_nav_li.remove();
 		clearInterval(interval);
 	}
 }, 10);
