@@ -4,15 +4,14 @@ setInterval(() => {
 	).nextSibling;
 	const cart_button = document.querySelector('.add-to-cart-wrapper button');
 	if (check_sibling && cart_button) {
+		const button_innerText = cart_button.innerText;
 		if (
 			check_sibling.classList.contains('disabled') &&
-			cart_button.value === 'Add to cart'
+			button_innerText !== 'Sold Out'
 		) {
 			cart_button.setAttribute('disabled', true);
-			cart_button.value = 'Sold Out';
 			cart_button.innerText = 'Sold Out';
 		} else if (!check_sibling.classList.contains('disabled')) {
-			cart_button.Inner = 'Add to cart';
 			cart_button.innerText = 'Add to cart';
 			cart_button.removeAttribute('disabled');
 		}
