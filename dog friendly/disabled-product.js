@@ -7,11 +7,14 @@ setInterval(() => {
 		const button_innerText = cart_button.innerText;
 		if (
 			check_sibling.classList.contains('disabled') &&
-			button_innerText !== 'Sold Out'
+			button_innerText !== 'SOLD OUT'
 		) {
 			cart_button.setAttribute('disabled', true);
 			cart_button.innerText = 'Sold Out';
-		} else if (!check_sibling.classList.contains('disabled')) {
+		} else if (
+			!check_sibling.classList.contains('disabled') &&
+			button_innerText !== 'ADD TO CART'
+		) {
 			cart_button.innerText = 'Add to cart';
 			cart_button.removeAttribute('disabled');
 		}
