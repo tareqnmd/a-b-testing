@@ -4,7 +4,7 @@ const style = `
         max-width: 160px;
    }
    .productView-img-container .promo{
-        margin:16px;
+        margin:12px 16px;
    }
 </style>
 `;
