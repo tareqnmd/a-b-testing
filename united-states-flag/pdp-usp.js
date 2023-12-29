@@ -79,6 +79,64 @@ const style = `
         line-height: normal;
         text-transform: capitalize;
    }
+   .productView-short-description ul li{
+        color: #111827;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 28px;
+        display:flex;
+        align-items:center;
+        gap:4px;
+   }
+   .productView-short-description ul li::before{
+        display:none;
+   }
+   .productView-info {
+        display:flex;
+        align-items:center;
+   }
+   .productView-info .productView-info-name{
+        color: #000;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 20px;
+   }
+   .productView-info .productView-info-value{
+        color: #000;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+   }
+   #product-sku{
+        margin-right:10px;
+   }
+   .price.price--withoutTax{
+        color: #B40000;
+        font-family: Roboto;
+        font-size: 36px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+    .productView-price{
+        font-size:0;
+        margin:0;
+    }
+    .productView-title{
+        color: #000;
+        font-family: Roboto;
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        margin:12px 0;
+    }
+    .productView-short-description{
+        margin-top:0;
+    }
 </style>
 `;
 const right_promo_html = `<img class="promo promo-badge-left" src="https://i.ibb.co/v3QS9hh/am-flag-seen.png">`;
@@ -163,15 +221,40 @@ const usp_html = `
 	</div>
 </div>
 `;
+const check_svg = `
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+  <path d="M9.99983 1.66666C5.39567 1.66666 1.6665 5.39582 1.6665 9.99999C1.6665 14.6 5.39567 18.3333 9.99983 18.3333C14.5998 18.3333 18.3332 14.6 18.3332 9.99999C18.3332 5.39582 14.5998 1.66666 9.99983 1.66666ZM8.33317 14.1667L4.1665 9.99999L5.34567 8.82082L8.33317 11.8083L14.654 5.48749L15.8332 6.66665L8.33317 14.1667Z" fill="#1F4694"/>
+</svg>
+`;
 
 const pdp_usp_int = setInterval(() => {
+	const product_details = document.querySelector('.productView-details');
+	const title = document.querySelector('.productView-title');
+	const rev = document.querySelector('#ProductRatingWidget-5-10');
 	const promo_right = document.querySelector('.promo.promo-badge-right');
 	const product_options = document.querySelector('.productView-options');
+	const features = [
+		...document.querySelectorAll('.productView-short-description ul li'),
+	];
 	const head = document.querySelector('head');
-	if (promo_right && style) {
+	if (
+		promo_right &&
+		style &&
+		rev &&
+		title &&
+		product_details &&
+		features &&
+		head &&
+		!document.querySelector('.usp')
+	) {
 		head.insertAdjacentHTML('beforeend', style);
+		product_details.insertAdjacentElement('afterbegin', title);
+		product_details.insertAdjacentElement('afterbegin', rev);
 		promo_right.insertAdjacentHTML('afterend', right_promo_html);
 		product_options.insertAdjacentHTML('afterend', usp_html);
+		features.map((feature) => {
+			feature.insertAdjacentHTML('afterbegin', check_svg);
+		});
 		clearInterval(pdp_usp_int);
 	}
 }, 10);
