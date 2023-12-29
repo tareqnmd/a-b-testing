@@ -133,6 +133,7 @@ const style = `
         font-weight: 500;
         line-height: normal;
         margin:12px 0;
+        text-align: left;
     }
     .productView-short-description{
         margin-top:0;
@@ -230,7 +231,6 @@ const check_svg = `
 const pdp_usp_int = setInterval(() => {
 	const product_details = document.querySelector('.productView-details');
 	const title = document.querySelector('.productView-title');
-	const rev = document.querySelector('#ProductRatingWidget-5-10');
 	const promo_right = document.querySelector('.promo.promo-badge-right');
 	const product_options = document.querySelector('.productView-options');
 	const features = [
@@ -240,7 +240,6 @@ const pdp_usp_int = setInterval(() => {
 	if (
 		promo_right &&
 		style &&
-		rev &&
 		title &&
 		product_details &&
 		features &&
@@ -249,12 +248,20 @@ const pdp_usp_int = setInterval(() => {
 	) {
 		head.insertAdjacentHTML('beforeend', style);
 		product_details.insertAdjacentElement('afterbegin', title);
-		product_details.insertAdjacentElement('afterbegin', rev);
 		promo_right.insertAdjacentHTML('afterend', right_promo_html);
 		product_options.insertAdjacentHTML('afterend', usp_html);
 		features.map((feature) => {
 			feature.insertAdjacentHTML('afterbegin', check_svg);
 		});
 		clearInterval(pdp_usp_int);
+	}
+}, 10);
+
+const rev_int = setInterval(() => {
+	const product_details = document.querySelector('.productView-details');
+	const rev = document.querySelector('.productView-product .stjr-product-rating.stjr-init');
+	if (rev && product_details) {
+		product_details.insertAdjacentElement('afterbegin', rev);
+		clearInterval(rev_int);
 	}
 }, 10);
