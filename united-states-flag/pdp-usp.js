@@ -6,6 +6,9 @@ const style = `
    .productView-img-container .promo{
         margin:12px 16px;
    }
+   .productView-options{
+        margin-bottom:10px;
+   }
    .productView-options .form{
         display:flex;
         flex-wrap:wrap;
