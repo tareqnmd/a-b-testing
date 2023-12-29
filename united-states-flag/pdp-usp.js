@@ -92,6 +92,9 @@ const style = `
    .productView-short-description ul li::before{
         display:none;
    }
+   .productView-short-description ul li svg{
+        flex-shrink :0;
+   }
    .productView-info {
         display:flex;
         align-items:center;
@@ -137,6 +140,19 @@ const style = `
     }
     .productView-short-description{
         margin-top:0;
+    }
+    @media only screen and (max-width:1199px) and (min-width:801px){
+        .productView-details{
+            padding-left:0!important;
+        }
+    }
+    @media only screen and (max-width:1199px) and (min-width:992px){
+        .form-field.form-field--increments.productView-price--wrapper .form-increment button{
+            width:30px;
+        }
+       .form-field.form-field--increments.productView-price--wrapper .form-increment input{
+            width:30px;
+       }
     }
 </style>
 `;
