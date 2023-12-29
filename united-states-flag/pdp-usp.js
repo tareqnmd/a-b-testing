@@ -63,10 +63,10 @@ const style = `
         display: flex;
         justify-content: space-between;
         align-items:center;
+        gap:4px;
    }
    .usp div{
         display: flex;
-        justify-content: space-between;
         align-items:center;
         gap:2px;
    }
@@ -140,6 +140,14 @@ const style = `
     }
     .productView-short-description{
         margin-top:0;
+    }
+    @media only screen and (max-width:1400px){
+        .usp span{
+            font-size: 12px;
+        }
+        .usp svg{
+            font-size: 16px;
+        }
     }
     @media only screen and (max-width:1199px) and (min-width:801px){
         .productView-details{
