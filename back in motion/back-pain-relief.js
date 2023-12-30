@@ -45,10 +45,45 @@ const style = `
 		font-weight: 800;
 		line-height: normal;
 	}
-	.fusion-builder-nested-column-1 > div:nth-of-type(1) {
+    .fusion-builder-row-5,.fusion-builder-row-4 {
+        background:white;
+
+    }
+    .fusion-builder-row-4 .fusion-title-heading {
+        color: black!important;
+    }
+	.fusion-builder-column-10, .fusion-builder-nested-column-1 > div:nth-of-type(1) {
 		display: none !important;
 	}
-
+    .fusion-builder-row-5 > div:nth-of-type(1) .fusion-content-layout-column{
+        flex-direction:column-reverse!important;
+        padding:0;
+    }
+    .fusion-builder-row-5 > div:nth-of-type(1) .fusion-content-layout-column div:nth-of-type(3){
+        display: none !important;
+    }
+    .fusion-builder-row-5 > div:nth-of-type(1) .fusion-content-layout-column div:nth-of-type(1) {
+        margin:10px!important;
+    }
+    .fusion-builder-row-5 > div:nth-of-type(1) .fusion-content-layout-column div:nth-of-type(2) {
+        margin:0px!important;
+    }
+    .fusion-builder-row-5 > div:nth-of-type(1) .fusion-content-layout-column div:nth-of-type(1) p{
+        color: #3B82F6;
+        font-size: 14px!important;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px!important;
+        position:relative;
+        text-align:left;
+    }
+    .fusion-builder-row-5 > div:nth-of-type(1) .fusion-content-layout-column div:nth-of-type(1) p::after{
+        content: '>';
+        position: absolute;
+        top: 50%;
+        right: 5px;
+        transform: translateY(-50%);
+    }
 	.motion-banner {
 		background: url('https://i.ibb.co/607qCPC/bg-back.png');
 		display: flex;
@@ -297,10 +332,16 @@ const interval = setInterval(() => {
 	);
 	const last_nav_li = document.querySelector('#menu-item-48449');
 	const last_nav_li_a = last_nav_li.querySelector('a');
+	const pains = [
+		...document.querySelectorAll(
+			'.fusion-builder-row-5 > div:nth-of-type(1) .fusion-content-layout-column div:nth-of-type(1) p'
+		),
+	];
 	if (
 		main &&
 		head &&
 		last_nav_li_a &&
+		pains &&
 		header_first &&
 		!document.querySelector('.motion-banner')
 	) {
@@ -310,6 +351,9 @@ const interval = setInterval(() => {
 		header_first.insertAdjacentElement('beforeend', last_nav_li_a);
 		last_nav_li_a.classList.add('new-btn');
 		last_nav_li.remove();
+		pains.map((pain) => {
+			pain.innerHTML = pain.innerText;
+		});
 		clearInterval(interval);
 	}
 }, 10);
