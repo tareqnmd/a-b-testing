@@ -21,7 +21,7 @@ const style = `
 </style>
 `;
 
-const new_anc = `<a class="button large mb-4 md:mb-0 md:mr-standard" href=${sec_link_href}>${sec_link_name}</a>`;
+const new_anc = `<a class="button mb-4 md:mb-0 md:mr-standard" href=${sec_link_href}>${sec_link_name}</a>`;
 const new_para = `<p class="new-top-info mb-6">${para}</p>`;
 
 const test_int = setInterval(() => {
@@ -52,6 +52,7 @@ const test_int = setInterval(() => {
 		title.classList.add('mb-4');
 		first_link.href = first_link_href;
 		first_link.innerHTML = first_link_name;
+		first_link.classList.remove('large');
 		links.insertAdjacentHTML('beforeend', new_anc);
 		clearInterval(test_int);
 	}
