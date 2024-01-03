@@ -1,3 +1,12 @@
+const badge_text = 'Holiday Deals';
+const title_text = 'Subscribe to analog tone.';
+const para =
+	'Everything you need to mix, master, and create. Now 99$ for a limited time.';
+const first_link_href = '/';
+const first_link_name = 'Try for 3 Months';
+const sec_link_href = '/';
+const sec_link_name = 'See All Deals';
+
 const style = `
 <style>
 #shopify-section-template--15296358711385__hero .flex-wrap.items-center > div {
@@ -12,17 +21,8 @@ const style = `
 </style>
 `;
 
-const new_anc = `
-<a class="button large mb-4 md:mb-0 md:mr-standard" href="/">
-    See All Deals
-</a>
-`;
-
-const new_para = `
-<p class="new-top-info mb-6">
-    Everything you need to mix, master, and create. Now 99$ for a limited time.
-</p>
-`;
+const new_anc = `<a class="button large mb-4 md:mb-0 md:mr-standard" href=${sec_link_href}>${sec_link_name}</a>`;
+const new_para = `<p class="new-top-info mb-6">${para}</p>`;
 
 const test_int = setInterval(() => {
 	const head = document.querySelector('head');
@@ -36,15 +36,22 @@ const test_int = setInterval(() => {
 		'#shopify-section-template--15296358711385__hero .flex-wrap.items-center'
 	);
 	const first_link = links.querySelector('a');
-	if (badge) {
+	const check_conditions =
+		badge &&
+		head &&
+		title &&
+		links &&
+		first_link &&
+		!document.querySelector('.new-top-info');
+	if (check_conditions) {
 		head.insertAdjacentHTML('beforeend', style);
-		badge.innerHTML = `Holiday Deals`;
-		title.innerHTML = `Subscribe to analog tone.`;
+		badge.innerHTML = badge_text;
+		title.innerHTML = title_text;
 		title.insertAdjacentHTML('afterend', new_para);
 		title.classList.remove('mb-8');
 		title.classList.add('mb-4');
-		first_link.href = '/';
-		first_link.innerHTML = 'Try for 3 Months';
+		first_link.href = first_link_href;
+		first_link.innerHTML = first_link_name;
 		links.insertAdjacentHTML('beforeend', new_anc);
 		clearInterval(test_int);
 	}
