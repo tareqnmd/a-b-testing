@@ -1,7 +1,6 @@
 const badge_text = 'Holiday Deals';
-const title_text = 'Subscribe to analog tone.';
-const para =
-	'Everything you need to mix, master, and create. Now 99$ for a limited time.';
+const title_text = 'Hassle-free, analog tone. Your new studio is here.';
+const para = 'A subscription for creators and music professionals - now 99¢. Cancel anytime.';
 const first_link_href = '/';
 const first_link_name = 'Try for 3 Months';
 const sec_link_href = '/';
@@ -13,10 +12,43 @@ const style = `
     display:none;
 }
 #shopify-section-template--15296358711385__hero .flex-wrap.items-center a {
-    min-width: 220px;
+    min-width: 300px;
+    border-radius:4px;
+    color: #FFF;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
 }
 .new-top-info {
-    color:#cecece;
+    color: #FFF;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 62px;
+    margin: 30px 0 50px;
+}
+@media only screen and (max-width:1280px){
+    .new-top-info {
+        font-size: 36px;
+        line-height: 48px;
+        margin: 20px 0 40px;
+    }
+}
+@media only screen and (max-width:768px){
+    .new-top-info {
+        font-size: 24px;
+        line-height: 30px;
+        margin: 20px 0 30px;
+    }
+    #shopify-section-template--15296358711385__hero .flex-wrap.items-center a {
+        font-size: 20px;
+    }
+}
+@media only screen and (max-width:480px){
+    #shopify-section-template--15296358711385__hero .flex-wrap.items-center a {
+        width:100%;
+        min-width:100%;
+    }
 }
 </style>
 `;
@@ -49,7 +81,6 @@ const test_int = setInterval(() => {
 		title.innerHTML = title_text;
 		title.insertAdjacentHTML('afterend', new_para);
 		title.classList.remove('mb-8');
-		title.classList.add('mb-4');
 		first_link.href = first_link_href;
 		first_link.innerHTML = first_link_name;
 		first_link.classList.remove('large');
