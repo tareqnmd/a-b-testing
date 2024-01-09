@@ -43,7 +43,7 @@ const feature_int = setInterval(() => {
 
 {
 	/* <style>
-.header-panel-right .header.links li:nth-of-type(3){
+.header-panel-right > .header.links li:nth-of-type(3){
   display:none;
 }
 .cal-link-li{
