@@ -321,7 +321,7 @@ const new_banner_with_page_data = `
 			<img src="/wp-content/uploads/2023/11/wha-we-do.jpg.webp">
 			<span>What we do ${arrow_svg}</span>
 		</a>
-		<a href="#why-choose-us" class="motion-page-info">
+		<a href="#why" class="motion-page-info">
 			<img src="/wp-content/uploads/2023/11/why-choose-us.jpg.webp">
 			<span>Why choose us ${arrow_svg}</span>
 		</a>
