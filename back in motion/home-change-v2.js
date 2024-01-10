@@ -122,6 +122,82 @@ const style = `
 		align-items: center;
 		gap: 8px;
 	}
+	.motion-what-we-do{
+		padding: 80px 30px;
+		background:white;
+	}
+	.motion-what-we-do-container{
+		max-width: 1220px;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 20px;
+		margin:auto;
+	}
+	.motion-what-we-do-header{
+		color: #090D2B;
+		font-family: Titillium Web;
+		font-size: 48px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 64px;
+		letter-spacing: -1.44px;
+		margin:0;
+	}
+	.motion-what-we-do-infos{
+		display: grid;
+		grid-template-columns: repeat(4,1fr);
+		gap: 24px;
+	}
+	.motion-what-we-do-info{
+		border: 1px solid #E1E1E1;
+		background: #FFF;
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		flex: 1 0 0;
+		position:relative;
+	}
+	.motion-what-we-do-info strong{
+		color: #000;
+		font-family: Titillium Web;
+		font-size: 20px;
+		font-style: normal;
+		font-weight: 600;
+		line-height: 32px;
+		padding:0 20px;
+	}
+	.motion-what-we-do-info img.do-img{
+		width:100%;
+	}
+	.motion-what-we-do-info span{
+		color: #5C5C5C;
+		font-family: Titillium Web;
+		font-size: 14px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 20px;
+		padding:0 20px;
+	}
+	.motion-what-we-do-info a{
+		color: #000;
+		font-family: Titillium Web;
+		font-size: 14px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 22px;
+		padding:0 20px 24px;
+		display: flex;
+		align-items: center;
+		gap: 4px;
+	}
+	.motion-what-we-do-info .right-abs{
+		position:absolute;
+		top:50%;
+		left:-12px;
+		transform:translateY(-50%);
+	}
 	@media only screen and (max-width: 991px) {
 		.motion-banner-info {
 			width: 100%;
@@ -129,10 +205,20 @@ const style = `
 		.motion-page-infos{
 			grid-template-columns: repeat(2,1fr);
 		}
+		.motion-what-we-do-infos{
+			grid-template-columns: repeat(2,1fr);
+		}
+
 	}
 	@media only screen and (max-width: 640px) {
 		.motion-page-infos{
 			gap:10px;
+		}
+		.motion-what-we-do-infos{
+			gap:10px;
+		}
+		.motion-what-we-do{
+			padding: 40px 10px;
 		}
 		.motion-page{
 			padding: 40px 10px;
@@ -156,6 +242,14 @@ const style = `
 			padding: 12px 20px;
 		}
 	}
+	@media only screen and (max-width: 480px) {
+		.motion-page-infos{
+			grid-template-columns: repeat(1,1fr);
+		}
+		.motion-what-we-do-infos{
+			grid-template-columns: repeat(1,1fr);
+		}
+	}
 </style>
 `;
 
@@ -168,6 +262,21 @@ const check_html = `
 const arrow_svg = `
 <svg xmlns="http://www.w3.org/2000/svg" width="9" height="14" viewBox="0 0 9 14" fill="none">
   	<path d="M0.75 1L6.75 7L0.75 13" stroke="black" stroke-width="2"/>
+</svg>
+`;
+
+const circle_arrow_svg = `
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_262_32)">
+<path d="M8 15C11.866 15 15 11.866 15 8C15 4.13401 11.866 1 8 1C4.13401 1 1 4.13401 1 8C1 11.866 4.13401 15 8 15Z" stroke="black" stroke-width="1.5" stroke-miterlimit="10"/>
+<path d="M4.17969 8H11.8197" stroke="black" stroke-width="1.5" stroke-miterlimit="10"/>
+<path d="M8.64062 4.81995L11.8206 7.99995L8.64062 11.1799" stroke="black" stroke-width="1.5" stroke-miterlimit="10"/>
+</g>
+<defs>
+<clipPath id="clip0_262_32">
+<rect width="16" height="16" fill="white"/>
+</clipPath>
+</defs>
 </svg>
 `;
 
@@ -217,6 +326,41 @@ const new_banner_with_page_data = `
 			<img src="/wp-content/uploads/2023/11/get-touch.jpg.webp">
 			<span>Get in touch ${arrow_svg}</span>
 		</a>
+	</div>
+</div>
+<div class="motion-what-we-do">
+	<div class="motion-what-we-do-container">
+		<h4 class="motion-what-we-do-header">What we do</h4>
+		<div class="motion-what-we-do-infos">
+			<div class="motion-what-we-do-info">
+				<img class="do-img" src="https://i.ibb.co/yyChxsp/physical-therapy-img.png">
+				<img class="right-abs" src="https://i.ibb.co/gZY8wnh/personal-training.png">
+				<strong>Physical Therapy</strong>
+				<span>A comprehensive program designed to empower you on your journey</span>
+				<a href="/physical-therapy-clinic-treatments/physical-therapy/">Read more ${circle_arrow_svg}</a>
+			</div>
+			<div class="motion-what-we-do-info">
+				<img class="do-img" src="https://i.ibb.co/Fg9txBJ/personal-training-img.png">
+				<img class="right-abs" src="https://i.ibb.co/FhZRhfs/sports-training.png">
+				<strong>Personal Training</strong>
+				<span>Ramet consectetur. Est porttitor mattis pharetra sit id viverra. Vivamus ma</span>
+				<a href="/fitness-performance/fitness/personal-training/">Read more ${circle_arrow_svg}</a>
+			</div>
+			<div class="motion-what-we-do-info">
+				<img class="do-img" src="https://i.ibb.co/xLBDb8T/sports-training-img.png">
+				<img class="right-abs" src="https://i.ibb.co/XVVLKxr/pelvic-health.png">
+				<strong>Sports Training</strong>
+				<span>Our certified trainers will provide tailored workouts, expert guidance, and unwavering</span>
+				<a href="/fitness-performance/sports-performance/">Read more ${circle_arrow_svg}</a>
+			</div>
+			<div class="motion-what-we-do-info">
+				<img class="do-img" src="https://i.ibb.co/t4x0ZNz/pelvic-health-img.png">
+				<img class="right-abs" src="https://i.ibb.co/X32SBpM/physical-therapy.png">
+				<strong>Pelvic Health</strong>
+				<span>Experience renewed vitality and comfort with our specialized</span>
+				<a href="/conditions/pelvic-health/">Read more ${circle_arrow_svg}</a>
+			</div>
+		</div>
 	</div>
 </div>
 `;
