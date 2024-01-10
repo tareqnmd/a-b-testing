@@ -2,7 +2,7 @@
 const style = `
 <style>
 	.motion-banner {
-		background: url('https://i.ibb.co/28MPfFD/motionbg.png');
+		background: url('https://i.ibb.co/MgLNsZp/motion-v2-bg.png');
 		display: flex;
 		justify-content: center;
 		padding: 80px 30px;
