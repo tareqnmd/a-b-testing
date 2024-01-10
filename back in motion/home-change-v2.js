@@ -70,12 +70,73 @@ const style = `
 		color: white;
 		background: #179cd7;
 	}
+	.motion-page{
+		padding: 80px 30px;
+		background:white;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 40px;
+	}
+	.motion-page-header{
+		color: #090D2B;
+		font-family: Titillium Web;
+		font-size: 40px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 64px;
+		letter-spacing: -1.2px;
+		margin:0;
+	}
+	.motion-page-infos{
+		max-width: 1220px;
+		width: 100%;
+		display: grid;
+		grid-template-columns: repeat(4,1fr);
+		gap: 30px;
+	}
+	.motion-page-info{
+		display: flex;
+		padding: 12px 12px 20px;
+		flex-direction: column;
+		align-items: center;
+		gap: 16px;
+		flex: 1 0 0;
+		border-radius: 8px;
+		background: #FFF;
+		box-shadow: 0px 6px 16px 0px rgba(79, 110, 161, 0.17);
+	}
+	.motion-page-info img{
+		border-radius: 6px;
+	}
+	.motion-page-info span{
+		color: #000;
+		text-align: center;
+		font-family: Titillium Web;
+		font-size: 20px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 24px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 8px;
+	}
 	@media only screen and (max-width: 991px) {
 		.motion-banner-info {
 			width: 100%;
 		}
+		.motion-page-infos{
+			grid-template-columns: repeat(2,1fr);
+		}
 	}
 	@media only screen and (max-width: 640px) {
+		.motion-page-infos{
+			gap:10px;
+		}
+		.motion-page{
+			padding: 40px 10px;
+		}
 		.motion-banner {
 			padding: 40px 10px;
 			background-position: center;
@@ -104,7 +165,13 @@ const check_html = `
 </svg>
 `;
 
-const new_banner = `
+const arrow_svg = `
+<svg xmlns="http://www.w3.org/2000/svg" width="9" height="14" viewBox="0 0 9 14" fill="none">
+  	<path d="M0.75 1L6.75 7L0.75 13" stroke="black" stroke-width="2"/>
+</svg>
+`;
+
+const new_banner_with_page_data = `
 <div class="motion-banner">
 	<div class="motion-area">
 		<div class="motion-banner-info">
@@ -126,9 +193,30 @@ const new_banner = `
 			<a
 				href="https://backinmotionsspt.com/contact-us/"
 				class="quick-call"
-				>Get a quick callback</a
+				>Inquire Free Appointment</a
 			>
 		</div>
+	</div>
+</div>
+<div class="motion-page">
+	<h4 class="motion-page-header">On This Page</h4>
+	<div class="motion-page-infos">
+		<a href="/#what-we-do" class="motion-page-info">
+			<img src="/wp-content/uploads/2023/11/wha-we-do.jpg.webp">
+			<span>What we do ${arrow_svg}</span>
+		</a>
+		<a href="/#why-choose-us" class="motion-page-info">
+			<img src="/wp-content/uploads/2023/11/why-choose-us.jpg.webp">
+			<span>Why choose us ${arrow_svg}</span>
+		</a>
+		<a href="/physical-therapy-clinics" class="motion-page-info">
+			<img src="/wp-content/uploads/2023/11/locations.jpg.webp">
+			<span>Locations ${arrow_svg}</span>
+		</a>
+		<a href="/contact-us" class="motion-page-info">
+			<img src="/wp-content/uploads/2023/11/get-touch.jpg.webp">
+			<span>Get in touch ${arrow_svg}</span>
+		</a>
 	</div>
 </div>
 `;
@@ -138,7 +226,7 @@ const interval = setInterval(() => {
 	const head = document.querySelector('head');
 	if (main && head && !document.querySelector('.motion-banner')) {
 		head.insertAdjacentHTML('beforeend', style);
-		main.insertAdjacentHTML('beforebegin', new_banner);
+		main.insertAdjacentHTML('beforebegin', new_banner_with_page_data);
 		clearInterval(interval);
 	}
 }, 10);
