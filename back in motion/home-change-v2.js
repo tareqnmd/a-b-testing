@@ -36,7 +36,7 @@ const style = `
 	}
 	.motion-banner h2 {
 		color: #111827;
-		font-family: Titillium Web;
+		font-family: Titillium Web!important;
 		font-size: 48px;
 		font-style: normal;
 		font-weight: 700;
@@ -49,7 +49,7 @@ const style = `
 	}
 	.motion-banner li span {
 		color: #374151;
-		font-family: Titillium Web;
+		font-family: Titillium Web!important;
 		font-size: 20px;
 		font-style: normal;
 		font-weight: 600;
@@ -64,7 +64,7 @@ const style = `
 		padding: 16px 40px;
 		color: #f9f9f9;
 		text-align: center;
-		font-family: Titillium Web;
+		font-family: Titillium Web!important;
 		font-size: 24px;
 		font-style: normal;
 		font-weight: 700;
@@ -85,11 +85,11 @@ const style = `
 	}
 	.motion-page-header {
 		color: #090d2b;
-		font-family: Titillium Web;
+		font-family: Titillium Web!important;
 		font-size: 40px;
 		font-style: normal;
 		font-weight: 700;
-		line-height: 64px;
+		line-height: 40px!important;
 		letter-spacing: -1.2px;
 		margin: 0;
 	}
@@ -117,7 +117,7 @@ const style = `
 	.motion-page-info span {
 		color: #000;
 		text-align: center;
-		font-family: Titillium Web;
+		font-family: Titillium Web!important;
 		font-size: 20px;
 		font-style: normal;
 		font-weight: 400;
@@ -142,11 +142,11 @@ const style = `
 	}
 	.motion-what-we-do-header {
 		color: #090d2b;
-		font-family: Titillium Web;
+		font-family: Titillium Web!important;
 		font-size: 48px;
 		font-style: normal;
 		font-weight: 700;
-		line-height: 64px;
+		line-height: 48px!important;
 		letter-spacing: -1.44px;
 		margin: 0;
 	}
@@ -166,7 +166,7 @@ const style = `
 	}
 	.motion-what-we-do-info strong {
 		color: #000;
-		font-family: Titillium Web;
+		font-family: Titillium Web!important;
 		font-size: 20px;
 		font-style: normal;
 		font-weight: 600;
@@ -178,7 +178,7 @@ const style = `
 	}
 	.motion-what-we-do-info span {
 		color: #5c5c5c;
-		font-family: Titillium Web;
+		font-family: Titillium Web!important;
 		font-size: 14px;
 		font-style: normal;
 		font-weight: 400;
@@ -187,7 +187,7 @@ const style = `
 	}
 	.motion-what-we-do-info a {
 		color: #000;
-		font-family: Titillium Web;
+		font-family: Titillium Web!important;
 		font-size: 14px;
 		font-style: normal;
 		font-weight: 700;
