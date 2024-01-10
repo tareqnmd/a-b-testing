@@ -6,6 +6,9 @@ const style = `
 	.fusion-builder-row-6 {
 		display: none !important;
 	}
+	html {
+		scroll-behavior: smooth;
+	}
 	.motion-banner {
 		background: url('https://i.ibb.co/MgLNsZp/motion-v2-bg.png');
 		display: flex;
