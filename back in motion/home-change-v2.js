@@ -215,7 +215,7 @@ const style = `
 			gap:10px;
 		}
 		.motion-what-we-do-infos{
-			gap:10px;
+			gap:14px;
 		}
 		.motion-what-we-do{
 			padding: 40px 10px;
