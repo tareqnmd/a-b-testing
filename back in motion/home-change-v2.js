@@ -314,11 +314,11 @@ const new_banner_with_page_data = `
 <div class="motion-page">
 	<h4 class="motion-page-header">On This Page</h4>
 	<div class="motion-page-infos">
-		<a href="/#what-we-do" class="motion-page-info">
+		<a href="#what-we-do" class="motion-page-info">
 			<img src="/wp-content/uploads/2023/11/wha-we-do.jpg.webp">
 			<span>What we do ${arrow_svg}</span>
 		</a>
-		<a href="/#why-choose-us" class="motion-page-info">
+		<a href="#why-choose-us" class="motion-page-info">
 			<img src="/wp-content/uploads/2023/11/why-choose-us.jpg.webp">
 			<span>Why choose us ${arrow_svg}</span>
 		</a>
