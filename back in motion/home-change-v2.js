@@ -1,6 +1,11 @@
 /* CUSTOM CODE */
 const style = `
 <style>
+	.fusion-builder-row-7,
+	.fusion-builder-row-4,
+	.fusion-builder-row-6 {
+		display: none !important;
+	}
 	.motion-banner {
 		background: url('https://i.ibb.co/MgLNsZp/motion-v2-bg.png');
 		display: flex;
@@ -55,47 +60,47 @@ const style = `
 	}
 	.quick-call {
 		border-radius: 8px;
-		background: #FF4D00;
+		background: #ff4d00;
 		padding: 16px 40px;
-		color: #F9F9F9;
+		color: #f9f9f9;
 		text-align: center;
 		font-family: Titillium Web;
 		font-size: 24px;
 		font-style: normal;
 		font-weight: 700;
 		line-height: normal;
-		width:max-content;
+		width: max-content;
 	}
 	.quick-call:hover {
 		color: white;
 		background: #179cd7;
 	}
-	.motion-page{
+	.motion-page {
 		padding: 80px 30px;
-		background:white;
+		background: white;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		gap: 40px;
 	}
-	.motion-page-header{
-		color: #090D2B;
+	.motion-page-header {
+		color: #090d2b;
 		font-family: Titillium Web;
 		font-size: 40px;
 		font-style: normal;
 		font-weight: 700;
 		line-height: 64px;
 		letter-spacing: -1.2px;
-		margin:0;
+		margin: 0;
 	}
-	.motion-page-infos{
+	.motion-page-infos {
 		max-width: 1220px;
 		width: 100%;
 		display: grid;
-		grid-template-columns: repeat(4,1fr);
+		grid-template-columns: repeat(4, 1fr);
 		gap: 30px;
 	}
-	.motion-page-info{
+	.motion-page-info {
 		display: flex;
 		padding: 12px 12px 20px;
 		flex-direction: column;
@@ -103,13 +108,13 @@ const style = `
 		gap: 16px;
 		flex: 1 0 0;
 		border-radius: 8px;
-		background: #FFF;
+		background: #fff;
 		box-shadow: 0px 6px 16px 0px rgba(79, 110, 161, 0.17);
 	}
-	.motion-page-info img{
+	.motion-page-info img {
 		border-radius: 6px;
 	}
-	.motion-page-info span{
+	.motion-page-info span {
 		color: #000;
 		text-align: center;
 		font-family: Titillium Web;
@@ -122,105 +127,104 @@ const style = `
 		align-items: center;
 		gap: 8px;
 	}
-	.motion-what-we-do{
+	.motion-what-we-do {
 		padding: 80px 30px;
-		background:#ececec;
+		background: #ececec;
 	}
-	.motion-what-we-do-container{
+	.motion-what-we-do-container {
 		max-width: 1220px;
 		width: 100%;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		gap: 20px;
-		margin:auto;
+		margin: auto;
 	}
-	.motion-what-we-do-header{
-		color: #090D2B;
+	.motion-what-we-do-header {
+		color: #090d2b;
 		font-family: Titillium Web;
 		font-size: 48px;
 		font-style: normal;
 		font-weight: 700;
 		line-height: 64px;
 		letter-spacing: -1.44px;
-		margin:0;
+		margin: 0;
 	}
-	.motion-what-we-do-infos{
+	.motion-what-we-do-infos {
 		display: grid;
-		grid-template-columns: repeat(4,1fr);
+		grid-template-columns: repeat(4, 1fr);
 		gap: 24px;
 	}
-	.motion-what-we-do-info{
-		border: 1px solid #E1E1E1;
-		background: #FFF;
+	.motion-what-we-do-info {
+		border: 1px solid #e1e1e1;
+		background: #fff;
 		display: flex;
 		flex-direction: column;
 		gap: 16px;
 		flex: 1 0 0;
-		position:relative;
+		position: relative;
 	}
-	.motion-what-we-do-info strong{
+	.motion-what-we-do-info strong {
 		color: #000;
 		font-family: Titillium Web;
 		font-size: 20px;
 		font-style: normal;
 		font-weight: 600;
 		line-height: 32px;
-		padding:0 20px;
+		padding: 0 20px;
 	}
-	.motion-what-we-do-info img.do-img{
-		width:100%;
+	.motion-what-we-do-info img.do-img {
+		width: 100%;
 	}
-	.motion-what-we-do-info span{
-		color: #5C5C5C;
+	.motion-what-we-do-info span {
+		color: #5c5c5c;
 		font-family: Titillium Web;
 		font-size: 14px;
 		font-style: normal;
 		font-weight: 400;
 		line-height: 20px;
-		padding:0 20px;
+		padding: 0 20px;
 	}
-	.motion-what-we-do-info a{
+	.motion-what-we-do-info a {
 		color: #000;
 		font-family: Titillium Web;
 		font-size: 14px;
 		font-style: normal;
 		font-weight: 700;
 		line-height: 22px;
-		padding:0 20px 24px;
+		padding: 0 20px 24px;
 		display: flex;
 		align-items: center;
 		gap: 4px;
 	}
-	.motion-what-we-do-info .right-abs{
-		position:absolute;
-		top:50%;
-		left:-12px;
-		transform:translateY(-50%);
+	.motion-what-we-do-info .right-abs {
+		position: absolute;
+		top: 50%;
+		left: -12px;
+		transform: translateY(-50%);
 	}
 	@media only screen and (max-width: 991px) {
 		.motion-banner-info {
 			width: 100%;
 		}
-		.motion-page-infos{
-			grid-template-columns: repeat(2,1fr);
+		.motion-page-infos {
+			grid-template-columns: repeat(2, 1fr);
 		}
-		.motion-what-we-do-infos{
-			grid-template-columns: repeat(2,1fr);
+		.motion-what-we-do-infos {
+			grid-template-columns: repeat(2, 1fr);
 		}
-
 	}
 	@media only screen and (max-width: 640px) {
-		.motion-page-infos{
-			gap:10px;
+		.motion-page-infos {
+			gap: 10px;
 		}
-		.motion-what-we-do-infos{
-			gap:14px;
+		.motion-what-we-do-infos {
+			gap: 14px;
 		}
-		.motion-what-we-do{
+		.motion-what-we-do {
 			padding: 40px 10px;
 		}
-		.motion-page{
+		.motion-page {
 			padding: 40px 10px;
 		}
 		.motion-banner {
@@ -243,11 +247,11 @@ const style = `
 		}
 	}
 	@media only screen and (max-width: 480px) {
-		.motion-page-infos{
-			grid-template-columns: repeat(1,1fr);
+		.motion-page-infos {
+			grid-template-columns: repeat(1, 1fr);
 		}
-		.motion-what-we-do-infos{
-			grid-template-columns: repeat(1,1fr);
+		.motion-what-we-do-infos {
+			grid-template-columns: repeat(1, 1fr);
 		}
 	}
 </style>
@@ -267,16 +271,16 @@ const arrow_svg = `
 
 const circle_arrow_svg = `
 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_262_32)">
-<path d="M8 15C11.866 15 15 11.866 15 8C15 4.13401 11.866 1 8 1C4.13401 1 1 4.13401 1 8C1 11.866 4.13401 15 8 15Z" stroke="black" stroke-width="1.5" stroke-miterlimit="10"/>
-<path d="M4.17969 8H11.8197" stroke="black" stroke-width="1.5" stroke-miterlimit="10"/>
-<path d="M8.64062 4.81995L11.8206 7.99995L8.64062 11.1799" stroke="black" stroke-width="1.5" stroke-miterlimit="10"/>
-</g>
-<defs>
-<clipPath id="clip0_262_32">
-<rect width="16" height="16" fill="white"/>
-</clipPath>
-</defs>
+	<g clip-path="url(#clip0_262_32)">
+		<path d="M8 15C11.866 15 15 11.866 15 8C15 4.13401 11.866 1 8 1C4.13401 1 1 4.13401 1 8C1 11.866 4.13401 15 8 15Z" stroke="black" stroke-width="1.5" stroke-miterlimit="10"/>
+		<path d="M4.17969 8H11.8197" stroke="black" stroke-width="1.5" stroke-miterlimit="10"/>
+		<path d="M8.64062 4.81995L11.8206 7.99995L8.64062 11.1799" stroke="black" stroke-width="1.5" stroke-miterlimit="10"/>
+	</g>
+	<defs>
+		<clipPath id="clip0_262_32">
+			<rect width="16" height="16" fill="white"/>
+		</clipPath>
+	</defs>
 </svg>
 `;
 
