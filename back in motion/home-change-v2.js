@@ -124,7 +124,7 @@ const style = `
 	}
 	.motion-what-we-do{
 		padding: 80px 30px;
-		background:white;
+		background:#ececec;
 	}
 	.motion-what-we-do-container{
 		max-width: 1220px;
