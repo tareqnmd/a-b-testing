@@ -332,7 +332,7 @@ const new_banner_with_page_data = `
 		</a>
 	</div>
 </div>
-<div class="motion-what-we-do">
+<div id="what-we-do" class="motion-what-we-do">
 	<div class="motion-what-we-do-container">
 		<h4 class="motion-what-we-do-header">What we do</h4>
 		<div class="motion-what-we-do-infos">
