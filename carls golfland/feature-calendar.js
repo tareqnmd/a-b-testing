@@ -31,7 +31,11 @@ const feature_int = setInterval(() => {
 		'.header-panel-right .header.links'
 	);
 	const header_panel_right_links_mobile = document.querySelector('ul#ui-id-2');
-	if (header_panel_right_links && header_panel_right_links_mobile) {
+	if (
+		header_panel_right_links &&
+		header_panel_right_links_mobile &&
+		!document.querySelector('.cal-link-li')
+	) {
 		header_panel_right_links.insertAdjacentHTML('afterbegin', feature_calendar);
 		header_panel_right_links_mobile.insertAdjacentHTML(
 			'beforeend',
