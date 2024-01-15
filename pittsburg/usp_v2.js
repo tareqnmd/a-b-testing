@@ -54,6 +54,9 @@ const style = `
         flex-shrink: 0;
         fill: white;
 	}
+	.usp-item svg path {
+        fill: white;
+	}
 	.usp-item strong {
 		color: #333;
 		font-family: Lato;
