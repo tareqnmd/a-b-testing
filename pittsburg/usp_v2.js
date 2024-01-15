@@ -1,5 +1,8 @@
 const style = `
 <style>
+	.new-usp-section {
+    	margin: 20px 0;
+    }
     .new-usp-section .container * {
         margin: 0;
         padding: 0;
