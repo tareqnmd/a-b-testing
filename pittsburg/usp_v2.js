@@ -33,8 +33,8 @@ const style = `
 	}
 	.usp-item {
 		display: grid;
-		grid-template-columns: 32px auto;
-        gap: 2px;
+		grid-template-columns: 24px auto;
+        gap: 4px;
 	}
 	.usp-item svg {
         grid-row: span 2;
