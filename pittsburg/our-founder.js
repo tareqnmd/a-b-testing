@@ -7,6 +7,7 @@ const style = `
 	.new-founder-section .container{
     	display:grid;
         grid-template-columns: 1fr 1fr;
+        gap:20px;
     }
 	.new-founder-section span{
     	color: #000;
@@ -36,6 +37,16 @@ const style = `
 	.new-founder-section .founder-info{
         display: flex;
         flex-direction: column;
+        gap: 12px;
+    }
+	.new-founder-section .founder-info img{
+        max-width:250px;
+        margin : 10px 0;
+    }
+    @media only screen and (max-width: 991px) {
+        .new-founder-section .container {
+            grid-template-columns: 1fr;
+        }
     }
 </style>
 `;
@@ -45,7 +56,7 @@ const founder_html = `
 		<img src="" />
 		<div class="founder-info">
 			<span>Meet Our Founder</span>
-			<img src="https://i.ibb.co/yfj767M/founder.png">
+			<img src="https://i.ibb.co/H70rkCy/founder-meet.png">
 			<p>
 				<strong>Alex</strong> and <strong>Aaron</strong> here! Husband and Wife
 				and family founders,</p><p> At Miss Amara we’re on a mission to create the most
