@@ -1,6 +1,6 @@
 const style = `
 <style>
-    .new-usp-section * {
+    .new-usp-section .container * {
         margin: 0;
         padding: 0;
     }
@@ -31,11 +31,11 @@ const style = `
 	.usp-item {
 		display: grid;
 		grid-template-columns: 32px auto;
-        place-items: center;
-        gap: 10px;
+        gap: 2px;
 	}
 	.usp-item svg {
         grid-row: span 2;
+        align-self: center;
         flex-shrink: 0;
 	}
 	.usp-item strong {
