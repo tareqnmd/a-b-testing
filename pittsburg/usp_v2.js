@@ -17,7 +17,7 @@ const style = `
 		line-height: normal;
 		text-transform: uppercase;
 		position: relative;
-        margin-bottom:20px;
+        margin-bottom: 20px!important;
 	}
 	.new-usp-section h2:before {
 		position: absolute;
@@ -73,6 +73,24 @@ const style = `
             font-style: normal;
             font-weight: 400;
             line-height: 12px;
+        }
+        .usp-item svg {
+            grid-row: span 1;
+        }
+        .usp-item {
+            grid-template-columns: 1fr;
+            place-items: center;
+            gap: 6px;
+        }
+        .usp-items {
+            gap: 4px;
+        }
+    }
+
+    @media only screen and (max-width: 480px) {
+        .usp-item strong {
+            font-size: 8px;
+            line-height: 10px;
         }
     }
 </style>
