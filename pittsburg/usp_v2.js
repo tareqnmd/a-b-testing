@@ -62,6 +62,9 @@ const style = `
 	}
 
     @media only screen and (max-width: 991px) {
+        .new-usp-section h2 {
+            margin-bottom: 10px!important;
+        }
         .usp-item small {
             display: none;
         }
