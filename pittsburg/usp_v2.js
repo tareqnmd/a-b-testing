@@ -29,7 +29,6 @@ const style = `
         display: block;
 	}
 	.new-usp-section h2 span.middle-line {
-        display: none;
         content: '';
 		position: absolute;
 		border: 1px solid #ddd;
@@ -53,6 +52,7 @@ const style = `
         grid-row: span 2;
         align-self: center;
         flex-shrink: 0;
+        fill: white;
 	}
 	.usp-item strong {
 		color: #333;
