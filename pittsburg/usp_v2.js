@@ -54,9 +54,6 @@ const style = `
         flex-shrink: 0;
         fill: white;
 	}
-	.usp-item svg path {
-        fill: white;
-	}
 	.usp-item strong {
 		color: #333;
 		font-family: Lato;
@@ -290,6 +287,7 @@ const usp_html = `
 								stroke-width="2"
 								stroke-linecap="round"
 								stroke-linejoin="round"
+								fill="white"
 							/>
 						</g>
 					</g>
