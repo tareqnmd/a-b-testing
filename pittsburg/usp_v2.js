@@ -1,7 +1,7 @@
 const style = `
 <style>
 	.new-usp-section {
-    	margin: 20px 0;
+    	margin: 30px 0;
     }
     .new-usp-section .container * {
         margin: 0;
@@ -17,8 +17,9 @@ const style = `
 		line-height: normal;
 		text-transform: uppercase;
 		position: relative;
+        margin-bottom:20px;
 	}
-	.new-usp-section h2::before {
+	.new-usp-section h2:before {
 		position: absolute;
 		border: 1px solid #ddd;
 		height: 10px;
@@ -34,7 +35,7 @@ const style = `
 	.usp-item {
 		display: grid;
 		grid-template-columns: 24px auto;
-        gap: 4px;
+        gap: 4px 8px;
 	}
 	.usp-item svg {
         grid-row: span 2;
@@ -59,6 +60,21 @@ const style = `
 		line-height: normal;
 		text-transform: capitalize;
 	}
+
+    @media only screen and (max-width: 991px) {
+        .usp-item small {
+            display: none;
+        }
+        .usp-item strong {
+            color: #333;
+            text-align: center;
+            font-family: Lato;
+            font-size: 10px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 12px;
+        }
+    }
 </style>
 `;
 const usp_html = `
