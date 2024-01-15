@@ -18,14 +18,18 @@ const style = `
 		text-transform: uppercase;
 		position: relative;
         margin-bottom: 20px!important;
+        z-index: 2;
 	}
-	.new-usp-section h2:before {
+	.new-usp-section h2 span {
+        display: none;
+        content: '';
 		position: absolute;
 		border: 1px solid #ddd;
-		height: 10px;
+		left: 0;
 		width: 100%;
 		top: 50%;
 		transform: translateY(-50%);
+        z-index: 1;
 	}
 	.usp-items {
 		display: flex;
@@ -101,7 +105,7 @@ const style = `
 const usp_html = `
 <div class="shopify-section new-usp-section">
 	<div class="container">
-		<h2>Only at miss amara</h2>
+		<h2>Only at miss amara <span></span></h2>
 		<div class="usp-items">
 			<div class="usp-item">
 				<svg
