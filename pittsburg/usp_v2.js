@@ -8,6 +8,9 @@ const style = `
         padding: 0;
     }
 	.new-usp-section h2 {
+		position: relative;
+	}
+	.new-usp-section h2 span.message {
 		color: #333;
 		text-align: center;
 		font-family: Cardo;
@@ -18,9 +21,14 @@ const style = `
 		text-transform: uppercase;
 		position: relative;
         margin-bottom: 20px!important;
+        width: max-content;
+        margin: auto;
+        padding:0 10px;
         z-index: 2;
+        background: white;
+        display: block;
 	}
-	.new-usp-section h2 span {
+	.new-usp-section h2 span.middle-line {
         display: none;
         content: '';
 		position: absolute;
@@ -105,7 +113,7 @@ const style = `
 const usp_html = `
 <div class="shopify-section new-usp-section">
 	<div class="container">
-		<h2>Only at miss amara <span></span></h2>
+		<h2><span class="message">Only at miss amara</span> <span class="middle-line"></span></h2>
 		<div class="usp-items">
 			<div class="usp-item">
 				<svg
