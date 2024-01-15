@@ -1,5 +1,9 @@
 const style = `
 <style>
+    .new-usp-section * {
+        margin: 0;
+        padding: 0;
+    }
 	.new-usp-section h2 {
 		color: #333;
 		text-align: center;
@@ -27,8 +31,12 @@ const style = `
 	.usp-item {
 		display: grid;
 		grid-template-columns: 32px auto;
+        place-items: center;
+        gap: 10px;
 	}
 	.usp-item svg {
+        grid-row: span 2;
+        flex-shrink: 0;
 	}
 	.usp-item strong {
 		color: #333;
@@ -54,8 +62,8 @@ const usp_html = `
 <div class="shopify-section new-usp-section">
 	<div class="container">
 		<h2>Only at miss amara</h2>
-		<div className="usp-items">
-			<div className="usp-item">
+		<div class="usp-items">
+			<div class="usp-item">
 				<svg
 					width="34"
 					height="24"
@@ -107,7 +115,7 @@ const usp_html = `
 				<strong>Free shipping ON ALL ORDERS</strong>
 				<small>Most products ship same day</small>
 			</div>
-			<div className="usp-item">
+			<div class="usp-item">
 				<svg
 					width="33"
 					height="32"
@@ -123,7 +131,7 @@ const usp_html = `
 				<strong>Free Styling Advice</strong>
 				<small>From Interior Professionals</small>
 			</div>
-			<div className="usp-item">
+			<div class="usp-item">
 				<svg
 					width="33"
 					height="32"
@@ -153,7 +161,7 @@ const usp_html = `
 				<strong>30 Day returns</strong>
 				<small>Don’t like it? Return it.</small>
 			</div>
-			<div className="usp-item">
+			<div class="usp-item">
 				<svg
 					width="33"
 					height="32"
@@ -201,7 +209,7 @@ const usp_html = `
 				<strong>2700+ Reviews</strong>
 				<small>90% + 5 star reviews</small>
 			</div>
-			<div className="usp-item">
+			<div class="usp-item">
 				<svg
 					width="33"
 					height="32"
