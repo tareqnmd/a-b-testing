@@ -155,8 +155,8 @@ const style = `
 	}
 	.motion-what-we-do-infos {
 		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		gap: 24px;
+		grid-template-columns: repeat(5, 1fr);
+		gap: 16px;
 	}
 	.motion-what-we-do-info {
 		border: 1px solid #e1e1e1;
@@ -203,8 +203,14 @@ const style = `
 	.motion-what-we-do-info .right-abs {
 		position: absolute;
 		top: 50%;
-		left: -12px;
+		left: -6px;
 		transform: translateY(-50%);
+		width: 30px;
+	}
+	@media only screen and (max-width: 1200px) {
+		.motion-what-we-do-infos {
+			grid-template-columns: repeat(3, 1fr);
+		}
 	}
 	@media only screen and (max-width: 991px) {
 		.motion-banner-info {
@@ -359,6 +365,13 @@ const new_banner_with_page_data = `
 				<strong>Sports Training</strong>
 				<span>Our certified trainers will provide tailored workouts, expert guidance, and unwavering</span>
 				<a href="/fitness-performance/sports-performance/">Read more ${circle_arrow_svg}</a>
+			</div>
+			<div class="motion-what-we-do-info">
+				<img class="do-img" src="https://i.ibb.co/xLBDb8T/sports-training-img.png">
+				<img class="right-abs" src="https://i.ibb.co/pZ0sSJg/golf-performance.png">
+				<strong>Golf Performance</strong>
+				<span>Our certified trainers will provide tailored workouts, expert guidance, and unwavering</span>
+				<a href="/fitness-performance/golf-swing-analysis/" >Read more ${circle_arrow_svg}</a>
 			</div>
 			<div class="motion-what-we-do-info">
 				<img class="do-img" src="https://i.ibb.co/t4x0ZNz/pelvic-health-img.png">
