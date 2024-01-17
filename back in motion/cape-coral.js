@@ -107,9 +107,14 @@ const style = `
 		align-items: center;
 		gap: 8px;
 	}
+	.motion-quality-treatment *{
+		margin:0;
+		padding:0;
+	}
 	.motion-quality-treatment{
 		display:grid;
 		grid-template-columns: 2fr 3fr;
+		align-items: stretch;
 	}
 	.motion-quality-treatment-info{
 		background: #E9F3F8;
@@ -138,12 +143,13 @@ const style = `
 		list-style: none;
 		display: flex;
 		flex-direction: column;
-		gap: 16px;
+		gap: 8px;
+		margin: 12px 0;
 	}
 	.motion-quality-treatment-info li{
 		display: flex;
 		align-items: center;
-		gap: 16px;
+		gap: 8px;
 		color: #1F2937;
 		font-family: Titillium Web;
 		font-size: 20px;
@@ -157,15 +163,17 @@ const style = `
 		padding: 24px;
 		display: flex;
 		align-items: center;
+		justify-content: space-around;
 		gap:20px;
 	}
 	.motion-quality-treatment-info .usp{
 		display: grid;
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: 64px auto;
+		align-items: center;
 		gap:10px;
 	}
-	.motion-quality-treatment-info .usp{
-		column-span:2;
+	.motion-quality-treatment-info .usp svg{
+		grid-row: span 2;
 	}
 	.motion-quality-treatment-info .usp h3{
 		color: #1F2937;
@@ -189,6 +197,9 @@ const style = `
 		}
 		.motion-page-infos {
 			grid-template-columns: repeat(2, 1fr);
+		}
+		.motion-quality-treatment{
+			grid-template-columns: 1fr;
 		}
 	}
 	@media only screen and (max-width: 640px) {

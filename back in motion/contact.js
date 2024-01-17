@@ -58,7 +58,7 @@ const style = `
         gap: 0 10px;
     }
     .rev-info img{
-        grid-row: 1/sapn 2;
+        grid-row: 1/span 2;
     }
     .fusion-chk {
         padding-top: 0!important;
