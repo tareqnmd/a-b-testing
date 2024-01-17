@@ -1,5 +1,8 @@
 const style = `
 <style>
+	.fusion-builder-row-4{
+		display:none!important;
+	}
 	html {
 		scroll-behavior: smooth;
 	}
