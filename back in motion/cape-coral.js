@@ -189,7 +189,7 @@ const style = `
 		font-size: 20px;
 		font-style: normal;
 		font-weight: 600;
-		line-height: 32px; /* 160% */
+		line-height: 32px;
 	}
 	@media only screen and (max-width: 991px) {
 		.motion-banner-info {
@@ -200,6 +200,28 @@ const style = `
 		}
 		.motion-quality-treatment{
 			grid-template-columns: 1fr;
+		}
+		.motion-quality-treatment-info{
+			padding: 10PX;
+		}
+		.motion-quality-treatment-info .usps{
+			padding: 10px;
+		}
+		.motion-quality-treatment-info .usp h3{
+			font-size: 24px;
+			line-height: 20px;
+		}
+		.motion-quality-treatment-info .usp h6{
+			font-size: 16px;
+			line-height: 24px;
+		}
+		.motion-quality-treatment-info .usp{
+			grid-template-columns: 40px auto;
+			gap: 6px;
+		}
+		.motion-quality-treatment-info .usp svg{
+			width: 36px;
+			height: 36px;
 		}
 	}
 	@media only screen and (max-width: 640px) {
@@ -221,11 +243,17 @@ const style = `
 			font-size: 30px;
 			line-height: 40px;
 		}
-		.quick-call {
-			font-size: 14px;
+		.motion-quality-treatment-info li {
+			font-size: 16px;
+			line-height: 16px;
 		}
-		.quick-call {
-			padding: 12px 20px;
+		.motion-quality-treatment-info .usp h3{
+			font-size: 18px;
+			line-height: 16px;
+		}
+		.motion-quality-treatment-info .usp h6{
+			font-size: 12px;
+			line-height: 14px;
 		}
 	}
 	@media only screen and (max-width: 480px) {
