@@ -4,13 +4,14 @@ const style = `
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		width: max-content;
 	}
 	.low-inv-area span:nth-child(1) {
 		color: red;
 		font-weight: bold;
 		display: flex;
 		align-items: center;
-		gap: 2px;
+		gap: 4px;
 	}
 	.low-inv-area span:nth-child(2) {
 		color: #555;
