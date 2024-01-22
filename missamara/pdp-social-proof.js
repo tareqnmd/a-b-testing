@@ -23,7 +23,7 @@ const message_int = setInterval(() => {
 	const cart_btn = document.querySelector(
 		'.input-row.quantity-submit-row.wishlist-productpage-icon.available'
 	);
-	const process_check = document.querySelector('#top_product ');
+	const process_check = document.querySelector('#top_product');
 
 	if (
 		cart_btn &&
