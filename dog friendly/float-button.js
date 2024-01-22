@@ -8,3 +8,15 @@ window.addEventListener('scroll', function () {
 		btn_wrapper.classList.remove('new-float-btn');
 	}
 });
+
+{/* <style>
+    .new-float-btn{
+        position: fixed;
+        background: white;
+        z-index: 99;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 10px;
+    }
+</style> */}
