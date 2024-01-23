@@ -50,10 +50,16 @@ const message_int = setInterval(() => {
 	const stock_message = document.querySelector(
 		'.amstockstatus-status-container.stock.available .amstockstatus'
 	);
-	// const low_text = document.querySelector('.amlabel-text');
-	// const check_low_item = low_text.innerText.trim() === 'low inventory';
+	const low_text = document.querySelector('.amlabel-text');
+	const check_low_item = low_text
+		? low_text.innerText.trim() === 'low inventory'
+		: false;
 
-	if (stock_message && !document.querySelector('.low-message-area')) {
+	if (
+		stock_message &&
+		!document.querySelector('.low-message-area') &&
+		check_low_item
+	) {
 		head.insertAdjacentHTML('beforeend', style);
 		const old_message = stock_message.innerText.replace('In Stock.', '');
 		stock_message.classList.add('low-inv-area');
