@@ -19,4 +19,11 @@ window.addEventListener('scroll', function () {
         bottom: 0;
         padding: 10px;
     }
+	.product-iwt_wrapper .image-wrapper{
+		position: static!important;
+      	z-index: unset!important;
+    }
+	.product-iwt_wrapper .info-wrapper, .triple-inner_wrapper .row-wrapper{
+		position: static!important;
+    }
 </style> */}
