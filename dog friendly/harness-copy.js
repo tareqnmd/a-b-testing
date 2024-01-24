@@ -59,10 +59,10 @@ const sec_copy_html = `
 
 const copy_change = setInterval(() => {
 	const first_copy_elm = document.querySelector(
-		'#shopify-section-template--15308379455536__bb28b4df-49d1-44e1-9f94-427180a66d94 .info-inner-wrapper h1'
+		'#shopify-section-template--15357594894384__bb28b4df-49d1-44e1-9f94-427180a66d94 .info-inner-wrapper h1'
 	);
 	const sec_copy_elm = document.querySelector(
-		'#shopify-section-template--15308379455536__44781b8c-f965-4357-9a8b-84145aa14a13 .info-inner-wrapper h1'
+		'#shopify-section-template--15357594894384__44781b8c-f965-4357-9a8b-84145aa14a13 .info-inner-wrapper h1'
 	);
 	const unique_check = !document.querySelector('.list-type-options');
 
