@@ -205,6 +205,12 @@ const style_elm = `
         #content{
             grid-template-columns: 1fr;
         }
+        .head-info{
+            margin-bottom:20px;
+        }
+        #main{
+            padding: 20px 0;
+        }
     }
     @media only screen and (max-width:767px){
         .client-revs,.our-locations {
@@ -213,6 +219,24 @@ const style_elm = `
         }
         .client-review h3,.our-location h3{
             margin-bottom: 30px;
+        }
+        .head-info  h2{
+            font-size: 32px!important;
+            line-height: 36px!important;
+        }
+        .head-info  li{
+            font-size: 16px!important
+            line-height: 18px!important;
+        }
+        .head-info div{
+            padding: 10px;
+        }
+        .head-info strong{
+            font-size: 18px!important;
+            line-height: 20px!important;
+        }
+        .head-info{
+            gap: 20px;
         }
     }
     @media only screen and (max-width:640px){
