@@ -60,172 +60,29 @@ const style_elm = `
     .rev-info img{
         grid-row: 1/span 2;
     }
-    .fusion-chk {
-        padding-top: 0!important;
-    }
-    .fusion-chk .usp{
-        background: #EBF2F6;
-        display: flex;
-        padding: 20px 40px;
-        justify-content: center;
-        align-items: center;
-        margin-bottom:20px!important;
-        gap:30px;
-    }
-    .fusion-chk .usp svg{
-        flex-shrink: 0;
-    }
-    .fusion-chk .usp > div{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 8px;
-    }
-    .fusion-chk .usp span{
-        color: #1F2937;
-        font-family: Inter;
-        font-size: 12px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 20px;
-    }
-    .response-info{
-        display: flex;
-        align-items:center;
-        justify-content:center;
-        gap: 8px;
-        margin: 18px 0;
-    }
-    .response-info svg{
-        flex-shrink:0;
-    }
-    .response-info span{
-        color: #000;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-    }
-    .gform_page {
-        width:100%!important;
-        padding:0 60px;
-    }
-    #multi-form .multi-step-form input[type="submit"]{
-        width:100%!important;
-    }
-    #multi-form .multi-step-form .gform_page_footer{
-        background: none!important;
-    }
-    .gform_page_footer.top_label{
-        display:grid;
-        gap:10px;
-    }
-    .gform_page_fields,.gform_page_footer.top_label input{
-        width:100%!important;
-        margin:0!important;
-    }
-    body #multi-form .multi-step-form .gform_page_footer{
-        padding:0!important;
-        margin:30px 0!important;
-    }
-    .benefit-area{
-        background: #174B6A;
-        width:100%;
-    }
-    .benefit-info{
-        max-width: 1200px;
-        width: 100%;
-        margin: auto;
-        padding: 60px 10px;
-    }
-    .benefit-info *{
-        margin: 0;
-        padding: 0;
-    }
-    .benefit-info h3{
-        color: #FFF;
-        text-align: center;
-        font-size: 32px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 28px;
-        margin-bottom: 60px;
-    }
-    .benefit-info-details{
-        display:grid;
-        grid-template-columns:1fr 1fr;
-        gap:60px;
-    }
-    .benefit-info-details > div, .benefit-info-details > ul{
-        display:flex;
-        flex-direction:column;
-        gap:6px;
-    }
-    .benefit-info-details li, .benefit-info-details p{
-        color: #FFF;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 28px;
-    }
     @media only screen and (max-width:1220px){
-        .benefit-info,.client-review{
+        .client-review{
             padding: 60px 30px;
         }
     }
     @media only screen and (max-width:767px){
-        .benefit-info,.client-review{
+        .client-review{
             padding: 30px 30px;
-        }
-        .benefit-info-details{
-            gap:20px;
-            grid-template-columns:1fr;        
         }
         .client-revs {
             grid-template-columns: 1fr;
             gap:20px;
         }
-        .benefit-info h3,.client-review h3{
+        .client-review h3{
             margin-bottom: 30px;
-        }
-        .benefit-info-details > ul{
-            margin-left: 20px;
         }
     }
     @media only screen and (max-width:640px){
-        .benefit-info h3,.client-review h3{
+        .client-review h3{
             font-size: 20px;
         }
-        .benefit-info,.client-review{
+        .client-review{
             padding: 60px 10px;
-        }
-        .benefit-info-details li, .benefit-info-details p{
-            font-size: 12px;
-            line-height: 16px;
-        }
-        #multi-form .multi-step-form .gform_page_fields{
-            padding: 0;
-        }
-        .gform_page {
-            padding:0 20px;
-        }
-        .response-info span{
-            font-size: 12px;
-        }
-        .fusion-chk .usp{
-            padding: 10px 20px;
-            gap:10px;
-        }
-        .fusion-chk .usp svg{
-            flex-shrink: 0;
-            width: 20px;
-        }
-        .fusion-chk .usp > div{
-            gap: 4px;
-        }
-        .fusion-chk .usp span{
-            font-size: 10px;
-            line-height: 16px;
         }
     }
 </style>
