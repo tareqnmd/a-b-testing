@@ -4,14 +4,17 @@ const style_elm = `
         background: #003A5D;
         width:100%;
     }
-    .client-review{
+    .our-locations-area{
+        background: #fff;
+        width:100%;
+    }
+    .client-review,.our-location{
         max-width: 1200px;
         width: 100%;
         margin: auto;
         padding: 60px 10px;
-        padding-top:0;
     }
-    .client-review *{
+    .client-review *,.our-location *{
         margin: 0;
         padding: 0;
     }
@@ -24,9 +27,23 @@ const style_elm = `
         line-height: 28px;
         margin-bottom: 60px;
     }
+    .our-location h3{
+        color: #003A5D;
+        text-align: center;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 28px;
+        margin-bottom: 60px;
+    }
     .client-revs {
         display:grid;
         grid-template-columns:repeat(3,1fr);
+        gap:20px;
+    }
+    .our-locations {
+        display:grid;
+        grid-template-columns:repeat(4,1fr);
         gap:20px;
     }
     .client-revs > div{
@@ -60,28 +77,62 @@ const style_elm = `
     .rev-info img{
         grid-row: 1/span 2;
     }
+    .our-location-info {
+        border-radius: 12px;
+        border: 1px solid #E5E7EB;
+        background: #FFF;
+        padding: 20px;
+        align-items: flex-start;
+    }
+    .our-location-info h4{
+        color: #FF4D00;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+    .our-location-info p{
+        display: flex;
+        align-items: flex-start;
+        gap: 4px;
+    }
+    .our-location-info p strong{
+        color: #373737;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+    .our-location-info p span{
+        color: #727272;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
     @media only screen and (max-width:1220px){
-        .client-review{
+        .client-review,.our-location{
             padding: 60px 30px;
+        }
+        .our-locations {
+            grid-template-columns: 1fr 1fr;
+            gap:20px;
         }
     }
     @media only screen and (max-width:767px){
-        .client-review{
-            padding: 30px 30px;
-        }
-        .client-revs {
+        .client-revs,.our-locations {
             grid-template-columns: 1fr;
             gap:20px;
         }
-        .client-review h3{
+        .client-review h3,.our-location h3{
             margin-bottom: 30px;
         }
     }
     @media only screen and (max-width:640px){
-        .client-review h3{
+        .client-review h3,.our-location h3{
             font-size: 20px;
         }
-        .client-review{
+        .client-review,.our-location{
             padding: 60px 10px;
         }
     }
@@ -171,6 +222,37 @@ const client_html_elm = `
 					egestas integer proin. Tincidunt et adipiscing pharetra mi.”
 				</p>
 				<small>4 Jun 2023</small>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="our-locations-area">
+	<div class="our-location">
+		<h3>Our Locations</h3>
+		<div class="our-locations">
+			<div class="our-location-info">
+                <h4>Fort Myers Office</h4>
+                <P><strong>Phone</strong><span>239-766-5105</span></P>
+                <P><strong>Schedule</strong><span>M-TR 7 AM to 7 PM    F: 7 AM to 5 PM</span></P>
+                <P><strong>Address</strong><span>9724 Commerce Center Ct. Fort Myers, FL 33908, USA</span></P>
+			</div>
+			<div class="our-location-info">
+                <h4>Cape Coral Office</h4>
+                <P><strong>Phone</strong><span>239-766-5105</span></P>
+                <P><strong>Schedule</strong><span>M-TR 7 AM to 7 PM    F: 7 AM to 5 PM</span></P>
+                <P><strong>Address</strong><span>2708 Santa Barbara Blvd. #145 Cape Coral, FL 33914, USA</span></P>
+			</div>
+			<div class="our-location-info">
+                <h4>Estero Office – Pelican Sound</h4>
+                <P><strong>Phone</strong><span>239-766-5105</span></P>
+                <P><strong>Schedule</strong><span>M-TR 7 AM to 7 PM    F: 7 AM to 5 PM</span></P>
+                <P><strong>Address</strong><span>4784 Pelican Sound Blvd, Estero, FL 33928</span></P>
+			</div>
+			<div class="our-location-info">
+                <h4>Verandah Office</h4>
+                <P><strong>Phone</strong><span>239-766-5105</span></P>
+                <P><strong>Schedule</strong><span>M-TR 7 AM to 7 PM    F: 7 AM to 5 PM</span></P>
+                <P><strong>Address</strong><span>12230 River Village Way, Fort Myers, FL 33905</span></P>
 			</div>
 		</div>
 	</div>
