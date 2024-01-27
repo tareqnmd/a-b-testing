@@ -86,6 +86,7 @@ window.addEventListener('scroll', function () {
     .new-float-btn button{
         width: max-content;
 		min-width: 300px;
+		border: none;
     }
 	.product-iwt_wrapper .image-wrapper{
 		position: static!important;
@@ -102,9 +103,19 @@ window.addEventListener('scroll', function () {
     	}
 		.new-float-btn{
 			flex-direction: column;
+			gap: 10px;
 		}
 		.float-area-message{
 			order:2;
+		}
+		.float-area-message strong{
+			font-size: 18px;
+		}
+		.float-area-message span{
+			font-size: 18px;
+		}
+		.float-area-message small{
+			font-size: 12px;
 		}
 	}
 </style> */
