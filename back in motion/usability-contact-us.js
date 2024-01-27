@@ -202,6 +202,9 @@ const style_elm = `
             grid-template-columns: 1fr 1fr;
             gap:20px;
         }
+        #content{
+            grid-template-columns: 1fr;
+        }
     }
     @media only screen and (max-width:767px){
         .client-revs,.our-locations {
