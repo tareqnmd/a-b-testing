@@ -90,6 +90,7 @@ const style_elm = `
         font-style: normal;
         font-weight: 500;
         line-height: normal;
+        margin-bottom: 4px;
     }
     .our-location-info p{
         display: flex;
