@@ -7,7 +7,7 @@ const style_elm = `
         display: inline-flex;
         padding: 16px 20px;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         gap: 8px;
     }
     .nav-star span{
@@ -17,6 +17,14 @@ const style_elm = `
         font-style: normal;
         font-weight: 600;
         line-height: normal;
+    }
+    .drawer__scrollable{
+        padding-left: 0;
+        padding-right: 0; 
+    }
+    .drawer__scrollable ul{
+        margin-left: 20px;
+        margin-right: 20px; 
     }
     .nav-best-sell{
         background: #FFF5EF;
@@ -31,6 +39,8 @@ const style_elm = `
         padding: 1px;
         justify-content: center;
         align-items: flex-start;
+        width: 100%;
+        overflow: auto;
         gap: 8px;
     }
     .nav-product{
@@ -41,8 +51,10 @@ const style_elm = `
         padding-bottom: 4px;
         flex-direction: column;
         align-items: flex-start;
+        gap: 2px;
     }
     .nav-product img{
+        border-radius: 8px;
     }
     .nav-product .price{
         display: flex;
@@ -50,20 +62,18 @@ const style_elm = `
         align-items: flex-start;
         gap: 2px;
         align-self: stretch;
+        padding: 0 8px;
     }
     .nav-product s{
         color: #9A9A9A;
-        font-family: Oswald;
         font-size: 10px;
         font-style: normal;
         font-weight: 500;
         line-height: normal;
-        text-decoration-line: strikethrough;
         text-transform: uppercase;
     }
     .nav-product strong{
         color: #000;
-        font-family: Oswald;
         font-size: 10px;
         font-style: normal;
         font-weight: 500;
@@ -72,12 +82,18 @@ const style_elm = `
     }
     .nav-product .name{
         color: #000;
-        font-family: Oswald;
         font-size: 12px;
         font-style: normal;
         font-weight: 300;
         line-height: normal;
         text-transform: uppercase;
+    }
+    .nav-products::-webkit-scrollbar {
+        display: none;
+    }
+    .nav-products {
+        -ms-overflow-style: none; 
+        scrollbar-width: none;
     }
 </style>
 `;
@@ -119,8 +135,8 @@ const rev_html = `
 </div>
 <div class="nav-best-sell">
 	<strong>BEST SELLERS</strong>
-    <div className="nav-products">
-        <div className="nav-product">
+    <div class="nav-products">
+        <div class="nav-product">
             <img src="https://www.dogfriendlyco.com/cdn/shop/products/blackkit_360x.jpg" alt="" />
 	        ${small_five_star}
             <span class="price"> 
@@ -129,7 +145,7 @@ const rev_html = `
             </span>
             <span class="name">Signature Kit</span>
         </div>
-        <div className="nav-product">
+        <div class="nav-product">
             <img src="https://www.dogfriendlyco.com/cdn/shop/products/blackkit_360x.jpg" alt="" />
 	        ${small_five_star}
             <span class="price"> 
@@ -138,7 +154,7 @@ const rev_html = `
             </span>
             <span class="name">Signature Kit</span>
         </div>
-        <div className="nav-product">
+        <div class="nav-product">
             <img src="https://www.dogfriendlyco.com/cdn/shop/products/blackkit_360x.jpg" alt="" />
 	        ${small_five_star}
             <span class="price"> 
