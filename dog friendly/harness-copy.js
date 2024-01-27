@@ -9,8 +9,8 @@
         align-items: center;
         gap: 6px;
     }
-	#shopify-section-template--15308379455536__bb28b4df-49d1-44e1-9f94-427180a66d94 .info-inner-wrapper .description,
-	#shopify-section-template--15308379455536__44781b8c-f965-4357-9a8b-84145aa14a13 .info-inner-wrapper .description{
+	#shopify-section-template--15357594894384__bb28b4df-49d1-44e1-9f94-427180a66d94 .info-inner-wrapper > :not(ul,h1),
+	#shopify-section-template--15357594894384__44781b8c-f965-4357-9a8b-84145aa14a13 .info-inner-wrapper > :not(ul,h1){
 		display: none!important;
 	}
 </style> */
