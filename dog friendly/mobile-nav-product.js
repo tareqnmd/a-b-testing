@@ -87,6 +87,7 @@ const style_elm = `
         font-weight: 300;
         line-height: normal;
         text-transform: uppercase;
+        padding:8px;
     }
     .nav-products::-webkit-scrollbar {
         display: none;
