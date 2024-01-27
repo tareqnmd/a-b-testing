@@ -1,5 +1,76 @@
 const style_elm = `
 <style>
+    .nav-star{
+        border-radius: 12px;
+        background: #EFFBFF;
+        margin: 16px 20px;
+        display: inline-flex;
+        padding: 16px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    .nav-best-sell{
+        background: #FFF5EF;
+        display: inline-flex;
+        padding: 16px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    .nav-products{
+        display: flex;
+        padding: 1px;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    .nav-product{
+        border-radius: 4px;
+        border: 1px solid #EEEBE9;
+        background: #FFF;
+        display: flex;
+        padding-bottom: 4px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .nav-product img{
+    }
+    .nav-product .price{
+        display: flex;
+        padding: 0px 8px;
+        align-items: flex-start;
+        gap: 2px;
+        align-self: stretch;
+    }
+    .nav-product s{
+        color: #9A9A9A;
+        font-family: Oswald;
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        text-decoration-line: strikethrough;
+        text-transform: uppercase;
+    }
+    .nav-product strong{
+        color: #000;
+        font-family: Oswald;
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        text-transform: uppercase;
+    }
+    .nav-product .name{
+        color: #000;
+        font-family: Oswald;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+        text-transform: uppercase;
+    }
 </style>
 `;
 
@@ -24,11 +95,11 @@ const small_five_star = `
 `;
 
 const interval = setInterval(() => {
-	const btn_wrapper = document.querySelector('.add-to-cart-wrapper');
+	const btn_wrapper = document.querySelector('#NavDrawer .drawer__scrollable');
 	const head = document.querySelector('head');
 	if (btn_wrapper && head && !document.querySelector('.float-area-message')) {
 		head.insertAdjacentHTML('beforeend', style_elm);
-		btn_wrapper.insertAdjacentHTML('afterbegin', rev_html);
+		btn_wrapper.insertAdjacentHTML('beforeend', rev_html);
 		clearInterval(interval);
 	}
 }, 10);
@@ -44,29 +115,29 @@ const rev_html = `
         <div className="nav-product">
             <img src="https://www.dogfriendlyco.com/cdn/shop/products/blackkit_360x.jpg" alt="" />
 	        ${small_five_star}
-            <span> 
+            <span class="price"> 
                 <s>$119.00</s> 
                 <strong>$89.oo</strong> 
             </span>
-            <span>Signature Kit</span>
+            <span class="name">Signature Kit</span>
         </div>
         <div className="nav-product">
             <img src="https://www.dogfriendlyco.com/cdn/shop/products/blackkit_360x.jpg" alt="" />
 	        ${small_five_star}
-            <span> 
+            <span class="price"> 
                 <s>$119.00</s> 
                 <strong>$89.oo</strong> 
             </span>
-            <span>Signature Kit</span>
+            <span class="name">Signature Kit</span>
         </div>
         <div className="nav-product">
             <img src="https://www.dogfriendlyco.com/cdn/shop/products/blackkit_360x.jpg" alt="" />
 	        ${small_five_star}
-            <span> 
+            <span class="price"> 
                 <s>$119.00</s> 
                 <strong>$89.oo</strong> 
             </span>
-            <span>Signature Kit</span>
+            <span class="name">Signature Kit</span>
         </div>
     </div>
 </div>
