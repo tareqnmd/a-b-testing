@@ -10,6 +10,14 @@ const style_elm = `
         align-items: flex-start;
         gap: 8px;
     }
+    .nav-star span{
+        color: #000;
+        font-family: Roboto;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
     .nav-best-sell{
         background: #FFF5EF;
         display: inline-flex;
