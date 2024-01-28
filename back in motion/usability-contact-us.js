@@ -1,7 +1,13 @@
 const style_elm = `
 <style>
+    .fusion-builder-column-10 {
+        width: 100%;
+    }
     .fusion-builder-column-10 > div:nth-of-type(1){
         border-radius:0;
+    }
+    .gf_browser_unknown{
+        margin-bottom: 0;
     }
     #main{
         background-size: cover;
@@ -14,6 +20,7 @@ const style_elm = `
         align-items: center;
         max-width: 1200px;
         margin: auto;
+        gap: 40px;
     }
     .fusion-builder-column-10 > div:nth-of-type(1) {
         padding: 20px;
@@ -204,9 +211,6 @@ const style_elm = `
         }
         #content{
             grid-template-columns: 1fr;
-        }
-        .head-info{
-            margin-bottom:20px;
         }
         #main{
             padding: 20px 0;
