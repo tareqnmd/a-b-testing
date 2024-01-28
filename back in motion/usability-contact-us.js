@@ -2,6 +2,7 @@ const style_elm = `
 <style>
     .fusion-builder-column-10 {
         width: 90%;
+        margin: auto!important;
     }
     .fusion-builder-column-10 > div:nth-of-type(1){
         border-radius:0;
