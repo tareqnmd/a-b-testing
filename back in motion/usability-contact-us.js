@@ -9,6 +9,19 @@ const style_elm = `
     .gf_browser_unknown{
         margin-bottom: 0;
     }
+    .gform_button{
+        border-radius: 12px!important;
+        background: #FF4D00!important;
+        box-shadow: none!important;
+        margin-top: 0!important;
+    }
+    #gform_submit_button_53{
+        box-shadow: none!important;
+    }
+    .contact-page-form .gfield{
+        border-radius: 6px;
+        background: #F3F6F6;
+    }
     #main{
         background-size: cover;
         background-image: url(https://i.ibb.co/18M05F1/usp-bg.png);
