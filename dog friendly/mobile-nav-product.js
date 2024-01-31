@@ -34,12 +34,16 @@ const style_elm = `
         align-items: flex-start;
         gap: 8px;
     }
+    .nav-products-area{    
+        width: 100%;
+        overflow: scroll;
+    }
     .nav-products{
         display: flex;
         padding: 1px;
         justify-content: center;
         align-items: flex-start;
-        width: 100%;
+        width: fit-content;
         overflow: auto;
         gap: 8px;
     }
@@ -87,7 +91,7 @@ const style_elm = `
         font-weight: 300;
         line-height: normal;
         text-transform: uppercase;
-        padding:8px;
+        padding:0 8px;
     }
     .nav-products::-webkit-scrollbar {
         display: none;
@@ -136,34 +140,36 @@ const rev_html = `
 </div>
 <div class="nav-best-sell">
 	<strong>BEST SELLERS</strong>
-    <div class="nav-products">
-        <a href="https://www.dogfriendlyco.com/products/df-co-orthopedic-memory-foam-bed" class="nav-product">
-            <img src="https://us.dogfriendlyco.com/cdn/shop/products/Large-DFCODogBeds0457_540x.jpg?v=1664188569" alt="" />
-	        ${small_five_star}
-            <span class="price"> 
-                <s>$270.00</s> 
-                <strong>$252.00</strong> 
-            </span>
-            <span class="name">Dog Foam Bed</span>
-        </a>
-        <a href="https://www.dogfriendlyco.com/products/dog-friendly-co-signature-kit" class="nav-product">
-            <img src="https://us.dogfriendlyco.com/cdn/shop/products/blackkit_540x.jpg?v=1651721013" alt="" />
-	        ${small_five_star}
-            <span class="price"> 
-                <s>$112.00</s> 
-                <strong>$83.00</strong> 
-            </span>
-            <span class="name">Signature Kit</span>
-        </a>
-        <a href="https://www.dogfriendlyco.com/products/df-co-orthopedic-memory-foam-bed" class="nav-product">
-            <img src="https://us.dogfriendlyco.com/cdn/shop/products/blackharness_aa2d79f9-e27b-45c4-bed2-684a9a990322_1080x.jpg?v=1651720985" alt="" />
-	        ${small_five_star}
-            <span class="price"> 
-                <s>$156.00</s> 
-                <strong>$92.00</strong> 
-            </span>
-            <span class="name">Dog Lovers Pack</span>
-        </a>
+    <div className="nav-products-area">
+        <div class="nav-products">
+            <a href="https://www.dogfriendlyco.com/products/df-co-orthopedic-memory-foam-bed" class="nav-product">
+                <img src="https://us.dogfriendlyco.com/cdn/shop/products/Large-DFCODogBeds0457_540x.jpg?v=1664188569" alt="" />
+                ${small_five_star}
+                <span class="price"> 
+                    <s>$270.00</s> 
+                    <strong>$252.00</strong> 
+                </span>
+                <span class="name">Dog Foam Bed</span>
+            </a>
+            <a href="https://www.dogfriendlyco.com/products/dog-friendly-co-signature-kit" class="nav-product">
+                <img src="https://us.dogfriendlyco.com/cdn/shop/products/blackkit_540x.jpg?v=1651721013" alt="" />
+                ${small_five_star}
+                <span class="price"> 
+                    <s>$112.00</s> 
+                    <strong>$83.00</strong> 
+                </span>
+                <span class="name">Signature Kit</span>
+            </a>
+            <a href="https://www.dogfriendlyco.com/products/df-co-orthopedic-memory-foam-bed" class="nav-product">
+                <img src="https://us.dogfriendlyco.com/cdn/shop/products/blackharness_aa2d79f9-e27b-45c4-bed2-684a9a990322_1080x.jpg?v=1651720985" alt="" />
+                ${small_five_star}
+                <span class="price"> 
+                    <s>$156.00</s> 
+                    <strong>$92.00</strong> 
+                </span>
+                <span class="name">Dog Lovers Pack</span>
+            </a>
+        </div>
     </div>
 </div>
 `;
