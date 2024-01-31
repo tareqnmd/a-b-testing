@@ -140,7 +140,7 @@ const rev_html = `
 </div>
 <div class="nav-best-sell">
 	<strong>BEST SELLERS</strong>
-    <div className="nav-products-area">
+    <div class="nav-products-area">
         <div class="nav-products">
             <a href="https://www.dogfriendlyco.com/products/df-co-orthopedic-memory-foam-bed" class="nav-product">
                 <img src="https://us.dogfriendlyco.com/cdn/shop/products/Large-DFCODogBeds0457_540x.jpg?v=1664188569" alt="" />
