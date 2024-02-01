@@ -2,6 +2,7 @@ const style = `
 <style>
     .new-elm{
         margin: 30px 0;
+        width: 100%;
     }
     .new-elm *{
         margin: 0;
@@ -10,6 +11,7 @@ const style = `
     .digital-wallets{
         display: flex;
         align-items: center;
+        justify-content: center;
         gap: 10px;
         margin-bottom: 30px;
     }
