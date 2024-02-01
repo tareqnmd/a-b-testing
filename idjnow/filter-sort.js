@@ -33,6 +33,17 @@ const style = `
     padding-bottom: 8px;
     margin: 0;
 }
+
+@media only screen and (max-width:450px){
+    .inside-sort .ss-dropdown-menu.ss-sort-by-menu .ss-menu-label {
+        max-width:100px;
+    }
+}
+@media only screen and (max-width:400px){
+    .inside-sort .ss-dropdown-menu.ss-sort-by-menu .ss-menu-label {
+        max-width:80px;
+    }
+}
 </style>
 `;
 
