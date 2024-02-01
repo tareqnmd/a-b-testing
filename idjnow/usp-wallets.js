@@ -16,7 +16,7 @@ const style = `
         margin-bottom: 30px;
     }
     .digital-wallets span{
-        font-size: 14px;
+        font-size: 15px;
         font-weight: 600;
     }
     .wallet-imgs{
