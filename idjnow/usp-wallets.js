@@ -11,7 +11,7 @@ const style = `
     .digital-wallets{
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: end;
         gap: 10px;
         margin-bottom: 30px;
     }
@@ -23,10 +23,15 @@ const style = `
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 10px;
+        gap: 8px;
     }
     .wallet-imgs img{
-        width: 40px;
+        width: 50px;
+    }
+    .wallet-imgs span{
+        width: 1px;
+        background: #dfdfdf;
+        height: 34px;
     }
     .idj-usp{
         border: 1px solid #dfdfdf;
@@ -57,7 +62,7 @@ const style = `
     }
     .idj-single-usp img{
         grid-row: span 2;
-        width: 40px;
+        width: 60px;
     }
     .idj-single-usp h6{
         font-size: 14px;
@@ -88,12 +93,16 @@ const new_elm_html = (apple) => `
     <div class="digital-wallets">
         <span>Digital Wallets Accepted: </span>
         <div class="wallet-imgs">
-            <img src="https://images.idjnow.com/media/amasty/webp/wysiwyg/affirm_png.webp" alt="" />
-            <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/pp-acceptance-medium.png" alt="" />
             <img src="https://www.idjnow.com/static/version1686749612/frontend/Ecomitize/idjnow/en_US/PayPal_Braintree/images/venmo_logo_blue.png" alt="" />
+            <span></span>
+            <img src="https://images.idjnow.com/media/amasty/webp/wysiwyg/affirm_png.webp" alt="" />
+            <span></span>
+            <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/pp-acceptance-medium.png" alt="" />
             ${
 							apple
-								? `<img
+								? `
+                                <span></span>
+                                <img
 									src="https://www.idjnow.com/static/version1686749612/frontend/Ecomitize/idjnow/en_US/PayPal_Braintree/images/applepaymark.png"
 									alt=""
 								/>`
@@ -129,8 +138,8 @@ const new_elm_html = (apple) => `
 </div>
 `;
 
-function isIOSorMac() {
-	return ['iPad', 'iPhone', 'iPod', 'MacIntel'].includes(navigator.platform);
+function isSafari() {
+	return /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 }
 
 const interval = setInterval(() => {
@@ -138,7 +147,7 @@ const interval = setInterval(() => {
 	const head = document.querySelector('head');
 	if (exist_elm && head && !document.querySelector('.new-elm')) {
 		head.insertAdjacentHTML('beforeend', style);
-		exist_elm.insertAdjacentHTML('beforeend', new_elm_html(isIOSorMac()));
+		exist_elm.insertAdjacentHTML('beforeend', new_elm_html(isSafari()));
 		clearInterval(interval);
 	}
 }, 10);
