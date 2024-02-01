@@ -95,6 +95,12 @@ const style = `
         .idj-single-usp span {
             gap: 4px;
         }
+        .wallet-imgs img{
+            width: 40px;
+        }
+        .wallet-imgs span{
+            height: 24px;
+        }
     }
     @media only screen and (max-width:450px){
         .idj-single-usp img{
@@ -122,6 +128,12 @@ const style = `
         }
         .pr-6p{
             padding-right: 4px;
+        }
+        .wallet-imgs img{
+            width: 30px;
+        }
+        .wallet-imgs span{
+            height: 20px;
         }
     }
 </style>
