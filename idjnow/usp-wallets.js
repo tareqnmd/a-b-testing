@@ -10,13 +10,21 @@ const style = `
     .digital-wallets{
         display: flex;
         align-items: center;
-        gap: 20px;
+        gap: 10px;
         margin-bottom: 30px;
+    }
+    .digital-wallets span{
+        font-size: 14px;
+        font-weight: 600;
     }
     .wallet-imgs{
         display: flex;
         align-items: center;
+        justify-content: center;
         gap: 10px;
+    }
+    .wallet-imgs img{
+        width: 40px;
     }
     .idj-usp{
         border: 1px solid #dfdfdf;
