@@ -31,20 +31,44 @@ const style = `
         left: 50%;
         transform: translateX(-50%);
         padding: 0 10px;
+        color: #aa1c03;
     }
     .idj-usps{
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        margin-top: 16px;
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: 10px;
+        gap: 6px;
     }
     .idj-single-usp{
         display: grid;
         grid-template-columns: auto 1fr;
         gap: 0 6px;
+        align-items: center;
     }
     .idj-single-usp img{
         grid-row: span 2;
-        width: 60px;
+        width: 40px;
+    }
+    .idj-single-usp h6{
+        font-size: 14px;
+        line-height: 14px;
+    }
+    .idj-single-usp strong{
+        font-size: 10px;
+        line-height: 10px;
+    }
+    @media only screen and (max-width:480px){
+        .idj-single-usp img{
+            width: 30px;
+        }
+        .idj-single-usp h6{
+            font-size: 10px;
+            line-height: 10px;
+        }
+        .idj-single-usp strong{
+            font-size: 8px;
+            line-height: 8px;
+        }
     }
 </style>
 `;
