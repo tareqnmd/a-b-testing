@@ -19,14 +19,23 @@ const style = `
         gap: 10px;
     }
     .idj-usp{
-
+        border: 1px solid #dfdfdf;
+        border-radius: 6px;
+        position: relative;
+        padding: 10px;
     }
     .idj-usp h3{
-
+        position: absolute;
+        background: white;
+        top: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 0 10px;
     }
     .idj-usps{
         display: grid;
         grid-template-columns: repeat(4, 1fr);
+        margin-top: 16px;
     }
     .idj-single-usp{
         display: grid;
@@ -35,6 +44,7 @@ const style = `
     }
     .idj-single-usp img{
         grid-row: span 2;
+        width: 60px;
     }
 </style>
 `;
