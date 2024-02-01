@@ -55,26 +55,50 @@ const style = `
         gap: 6px;
     }
     .idj-single-usp{
-        display: grid;
-        grid-template-columns: auto 1fr;
+        display: flex;
         gap: 0 6px;
         align-items: center;
     }
     .idj-single-usp img{
-        grid-row: span 2;
-        width: 60px;
+        width: 40px;
+    }
+    .idj-single-usp span{
+        display: flex;
+        gap: 6px;
+        flex-direction: column;
     }
     .idj-single-usp h6{
-        font-size: 14px;
-        line-height: 14px;
+        font-size: 16px;
+        line-height: 16px;
+        font-weight: 700;
     }
     .idj-single-usp strong{
-        font-size: 10px;
-        line-height: 10px;
+        font-size: 12px;
+        line-height: 12px;
+        font-weight: 600;
     }
-    @media only screen and (max-width:480px){
+    .pr-6p{
+        padding-right: 6px;
+    }
+    @media only screen and (max-width:550px){
         .idj-single-usp img{
-            width: 30px;
+            width: 36px;
+        }
+        .idj-single-usp h6{
+            font-size: 12px;
+            line-height: 12px;
+        }
+        .idj-single-usp strong{
+            font-size: 10px;
+            line-height: 10px;
+        }
+        .idj-single-usp span {
+            gap: 4px;
+        }
+    }
+    @media only screen and (max-width:450px){
+        .idj-single-usp img{
+            width: 32px;
         }
         .idj-single-usp h6{
             font-size: 10px;
@@ -83,6 +107,21 @@ const style = `
         .idj-single-usp strong{
             font-size: 8px;
             line-height: 8px;
+        }
+        .idj-usps{
+            gap: 4px;
+        }
+        .idj-usp{
+            padding: 4px;
+        }
+        .idj-single-usp span {
+            gap: 2px;
+        }
+        .idj-single-usp {
+            gap: 0 4px;
+        }
+        .pr-6p{
+            padding-right: 4px;
         }
     }
 </style>
@@ -114,24 +153,32 @@ const new_elm_html = (apple) => `
         <h3>Only at I DJ NOW</h3>
         <div class="idj-usps">
             <div class="idj-single-usp">
-                <img src="https://idjnow.s3.us-east-2.amazonaws.com/idj-shipping.png" slt="">
-                <h6>Free Shipping</h6>
-                <strong>Most products <u>ship same-day</u></strong>
+                <img class="pr-6p" src="https://idjnow.s3.us-east-2.amazonaws.com/idj-shipping.png" slt="">
+                <span>
+                    <h6>Free Shipping</h6>
+                    <strong>Most products <u>ship same-day</u></strong>
+                </span>
             </div>
             <div class="idj-single-usp">
                 <img src="https://idjnow.s3.us-east-2.amazonaws.com/idj-price-lock.png" slt="">
-                <h6>30-Day Price Protection</h6>
-                <strong>Find a lower price, you're covered.</strong>
+                <span>
+                    <h6>30-Day Price Protection</h6>
+                    <strong>Find a lower price, you're covered.</strong>
+                </span>
             </div>
             <div class="idj-single-usp">
-                <img src="https://idjnow.s3.us-east-2.amazonaws.com/idj-reviews.png" slt="">
-                <h6>2700+ Reviews</h6>
-                <strong>90%+5-star reviews</strong>
+                <img class="pr-6p w-32p" src="https://idjnow.s3.us-east-2.amazonaws.com/idj-reviews.png" slt="">
+                <span>
+                    <h6>2700+ Reviews</h6>
+                    <strong>90%+5-star reviews</strong>
+                </span>
             </div>
             <div class="idj-single-usp">
                 <img src="https://idjnow.s3.us-east-2.amazonaws.com/idj-returns.png" slt="">
-                <h6>30-Day Returns</h6>
-                <strong>Don't Like it? Return it.</strong>
+                <span>
+                    <h6>30-Day Returns</h6>
+                    <strong>Don't Like it? Return it.</strong>
+                </span>
             </div>
         </div>
     </div>
