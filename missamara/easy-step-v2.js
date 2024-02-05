@@ -44,7 +44,7 @@ const new_easy_step = `
             gap: 10px;
         }
         .new-easy-step h3{
-            margin-bottom: 20px;
+            font-size: 20px;
         }
     }
     @media only screen and (max-width:480px){
@@ -55,7 +55,7 @@ const new_easy_step = `
             margin-bottom: 20px;
         }
         .new-easy-step h3{
-            margin-bottom: 16px;
+            font-size: 16px;
         }
     }
 </style>
