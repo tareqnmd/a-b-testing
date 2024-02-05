@@ -1,5 +1,8 @@
 const new_easy_step = `
 <style>
+    #uvp-mobile-section {
+        display: none;
+    }
     .new-easy-step {
         display: flex;
         flex-direction: column;
@@ -7,11 +10,6 @@ const new_easy_step = `
         justify-content: center;
         align-items: center;
         margin: 30px auto;
-    }
-    .new-easy-step h3{
-        color: #232323;
-        font-family: lato;
-        margin-bottom: 16px;
     }
     .new-easy-step .easy-step-imgs{
         display: flex;
@@ -24,6 +22,10 @@ const new_easy_step = `
     }
     .new-easy-step .easy-step-imgs a{
         align-self: flex-start;
+    }
+    .easy-step-header {
+        width: 50%;
+        margin-bottom: 20px;
     }
     @media only screen and (max-width:1200px){
         .new-easy-step .easy-step-imgs > img{
@@ -43,11 +45,11 @@ const new_easy_step = `
         .new-easy-step .easy-step-imgs{
             gap: 10px;
         }
-        .new-easy-step h3{
-            font-size: 20px;
-        }
         .new-easy-step {
             margin: 20px auto;
+        }
+        .easy-step-header {
+            margin-bottom: 10px;
         }
     }
     @media only screen and (max-width:480px){
@@ -57,19 +59,16 @@ const new_easy_step = `
         .new-easy-step .easy-step-imgs > img{
             margin-bottom: 20px;
         }
-        .new-easy-step h3{
-            font-size: 16px;
-        }
         .new-easy-step {
             margin: 12px auto;
         }
-        .new-easy-step h3{
-            margin-bottom: 10px;
+        .easy-step-header {
+            margin-bottom: 6px;
         }
     }
 </style>
 <div class="slideshow-container-wrapper new-easy-step">
-    <h3>UNROLL YOUR RUG IN 4 EASY STEPS</h3>
+   <img class="easy-step-header" src="https://i.ibb.co/ydGYvsw/UNROLL-YOUR-RUG-IN-4-EASY-STEPS.png" alt="" />
     <div class="easy-step-imgs">
         <a href="">
             <img src="https://i.ibb.co/3yvCDSS/1.png" alt="" />
