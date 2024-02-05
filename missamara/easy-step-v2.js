@@ -6,18 +6,62 @@ const new_easy_step = `
         gap: 10px;
         justify-content: center;
         align-items: center;
-        margin: 20px auto;
+        margin: 30px auto;
     }
-    .new-easy-step a{
-        background: #f2e0d4;
-        padding: 10px 20px;
-        width: max-content;
-        border-radius: 50px;
+    .new-easy-step h3{
+        color: #232323;
+        font-family: lato;
+        margin-bottom: 16px;
+    }
+    .new-easy-step .easy-step-imgs{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 30px;
+    }
+    .new-easy-step .easy-step-imgs > img{
+        margin-bottom: 30px;
+    }
+    .new-easy-step .easy-step-imgs a{
+        align-self: flex-start;
+    }
+    @media only screen and (max-width:1200px){
+        .new-easy-step .easy-step-imgs > img{
+            width: 60px;
+        }
+        .new-easy-step .easy-step-imgs{
+            gap: 20px;
+        }
+        .new-easy-step {
+            width: 90%;
+        }
+    }
+    @media only screen and (max-width:767px){
+        .new-easy-step .easy-step-imgs > img{
+            width: 40px;
+        }
+        .new-easy-step .easy-step-imgs{
+            gap: 10px;
+        }
+        .new-easy-step h3{
+            margin-bottom: 20px;
+        }
+    }
+    @media only screen and (max-width:480px){
+        .new-easy-step .easy-step-imgs > img{
+            width: 20px;
+        }
+        .new-easy-step .easy-step-imgs > img{
+            margin-bottom: 20px;
+        }
+        .new-easy-step h3{
+            margin-bottom: 16px;
+        }
     }
 </style>
 <div class="slideshow-container-wrapper new-easy-step">
     <h3>UNROLL YOUR RUG IN 4 EASY STEPS</h3>
-    <div className="easy-step-imgs">
+    <div class="easy-step-imgs">
         <a href="">
             <img src="https://i.ibb.co/3yvCDSS/1.png" alt="" />
         </a>
