@@ -1,7 +1,7 @@
 const new_easy_step = `
 <style>
     #uvp-mobile-section {
-        display: none;
+        display: none!important;
     }
     .new-easy-step {
         display: flex;
