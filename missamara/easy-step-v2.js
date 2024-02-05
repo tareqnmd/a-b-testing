@@ -46,6 +46,9 @@ const new_easy_step = `
         .new-easy-step h3{
             font-size: 20px;
         }
+        .new-easy-step {
+            margin: 20px auto;
+        }
     }
     @media only screen and (max-width:480px){
         .new-easy-step .easy-step-imgs > img{
@@ -56,6 +59,12 @@ const new_easy_step = `
         }
         .new-easy-step h3{
             font-size: 16px;
+        }
+        .new-easy-step {
+            margin: 12px auto;
+        }
+        .new-easy-step h3{
+            margin-bottom: 10px;
         }
     }
 </style>
