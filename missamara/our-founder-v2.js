@@ -39,13 +39,22 @@ const style = `
         flex-direction: column;
         gap: 12px;
     }
-	.new-founder-section .founder-info img{
+	.new-founder-section .founder-info .f-img-name{
         max-width:250px;
-        margin : 10px 0;
+        margin-bottom : 10px;
+    }
+	.new-founder-section .founder-info .f-img-title{
+        max-width:180px;
+    }
+    .header-img img{
+        width: 100%;
     }
     @media only screen and (max-width: 991px) {
         .new-founder-section .container {
             grid-template-columns: 1fr;
+        }
+        .new-founder-section .founder-info img{
+            margin: auto;
         }
     }
 </style>
@@ -53,13 +62,13 @@ const style = `
 const founder_html = `
 <div class="shopify-section new-founder-section">
 	<div class="container">
-        <picture>
-            <source media="(min-width: 768px)" srcset="https://i.ibb.co/nL7jWpZ/Desktop.png">
+        <picture class="header-img">
+            <source media="(min-width: 991px)" srcset="https://i.ibb.co/nL7jWpZ/Desktop.png">
             <img src="https://i.ibb.co/2q72TRR/Mobile.png">
         </picture>
 		<div class="founder-info">
-			<span>Meet Our Founder</span>
-			<img src="https://i.ibb.co/H70rkCy/founder-meet.png">
+			<img class="f-img-title" src="https://i.ibb.co/cYjJ7dz/Meet-Our-Founder.png">
+			<img class="f-img-name" src="https://i.ibb.co/H70rkCy/founder-meet.png">
 			<p>
                 <strong>We are Aaron & Alex</strong>, co-founders plus husband and wife! Miss Amara truly is a family owned business.
 			</p>
