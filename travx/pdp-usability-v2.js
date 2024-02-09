@@ -167,7 +167,7 @@ const interval = setInterval(() => {
 		'.product-block.product-block--price'
 	);
 	const cart_btn = document.querySelector('#product-form__cart-submit');
-	const slider = document.querySelector('.flickity-viewport');
+	const slider = document.querySelector('.product-slideshow.flickity-enabled');
 	const head = document.querySelector('head');
 	if (
 		header &&
@@ -187,7 +187,7 @@ const interval = setInterval(() => {
 		spec_tab.classList.add('product-spec');
 		form_cart.insertAdjacentHTML('afterend', new_elm_html);
 		cart_btn.insertAdjacentHTML('afterbegin', cart_icon);
-		slider.insertAdjacentHTML('beforeend', trading_html);
+		slider.insertAdjacentHTML('afterbegin', trading_html);
 		clearInterval(interval);
 	}
 }, 10);
