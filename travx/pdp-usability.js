@@ -30,7 +30,7 @@ const style = `
     background: #fafafd;
     border-radius: 6px;
     padding: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .product-spec h4{
     margin-bottom: 10px;
@@ -54,11 +54,11 @@ const new_elm_html = `
         <span>Bestel nu, betaal later</span>
     </div>
     <div class="pdp-usp">
-        <img src="https://i.ibb.co/0ZKPfwX/usp2.png" alt="" />
+        <img src="https://cdn.shopify.com/s/files/1/0682/9644/2123/files/klarna_logo.png?v=1697923808" alt="" />
         <span>Bestel nu, betaal later</span>
     </div>
     <div class="pdp-usp">
-        <img src="https://i.ibb.co/3rFcVkW/usp3.png" alt="" />
+        <img src="https://cdn.shopify.com/s/files/1/0682/9644/2123/files/postnl-3-logo-png-transparent-removebg-preview.png?v=1705871635" alt="" />
         <span>Gratis Verzending</span>
     </div>
 </div>
