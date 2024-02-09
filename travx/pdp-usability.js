@@ -30,6 +30,7 @@ const style = `
     background: #fafafd;
     border-radius: 6px;
     padding: 20px;
+    margin-bottom: 20px;
 }
 .product-spec h4{
     margin-bottom: 10px;
@@ -38,6 +39,10 @@ const style = `
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: baseline;
+    gap: 20px;
+}
+.product-block.product-block--sales-point {
+    margin-bottom: 0!important;
 }
 </style>
 `;
