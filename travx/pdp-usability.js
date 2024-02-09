@@ -81,7 +81,6 @@ const interval = setInterval(() => {
 		    </div>
 		`;
 		[...sale_points].map((item) => {
-			console.log('item', item);
 			spec_div.querySelector('.div-specs').appendChild(item);
 		});
 		product_price.insertAdjacentElement('afterend', spec_div);
