@@ -26,6 +26,19 @@ const style = `
 .pdp-usp:not(:last-child){
     border-right: 1px solid #000;
 }
+.product-spec{
+    background: #fafafd;
+    border-radius: 6px;
+    padding: 20px;
+}
+.product-spec h4{
+    margin-bottom: 10px;
+}
+.div-specs{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: baseline;
+}
 </style>
 `;
 
@@ -76,7 +89,7 @@ const interval = setInterval(() => {
 		const spec_div = document.createElement('div');
 		spec_div.classList.add('product-spec');
 		spec_div.innerHTML = `
-		    <h3>Product Specificaties</h3>
+		    <h4>Product Specificaties</h4>
 		    <div class="div-specs">
 		    </div>
 		`;
