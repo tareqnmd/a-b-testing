@@ -124,6 +124,11 @@ const cart_icon = `
 </svg>
 `;
 
+const generateRandomThreeDigitNumber = () => {
+	const randomNumber = Math.floor(Math.random() * (999 - 100 + 1) + 100);
+	return randomNumber.toString().padStart(3, '0');
+};
+
 const trading_html = `
 <div class="trading-up">
     <svg
@@ -148,7 +153,7 @@ const trading_html = `
             stroke-linecap="square"
         />
     </svg>
-    <span>465 times sold in last 24 hours</span>
+    <span>${generateRandomThreeDigitNumber()} times sold in last 24 hours</span>
 </div>
 `;
 
