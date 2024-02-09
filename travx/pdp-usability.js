@@ -15,7 +15,7 @@ const style = `
     display: flex;
     align-items: center;
     padding: 0 8px;
-    gap: 2px;
+    gap: 4px;
 }
 .pdp-usp img{
     width: 18px;
@@ -29,20 +29,35 @@ const style = `
 .product-spec{
     background: #fafafd;
     border-radius: 6px;
-    padding: 20px;
+    padding: 20px 20px 10px;
     margin-bottom: 10px;
 }
 .product-spec h4{
     margin-bottom: 10px;
 }
+.product-spec .sales-point:last-child{
+    margin-bottom: 10px;
+}
 .div-specs{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     align-items: baseline;
     gap: 20px;
 }
 .product-block.product-block--sales-point {
     margin-bottom: 0!important;
+}
+@media only screen and (max-width:480px) {
+    .pdp-usp{
+        padding: 0 4px;
+        gap: 2px;
+    }
+    .pdp-usp img{
+        width: 16px;
+    }
+    .pdp-usp span{
+        font-size: 10px;
+    }
 }
 </style>
 `;
