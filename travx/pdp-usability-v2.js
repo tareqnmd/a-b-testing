@@ -31,7 +31,7 @@ const style = `
     background: #fafafd;
     border-radius: 6px;
     padding: 20px 20px 10px;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
 .product-spec .collapsible-trigger__icon{
     display: none!important;
@@ -43,7 +43,11 @@ const style = `
 .product-spec .collapsible-content{
     border: 0!important;
 }
-.btn.btn--full.add-to-cart{   
+.btn.btn--full.add-to-cart{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;   
     background-image: linear-gradient(to bottom, #202020, #411903);
     border: none;
 }
@@ -115,11 +119,13 @@ const interval = setInterval(() => {
 	const product_price = document.querySelector(
 		'.product-block.product-block--price'
 	);
+	const cart_btn = document.querySelector('#product-form__cart-submit');
 	const head = document.querySelector('head');
 	if (
 		header &&
 		product_price &&
 		spec_tab &&
+		cart_btn &&
 		rating &&
 		head &&
 		!document.querySelector('.pdp-usps')
@@ -131,6 +137,7 @@ const interval = setInterval(() => {
 		product_price.insertAdjacentElement('afterend', spec_tab);
 		spec_tab.classList.add('product-spec');
 		form_cart.insertAdjacentHTML('afterend', new_elm_html);
+		cart_btn.insertAdjacentHTML('afterbegin', cart_icon);
 		clearInterval(interval);
 	}
 }, 10);
