@@ -31,12 +31,15 @@ const style = `
     background: #fafafd;
     border-radius: 6px;
     padding: 20px 20px 10px;
-    margin-bottom: 16px;
+    margin-bottom: 10px;
 }
-.product-spec .collapsible-trigger__icon{
+.product-spec .collapsible-trigger{
+    margin-bottom: 6px!important;
+}
+.product-spec .collapsible-trigger__icon, .product-block.product-block--sales-point{
     display: none!important;
 }
-.product-spec .rte, .product-spec button{
+.product-spec .rte, .product-spec button,.product-spec .our-product-features{
     margin: 0!important;
     padding: 0!important;
 }
@@ -53,6 +56,22 @@ const style = `
 }
 .btn.btn--full.add-to-cart:hover{   
     background-image: linear-gradient(to bottom, #38ac54, #38ac54);
+}
+.trading-up{
+    position: absolute;
+    z-index: 1;
+    top: 6px;
+    right: 0;
+    border-radius: 36px 0 0 36px;
+    background: #C9FFE2;
+    gap: 8px;
+    display: flex;
+    align-items: center;
+    padding: 4px 10px;
+}
+.trading-up span{
+    font-size: 12px;
+    font-weight: bold;
 }
 @media only screen and (max-width:480px) {
     .pdp-usp{
@@ -105,6 +124,34 @@ const cart_icon = `
 </svg>
 `;
 
+const trading_html = `
+<div class="trading-up">
+    <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            d="M16.5 6.75H21.75V12"
+            stroke="black"
+            stroke-width="2"
+            stroke-miterlimit="10"
+            stroke-linecap="square"
+        />
+        <path
+            d="M2.25 17.25L9 10.5L13.5 15L21 7.5"
+            stroke="black"
+            stroke-width="2"
+            stroke-miterlimit="10"
+            stroke-linecap="square"
+        />
+    </svg>
+    <span>465 times sold in last 24 hours</span>
+</div>
+`;
+
 const interval = setInterval(() => {
 	const header = document.querySelector(
 		'.product-block.product-block--header.product-single__header'
@@ -120,10 +167,12 @@ const interval = setInterval(() => {
 		'.product-block.product-block--price'
 	);
 	const cart_btn = document.querySelector('#product-form__cart-submit');
+	const slider = document.querySelector('.flickity-viewport');
 	const head = document.querySelector('head');
 	if (
 		header &&
 		product_price &&
+		slider &&
 		spec_tab &&
 		cart_btn &&
 		rating &&
@@ -138,6 +187,7 @@ const interval = setInterval(() => {
 		spec_tab.classList.add('product-spec');
 		form_cart.insertAdjacentHTML('afterend', new_elm_html);
 		cart_btn.insertAdjacentHTML('afterbegin', cart_icon);
+		slider.insertAdjacentHTML('beforeend', trading_html);
 		clearInterval(interval);
 	}
 }, 10);
