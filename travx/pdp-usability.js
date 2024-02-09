@@ -22,6 +22,7 @@ const style = `
 }
 .pdp-usp span{
     font-size: 12px;
+    line-height: 12px;
 }
 .pdp-usp:not(:last-child){
     border-right: 1px solid #000;
@@ -47,6 +48,13 @@ const style = `
 .product-block.product-block--sales-point {
     margin-bottom: 0!important;
 }
+.btn.btn--full.add-to-cart{   
+    background-image: linear-gradient(to bottom, #202020, #411903);
+    border: none;
+}
+.btn.btn--full.add-to-cart:hover{   
+    background-image: linear-gradient(to bottom, #38ac54, #38ac54);
+}
 @media only screen and (max-width:480px) {
     .pdp-usp{
         padding: 0 4px;
@@ -57,6 +65,7 @@ const style = `
     }
     .pdp-usp span{
         font-size: 10px;
+        line-height: 10px;
     }
 }
 </style>
