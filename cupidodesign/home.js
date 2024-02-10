@@ -1,121 +1,122 @@
 const style = `
-   <style>
-.slider {
-    position: relative;
-    width: 100%;
-    height: 640px;
-    background-image: url('https://cupidodesign.com/cdn/shop/files/HomePage_CupidoDesign_c84818b1-a521-45b7-b798-affe21ae8dbc.jpg?v=1694506634&width=1200');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #fff;
-}
-.slider:before{
-    content:'';
-    background-color: rgba(0,0,0,0.5);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-}
-.slider-content {
-    position: relative;
-    z-index: 1;
-}
-.slider-content h1 {
-    font-size: 52px;
-    font-weight: 900;
-    line-height: 60px;
-    font-family:Karla;
-}
-.slider-content p {
-    font-size: 24px;
-   line-height: 34px;
-       font-family: var(--typeBasePrimary),var(--typeBaseFallback);
-}
-.slider-content button {
-    padding: 1rem 2rem;
-    font-size: 1.5rem;
-    background-color: #fff;
-    color: #000;
-    border: none;
-    cursor: pointer;
-}
-.slider-content button a {
-    text-decoration: none;
-    color: #000;
-       font-family: var(--typeBasePrimary),var(--typeBaseFallback);
-}
-.my-container{
-max-width:1500px;
-margin:auto;}
+<style>
+	.slider {
+		position: relative;
+		width: 100%;
+		height: 640px;
+		background-image: url('https://cupidodesign.com/cdn/shop/files/HomePage_CupidoDesign_c84818b1-a521-45b7-b798-affe21ae8dbc.jpg?v=1694506634&width=1200');
+		background-size: cover;
+		background-position: center;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		color: #fff;
+	}
+	.slider:before {
+		content: '';
+		background-color: rgba(0, 0, 0, 0.5);
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 0;
+	}
+	.slider-content {
+		position: relative;
+		z-index: 1;
+	}
+	.slider-content h1 {
+		font-size: 52px;
+		font-weight: 900;
+		line-height: 60px;
+		font-family: Karla;
+	}
+	.slider-content p {
+		font-size: 24px;
+		line-height: 34px;
+		font-family: var(--typeBasePrimary), var(--typeBaseFallback);
+	}
+	.slider-content button {
+		padding: 1rem 2rem;
+		font-size: 1.5rem;
+		background-color: #fff;
+		color: #000;
+		border: none;
+		cursor: pointer;
+	}
+	.slider-content button a {
+		text-decoration: none;
+		color: #000;
+		font-family: var(--typeBasePrimary), var(--typeBaseFallback);
+	}
+	.my-container {
+		max-width: 1500px;
+		margin: auto;
+	}
 
-.separator{
-max-width:900px;
-margin:auto;
-    margin-top: 30px;
-  display:flex;
-  align-items: center;
-}
+	.separator {
+		max-width: 900px;
+		margin: auto;
+		margin-top: 30px;
+		display: flex;
+		align-items: center;
+	}
 
-.separator .line{
-  height: 1px;
-  flex: 1;
-  background-color: #DBDBDB;
-}
+	.separator .line {
+		height: 1px;
+		flex: 1;
+		background-color: #dbdbdb;
+	}
 
-.separator h2{
-  padding: 0 2rem;
-  margin:0;
-  text-transform: uppercase;
-}
-.my-grid-container {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 20px;
-      padding: 20px;
-      box-sizing: border-box;
-    }
+	.separator h2 {
+		padding: 0 2rem;
+		margin: 0;
+		text-transform: uppercase;
+	}
+	.my-grid-container {
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		gap: 20px;
+		padding: 20px;
+		box-sizing: border-box;
+	}
 
-    .my-card {
-      padding: 20px;
-      text-align: center;
-    }
-    .my-card img{
-        width: 42px;
-            margin: auto;
-    }
-    .my-card h4{
-font-size: 14px;
-font-weight: 700;
-line-height:1.3em;
-text-align: center;
-margin: 5px;
-    }
-    .my-card p{
-font-size: 10px;
-font-weight: 500;
-text-align: center;
-margin: 5px;
-line-height: 1.3em;
-    }
-    @media (max-width: 768px) {
-      .my-grid-container {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
+	.my-card {
+		padding: 20px;
+		text-align: center;
+	}
+	.my-card img {
+		width: 42px;
+		margin: auto;
+	}
+	.my-card h4 {
+		font-size: 14px;
+		font-weight: 700;
+		line-height: 1.3em;
+		text-align: center;
+		margin: 5px;
+	}
+	.my-card p {
+		font-size: 10px;
+		font-weight: 500;
+		text-align: center;
+		margin: 5px;
+		line-height: 1.3em;
+	}
+	@media (max-width: 768px) {
+		.my-grid-container {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
 
-    @media (max-width: 480px) {
-      .my-grid-container {
-        grid-template-columns: 1fr;
-      }
-    }
-    </style>
+	@media (max-width: 480px) {
+		.my-grid-container {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
 `;
 
 const new_elm_html = `
