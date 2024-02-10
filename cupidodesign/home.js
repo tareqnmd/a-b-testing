@@ -55,7 +55,6 @@ const style = `
 		max-width: 1500px;
 		margin: auto;
 	}
-
 	.separator {
 		max-width: 900px;
 		margin: auto;
@@ -63,13 +62,11 @@ const style = `
 		display: flex;
 		align-items: center;
 	}
-
 	.separator .line {
 		height: 1px;
 		flex: 1;
 		background-color: #dbdbdb;
 	}
-
 	.separator h2 {
 		padding: 0 2rem;
 		margin: 0;
@@ -82,7 +79,6 @@ const style = `
 		padding: 20px;
 		box-sizing: border-box;
 	}
-
 	.my-card {
 		padding: 20px;
 		text-align: center;
@@ -110,7 +106,6 @@ const style = `
 			grid-template-columns: repeat(2, 1fr);
 		}
 	}
-
 	@media (max-width: 480px) {
 		.my-grid-container {
 			grid-template-columns: 1fr;
@@ -121,11 +116,11 @@ const style = `
 
 const new_elm_html = `
 <div class="slider">
-        <div class="slider-content">
-            <h1>Opere d'arte originali per migliorare la tua casa!</h1>
-            <p>L'arte spazza la nostra anima dalla polvere della quotidianità.</p>
-            <button><a href="/collections/best-sellers">ACQUISTA ORA</a></button>
-        </div>
+    <div class="slider-content">
+        <h1>Opere d'arte originali per migliorare la tua casa!</h1>
+        <p>L'arte spazza la nostra anima dalla polvere della quotidianità.</p>
+        <button><a href="/collections/best-sellers">ACQUISTA ORA</a></button>
+    </div>
 </div>
 `;
 
@@ -202,51 +197,41 @@ const interval = setInterval(() => {
 	}
 }, 10);
 
-// Assuming you have multiple price elements with the class 'grid-product__price--from'
-var priceElements = document.querySelectorAll(
-	'span.grid-product__price--original > span.visually-hidden'
-);
-
-// Assuming you have multiple sup elements within the corresponding '.grid-product__price--current' container
-var supElements = document.querySelectorAll(
-	'span.grid-product__price--current > span.grid-product__price--from > sup'
-);
-
-// Ensure the number of price elements and sup elements match
-if (priceElements.length === supElements.length) {
-	// Loop through each pair of elements
-	for (var i = 0; i < priceElements.length; i++) {
-		// Extract the numeric value from the text content of price element
-		var txt = priceElements[i].textContent
-			.slice(0, -3)
-			.trim()
-			.replace(/[^\d]+/, '');
-
-		// Select the text before the <sup> element of the corresponding sup element
-		var textBeforeSup = supElements[i].previousSibling.textContent
-			.trim()
-			.replace(/[^\d]+/, '');
-
-		// Perform your calculations
-		var originalPrice = parseInt(txt);
-		var discountedPrice = parseInt(textBeforeSup);
-		var savings = originalPrice - discountedPrice;
-		var percentageSaved = Math.floor((savings / originalPrice) * 100);
-
-		// Create a new element to display the percentage saved
-		var percentageElement = document.createElement('span');
-		percentageElement.textContent = percentageSaved + '% OFF'; // Format the percentage as needed
-
-		// Add style and class to the new element
-		percentageElement.style.color = 'white'; // Set the color to green (modify as needed)
-		percentageElement.classList.add('badge-btn'); // Add a custom class to the element
-
-		// Append the new element after the current price element
-		var closestPriceElement = priceElements[i].closest('.grid-product__price');
-		closestPriceElement.appendChild(percentageElement);
-	}
-} else {
-	console.error(
-		'Number of price elements does not match the number of sup elements.'
+const sec_interval = setInterval(() => {
+	const priceElements = document.querySelectorAll(
+		'span.grid-product__price--original > span.visually-hidden'
 	);
-}
+
+	const supElements = document.querySelectorAll(
+		'span.grid-product__price--current > span.grid-product__price--from > sup'
+	);
+	if (priceElements.length === supElements.length) {
+		for (let i = 0; i < priceElements.length; i++) {
+			const txt = priceElements[i].textContent
+				.slice(0, -3)
+				.trim()
+				.replace(/[^\d]+/, '');
+
+			const textBeforeSup = supElements[i].previousSibling.textContent
+				.trim()
+				.replace(/[^\d]+/, '');
+
+			const originalPrice = parseInt(txt);
+			const discountedPrice = parseInt(textBeforeSup);
+			const savings = originalPrice - discountedPrice;
+			const percentageSaved = Math.floor((savings / originalPrice) * 100);
+
+			const percentageElement = document.createElement('span');
+			percentageElement.textContent = percentageSaved + '% OFF';
+
+			percentageElement.style.color = 'white';
+			percentageElement.classList.add('badge-btn');
+
+			const closestPriceElement = priceElements[i].closest(
+				'.grid-product__price'
+			);
+			closestPriceElement.appendChild(percentageElement);
+		}
+		clearInterval(sec_interval);
+	}
+}, 10);
