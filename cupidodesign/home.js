@@ -130,64 +130,74 @@ const new_elm_html = `
 `;
 
 const cupido = `
-  <div class="my-container">
-  <div class="separator">
-    <div class="line"></div>
-    <h2>Why CUPIDO?</h2>
-    <div class="line"></div>
-  </div>
-  <div class="my-grid-container">
-    <div class="my-card">
-        <img src="https://ucarecdn.com/50cd388a-39c7-40f9-aa9b-2607792ec824/-/format/auto/-/preview/100x100/-/quality/lighter/1111.png" alt="">
-        <h4>1,000+ Unique Designs</h4>
-        <p>We offer a huge selection of decorative canvas, each with its own unique style, shape, materials and colors.
-        </p>
-    </div>
-    <div class="my-card">
-        <img src="https://ucarecdn.com/cf7e5d23-8bae-40ee-837a-e7341b91edbc/-/format/auto/-/preview/3000x3000/-/quality/lighter/342143.png" alt="">
-        <h4>Made In Italy
-        </h4>
-        <p>Premium quality - Prints handmade with love in Italy.
-        </p>
-    </div>  
-    <div class="my-card">
-        <img src="https://ucarecdn.com/027b44f4-73a2-49b8-96ee-f408ff885610/-/format/auto/-/preview/3000x3000/-/quality/lighter/342234.png" alt="">
-        <h4>Easy & Secure Payment
-        </h4>
-        <p>We offer various payment methods, including Klarna and Scalapay.
-        </p>
-    </div>  
-    <div class="my-card">
-        <img src="https://ucarecdn.com/70c7eb14-7c4d-4087-a9af-5a51e8e680c9/-/format/auto/-/preview/3000x3000/-/quality/lighter/14341.png" alt="">
-        <h4>Easy & Fast Return
-        </h4>
-        <p>If you are not 100% satisfied with your purchase, you have 14 calendar days from RECEIPT of the order to return it.
-        </p>
-    </div>  
-    <div class="my-card">
-        <img src="https://ucarecdn.com/0167c7b2-7615-47e2-8ccf-f2673fecf51d/-/format/auto/-/preview/100x100/-/quality/lighter/2432.png" alt="">
-        <h4>4,000+ Reviews
-        </h4>
-        <p>90%+, 5-start reviews!
-        </p>
-    </div>  
-  </div></div>
+<div class="my-container">
+	<div class="separator">
+		<div class="line"></div>
+		<h2>Why CUPIDO?</h2>
+		<div class="line"></div>
+	</div>
+	<div class="my-grid-container">
+		<div class="my-card">
+			<img
+				src="https://ucarecdn.com/50cd388a-39c7-40f9-aa9b-2607792ec824/-/format/auto/-/preview/100x100/-/quality/lighter/1111.png"
+				alt=""
+			/>
+			<h4>1,000+ Unique Designs</h4>
+			<p>
+				We offer a huge selection of decorative canvas, each with its own unique
+				style, shape, materials and colors.
+			</p>
+		</div>
+		<div class="my-card">
+			<img
+				src="https://ucarecdn.com/cf7e5d23-8bae-40ee-837a-e7341b91edbc/-/format/auto/-/preview/3000x3000/-/quality/lighter/342143.png"
+				alt=""
+			/>
+			<h4>Made In Italy</h4>
+			<p>Premium quality - Prints handmade with love in Italy.</p>
+		</div>
+		<div class="my-card">
+			<img
+				src="https://ucarecdn.com/027b44f4-73a2-49b8-96ee-f408ff885610/-/format/auto/-/preview/3000x3000/-/quality/lighter/342234.png"
+				alt=""
+			/>
+			<h4>Easy & Secure Payment</h4>
+			<p>We offer various payment methods, including Klarna and Scalapay.</p>
+		</div>
+		<div class="my-card">
+			<img
+				src="https://ucarecdn.com/70c7eb14-7c4d-4087-a9af-5a51e8e680c9/-/format/auto/-/preview/3000x3000/-/quality/lighter/14341.png"
+				alt=""
+			/>
+			<h4>Easy & Fast Return</h4>
+			<p>
+				If you are not 100% satisfied with your purchase, you have 14 calendar
+				days from RECEIPT of the order to return it.
+			</p>
+		</div>
+		<div class="my-card">
+			<img
+				src="https://ucarecdn.com/0167c7b2-7615-47e2-8ccf-f2673fecf51d/-/format/auto/-/preview/100x100/-/quality/lighter/2432.png"
+				alt=""
+			/>
+			<h4>4,000+ Reviews</h4>
+			<p>90%+, 5-start reviews!</p>
+		</div>
+	</div>
+</div>
   `;
 
-const existing_html = document.querySelector('.index-section--hero').innerHTML;
-
 const interval = setInterval(() => {
+	const existing_html = document.querySelector('.index-section--hero');
 	const img_elm = document.querySelector('.index-section--hero');
 	const head = document.querySelector('head');
-	if (img_elm && head) {
+	if (img_elm && existing_html && head) {
 		head.insertAdjacentHTML('beforeend', style);
-
 		if (window.innerWidth > 768) {
 			img_elm.innerHTML = new_elm_html + cupido;
 		} else {
-			img_elm.innerHTML = existing_html + cupido;
+			img_elm.innerHTML = existing_html.innerHTML + cupido;
 		}
-
 		clearInterval(interval);
 	}
 }, 10);
