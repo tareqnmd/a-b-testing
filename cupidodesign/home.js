@@ -122,15 +122,11 @@ const style = `
 const new_elm_html = `
 <div class="slider">
         <div class="slider-content">
-            <h1>Opere d'arte originali per migliorare la tua casa!
-</h1>
-            <p>
-L'arte spazza la nostra anima dalla polvere della quotidianità.</p>
+            <h1>Opere d'arte originali per migliorare la tua casa!</h1>
+            <p>L'arte spazza la nostra anima dalla polvere della quotidianità.</p>
             <button><a href="/collections/best-sellers">ACQUISTA ORA</a></button>
         </div>
-   </div>
-  
- 
+</div>
 `;
 
 const cupido = `
