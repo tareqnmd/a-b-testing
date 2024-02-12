@@ -35,6 +35,7 @@ const style = `
 .minicart-wrapper .block-minicart .block-content .subtotal{
     background:none;
     font-weight: 700;
+    margin-bottom: 10px!important;
 }
 .action.primary.viewcart{
     background: none!important;
@@ -58,6 +59,7 @@ const style = `
     border-radius: 6px;
     width: 75%;
     margin: auto;
+    font-size:18px;
 }
 .min-cart-usps{
     display: grid;
@@ -89,8 +91,9 @@ const style = `
     margin: auto;
 }
 .block-minicart-head{
-    background: none!important;
-    border-bottom: 2px solid #dfdfdf!important;
+    background: #ffffff!important;
+    border-bottom: 1px solid #dfdfdf!important;
+    padding: 5px 0;
 }
 .block-minicart-head-title,#btn-minicart-close{
     color: #000!important;
@@ -116,7 +119,36 @@ a.minicart-item-img{
     padding: 6px;
     border-radius: 4px;
 }
-
+.minicart-back{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #99999999;
+    z-index: 10;
+}
+#minicart-content-wrapper{
+    background: #fafafa!important;
+    position: relative;
+    height: 100%;
+    z-index: 11;
+    overflow-x: hidden;
+}
+#ui-id-1{
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.minicart-wrapper .block-minicart .block-content .minicart-items-wrapper .minicart-items>.product-item .minicart-item .minicart-item-details .minicart-item-details-left{
+    padding-right: 10px;
+}
+.minicart-wrapper .block-minicart .block-content .minicart-items-wrapper .minicart-items>.product-item .minicart-item .minicart-item-details{
+    padding-left:10px;
+}
+.minicart-wrapper .block-minicart .block-content .minicart-items-wrapper{
+    padding: 10px;
+    max-height: 500px;
+}
 @keyframes moveLeftRight {
 	0% {
 		transform: translateX(0);
@@ -144,6 +176,7 @@ a.minicart-item-img{
 }
 </style>
 `;
+
 const cart_usp_html = `
   <div class="min-cart-usps">
     <div class="min-cart-usp">
@@ -157,6 +190,8 @@ const cart_usp_html = `
   </div>
 `;
 
+const fixed_div = `<div class="minicart-back" onclick="document.querySelector('body').click()"></div>`;
+
 setInterval(() => {
 	const cart_promo = document.querySelector('.minicart-promo');
 	if (cart_promo && !document.querySelector('.new-cart-promo')) {
@@ -166,9 +201,16 @@ setInterval(() => {
 }, 10);
 
 const view_cart_change = setInterval(() => {
+	const mini_cart = document.querySelector('#ui-id-1');
 	const cart_checkout = document.querySelector('#top-cart-btn-checkout');
 	const cart_view = document.querySelector('.action.primary.viewcart');
-	if (cart_checkout && cart_view && !document.querySelector('.min-cart-usps')) {
+	if (
+		cart_checkout &&
+		cart_view &&
+		mini_cart &&
+		!document.querySelector('.min-cart-usps')
+	) {
+		mini_cart.insertAdjacentHTML('afterbegin', fixed_div);
 		cart_checkout.insertAdjacentHTML('afterend', cart_usp_html);
 		cart_checkout.insertAdjacentElement('afterend', cart_view);
 		clearInterval(view_cart_change);
