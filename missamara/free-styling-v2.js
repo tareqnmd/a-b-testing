@@ -1,533 +1,4 @@
-const style = `
-.appointment-wrapper.container {
-    margin: auto;
-    margin-bottom: 30px;
-    border: none;
-    padding: 0 !important;
-  }
-
-  .container-app {
-    border-radius: 12px;
-    background: #333;
-  }
-
-  .appointment-wrapper.container .appointment-content-wrapper {
-    padding: 0;
-  }
-
-  .appointment-wrapper.container .appointment-content-wrapper .appointment-content {
-    width: 100%;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 12px;
-    align-items: center;
-    margin: 16px 20px;
-  }
-
-  .app-cnt-wrap {
-    color: white;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-
-  .app-cnt-wrap img {
-    max-width: 100px;
-    width: 100%;
-    margin: 0;
-  }
-
-  .app-cnt-wrap .appointment-content-text {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .app-cnt-wrap .appointment-content-text small {
-    font-size: 12px;
-    line-height: 12px;
-  }
-
-  .app-cnt-wrap .appointment-content-text strong {
-    font-size: 20px;
-    line-height: 20px;
-    font-weight: 600;
-  }
-
-  .appointment-wrapper.container .appointment-content-wrapper .appointment-content .appointment-content-btn {
-    border-radius: 48px;
-    background: white;
-    display: flex;
-    padding: 12px 24px;
-    align-items: center;
-    gap: 16px;
-    letter-spacing: 0px;
-    margin: 0;
-    color: black !important;
-    flex-shrink: 0;
-    text-decoration: none;
-  }
-
-  .appointment-wrapper.container .appointment-header,
-  .appointment-content-img {
-    display: none !important;
-  }
-
-  @media only screen and (max-width:991px) {
-
-    .appointment-content,
-    .app-cnt-wrap {
-      flex-direction: column !important;
-      gap: 10px;
-    }
-
-    .appointment-content {
-      gap: 20px!important;
-    }
-  }
-  .page-header.cf .majortitle{
-  margin-top:0;
-  } 
-  #store-messages{
-  display:none;
-  }
-  .free-style-need-help {
-    margin-top: 20px!important;
-}
-  #fs-requirement {
-    border-radius: 6px;
-    border: 1px solid #555;
-    background: #FFF;
-  }
-
-  #shopify-section-featured-blogs-section,
-  div.free-style-video-container {
-    display: none !important;
-  }
-
-  .majortitle {
-    color: #000;
-    text-align: center;
-    font-family: Cardo;
-    font-size: 32px;
-    font-weight: 700;
-    line-height: normal;
-  }
-
-  .sub-header {
-    display: block;
-    color: #000;
-    text-align: center;
-    font-family: Cardo;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    margin-bottom: 20px;
-  }
-
-  .small-header {
-    margin: 0 !important;
-    font-weight: 600;
-    font-size: 20px !important;
-  }
-
-  #shopify-section-brands-logo {
-    background: #fbe6e3;
-  }
-
-  @media (min-width: 1024px) {
-    .sub-header {
-      font-size: 32px;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    .majortitle {
-      margin: 0 !important;
-    }
-  }
-  .fsa-top {
-    border-radius: 2px;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://cdn.shopify.com/s/files/1/2594/4244/files/Untitled_design_13.png?v=1693787823);
-    background-repeat: no-repeat;
-    background-position: center;
-    display: grid;
-    place-items: center;
-    padding: 100px 50px;
-    margin-bottom: 40px;
-  }
-
-  .fsa-top-content * {
-    color: white;
-  }
-
-  .fsa-top-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .fsa-top-content ul {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0;
-    margin-top: 20px;
-    margin-bottom: 16px;
-  }
-
-  .fsa-top-content li {
-    list-style-type: none;
-  }
-
-  .fsa-top-content a {
-    background: #fbe6e3;
-    padding: 10px 16px;
-    border-radius: 25px;
-    font-weight: 700;
-    text-decoration: none;
-    font-size: 14px;
-    line-height: 14px;
-  }
-
-  @media only screen and (max-width:767px) {
-    .fsa-top {
-      padding: 50px;
-      margin-bottom: 30px;
-    }
-  }
-
-  @media only screen and (max-width:500px) {
-    .fsa-top {
-      padding: 30px;
-    }
-  }
-  .fsa-stylist {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin-bottom: 40px;
-  }
-
-  .fsa-stylist-content {
-    background: #F7E5D7;
-    display: grid;
-    place-items: center;
-  }
-
-  .fsa-stylist-content * {
-    color: black;
-  }
-
-  .fsa-stylist-content div {
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .fsa-stylist-content div strong {
-    margin: 0;
-    margin-top: 20px;
-    margin-bottom: 16px;
-  }
-
-  .fsa-stylist-content a {
-    background: black;
-    padding: 10px 16px;
-    border-radius: 25px;
-    font-weight: 700;
-    text-decoration: none;
-    font-size: 14px;
-    line-height: 14px;
-    color: white;
-  }
-
-  @media only screen and (max-width:767px) {
-    .fsa-stylist {
-      margin-bottom: 30px;
-      grid-template-columns: 1fr;
-    }
-
-    .fsa-stylist-content div {
-      padding: 30px 10px;
-    }
-  }
-  #free-styling-form-wrapper {
-    background: none !important;
-  }
-
-  .free-styling-container {
-    padding: 30px !important;
-  }
-
-  .free-styling-container.container {
-    border-radius: 12px;
-    background: #FFF8F5;
-    box-sizing: border-box;
-  }
-
-  .form-first-row-item-first {
-    width: 100% !important;
-  }
-
-  .free-styling-form-text-content,
-  .form-third-row .form-third-row-content {
-    width: 100% !important;
-  }
-
-  .form-third-row .half-width-field {
-    margin: 0 !important;
-  }
-
-  .form-second-row,
-  .form-first-row,
-  .form-third-row {
-    border: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    margin-bottom: 20px !important;
-  }
-
-  .free-styling-form-text-container p {
-    font-size: 18px !important;
-    font-family: Cardo;
-  }
-
-  .fs-checkbox-container {
-    font-size: 12px !important;
-    line-height: normal;
-    display: flex !important;
-    align-items: center;
-    margin: 0 !important;
-    padding: 0 !important;
-    gap: 6px;
-    flex-direction: row-reverse;
-  }
-
-  .fs-checkbox-container .checkmark {
-    display: block;
-    top: 0 !important;
-    left: 0 !important;
-    position: relative !important;
-    position: static;
-    flex-shrink: 0;
-    border-radius: 2px;
-    border: 1px solid #757575;
-    background: #FFF;
-  }
-
-  .form-first-row-item.form-first-row-item-second {
-    margin-top: 30px;
-  }
-
-  .free-styling-file-description {
-    line-height: normal;
-    padding-top: 10px;
-  }
-
-  .freeStyling-submit-button {
-    border-radius: 48px !important;
-    background: #333 !important;
-    text-transform: capitalize !important;
-  }
-
-  .custom-file-upload {
-    border-radius: 6px !important;
-    border: 1px dashed #555 !important;
-    background: #FFF !important;
-    height: 120px;
-  }
-
-  #free-styling-form .input-custom {
-    border-radius: 6px;
-    border: 1px solid #555;
-    background: #FFF;
-  }
-
-  .free-styling-inputs-radio-container .free-styling-inputs-radio-wrapper {
-    display: block;
-    width: max-content;
-    margin: 0;
-    margin-bottom: 10px !important;
-  }
-
-  .form-third-row-content .half-width-field.half-width-field-second {
-    width: 50% !important;
-  }
-
-  .form-third-row-content .half-width-field.half-width-field-first {
-    width: 50% !important;
-  }
-
-  .custom-file-upload {
-    width: 100% !important;
-  }
-
-  .form-third-row .form-third-row-content {
-    gap: 30px;
-  }
-
-  .select-room-radio-wrapper img {
-    border-radius: 8px;
-  }
-
-  .select-room-radio-wrapper input[type=radio]:checked+label img {
-    padding: 6px;
-    overflow: hidden;
-    box-sizing: border-box;
-    border-radius: 12px;
-    outline: 3px solid #F4AC96 !important;
-    transform: scale(1) !important;
-  }
-
-  .free-styling-inputs-checkbox-wrapper {
-    width: 50% !important;
-  }
-
-  .free-styling-inputs-content {
-    height: 100%;
-  }
-
-  .free-styling-inputs-content span:first-child {
-    margin-bottom: auto;
-  }
-
-  .free-styling-inputs-content span:last-child {
-    margin-top: auto;
-    border-radius: 25px;
-    border: 1px solid #000;
-  }
-
-  .free-styling-inputs-content span:last-child svg {
-    width: 16px;
-    height: 16px;
-    padding: 6px;
-  }
-
-  @media only screen and (max-width:767px) {
-
-    .free-styling-inputs-checkbox-wrapper,
-    .form-third-row-content .half-width-field.half-width-field-second,
-    .form-third-row-content .half-width-field.half-width-field-first {
-      width: 100% !important;
-    }
-  }
-  .how-does-it-work-content {
-    align-items: flex-start !important;
-    gap: 16px;
-  }
-
-  div.how-does-it-work-index {
-    align-items: flex-start !important;
-    gap: 12px;
-  }
-
-  .how-does-it-work-content .hd-header {
-    color: #333;
-    font-size: 15px;
-    font-weight: 600;
-    line-height: normal;
-  }
-
-  .how-does-it-work-index>p {
-    width: max-content !important;
-  }
-
-  .how-does-it-work-index>p img {
-    width: 34px;
-    height: 34px;
-    fill: #333;
-  }
-
-  .how-it-works-content-richtext p {
-    margin-top: 4px;
-    font-size: 13px;
-    line-height: 15px;
-    color: #555;
-  }
-
-  @media only screen and (max-width:767px) {
-    .hd-header svg {
-      display: none;
-    }
-  }
-
-  .how-does-it-work-container {
-    border-radius: 20px;
-    background: #FFF;
-    padding: 20px 0px;
-    margin-top: 30px;
-  }
-  .service-and-advice-carousel {
-    border-radius: 12px;
-    background: #FBE6E3;
-    padding: 0px 40px !important;
-  }
-
-  .service-and-advice-carousel.slick-initialized.slick-slider {
-    padding-bottom: 0;
-  }
-
-  .service-and-advice-carousel .slick-button {
-    background: #FBE6E3 !important;
-  }
-
-  @media (min-width: 1024px) {
-    .service-and-advice-carousel .slick-prev {
-      left: 15px !important;
-    }
-
-    .service-and-advice-carousel .slick-next {
-      right: 15px !important;
-    }
-  }
-  .service-and-advice-image-after,
-  .service-and-advice-image-before {
-    position: relative;
-  }
-
-  .advice-before-after svg {
-    width: 12px;
-    height: 12px;
-  }
-
-  .advice-before-after {
-    position: absolute;
-    border-radius: 32px;
-    padding: 6px 12px;
-    background: #333;
-    color: #FFF;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    gap: 4px;
-  }
-  .rug-ending-wrapper {
-    margin-top: 30px;
-  }
-
-  .rug-endings {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
-  }
-
-  @media only screen and (max-width:991px) {
-    .rug-endings {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-`;
-
-const majorSubMessage = `<span class="major-sub-message">We have worked with over 10,000 customers to design their dream space!</span>`;
+const majorSubMessage = `<span class="major-sub-message">We have worked with over 20,000 customers to design their dream space!</span>`;
 
 const headerInt = setInterval(() => {
 	const title = document.querySelector('.page-header.cf .majortitle');
@@ -537,24 +8,14 @@ const headerInt = setInterval(() => {
 	}
 }, 10);
 
-const newContact = `<div class="fsa-top">
-<div class="fsa-top-content">
-<h6 class="small-header">Need Help Choosing a Rug?</h6>
-<ul>
-<li>Free Rug Styling Advice</li>
-<li>Curated To Your Space And Style</li>
-<li>24 Hour Turnaround Time</li>
-</ul>
-<a href="#free-styling-form-wrapper">Get Free Styling Now --></a>
-</div>
-</div>
+const newContact = `
 <div class="fsa-stylist">
 <img src="https://cdn.shopify.com/s/files/1/2594/4244/files/Banner_a5c7ca34-7474-4448-8a00-3d710be42620.png?v=1692676935">
 <div class="fsa-stylist-content">
 <div>
 <h6 class="small-header">Need Help Choosing a Rug?</h6>
 <strong>Our Interior Experts will help you find your perfect rug.</strong>
-<a href="#free-styling-form-wrapper">Get Free Styling Now --></a>
+<a href="#free-styling-form-wrapper">Get Free Styling Now ></a>
 </div>
 </div>
 </div>
@@ -579,9 +40,9 @@ const howDoesHeader = [
 	'Free styling service - No Cost!',
 ];
 const howDoesTxt = [
-	'Fill in our form and let us know more details about your space, style and specific requirements.',
+	'Fill in our form - it takes 30 seconds',
 	'Within 24 hours our expert rug stylists will analyse your space and curate a rug collection based on your needs!',
-	'Email or call us and our team is here to help you from rug selection to the delivery!',
+	'Email or call us - our team is here to help you from rug selection to delivery!',
 ];
 const howDoesImgs = [
 	`https://cdn.shopify.com/s/files/1/2594/4244/files/11-icon.png`,
@@ -636,7 +97,7 @@ const freeStyleInt = setInterval(() => {
 		'.form-first-row-item.form-first-row-item-second'
 	);
 	const freeStyleSubmit = formStyle.querySelector(
-		'.full-width-field.free-styling-submit'
+		'.free-styling-inputs-checkbox-wrapper'
 	);
 	const freeStyleThird = formStyle.querySelector('.form-third-row-content');
 	const freeStyleThirdCheckbox = formStyle.querySelector(
@@ -645,8 +106,6 @@ const freeStyleInt = setInterval(() => {
 	const freeStyleThirdInput = formStyle.querySelector(
 		'.free-styling-inputs-content span:nth-of-type(2)'
 	);
-	const head = document.querySelector('head');
-
 	if (
 		freeStyleType &&
 		formStyle &&
@@ -654,10 +113,8 @@ const freeStyleInt = setInterval(() => {
 		freeStyleConcern &&
 		freeStyleThird &&
 		freeStyleThirdCheckbox &&
-		freeStyleThirdInput &&
-		head
+		freeStyleThirdInput
 	) {
-		head.insertAdjacentHTML('beforeend', style);
 		formStyle.insertAdjacentElement('afterbegin', freeStyleType);
 		freeStyleSubmit.insertAdjacentElement('beforebegin', freeStyleConcern);
 		freeStyleThird.insertAdjacentElement('afterend', freeStyleThirdCheckbox);
@@ -666,7 +123,7 @@ const freeStyleInt = setInterval(() => {
 	}
 }, 10);
 
-const adviceHeader = `<span class="sub-header">Finished Customer Spaces</span>`;
+const adviceHeader = `<span class="sub-header">Stylist Makeovers</span>`;
 
 const adviceBeforeAfter = (
 	text
@@ -759,20 +216,10 @@ const replaceAppointmentInt = setInterval(() => {
 	}
 }, 10);
 
-const happyRugEndings = `<div class="container rug-ending-wrapper">
-<span class="sub-header">Happy Rug Endings</span>
-<div class="rug-endings">
-<img src="https://cdn.shopify.com/s/files/1/2594/4244/files/2_be357073-aa24-4078-8025-4592d504e657.png">
-<img src="https://cdn.shopify.com/s/files/1/2594/4244/files/4_953558f9-b329-4b0f-93c2-12e696ca1cdd.png">
-<img src="https://cdn.shopify.com/s/files/1/2594/4244/files/1_9e4bf85c-eda9-4412-a352-a3f9483e710f.png?">
-<img src="https://cdn.shopify.com/s/files/1/2594/4244/files/3_475af7c2-cc4b-401f-9b69-5ba10f0cbde8.png">
-</div>
-</div>`;
-
 const logoInt = setInterval(() => {
 	const formElm = document.querySelector('#shopify-section-free-styling-form');
 	const logoElm = document.querySelector('#shopify-section-brands-logo');
-	if (formElm && logoElm && !document.querySelector('.rug-ending-wrapper')) {
+	if (formElm && logoElm) {
 		formElm.insertAdjacentElement('afterend', logoElm);
 		logoElm.insertAdjacentHTML('afterend', happyRugEndings);
 		clearInterval(logoInt);
