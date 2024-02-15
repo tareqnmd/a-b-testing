@@ -1,5 +1,8 @@
 const style = `
 <style>
+	#shopify-section-0b438056-01c6-4e1d-b266-294fe61ed8bd{
+    	display: none;
+    }
 	.new-founder-section {
     	background: #FBE6E3;
         padding:40px 0;
@@ -20,19 +23,20 @@ const style = `
 	.new-founder-section p{
         color: #333;
         font-family: Lato;
-        font-size: 20px;
+        font-size: 18px;
         font-style: normal;
         font-weight: 400;
-        line-height: 28px;
+        line-height: 26px;
+        margin-bottom: 0;
     }
 	.new-founder-section p strong{
         color: #000;
         text-align: justify;
         font-family: Lato;
-        font-size: 20px;
+        font-size: 18px;
         font-style: normal;
         font-weight: 700;
-        line-height: 28px;
+        line-height: 26px;
     }
 	.new-founder-section .founder-info{
         display: flex;
@@ -56,6 +60,10 @@ const style = `
         .new-founder-section .founder-info img{
             margin: auto;
         }
+        .new-founder-section p,.new-founder-section p strong{
+            font-size: 16px;
+            line-height: 22px;
+    	}
     }
 </style>
 `;
@@ -70,7 +78,7 @@ const founder_html = `
 			<img class="f-img-title" src="https://i.ibb.co/cYjJ7dz/Meet-Our-Founder.png">
 			<img class="f-img-name" src="https://i.ibb.co/H70rkCy/founder-meet.png">
 			<p>
-                <strong>We are Aaron & Alex</strong>, co-founders plus husband and wife! Miss Amara truly is a family owned business.
+                <strong>We are </strong>, co-founders plus husband and wife! Miss Amara truly is a family owned business.
 			</p>
             <p>
                 We believe shopping for rugs online should be fun and easy. We LOVE designing beautiful rugs, but we've since learnt there are other things that drive us. Today, that's about making a difference to your life, our team, our makers and the environment - we've developed a higher purpose if you will.
