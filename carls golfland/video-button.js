@@ -9,7 +9,7 @@ const style = `
         width: max-content;
         margin: auto;
         padding: 0 20px;
-        margin-top: 12px;
+        margin: 12px 0;
         cursor: pointer;
     }
     .watch-video span{
@@ -27,11 +27,12 @@ const product_html = `
   <span>Watch Video</span>
 </div>
 `;
-const product_media = document.querySelector('.column.main .product.media');
-const head = document.querySelector('head');
 const int = setInterval(() => {
+	const product_media = document.querySelector('.column.main .product.media');
+	const head = document.querySelector('head');
 	if (product_media && head && !document.querySelector('.watch-video')) {
 		product_media.insertAdjacentHTML('beforeend', product_html);
 		head.insertAdjacentHTML('beforeend', style);
+		clearInterval(int);
 	}
 }, 10);
