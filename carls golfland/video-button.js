@@ -20,8 +20,20 @@ const style = `
 </style>
 `;
 
+const video_play = () => {
+	const video_btn = document.querySelector(
+		'.fotorama__nav__frame.fotorama__nav__frame--thumb.video-thumb-icon'
+	);
+	video_btn.addEventListener('click', () => {
+		setTimeout(() => {
+			document.querySelector('.fotorama-video-container').click();
+		}, 1000);
+	});
+	video_btn.click();
+};
+
 const product_html = `
-<div class="watch-video" onclick="document.querySelector('.fotorama__nav__frame.fotorama__nav__frame--thumb.video-thumb-icon').click()">
+<div class="watch-video" onclick=>
   <img src="https://carlsgolfland.s3.us-east-2.amazonaws.com/cgl-360-icon.png">
   <span>Watch Video</span>
 </div>
@@ -33,5 +45,19 @@ const int = setInterval(() => {
 		product_media.insertAdjacentHTML('beforeend', product_html);
 		head.insertAdjacentHTML('beforeend', style);
 		clearInterval(int);
+	}
+}, 10);
+
+const click_int = setInterval(() => {
+	const video_btn = document.querySelector(
+		'.fotorama__nav__frame.fotorama__nav__frame--thumb.video-thumb-icon'
+	);
+	if (video_btn) {
+		video_btn.addEventListener('click', () => {
+			setTimeout(() => {
+				document.querySelector('.fotorama-video-container').click();
+			}, 1000);
+		});
+		clearInterval(click_int);
 	}
 }, 10);
