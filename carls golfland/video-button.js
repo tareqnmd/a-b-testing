@@ -7,16 +7,15 @@ const style = `
         align-items: center;
         gap:12px;
         width: max-content;
-        margin: auto;
         padding: 0 20px;
-        margin: 12px 0;
+        margin: 12px auto;
         cursor: pointer;
     }
     .watch-video span{
         font-size: 16px;
     }
     .watch-video img{
-        height: 60px;
+        height: 40px;
     }
 </style>
 `;
