@@ -27,7 +27,7 @@ const style = `
 	display: grid;
     place-content: center;
 	gap: 6px;
-	padding : 20px 0;
+	padding : 20px 10px;
 }
 .fsa-stylist-content h6{
 	font-family: Cardo;
