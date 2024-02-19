@@ -188,9 +188,7 @@ const style = `
 	justify-content: center;
 	gap:20px;
 	width: max-content;
-}
-.stylist-feature{
-	border: 1px solid #000000;
+	margin: auto;
 }
 @media only screen and (min-width:768px){
 	.fsa-stylist{
