@@ -20,7 +20,7 @@ const style = `
     overflow: hidden;
     display: grid;
     background: #F7DFD3;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
 }
 .fsa-stylist-content{
 	display: grid;
@@ -62,9 +62,9 @@ const style = `
 .fsa-stylist-content svg{
 	width: 12px;
 }
-@media only screen and (max-width:767px){
+@media only screen and (min-width:768px){
 	.fsa-stylist{
-		grid-template-columns: 1fr;
+		grid-template-columns: 1fr 1fr;
 	}
 }
 </style>
