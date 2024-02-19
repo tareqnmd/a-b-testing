@@ -114,6 +114,9 @@ const style = `
 	font-size: 14px;
 	text-align: center;
 }
+.fsa-team-img{
+	margin-top: 20px;
+}
 @media only screen and (min-width:768px){
 	.fsa-stylist{
 		grid-template-columns: 1fr 1fr;
@@ -242,10 +245,10 @@ const top_elms = `
 		</a>
 	</div>
 	<div class="fsa-team-img">
-	<picture class="header-img">
-		<source media="(min-width: 991px)" srcset="https://cdn.shopify.com/s/files/1/2594/4244/files/Free_Style_Page_Banner.png">
-		<img src="https://cdn.shopify.com/s/files/1/2594/4244/files/Free_Style_Page_Banner.png">
-	</picture>
+		<picture class="header-img">
+			<source media="(min-width: 991px)" srcset="https://cdn.shopify.com/s/files/1/2594/4244/files/Free_Style_Page_Banner.png">
+			<img src="https://cdn.shopify.com/s/files/1/2594/4244/files/Free_Style_Page_Banner.png">
+		</picture>
 	</div>
 	<div class="how-work">
 	<h4 class="header-info">How does it work?</h4>
