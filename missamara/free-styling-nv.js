@@ -125,6 +125,9 @@ const style = `
 	.call-now a{
 		margin-left: auto;
 	}
+	.call-now > svg{
+		grid-row: auto;
+	}
 }
 </style>
 `;
