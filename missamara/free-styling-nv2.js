@@ -1,5 +1,16 @@
 const style = `
 <style>
+#shopify-section-featured-blogs-section, .user-content.row-spacing.lightboximages, .appointment-wrapper{
+	display: none!important;
+}
+.free-styling-form-wrapper .free-styling-container{
+	padding: 20px;
+	margin-top: 20px;
+	margin-bottom: 0px;
+}
+.form-third-row {
+	border-bottom: none;
+}
 .new-free-style *{
 	margin:0;
 	padding: 0;
@@ -370,5 +381,20 @@ const topInt = setInterval(() => {
 		head.insertAdjacentHTML('beforeend', style);
 		topParent.insertAdjacentHTML('afterend', top_elms);
 		clearInterval(topInt);
+	}
+}, 10);
+
+const placeInt = setInterval(() => {
+	const service_advice = document.querySelector(
+		'#shopify-section-service-advice'
+	);
+	const style_form = document.querySelector(
+		'#shopify-section-free-styling-form'
+	);
+	const our_stylist = document.querySelector('.our-stylist');
+	if (service_advice && our_stylist && style_form) {
+		our_stylist.insertAdjacentElement('beforebegin', style_form);
+		our_stylist.insertAdjacentElement('afterend', service_advice);
+		clearInterval(placeInt);
 	}
 }, 10);
