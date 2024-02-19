@@ -62,6 +62,7 @@ const style = `
 }
 .fsa-stylist-content svg{
 	width: 12px;
+	height: 12px;
 }
 @media only screen and (min-width:768px){
 	.fsa-stylist{
