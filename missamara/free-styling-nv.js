@@ -52,7 +52,7 @@ const style = `
 	border-radius: 28px;
 	background: #000000;
 	gap: 10px;
-	margin:auto;
+	margin: 12px auto 0;
 	width: max-content;
 }
 .fsa-stylist-content span{
@@ -63,6 +63,56 @@ const style = `
 .fsa-stylist-content svg{
 	width: 12px;
 	height: 12px;
+}
+.call-now{
+	background: #E0EEF2;
+	padding: 10px;
+	display: grid;
+	grid-template-columns: 75px 4fr;
+	gap: 10px;
+	border-radius: 8px;
+	margin-top: 20px;
+}
+.call-now > svg{
+	grid-row: span 2;
+	width: 75px;
+	height: 75px;
+}
+.call-now-info{
+	display: grid;
+	gap: 6px;
+}
+.call-now-info span{
+	font-family: Lato;
+	font-size: 15px;
+	font-weight: 700;
+	line-height: 18px;
+	color: #333333;
+}
+.call-now-info small{
+	font-family: Inter;
+	font-size: 10px;
+	font-weight: 400;
+	line-height: 14px;
+	color: #333333;
+}
+.call-now a{
+	padding: 6px 24px;
+	border-radius: 48px;
+	gap: 8px;
+	background: #ffffff;
+	display:flex;
+	align-items: center;
+	width: max-content;
+	gap: 10px;
+}
+.call-now a svg{
+	width: 17px;
+	height: 16px;
+}
+.call-now-info a span{
+	font-size: 14px;
+	text-align: center;
 }
 @media only screen and (min-width:768px){
 	.fsa-stylist{
@@ -170,16 +220,16 @@ const top_elms = `
 	</div>
 	</div>
 	<div class="call-now">
-	${mobile_svg}
-	<div class="call-now-info">
-		<span>Don't waste another moment searching for the perfect rug!</span>
-		<small>Call now to speak to one of our Interior Stylists</small>
-	</div>
-	<a href="tel:+4733378901">
-		${phone_svg}
-		<span>Call now
-		02 8015 5926</span>
-	</a>
+		${mobile_svg}
+		<div class="call-now-info">
+			<span>Don't waste another moment searching for the perfect rug!</span>
+			<small>Call now to speak to one of our Interior Stylists</small>
+		</div>
+		<a href="tel:+4733378901">
+			${phone_svg}
+			<span>Call now
+			02 8015 5926</span>
+		</a>
 	</div>
 	<div class="fsa-team-img">
 	<picture class="header-img">
