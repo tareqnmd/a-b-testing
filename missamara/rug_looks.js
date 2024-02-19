@@ -39,6 +39,16 @@ const style = `
     .roomvo-stimr:after {
         display: none;
     }
+    @media only screen and (max-width:767px){
+        .main-image-wrapper button.roomvo-stimr{
+            display: none!important;
+        }
+    }
+    @media only screen and (max-width:400px){
+        .roomvo-stimr {
+            gap: 10px;
+        }
+    }
 </style>
 `;
 
@@ -75,11 +85,17 @@ const new_html = `
 
 `;
 const interval = setInterval(() => {
-	const exist_elm = document.querySelector('.roomvo-stimr');
+	const exist_elm = [...document.querySelectorAll('.roomvo-stimr')];
 	const head = document.querySelector('head');
-	if (exist_elm && head && !document.querySelector('.message-info')) {
+	if (
+		exist_elm.length === 2 &&
+		head &&
+		!document.querySelector('.message-info')
+	) {
 		head.insertAdjacentHTML('beforeend', style);
-		exist_elm.innerHTML = new_html;
+		exist_elm.map((item) => {
+			item.innerHTML = new_html;
+		});
 		clearInterval(interval);
 	}
 }, 10);
