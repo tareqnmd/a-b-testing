@@ -118,7 +118,7 @@ const style = `
 	margin-top: 20px;
 }
 .how-work{
-	margin-top: 20px;
+	margin: 20px 0;
 }
 .how-work .header-info{
 	font-family: Cardo;
@@ -136,17 +136,15 @@ const style = `
 .how-work-type{
 	display: grid;
 	grid-template-columns: 40px 1fr;
-	gap: 10px;
+	gap: 0px 10px;
 }
 .how-work-type strong{
-	font-family: Inter;
 	font-size: 14px;
 	font-weight: 600;
 	line-height: 24px;
 	color: #333333;
 }
 .how-work-type small{
-	font-family: Inter;
 	font-size: 12px;
 	font-weight: 400;
 	line-height: 17px;
@@ -172,7 +170,11 @@ const style = `
 		grid-row: auto;
 	}
 	.how-work-types{
-		grid-template-rows: 1fr 1fr 1fr;
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+	.how-work-type{
+		gap: 2px 10px;
+		place-content: flex-start;
 	}
 }
 </style>
@@ -300,11 +302,11 @@ const top_elms = `
 				.map(
 					(item) => `	<div class="how-work-type">
 								${item.svg}
-								${item.strong}
-								${item.small}
+								<strong>${item.strong}</strong>
+								<small>${item.small}</small>
 							</div>`
 				)
-				.join(',')}
+				.join('')}
 		</div>
 	</div>
 </div>
