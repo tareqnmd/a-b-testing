@@ -26,6 +26,7 @@ const style = `
 	display: grid;
     place-content: center;
 	gap: 6px;
+	padding : 20px 0;
 }
 .fsa-stylist-content h6{
 	font-family: Cardo;
@@ -37,7 +38,7 @@ const style = `
 }
 .fsa-stylist-content small{
 	font-family: Inter;
-	font-size: 13px;
+	font-size: 14px;
 	font-weight: 400;
 	line-height: 18px;
 	letter-spacing: 0em;
@@ -54,16 +55,17 @@ const style = `
 	width: max-content;
 }
 .fsa-stylist-content span{
-	font-family: Inter;
 	font-size: 16px;
-	font-weight: 600;
-	line-height: 19px;
-	letter-spacing: 0em;
 	text-align: center;
 	color:white;
 }
 .fsa-stylist-content svg{
 	width: 12px;
+}
+@media only screen and (max-width:767px){
+	.fsa-stylist{
+		grid-template-columns: 1fr;
+	}
 }
 </style>
 `;
