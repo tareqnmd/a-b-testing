@@ -14,6 +14,7 @@ const style = `
 	line-height: 24px;
 	letter-spacing: 0em;
 	text-align: center;
+	margin-bottom: 20px;
 }
 .fsa-stylist{
 	border-radius: 8px;
