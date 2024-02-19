@@ -155,6 +155,9 @@ const style = `
 	width: 40px;
 	height: 40px;
 }
+.how-work-type > svg g{
+	fill: transparent;
+}
 @media only screen and (min-width:768px){
 	.fsa-stylist{
 		grid-template-columns: 1fr 1fr;
