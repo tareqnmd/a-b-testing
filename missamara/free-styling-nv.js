@@ -68,7 +68,7 @@ const style = `
 	background: #E0EEF2;
 	padding: 10px;
 	display: grid;
-	grid-template-columns: 75px 4fr;
+	grid-template-columns: 75px 1fr;
 	gap: 10px;
 	border-radius: 8px;
 	margin-top: 20px;
@@ -117,6 +117,13 @@ const style = `
 @media only screen and (min-width:768px){
 	.fsa-stylist{
 		grid-template-columns: 1fr 1fr;
+	}
+	.call-now{
+		grid-template-columns: 75px 1fr 1fr;
+		align-items: center;
+	}
+	.call-now a{
+		margin-left: auto;
 	}
 }
 </style>
