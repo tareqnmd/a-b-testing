@@ -158,6 +158,40 @@ const style = `
 .how-work-type > svg g{
 	fill: transparent;
 }
+.our-stylist{
+	background: #FBE6E3;
+	margin-bottom: 20px;
+	border-radius: 8px;
+	padding: 20px;
+}
+.our-stylist .header-info{
+	font-family: Cardo;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 22px;
+	letter-spacing: 0em;
+	text-align: center;
+	margin-bottom: 20px;
+}
+.our-stylist-wrapper{
+	width:100%;
+	overflow: auto;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+.our-stylist-wrapper::-webkit-scrollbar {
+	display: none;
+}
+.stylist-features{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap:20px;
+	width: max-content;
+}
+.stylist-feature{
+	border: 1px solid #000000;
+}
 @media only screen and (min-width:768px){
 	.fsa-stylist{
 		grid-template-columns: 1fr 1fr;
@@ -182,6 +216,12 @@ const style = `
 }
 </style>
 `;
+const stylist_features = [
+	'https://i.ibb.co/Zft1sBS/int-add-removebg-preview.png',
+	'https://i.ibb.co/4fkSjQN/aus-who-removebg-preview.png',
+	'https://i.ibb.co/5vQfWxk/daily-mail-removebg-preview.png',
+	'https://i.ibb.co/CvsgZ8F/idea-removebg-preview.png',
+];
 const how_work_types = [
 	{
 		svg: `
@@ -311,6 +351,16 @@ const top_elms = `
 				)
 				.join('')}
 		</div>
+	</div>
+	<div class="our-stylist">
+		<h4 class="header-info">Our Stylists have been feautured in</h4>
+		<div class="our-stylist-wrapper">
+			<div class="stylist-features">
+				${stylist_features
+					.map((item) => `<img src="${item}" class="stylist-feature">`)
+					.join('')}
+			</div>
+		</div>	
 	</div>
 </div>
 `;
