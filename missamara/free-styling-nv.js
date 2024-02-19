@@ -25,6 +25,7 @@ const style = `
 .fsa-stylist-content{
 	display: grid;
     place-content: center;
+	gap: 6px;
 }
 .fsa-stylist-content h6{
 	font-family: Cardo;
@@ -45,16 +46,24 @@ const style = `
 .fsa-stylist-content a{
 	display: flex;
     align-items: center;
-	padding: 16px, 36px, 16px, 36px;
+	padding:6px 16px;
 	border-radius: 28px;
-	gap: 10px;
 	background: #000000;
+	gap: 10px;
+	margin:auto;
+	width: max-content;
+}
+.fsa-stylist-content span{
 	font-family: Inter;
 	font-size: 16px;
 	font-weight: 600;
 	line-height: 19px;
 	letter-spacing: 0em;
 	text-align: center;
+	color:white;
+}
+.fsa-stylist-content svg{
+	width: 12px;
 }
 </style>
 `;
