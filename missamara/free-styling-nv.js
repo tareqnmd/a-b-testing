@@ -147,7 +147,7 @@ const top_elms = `
 	<img src="https://cdn.shopify.com/s/files/1/2594/4244/files/Banner_a5c7ca34-7474-4448-8a00-3d710be42620.png?v=1692676935">
 	<div class="fsa-stylist-content">
 		<h6 class="small-header">Need Help Choosing a Rug?</h6>
-		<strong>Our Interior Experts will help you find your perfect rug.</strong>
+		<small>Our Interior Experts will help you find your perfect rug.</small>
 		<a href="#free-styling-form-wrapper">
 		<span>Get Free Styling Now</span>
 		<svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
