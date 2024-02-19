@@ -117,6 +117,46 @@ const style = `
 .fsa-team-img{
 	margin-top: 20px;
 }
+.how-work{
+	margin-top: 20px;
+}
+.how-work .header-info{
+	font-family: Cardo;
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 32px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+.how-work-types{
+	display: grid;
+	grid-template-rows: 1fr;
+	gap: 20px;
+}
+.how-work-type{
+	display: grid;
+	grid-template-columns: 40px 1fr;
+	gap: 10px;
+}
+.how-work-type strong{
+	font-family: Inter;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 24px;
+	color: #333333;
+}
+.how-work-type small{
+	font-family: Inter;
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 17px;
+	color: #333333;
+}
+.how-work-type > svg{
+	grid-row: span 2;
+	width: 40px;
+	height: 40px;
+}
 @media only screen and (min-width:768px){
 	.fsa-stylist{
 		grid-template-columns: 1fr 1fr;
@@ -130,6 +170,9 @@ const style = `
 	}
 	.call-now > svg{
 		grid-row: auto;
+	}
+	.how-work-types{
+		grid-template-rows: 1fr 1fr 1fr;
 	}
 }
 </style>
@@ -251,18 +294,18 @@ const top_elms = `
 		</picture>
 	</div>
 	<div class="how-work">
-	<h4 class="header-info">How does it work?</h4>
-	<div class="how-work-types">
-		${how_work_types
-			.map(
-				(item) => `	<div class="how-work-type">
-							${item.svg}
-							${item.strong}
-							${item.small}
-						</div>`
-			)
-			.join(',')}
-	</div>
+		<h4 class="header-info">How does it work?</h4>
+		<div class="how-work-types">
+			${how_work_types
+				.map(
+					(item) => `	<div class="how-work-type">
+								${item.svg}
+								${item.strong}
+								${item.small}
+							</div>`
+				)
+				.join(',')}
+		</div>
 	</div>
 </div>
 `;
