@@ -3,7 +3,11 @@ const style = `
 #shopify-section-featured-blogs-section, .user-content.row-spacing.lightboximages, .appointment-wrapper{
 	display: none!important;
 }
-.free-styling-form-wrapper .free-styling-container{
+#shopify-section-free-styling-form {
+	border-radius: 8px;
+    overflow: hidden;
+}
+#free-styling-form-wrapper .free-styling-container{
 	padding: 20px;
 	margin-top: 20px;
 	margin-bottom: 0px;
@@ -171,7 +175,7 @@ const style = `
 }
 .our-stylist{
 	background: #FBE6E3;
-	margin-bottom: 20px;
+	margin: 20px 0;
 	border-radius: 8px;
 	padding: 20px;
 }
