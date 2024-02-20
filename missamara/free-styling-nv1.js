@@ -371,7 +371,7 @@ const style = `
 	#service-and-advice{
 		background: #F2F4F6;
 		border-radius: 8px;
-		padding: 20px 0 60px;
+		padding: 20px 20px 50px;
 	}
 	.service-and-advice-carousel{
 		padding: 20px;
@@ -381,11 +381,11 @@ const style = `
 	}
 	.service-and-advice-carousel .slick-prev{
 		left: calc(50% - 60px)!important;
-		top: calc(100% + 10px)!important;
+		top: calc(100% + 15px)!important;
 	}
 	.service-and-advice-carousel .slick-next{
 		right: calc(50% - 50px)!important;
-		top: calc(100% + 10px)!important;
+		top: calc(100% + 15px)!important;
 	}
 	@media only screen and (min-width: 768px) {
 		.fsa-stylist {
