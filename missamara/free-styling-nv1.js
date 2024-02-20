@@ -287,6 +287,9 @@ const style = `
 		margin: 0;
 		margin-bottom: 10px !important;
 	}
+	.half-width-field half-width-field-second{
+		margin-top: 20px !important;
+	}
 	.form-third-row-content .half-width-field.half-width-field-second {
 		width: 50% !important;
 	}
