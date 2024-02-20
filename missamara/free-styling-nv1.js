@@ -342,6 +342,51 @@ const style = `
 		.free-styling-inputs-radio-wrapper:nth-child(6) {
 		display: none;
 	}
+	.advice-sub-header{
+		font-family: Cardo;
+		font-size: 24px;
+		font-weight: 700;
+		line-height: 32px;
+		text-align: center;
+		color: #000000;
+	}
+	.advice-before-after{
+		font-family: Just Another Hand;
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 16px;
+		letter-spacing: 0em;
+		text-align: center;
+		display: block;
+		padding: 4px;
+		background: #fff;
+		color: #333333;
+	}
+	.service-and-advice-image-before, .service-and-advice-image-after{
+		box-shadow: 0px 4px 4px 0px #00000014;
+		border: 4px solid #FFFFFF!important;
+		border-radius: 8px;
+		border: 4px;
+	}
+	#service-and-advice{
+		background: #F2F4F6;
+		border-radius: 8px;
+		padding: 20px 0 60px;
+	}
+	.service-and-advice-carousel{
+		padding: 20px;
+	}
+	.service-and-advice-text-container {
+		padding: 0;
+	}
+	.service-and-advice-carousel .slick-prev{
+		left: calc(50% - 60px)!important;
+		top: calc(100% + 10px)!important;
+	}
+	.service-and-advice-carousel .slick-next{
+		right: calc(50% - 50px)!important;
+		top: calc(100% + 10px)!important;
+	}
 	@media only screen and (min-width: 768px) {
 		.fsa-stylist {
 			grid-template-columns: 1fr 1fr;
@@ -592,3 +637,29 @@ const placeInt = setInterval(() => {
 	}
 }, 10);
 
+const adviceHeader = `<h3 class="advice-sub-header">Finished Customer Spaces</h3>`;
+const adviceBeforeAfter = (text) => `<span class="advice-before-after">${text}</span>`;
+const adviceInt = setInterval(() => {
+	const advice = document.querySelector(
+		'.service-and-advice-container.container'
+	);
+	const after = [...advice.querySelectorAll('.service-and-advice-image-after')];
+	const before = [
+		...advice.querySelectorAll('.service-and-advice-image-before'),
+	];
+	if (
+		advice &&
+		after.length > 0 &&
+		before.length > 0 &&
+		!document.querySelector('.advice-before-after')
+	) {
+		advice.insertAdjacentHTML('beforebegin', adviceHeader);
+		after.map((item) => {
+			item.insertAdjacentHTML('beforeend', adviceBeforeAfter('After'));
+		});
+		before.map((item) => {
+			item.insertAdjacentHTML('beforeend', adviceBeforeAfter('Before'));
+		});
+		clearInterval(adviceInt);
+	}
+}, 10);
