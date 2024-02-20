@@ -290,13 +290,6 @@ const style = `
 	.half-width-field half-width-field-second{
 		margin-top: 20px !important;
 	}
-	.form-third-row-content .half-width-field.half-width-field-second {
-		width: 50% !important;
-	}
-
-	.form-third-row-content .half-width-field.half-width-field-first {
-		width: 50% !important;
-	}
 	.custom-file-upload {
 		width: 100% !important;
 	}
@@ -313,9 +306,6 @@ const style = `
 		border-radius: 12px;
 		outline: 3px solid #f4ac96 !important;
 		transform: scale(1) !important;
-	}
-	.free-styling-inputs-checkbox-wrapper {
-		width: 50% !important;
 	}
 	.free-styling-inputs-content {
 		height: 100%;
@@ -372,6 +362,11 @@ const style = `
 		.how-work-type {
 			gap: 2px 10px;
 			place-content: flex-start;
+		}
+		.form-third-row-content .half-width-field.half-width-field-first,
+		.form-third-row-content .half-width-field.half-width-field-second,
+		.free-styling-inputs-checkbox-wrapper {
+			width: 50% !important; 
 		}
 	}
 </style>
