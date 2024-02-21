@@ -54,6 +54,12 @@ const style = `
         gap: 10px;
     }
     .new-header img{
+        width: 100%;
+    }
+    .header-info{
+        display: grid;
+        gap: 10px;
+        padding: 20px;
     }
     .new-header .rev{
         display: flex;
@@ -87,30 +93,32 @@ const style = `
 const new_elm_html = `
 <div class="new-elm new-header">
     <img src="https://www.travx.nl/cdn/shop/files/MOBILE_IMAGE_360x.png" alt="" />
-    <div className="rev">
+    <div class="rev">
         <span>4.9/5</span>
         ${star_svg}
         <span>(1286 reviews)</span>
     </div>
-    <div className="top-info">
-        <h3>BEST AIRSTYLER YOU CAN GET</h3>
-        <p>We’ve got the best Airstyler for your Hair</p>
-        <ul>
-            <li>
-                ${check_svg}
-                <span>We’ve got the best Airstyler</span>
-            </li>
-            <li>
-                ${check_svg}
-                <span>Ypoinanceex perience</span>
-            </li>
-            <li>
-                ${check_svg}
-                <span>Financeex perience and encrypt</span>
-            </li>
-        </ul>
+    <div class="header-info">
+        <div class="top-info">
+            <h3>BEST AIRSTYLER YOU CAN GET</h3>
+            <p>We’ve got the best Airstyler for your Hair</p>
+            <ul>
+                <li>
+                    ${check_svg}
+                    <span>We’ve got the best Airstyler</span>
+                </li>
+                <li>
+                    ${check_svg}
+                    <span>Ypoinanceex perience</span>
+                </li>
+                <li>
+                    ${check_svg}
+                    <span>Financeex perience and encrypt</span>
+                </li>
+            </ul>
+        </div>
+        <a href="">SHOP NOW SALE</a>
     </div>
-    <a href="">SHOP NOW SALE</a>
 </div>
 `;
 
