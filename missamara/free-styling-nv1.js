@@ -174,10 +174,9 @@ const style = `
 	}
 	.our-stylist .header-info {
 		font-family: Cardo;
-		font-size: 16px;
+		font-size: 24px;
 		font-weight: 700;
-		line-height: 22px;
-		letter-spacing: 0em;
+		line-height: 32px;
 		text-align: center;
 		margin-bottom: 20px;
 	}
