@@ -48,44 +48,97 @@ const star_svg = `
 const style = `
 <style>
     .new-header{
-        margin: 0;
-        padding: 0;
-        display: grid;
-        gap: 10px;
+        display: none;
     }
-    .new-header img{
-        width: 100%;
-    }
-    .header-info{
-        display: grid;
-        gap: 10px;
-        padding: 20px;
-    }
-    .new-header .rev{
-        display: flex;
-        align-items: center;
-        gap: 4px;
-    }
-    .new-header .rev span{
-    }
-    .new-header .top-info{
-        display: grid;
-        gap: 10px;
-    }
-    .new-header .top-info h3{
-    }
-    .new-header .top-info p{
-    }
-    .new-header .top-info ul{
-    }
-    .new-header .top-info li{
-        display: flex;
-        align-items: center;
-        gap: 4px;
-    }
-    .new-header .top-info li span{
-    }
-    .new-header a{
+    @media only screen and (max-width:480px){
+        .shopify-section.index-section--hero{
+            display: none;
+        }
+        .new-header *{
+            margin: 0;
+            padding: 0;
+        }
+        .new-header{
+            display: grid;
+            gap: 10px;
+        }
+        .new-header img{
+            width: 100%;
+        }
+        .header-info{
+            display: grid;
+            gap: 10px;
+            padding: 20px;
+        }
+        .new-header .rev{
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .new-header .rev strong{
+            color: #D1A333;
+            font-family: Montserrat;
+            font-size: 16px;
+            line-height: normal;
+            font-weight: 800!important;
+        }
+        .new-header .rev svg path{
+            fill: black;
+        }
+        .new-header .rev span{
+            color: #D1A333;
+            font-size: 14px;
+            font-weight: 400;
+        }
+        .new-header .top-info{
+            display: grid;
+            gap: 10px;
+        }
+        .new-header .top-info h3{
+            font-family: Montserrat;
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 32px;
+            letter-spacing: 0.04em;
+            text-align: left;
+            color: #000000;
+        }
+        .new-header .top-info p{
+            font-family: Montserrat;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 24px;
+            letter-spacing: 0em;
+            text-align: left;
+            color: #3B3B3B;
+        }
+        .new-header .top-info ul{
+            margin: 0;
+        }
+        .new-header .top-info li{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-left: 16px;
+        }
+        .new-header .top-info li span{
+            font-family: Montserrat;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 24px;
+            color: #3B3B3B;
+        }
+        .new-header a{
+            background: #E7B56A;
+            padding: 12px;
+            border-radius: 40px;
+            font-family: Montserrat;
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+            text-align: center;
+            margin-top: 10px;
+        }
     }
 </style>
 `;
@@ -93,12 +146,12 @@ const style = `
 const new_elm_html = `
 <div class="new-elm new-header">
     <img src="https://www.travx.nl/cdn/shop/files/MOBILE_IMAGE_360x.png" alt="" />
-    <div class="rev">
-        <span>4.9/5</span>
-        ${star_svg}
-        <span>(1286 reviews)</span>
-    </div>
     <div class="header-info">
+        <div class="rev">
+            <strong>4.9/5</strong>
+            ${star_svg}
+            <span>(1286 reviews)</span>
+        </div>
         <div class="top-info">
             <h3>BEST AIRSTYLER YOU CAN GET</h3>
             <p>We’ve got the best Airstyler for your Hair</p>
