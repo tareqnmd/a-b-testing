@@ -67,7 +67,7 @@ const style = `
         }
         .header-info{
             display: grid;
-            gap: 10px;
+            gap: 14px;
             padding: 20px;
         }
         .new-header .rev{

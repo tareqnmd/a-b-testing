@@ -10,11 +10,11 @@ const check_svg = `
 		width="16"
 		height="16"
 		rx="8"
-		fill="black"
+		fill="#FDFDFF"
 	/>
 	<path
 		d="M4.75 7.6L6.75 10L11.25 6"
-		stroke="white"
+		stroke="#061A4E"
 		stroke-width="2"
 	/>
 </svg>
@@ -74,7 +74,10 @@ const style = `
         .header-info{
             display: grid;
             gap: 14px;
+            margin: 20px;
+            background: #061A4E;
             padding: 20px;
+            border-radius: 12px;
         }
         .new-header .rev{
             display: flex;
@@ -83,17 +86,17 @@ const style = `
             gap: 4px;
         }
         .new-header .rev strong{
-            color: #000;
+            color: #fff;
             font-family: Montserrat;
             font-size: 16px;
             line-height: normal;
             font-weight: 800!important;
         }
         .new-header .rev svg path{
-            fill: #FF437A;
+            fill: #FF904E;
         }
         .new-header .rev span{
-            color: #000;
+            color: #fff;
             font-size: 14px;
             font-weight: 400;
         }
@@ -102,13 +105,11 @@ const style = `
             gap: 10px;
         }
         .new-header .top-info h3{
-            font-family: Marcellus;
-            font-size: 36px;
-            font-weight: 700;
-            line-height: 48px;
-            letter-spacing: 0.04em;
-            text-align: left;
-            color: #000000;
+            font-family: Livvic;
+            font-size: 32px;
+            font-weight: 500;
+            line-height: 40px;
+            color: #fff;
         }
         .new-header .top-info p{
             font-family: Montserrat;
@@ -117,7 +118,7 @@ const style = `
             line-height: 24px;
             letter-spacing: 0em;
             text-align: left;
-            color: #3B3B3B;
+            color: #fff;
         }
         .new-header .top-info ul{
             margin: 0;
@@ -133,15 +134,16 @@ const style = `
             font-size: 14px;
             font-weight: 500;
             line-height: 24px;
-            color: #3B3B3B;
+            color: #fff;
         }
         .new-header a{
             background: #750E21;
             padding: 12px;
+            border-radius: 30px;
             font-family: Montserrat;
             font-size: 18px;
-            font-weight: 400;
-            color: white;
+            font-weight: 600;
+            color: #000;
             text-align: center;
         }
     }
