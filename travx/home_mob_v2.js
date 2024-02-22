@@ -1,14 +1,20 @@
 const check_svg = `
 <svg
-	width="11"
-	height="9"
-	viewBox="0 0 11 9"
+	width="16"
+	height="16"
+	viewBox="0 0 16 16"
 	fill="none"
 	xmlns="http://www.w3.org/2000/svg"
 >
+	<rect
+		width="16"
+		height="16"
+		rx="8"
+		fill="black"
+	/>
 	<path
-		d="M1.75 3.4L4.36538 7L10.25 1"
-		stroke="black"
+		d="M4.75 7.6L6.75 10L11.25 6"
+		stroke="white"
 		stroke-width="2"
 	/>
 </svg>
@@ -73,20 +79,21 @@ const style = `
         .new-header .rev{
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 4px;
         }
         .new-header .rev strong{
-            color: #D1A333;
+            color: #000;
             font-family: Montserrat;
             font-size: 16px;
             line-height: normal;
             font-weight: 800!important;
         }
         .new-header .rev svg path{
-            fill: black;
+            fill: #FF437A;
         }
         .new-header .rev span{
-            color: #D1A333;
+            color: #000;
             font-size: 14px;
             font-weight: 400;
         }
@@ -95,10 +102,10 @@ const style = `
             gap: 10px;
         }
         .new-header .top-info h3{
-            font-family: Montserrat;
-            font-size: 24px;
+            font-family: Marcellus;
+            font-size: 36px;
             font-weight: 700;
-            line-height: 32px;
+            line-height: 48px;
             letter-spacing: 0.04em;
             text-align: left;
             color: #000000;
@@ -124,19 +131,19 @@ const style = `
         .new-header .top-info li span{
             font-family: Montserrat;
             font-size: 14px;
-            font-weight: 600;
+            font-weight: 500;
             line-height: 24px;
             color: #3B3B3B;
         }
         .new-header a{
-            background: #E7B56A;
+            background: #B80000;
             padding: 12px;
-            border-radius: 40px;
             font-family: Montserrat;
             font-size: 20px;
             font-weight: 700;
             color: white;
             text-align: center;
+            margin-top: 10px;
         }
     }
 </style>
@@ -146,11 +153,6 @@ const new_elm_html = `
 <div class="new-elm new-header">
     <img src="https://www.travx.nl/cdn/shop/files/MOBILE_IMAGE_360x.png" alt="" />
     <div class="header-info">
-        <div class="rev">
-            <strong>4.9/5</strong>
-            ${star_svg}
-            <span>(1286 reviews)</span>
-        </div>
         <div class="top-info">
             <h3>BEST AIRSTYLER YOU CAN GET</h3>
             <p>We’ve got the best Airstyler for your Hair</p>
@@ -169,7 +171,12 @@ const new_elm_html = `
                 </li>
             </ul>
         </div>
-        <a href="/collections/best-seller">SHOP NOW SALE</a>
+        <a href="/collections/best-seller">SHOP NOW</a>
+        <div class="rev">
+            <strong>4.9/5</strong>
+            ${star_svg}
+            <span>(1286 reviews)</span>
+        </div>
     </div>
 </div>
 `;
