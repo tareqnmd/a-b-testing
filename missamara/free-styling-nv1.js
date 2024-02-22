@@ -9,6 +9,9 @@ const style = `
 		margin: 0;
 		padding: 0;
 	}
+	.free-styling-form-description-text{
+		margin-bottom: 6px;
+	}
 	.new-free-style svg {
 		fill: transparent;
 	}
@@ -197,6 +200,7 @@ const style = `
 	}
 	.stylist-feature {
 		border: 1px solid #000000;
+		max-width: 160px;
 	}
 	#free-styling-form-wrapper {
 		background: none !important;
@@ -420,6 +424,12 @@ const style = `
 const stylist_features = [
 	'https://i.ibb.co/Zft1sBS/int-add-removebg-preview.png',
 	'https://i.ibb.co/4fkSjQN/aus-who-removebg-preview.png',
+	'//missamara.com.au/cdn/shop/files/Harper_s_Bazaar_Logo_680x.png?v=1675228863',
+	'//missamara.com.au/cdn/shop/files/InStyle_Logo_680x.png?v=1675228911',
+	'//missamara.com.au/cdn/shop/files/home-beautiful-logo_680x_680x_68374462-9d59-41b0-9021-d5e2865b202c_680x.webp?v=1657787464',
+	'//missamara.com.au/cdn/shop/files/Vogue_Logo_680x.png?v=1675228945',
+	'//missamara.com.au/cdn/shop/files/real-living_680x_680x_0854b2ca-f732-4449-a74d-ed73f375a727_680x.webp?v=1657787508',
+	'//missamara.com.au/cdn/shop/files/elle-logo_400x_200x_680x_4c6366d5-1f02-48c5-9149-0e8f96af092b_680x.webp?v=1657787446',
 	'https://i.ibb.co/5vQfWxk/daily-mail-removebg-preview.png',
 	'https://i.ibb.co/CvsgZ8F/idea-removebg-preview.png',
 ];
@@ -615,6 +625,9 @@ const placeInt = setInterval(() => {
 	const freeStyleThirdInput = formStyle.querySelector(
 		'.free-styling-inputs-content span:nth-of-type(2)'
 	);
+	const form_des = document.querySelector(
+		'#free-styling-form .free-styling-form-text-container > .free-styling-form-description-text'
+	);
 	if (
 		service_advice &&
 		our_stylist &&
@@ -625,6 +638,7 @@ const placeInt = setInterval(() => {
 		freeStyleConcern &&
 		freeStyleThird &&
 		freeStyleThirdCheckbox &&
+		form_des &&
 		freeStyleThirdInput
 	) {
 		formStyle.insertAdjacentElement('afterbegin', freeStyleType);
@@ -633,12 +647,15 @@ const placeInt = setInterval(() => {
 		freeStyleThirdInput.innerHTML = fileUpload;
 		our_stylist.insertAdjacentElement('beforebegin', style_form);
 		our_stylist.insertAdjacentElement('afterend', service_advice);
+		form_des.innerHTML =
+			'Fill out your details and our talented stylists will be in touch with their expert recommendations - no strings attached!';
 		clearInterval(placeInt);
 	}
 }, 10);
 
 const adviceHeader = `<h3 class="advice-sub-header">Finished Customer Spaces</h3>`;
-const adviceBeforeAfter = (text) => `<span class="advice-before-after">${text}</span>`;
+const adviceBeforeAfter = (text) =>
+	`<span class="advice-before-after">${text}</span>`;
 const adviceInt = setInterval(() => {
 	const advice = document.querySelector(
 		'.service-and-advice-container.container'
