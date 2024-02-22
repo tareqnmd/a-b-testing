@@ -137,7 +137,7 @@ const style = `
             color: #fff;
         }
         .new-header a{
-            background: #750E21;
+            background: #FFED8F;
             padding: 12px;
             border-radius: 30px;
             font-family: Montserrat;
