@@ -136,14 +136,13 @@ const style = `
             color: #3B3B3B;
         }
         .new-header a{
-            background: #B80000;
+            background: #750E21;
             padding: 12px;
             font-family: Montserrat;
             font-size: 20px;
             font-weight: 700;
             color: white;
             text-align: center;
-            margin-top: 10px;
         }
     }
 </style>
