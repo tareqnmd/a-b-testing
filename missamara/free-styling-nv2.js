@@ -105,7 +105,7 @@ const style = `
 		color: #333333;
 	}
 	.call-now a {
-		padding: 6px 24px;
+		padding: 6px 12px;
 		border-radius: 48px;
 		gap: 8px;
 		background: #ffffff;
@@ -124,6 +124,11 @@ const style = `
 	}
 	.fsa-team-img {
 		margin-top: 20px;
+		border-radius: 8px;
+		overflow: hidden;
+	}
+	.fsa-team-img img{
+		width: 100%;
 	}
 	.how-work {
 		margin: 20px 0;
@@ -198,6 +203,7 @@ const style = `
 		margin: auto;
 	}
 	.stylist-feature {
+		border: 1px solid #000000;
 		max-width: 160px;
 	}
 	#free-styling-form-wrapper {
@@ -389,16 +395,43 @@ const style = `
 		right: calc(50% - 50px)!important;
 		top: calc(100% + 15px)!important;
 	}
+	.free-styling-inputs-file-wrapper{
+		margin-bottom: 10px;
+	}
 	@media only screen and (min-width: 768px) {
+		.free-styling-inputs-file-wrapper{
+			margin-bottom: 0px;
+		}
 		.fsa-stylist {
 			grid-template-columns: 1fr 1fr;
+		}
+		.fsa-stylist-content h6 {
+			font-size: 24px;
+			line-height: 30px;
+		}
+		.fsa-stylist-content small {
+			font-size: 16px;
+			line-height: 20px;
 		}
 		.call-now {
 			grid-template-columns: 75px 1fr 1fr;
 			align-items: center;
 		}
+		.call-now-info span {
+			font-size: 18px;
+			line-height: 20px;
+		}
+		.call-now-info small {
+			font-size: 14px;
+			line-height: 16px;
+		}
 		.call-now a {
+			padding: 6px 24px;
+			gap: 10px;
 			margin-left: auto;
+		}
+		.call-now-info a span {
+			font-size: 18px;
 		}
 		.call-now > svg {
 			grid-row: auto;
@@ -420,16 +453,12 @@ const style = `
 
 `;
 const stylist_features = [
-	'https://i.ibb.co/Zft1sBS/int-add-removebg-preview.png',
-	'https://i.ibb.co/4fkSjQN/aus-who-removebg-preview.png',
 	'//missamara.com.au/cdn/shop/files/Harper_s_Bazaar_Logo_680x.png?v=1675228863',
 	'//missamara.com.au/cdn/shop/files/InStyle_Logo_680x.png?v=1675228911',
 	'//missamara.com.au/cdn/shop/files/home-beautiful-logo_680x_680x_68374462-9d59-41b0-9021-d5e2865b202c_680x.webp?v=1657787464',
 	'//missamara.com.au/cdn/shop/files/Vogue_Logo_680x.png?v=1675228945',
 	'//missamara.com.au/cdn/shop/files/real-living_680x_680x_0854b2ca-f732-4449-a74d-ed73f375a727_680x.webp?v=1657787508',
 	'//missamara.com.au/cdn/shop/files/elle-logo_400x_200x_680x_4c6366d5-1f02-48c5-9149-0e8f96af092b_680x.webp?v=1657787446',
-	'https://i.ibb.co/5vQfWxk/daily-mail-removebg-preview.png',
-	'https://i.ibb.co/CvsgZ8F/idea-removebg-preview.png',
 ];
 const how_work_types = [
 	{
@@ -557,8 +586,8 @@ const top_elms = `
 	</div>
 	<div class="fsa-team-img">
 		<picture class="header-img">
-			<source media="(min-width: 991px)" srcset="https://cdn.shopify.com/s/files/1/2594/4244/files/Free_Style_Page_Banner.png">
-			<img src="https://cdn.shopify.com/s/files/1/2594/4244/files/Free_Style_Page_Banner.png">
+			<source media="(min-width: 991px)" srcset="https://cdn.shopify.com/s/files/1/2594/4244/files/Styling_Team_Possible_Layouts.png?v=1707800826">
+			<img src="https://cdn.shopify.com/s/files/1/2594/4244/files/Styling_Team_Possible_Layouts.png?v=1707800826">
 		</picture>
 	</div>
 	<div class="how-work">
@@ -626,6 +655,7 @@ const placeInt = setInterval(() => {
 	const form_des = document.querySelector(
 		'#free-styling-form .free-styling-form-text-container > .free-styling-form-description-text'
 	);
+	const fs_req = document.querySelector('#fs-requirement');
 	if (
 		service_advice &&
 		our_stylist &&
@@ -637,6 +667,7 @@ const placeInt = setInterval(() => {
 		freeStyleThird &&
 		freeStyleThirdCheckbox &&
 		form_des &&
+		fs_req &&
 		freeStyleThirdInput
 	) {
 		formStyle.insertAdjacentElement('afterbegin', freeStyleType);
@@ -645,6 +676,7 @@ const placeInt = setInterval(() => {
 		freeStyleThirdInput.innerHTML = fileUpload;
 		our_stylist.insertAdjacentElement('beforebegin', style_form);
 		our_stylist.insertAdjacentElement('afterend', service_advice);
+		fs_req.placeholder = '';
 		form_des.innerHTML =
 			'Fill out your details and our talented stylists will be in touch with their expert recommendations - no strings attached!';
 		clearInterval(placeInt);
