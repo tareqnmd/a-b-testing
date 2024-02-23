@@ -2,8 +2,11 @@ const style = `
 <style>
 	#shopify-section-featured-blogs-section,
 	.user-content.row-spacing.lightboximages,
-	.appointment-wrapper {
+	.appointment-wrapper,#store-messages {
 		display: none !important;
+	}
+	.majortitle{
+		margin: 0!important;
 	}
 	.new-free-style * {
 		margin: 0;
@@ -203,7 +206,6 @@ const style = `
 		margin: auto;
 	}
 	.stylist-feature {
-		border: 1px solid #000000;
 		max-width: 160px;
 	}
 	#free-styling-form-wrapper {

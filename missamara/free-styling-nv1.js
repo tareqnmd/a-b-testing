@@ -2,8 +2,11 @@ const style = `
 <style>
 	#shopify-section-featured-blogs-section,
 	.user-content.row-spacing.lightboximages,
-	.appointment-wrapper {
+	.appointment-wrapper,#store-messages {
 		display: none !important;
+	}
+	.majortitle{
+		margin: 0!important;
 	}
 	.new-free-style * {
 		margin: 0;
