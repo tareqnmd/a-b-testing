@@ -1,20 +1,40 @@
 const style = `
 <style>
     .new-usps-area{
-        
+        margin-bottom: 0;
+    }
+    .new-usps-area .header-info{
+        position: relative;
     }
     .new-usps-area h3{
         font-family: Montserrat;
-        font-size: 28px;
+        font-size: 20px;
         font-weight: 600;
-        line-height: 34px;
+        line-height: 30px;
         text-align: center;
+        position: relative;
+        z-index: 10;
+        width: max-content;
+        max-width: 100%;
+        margin: 24px auto 16px;
         color: #141414;
+        background: white;
+        padding: 0 6px;
+    }
+    .new-usps-area .header-info span{
+        content: '';
+        position: absolute;
+        display: block;
+        width: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 9;
+        border-bottom: 1px solid #484848;
     }
     .new-usps-area .new-usps{
         display: grid;
-        gap:20px;
-        grid-template-columns: repeat(3, 1fr);
+        gap:10px;
+        grid-template-columns: repeat(1, 1fr);
     }
     .new-usps-area .new-usps .new-usp{
         display: grid;
@@ -36,6 +56,21 @@ const style = `
         font-weight: 500;
         line-height: 20px;
         color: #707070;
+    }
+    @media only screen and (min-width:768px){
+        .new-usps-area .new-usps{
+            gap:20px;
+            grid-template-columns: repeat(3, 1fr);
+        }
+        .new-usps-area h3{
+            font-size: 28px;
+            line-height: 34px;
+            padding: 0 20px;
+            margin: 32px auto 24px;
+        }
+        .new-usps-area{
+            margin-bottom :20px;
+        }
     }
 </style>
 `;
@@ -145,7 +180,10 @@ const return_icon = `
 
 const new_elm_html = `
 <div class="new-elm new-usps-area">
-    <h3>WHY 100,000+ CUSTOMERS LOVE TRAVX.</h3>
+    <div class="header-info">
+        <h3>WHY 100,000+ CUSTOMERS LOVE TRAVX.</h3>
+        <span></span>
+    </div>
     <div class="new-usps">
         <div class="new-usp">
             ${car_icon}
