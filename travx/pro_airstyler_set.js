@@ -99,6 +99,12 @@ const style = `
         background: #1F1F1F;
         border: none;
     }
+    .btn.btn--full.add-to-cart span{
+        font-family: Montserrat;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 20px;
+    }
     .product-block.product-block--price{
         display: flex;
         align-items: center;
