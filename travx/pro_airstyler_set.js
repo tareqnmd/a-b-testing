@@ -111,6 +111,26 @@ const style = `
         font-size: 16px;
         font-weight: 500;
     }
+    .price-save{
+        display: flex;
+        align-items: center;
+        margin-bottom: 12px;
+        gap:10px;
+    }
+    .price-save span{
+        padding: 2px 8px 2px 8px;
+        background: #E0F4FF;
+        color: #007FC7;
+        font-family: Montserrat;
+        font-size: 16px;
+        font-weight: 600;
+    }
+    .price-save strong{
+        font-family: Montserrat;
+        font-size: 24px;
+        font-weight: 700;
+        color: #007FC7;
+    }
     @media only screen and (min-width:768px){
         .product-block.product-block--price{
             gap: 8px;
@@ -318,6 +338,21 @@ const pdp_usp_html = `
 </div>
 `;
 
+function numberOnly(string) {
+	return parseFloat(string.replace(/[^0-9\-+\.]/g, ''));
+}
+
+function currencyOnly(string) {
+	return string.replace(/[0-9,. ]/g, '');
+}
+
+const save_html = (price, currency) => `
+<div class="price-save">
+    <span>You save</span>
+    <strong>${currency}${price}</strong>
+</div>
+`;
+
 const interval = setInterval(() => {
 	const exist_elm = document.querySelector(
 		'.product-grid__container.grid.grid--product-images--partial'
@@ -330,7 +365,16 @@ const interval = setInterval(() => {
 		'.product-block.product-block--price'
 	);
 	const head = document.querySelector('head');
-	if (exist_elm && head && !document.querySelector('.new-elm')) {
+	const sale_price = price_elm.querySelector(
+		'.product__price.on-sale .money'
+	).innerText;
+	const compare_price = price_elm.querySelector(
+		'.product__price.product__price--compare .money'
+	).innerText;
+	const price = numberOnly(compare_price) - numberOnly(sale_price);
+	const currency = currencyOnly(sale_price);
+	const check = exist_elm && head && form_cart && cart_btn && price_elm;
+	if (check && !document.querySelector('.new-elm')) {
 		head.insertAdjacentHTML('beforeend', style);
 		cart_btn.insertAdjacentHTML('afterbegin', cart_icon);
 		exist_elm.insertAdjacentHTML('afterend', rev_usp_html);
@@ -339,6 +383,7 @@ const interval = setInterval(() => {
 			'beforeend',
 			'<span class="now-at">Now at</span>'
 		);
+		price_elm.insertAdjacentHTML('afterend', save_html(price, currency));
 		clearInterval(interval);
 	}
 }, 10);
