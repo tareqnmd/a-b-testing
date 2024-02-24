@@ -88,7 +88,44 @@ const style = `
         background: #1F1F1F;
         border: none;
     }
+    .product-block.product-block--price{
+        display: flex;
+        align-items: center;
+        flex-direction: row-reverse;
+        gap: 16px;
+        justify-content: flex-end;
+    }
+    .product-block.product-block--price .product__price.on-sale{
+        font-family: Montserrat;
+        font-size: 24px;
+        font-weight: 700;
+    }
+    .product-block.product-block--price .product__price.product__price--compare{
+        font-family: Montserrat;
+        font-size: 20px;
+        font-weight: 500;
+        color: #9E9E9E;
+    }
+    .now-at{
+        font-family: Montserrat;
+        font-size: 16px;
+        font-weight: 500;
+    }
     @media only screen and (min-width:768px){
+        .product-block.product-block--price{
+            gap: 8px;
+        }
+        .product-block.product-block--price .product__price.on-sale{
+            font-size: 32px;
+            line-height: 28px;
+        }
+        .product-block.product-block--price .product__price.product__price--compare{
+            font-size: 24px;
+            line-height: 28px;
+        }
+        .now-at{
+            font-size: 20px;
+        }
         .pdp-usp{
             padding: 0 8px;
             gap: 4px;
@@ -289,12 +326,19 @@ const interval = setInterval(() => {
 		'.product-single__meta > div:nth-of-type(2) > div:nth-of-type(8)'
 	);
 	const cart_btn = document.querySelector('#product-form__cart-submit');
+	const price_elm = document.querySelector(
+		'.product-block.product-block--price'
+	);
 	const head = document.querySelector('head');
 	if (exist_elm && head && !document.querySelector('.new-elm')) {
 		head.insertAdjacentHTML('beforeend', style);
 		cart_btn.insertAdjacentHTML('afterbegin', cart_icon);
 		exist_elm.insertAdjacentHTML('afterend', rev_usp_html);
 		form_cart.insertAdjacentHTML('afterend', pdp_usp_html);
+		price_elm.insertAdjacentHTML(
+			'beforeend',
+			'<span class="now-at">Now at</span>'
+		);
 		clearInterval(interval);
 	}
 }, 10);
