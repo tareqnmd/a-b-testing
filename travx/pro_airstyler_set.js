@@ -131,6 +131,27 @@ const style = `
         font-weight: 700;
         color: #007FC7;
     }
+    .rev-star {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 12px;
+        gap:10px;
+    }
+    .rev-star img{
+        width: 76px;
+        height: 28px;
+    }
+    .rev-star span{
+        color: #3B3B3B;
+        font-family: Montserrat;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 16px;
+    }
+    .rev-star svg{
+        flex-shrink: 0;
+    }
     @media only screen and (min-width:768px){
         .product-block.product-block--price{
             gap: 8px;
@@ -338,18 +359,82 @@ const pdp_usp_html = `
 </div>
 `;
 
-function numberOnly(string) {
+const numberOnly = (string) => {
 	return parseFloat(string.replace(/[^0-9\-+\.]/g, ''));
-}
+};
 
-function currencyOnly(string) {
+const currencyOnly = (string) => {
 	return string.replace(/[0-9,. ]/g, '');
-}
+};
 
 const save_html = (price, currency) => `
 <div class="price-save">
     <span>You save</span>
     <strong>${currency}${price}</strong>
+</div>
+`;
+
+const rev_star_html = `
+<div class="rev-star">
+    <img src="https://i.ibb.co/PzNMPXk/rev-user.png" alt="" />
+    <span>Over 14,000+ satisfied customers love TravX®</span>
+    <svg
+    width="88"
+    height="16"
+    viewBox="0 0 88 16"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    >
+    <rect
+        width="16"
+        height="16"
+        fill="#E48000"
+    />
+    <path
+        d="M8 3L9.46065 5.98959L12.7553 6.45492L10.3634 8.76791L10.9389 12.0451L8 10.485L5.06107 12.0451L5.63662 8.76791L3.24472 6.45492L6.53935 5.98959L8 3Z"
+        fill="white"
+    />
+    <rect
+        width="16"
+        height="16"
+        transform="translate(18)"
+        fill="#E48000"
+    />
+    <path
+        d="M26 3L27.4606 5.98959L30.7553 6.45492L28.3634 8.76791L28.9389 12.0451L26 10.485L23.0611 12.0451L23.6366 8.76791L21.2447 6.45492L24.5394 5.98959L26 3Z"
+        fill="white"
+    />
+    <rect
+        width="16"
+        height="16"
+        transform="translate(36)"
+        fill="#E48000"
+    />
+    <path
+        d="M44 3L45.4606 5.98959L48.7553 6.45492L46.3634 8.76791L46.9389 12.0451L44 10.485L41.0611 12.0451L41.6366 8.76791L39.2447 6.45492L42.5394 5.98959L44 3Z"
+        fill="white"
+    />
+    <rect
+        width="16"
+        height="16"
+        transform="translate(54)"
+        fill="#E48000"
+    />
+    <path
+        d="M62 3L63.4606 5.98959L66.7553 6.45492L64.3634 8.76791L64.9389 12.0451L62 10.485L59.0611 12.0451L59.6366 8.76791L57.2447 6.45492L60.5394 5.98959L62 3Z"
+        fill="white"
+    />
+    <rect
+        width="16"
+        height="16"
+        transform="translate(72)"
+        fill="#E48000"
+    />
+    <path
+        d="M80 3L81.4606 5.98959L84.7553 6.45492L82.3634 8.76791L82.9389 12.0451L80 10.485L77.0611 12.0451L77.6366 8.76791L75.2447 6.45492L78.5394 5.98959L80 3Z"
+        fill="white"
+    />
+    </svg>
 </div>
 `;
 
@@ -363,6 +448,9 @@ const interval = setInterval(() => {
 	const cart_btn = document.querySelector('#product-form__cart-submit');
 	const price_elm = document.querySelector(
 		'.product-block.product-block--price'
+	);
+	const header = document.querySelector(
+		'.product-block.product-block--header.product-single__header'
 	);
 	const head = document.querySelector('head');
 	const sale_price = price_elm.querySelector(
@@ -384,6 +472,7 @@ const interval = setInterval(() => {
 			'<span class="now-at">Now at</span>'
 		);
 		price_elm.insertAdjacentHTML('afterend', save_html(price, currency));
+		header.insertAdjacentHTML('beforebegin', rev_star_html);
 		clearInterval(interval);
 	}
 }, 10);
