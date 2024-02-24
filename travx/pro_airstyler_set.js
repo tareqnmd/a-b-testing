@@ -3,6 +3,14 @@ const style = `
     .product-single__meta > div:nth-of-type(3) > div:nth-of-type(1),.product-block.product-block--sales-point{
         display: none !important
     }
+    .h2.product-single__title{
+        color: #3B3B3B;
+        font-family: Montserrat;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 24px;
+        margin: 16px 0;
+    }
     .new-usps-area{
         margin-bottom: 0;
     }
@@ -117,7 +125,7 @@ const style = `
     .price-save{
         display: flex;
         align-items: center;
-        margin-bottom: 12px;
+        margin: 12px 0;
         gap:10px;
     }
     .price-save span{
@@ -170,7 +178,57 @@ const style = `
         line-height: 16px;
         color: #3B3B3B;
     }
+    .user-rev{
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+        margin: 10px 0;
+    }
+    .rev-details{
+        display: grid;
+        gap: 4px;
+    }
+    .rev-details span{
+        color: #3B3B3B;
+        font-family: Montserrat;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 16px;
+    }
+    .rev-details strong{
+        font-family: Montserrat;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 16px;
+        color: #000;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+    .rev-details strong span{
+        color: #007FC7;
+        font-family: Montserrat;
+        font-size: 10px;
+        font-weight: 400;
+        line-height: 20px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+    .user-rev svg{
+        flex-shrink: 0;
+    }
     @media only screen and (min-width:768px){
+        .product-single__meta{
+            border: 1px solid #E9E9E9;
+            padding: 16px;
+            margin: 10px;
+            border-radius: 4px;
+        }
+        .h2.product-single__title{
+            font-size: 32px;
+            line-height: 34px;
+        }
         .prod-point span{
             font-size: 16px;
             line-height: 20px;
@@ -389,7 +447,7 @@ const currencyOnly = (string) => {
 	return string.replace(/[0-9,. ]/g, '');
 };
 
-const save_html_with_points = (price, currency) => `
+const save_html_with_points_and_rev = (price, currency) => `
 <div class="price-save">
     <span>You save</span>
     <strong>${currency}${price}</strong>
@@ -566,6 +624,69 @@ const save_html_with_points = (price, currency) => `
         <span>For all hair types</span>
     </div>
 </div>
+<div class="user-rev">
+    <img src="https://i.ibb.co/TmnjMfB/urev-s-rev.png" alt="" />
+    <div class="rev-details">
+        <span>En 27.358 andere houden van onze bestseller houden van onze bestseller</span>
+        <strong>Chantal Janzen 
+            <span>
+                <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 14 14"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M7 0.583374L1.75 2.91671V6.41671C1.75 9.65421 3.99 12.6817 7 13.4167C10.01 12.6817 12.25 9.65421 12.25 6.41671V2.91671L7 0.583374ZM5.83333 9.91671L3.5 7.58337L4.3225 6.76088L5.83333 8.26588L9.6775 4.42171L10.5 5.25004L5.83333 9.91671Z"
+                        fill="#007FC7"
+                    />
+                </svg>
+                Verified Buyer
+            </span>
+        </strong>
+        <svg
+            width="88"
+            height="16"
+            viewBox="0 0 88 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                d="M8 0L10.2195 4.94515L15.6085 5.52786L11.5912 9.16685L12.7023 14.4721L8 11.776L3.29772 14.4721L4.40881 9.16685L0.391548 5.52786L5.78052 4.94515L8 0Z"
+                fill="#F8A300"
+            />
+            <path
+                d="M26 0L28.2195 4.94515L33.6085 5.52786L29.5912 9.16685L30.7023 14.4721L26 11.776L21.2977 14.4721L22.4088 9.16685L18.3915 5.52786L23.7805 4.94515L26 0Z"
+                fill="#F8A300"
+            />
+            <path
+                d="M44 0L46.2195 4.94515L51.6085 5.52786L47.5912 9.16685L48.7023 14.4721L44 11.776L39.2977 14.4721L40.4088 9.16685L36.3915 5.52786L41.7805 4.94515L44 0Z"
+                fill="#F8A300"
+            />
+            <path
+                d="M62 0L64.2195 4.94515L69.6085 5.52786L65.5912 9.16685L66.7023 14.4721L62 11.776L57.2977 14.4721L58.4088 9.16685L54.3915 5.52786L59.7805 4.94515L62 0Z"
+                fill="#F8A300"
+            />
+            <path
+                d="M80 0L82.2195 4.94515L87.6085 5.52786L83.5912 9.16685L84.7023 14.4721L80 11.776L75.2977 14.4721L76.4088 9.16685L72.3915 5.52786L77.7805 4.94515L80 0Z"
+                fill="#F8A300"
+            />
+        </svg>
+    </div>
+    <svg
+        width="21"
+        height="15"
+        viewBox="0 0 21 15"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        >
+        <path
+            d="M9.22096 5.71985C9.22096 2.2179 7.1983 0 4.40227 0C1.7847 0 0 1.80934 0 4.37743C0 6.94553 1.72521 8.40467 3.86686 8.40467C4.52125 8.40467 5.05666 8.28794 5.53258 8.11284C5.53258 10.1556 3.68839 11.7315 1.13031 12.1984V15C5.88952 14.4163 9.22096 10.6226 9.22096 5.71985ZM21 5.71985C21 2.2179 18.9773 0 16.1813 0C13.5637 0 11.779 1.80934 11.779 4.37743C11.779 6.94553 13.4448 8.40467 15.5864 8.40467C16.2408 8.40467 16.7762 8.28794 17.2521 8.11284C17.2521 10.1556 15.4674 11.7315 12.9093 12.1984V15C17.6686 14.4163 21 10.6226 21 5.71985Z"
+            fill="black"
+        />
+    </svg>
+</div>
 `;
 
 const rev_star_html = `
@@ -667,7 +788,7 @@ const interval = setInterval(() => {
 		);
 		price_elm.insertAdjacentHTML(
 			'afterend',
-			save_html_with_points(price, currency)
+			save_html_with_points_and_rev(price, currency)
 		);
 		header.insertAdjacentHTML('beforebegin', rev_star_html);
 		clearInterval(interval);
