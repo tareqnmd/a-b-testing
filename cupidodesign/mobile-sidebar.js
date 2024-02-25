@@ -37,6 +37,7 @@ const style = `
     font-size: 20px;
     font-weight: 800;
     display: flex;
+    align-items: center;
   }
   .cu-rev .rev-star strong span{
     font-size: 16px;
@@ -68,7 +69,7 @@ const style = `
   .best-seller-item{
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 2px;
   }
   .best-seller-item img{
     width: 124px;
@@ -78,6 +79,7 @@ const style = `
     display: flex;
     align-items: center;
     gap: 4px;
+    padding-left: 10px;
   }
   .best-seller-item .price-area span{
     font-size: 8px;
@@ -95,39 +97,40 @@ const style = `
   .best-seller-item .name{
     font-size: 12px;
     font-weight: 300;
+    padding-left: 10px;
   }
 </style>
 `;
 
 const star_svg = `
-	<svg
-		width="50"
-		height="10"
-		viewBox="0 0 50 10"
-		fill="none"
-		xmlns="http://www.w3.org/2000/svg"
-	>
-		<path
-			d="M5 0L6.45771 2.99364L9.75528 3.45492L7.35862 5.76636L7.93893 9.04508L5 7.48L2.06107 9.04508L2.64138 5.76636L0.244718 3.45492L3.54229 2.99364L5 0Z"
-			fill="#E22727"
-		/>
-		<path
-			d="M15 0L16.4577 2.99364L19.7553 3.45492L17.3586 5.76636L17.9389 9.04508L15 7.48L12.0611 9.04508L12.6414 5.76636L10.2447 3.45492L13.5423 2.99364L15 0Z"
-			fill="#E22727"
-		/>
-		<path
-			d="M25 0L26.4577 2.99364L29.7553 3.45492L27.3586 5.76636L27.9389 9.04508L25 7.48L22.0611 9.04508L22.6414 5.76636L20.2447 3.45492L23.5423 2.99364L25 0Z"
-			fill="#E22727"
-		/>
-		<path
-			d="M35 0L36.4577 2.99364L39.7553 3.45492L37.3586 5.76636L37.9389 9.04508L35 7.48L32.0611 9.04508L32.6414 5.76636L30.2447 3.45492L33.5423 2.99364L35 0Z"
-			fill="#E22727"
-		/>
-		<path
-			d="M45 0L46.4577 2.99364L49.7553 3.45492L47.3586 5.76636L47.9389 9.04508L45 7.48L42.0611 9.04508L42.6414 5.76636L40.2447 3.45492L43.5423 2.99364L45 0Z"
-			fill="#E22727"
-		/>
-	</svg>
+<svg
+width="124"
+height="18"
+viewBox="0 0 124 18"
+fill="none"
+xmlns="http://www.w3.org/2000/svg"
+>
+<path
+    d="M13 6L14.4577 8.99364L17.7553 9.45492L15.3586 11.7664L15.9389 15.0451L13 13.48L10.0611 15.0451L10.6414 11.7664L8.24472 9.45492L11.5423 8.99364L13 6Z"
+    fill="#E22727"
+/>
+<path
+    d="M23 6L24.4577 8.99364L27.7553 9.45492L25.3586 11.7664L25.9389 15.0451L23 13.48L20.0611 15.0451L20.6414 11.7664L18.2447 9.45492L21.5423 8.99364L23 6Z"
+    fill="#E22727"
+/>
+<path
+    d="M33 6L34.4577 8.99364L37.7553 9.45492L35.3586 11.7664L35.9389 15.0451L33 13.48L30.0611 15.0451L30.6414 11.7664L28.2447 9.45492L31.5423 8.99364L33 6Z"
+    fill="#E22727"
+/>
+<path
+    d="M43 6L44.4577 8.99364L47.7553 9.45492L45.3586 11.7664L45.9389 15.0451L43 13.48L40.0611 15.0451L40.6414 11.7664L38.2447 9.45492L41.5423 8.99364L43 6Z"
+    fill="#E22727"
+/>
+<path
+    d="M53 6L54.4577 8.99364L57.7553 9.45492L55.3586 11.7664L55.9389 15.0451L53 13.48L50.0611 15.0451L50.6414 11.7664L48.2447 9.45492L51.5423 8.99364L53 6Z"
+    fill="#E22727"
+/>
+</svg>
 `;
 
 const new_elm_html = `
@@ -202,7 +205,7 @@ const new_elm_html = `
 		<h4>BEST SELLERS</h4>
 		<div class="best-seller-wrapper">
 			<div class="best-seller-items">
-				<div class="best-seller-item">
+				<a href="" class="best-seller-item">
 					<img
 						src="https://cupidodesign.com/cdn/shop/collections/Post-modern-Simplicity-Floor-Lamps-LED-Lights-Vloerlamp-Nordic-Stand-Lamp-Living-Room-Bedroom-Restaurant-E27_800x_bc482f51-c59c-48bc-8afe-ea3e2a41c599.jpg"
 						alt=""
@@ -214,8 +217,8 @@ const new_elm_html = `
 						<s>$119.00</s>
 					</div>
 					<span class="name">Floral elegance</span>
-				</div>
-                <div class="best-seller-item">
+				</a>
+                <a href="" class="best-seller-item">
 					<img
 						src="https://cupidodesign.com/cdn/shop/collections/Post-modern-Simplicity-Floor-Lamps-LED-Lights-Vloerlamp-Nordic-Stand-Lamp-Living-Room-Bedroom-Restaurant-E27_800x_bc482f51-c59c-48bc-8afe-ea3e2a41c599.jpg"
 						alt=""
@@ -227,8 +230,8 @@ const new_elm_html = `
 						<s>$119.00</s>
 					</div>
 					<span class="name">Floral elegance</span>
-				</div>
-                <div class="best-seller-item">
+				</a>
+                <a href="" class="best-seller-item">
 					<img
 						src="https://cupidodesign.com/cdn/shop/collections/Post-modern-Simplicity-Floor-Lamps-LED-Lights-Vloerlamp-Nordic-Stand-Lamp-Living-Room-Bedroom-Restaurant-E27_800x_bc482f51-c59c-48bc-8afe-ea3e2a41c599.jpg"
 						alt=""
@@ -240,7 +243,7 @@ const new_elm_html = `
 						<s>$119.00</s>
 					</div>
 					<span class="name">Floral elegance</span>
-				</div>
+				</a>
 			</div>
 		</div>
 	</div>
