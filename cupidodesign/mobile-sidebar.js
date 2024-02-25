@@ -5,7 +5,11 @@ const style = `
     padding: 0px!important;
   }
   #MobileNavFooter,.slide-nav__wrapper{
-    padding: 20px;
+    margin-bottom: 20px;
+    padding: 0 20px;
+  }
+  #MobileNavFooter{
+    margin: 20px;
   }
   #MobileNav .slide-nav__image{
     display: none;
@@ -48,7 +52,7 @@ const style = `
     font-weight: 600;
   }
   .best-sellers-area{
-    padding: 20px;
+    margin: 20px;
   }
   .best-sellers-area h4{
     font-size: 14px;
