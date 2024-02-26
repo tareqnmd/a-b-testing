@@ -318,9 +318,7 @@ const interval = setInterval(() => {
 }, 10);
 
 function numberOnly(string) {
-	return parseFloat(
-		string.replace(',', '.').replace(/[^0-9\-+\.]/g, '')
-	).toFixed(2);
+	return parseFloat(string.replace(',', '.').replace(/[^0-9\-+\.]/g, ''));
 }
 
 function currencyOnly(string) {
@@ -342,6 +340,6 @@ const price_chk_int = setInterval(() => {
 
 	if (dis_select && dis_price && currency && dis_price !== dis_prev_price) {
 		dis_prev_price = dis_price;
-		dis_select.innerHTML = `Save ${currency}${dis_price}`;
+		dis_select.innerHTML = `Save ${currency}${dis_price.toFixed(2)}`;
 	}
 }, 500);
