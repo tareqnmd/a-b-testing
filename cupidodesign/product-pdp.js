@@ -9,7 +9,7 @@ const star_svg = `
 `;
 const style = `
 <style>
-    #r-1698334340291, #m-1681222740762, #e-1701779074874, #r-1698331910893, #r-1680958187116, #r-1698333112570 {
+    #r-1698334340291, #m-1681222740762, #r-1698331910893, #r-1680958187116, #r-1698333112570, #r-1698337581076 {
         display: none!important;
     }
     #c-1631095168934 #r-1698334184777 {
@@ -85,10 +85,28 @@ const style = `
     .ks-chart-modal-link.sizing-chart-modal-link.with-icon {
         margin: 0;
     }
+    #c-1698330487292 {
+        padding-left: 0!important;
+        padding-right: 0!important;
+    }
+    #c-1698330487292 #m-1680957036358 .product-single__title{
+        text-align: left!important;
+    }
+    #r-1698330487290 #e-1701779074874 .text-edit {
+        background: #ececec;
+        border-radius: 4px;
+        overflow: hidden;
+        padding: 10px!important;
+        border: none!important;
+        margin-top: 20px!important;
+    }
     .new-rev-elm {
         display: flex;
         align-items: center;
         gap: 10px;
+    }
+    .new-rev-elm svg {
+        flex-shrink: 0;
     }
     .new-rev-elm strong {
         font-size: 15px;
@@ -123,6 +141,54 @@ const style = `
         font-size: 14px;
         font-weight: 500;
         line-height: 16px;
+    }
+    @media only screen and (max-width:767px) {
+        .new-rev-elm {
+            gap: 6px;
+        }
+        .new-rev-elm strong {
+            font-size: 13px;
+        }
+        .new-rev-elm span {
+            font-size: 12px;
+        }
+        .new-pdp-elm {
+            margin: 16px 0;
+        }
+        .new-pdp-elm div {
+            gap: 4px;
+        }
+        .new-pdp-elm div img{
+            width: 18px;
+        }
+        .new-pdp-elm div span{
+            font-size: 12px;
+            line-height: 14px;
+        }
+    }
+    @media only screen and (max-width:480px) {
+        .new-rev-elm {
+            gap: 4px;
+        }
+        .new-rev-elm strong {
+            font-size: 11px;
+        }
+        .new-rev-elm span {
+            font-size: 10px;
+        }
+        .new-pdp-elm {
+            margin: 12px 0;
+        }
+        .new-pdp-elm div {
+            gap: 4px;
+        }
+        .new-pdp-elm div img{
+            width: 16px;
+        }
+        .new-pdp-elm div span{
+            font-size: 10px;
+            line-height: 12px;
+        }
     }
 </style>
 `;
@@ -183,7 +249,7 @@ const interval = setInterval(() => {
 }, 10);
 
 function numberOnly(string) {
-	return parseFloat(string.replace(/[^0-9\-+\.]/g, ''));
+	return parseFloat(string.replace(',', '.').replace(/[^0-9\-+\.]/g, ''));
 }
 
 function currencyOnly(string) {
@@ -193,7 +259,9 @@ function currencyOnly(string) {
 let dis_prev_price = null;
 
 const price_chk_int = setInterval(() => {
-	const dis_select = document.querySelector('.gf_pq-discount-selector .gf_pq-discount');
+	const dis_select = document.querySelector(
+		'.gf_pq-discount-selector .gf_pq-discount'
+	);
 	const comp_price = document.querySelector(
 		'.gf_product-compare-price'
 	).innerText;
