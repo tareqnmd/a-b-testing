@@ -318,7 +318,9 @@ const interval = setInterval(() => {
 }, 10);
 
 function numberOnly(string) {
-	return parseFloat(string.replace(',', '.').replace(/[^0-9\-+\.]/g, ''));
+	return parseFloat(
+		string.replace(',', '.').replace(/[^0-9\-+\.]/g, '')
+	).toFixed(2);
 }
 
 function currencyOnly(string) {
