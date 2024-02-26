@@ -165,6 +165,15 @@ const style = `
             font-size: 12px;
             line-height: 14px;
         }
+        #m-1681240900071 #bcpo .bcpo-title {
+            font-size: 14px;
+        }
+        #m-1681240900071 #bcpo .bcpo-value {
+            font-size: 14px;
+        }
+        #m-1681240900071 #bcpo #bcpo-select-option-1 {
+            margin-bottom: 6px;
+        }
     }
     @media only screen and (max-width:480px) {
         .new-rev-elm {
@@ -180,7 +189,8 @@ const style = `
             margin: 12px 0;
         }
         .new-pdp-elm div {
-            gap: 4px;
+            gap: 3px;
+            padding: 0 6px;
         }
         .new-pdp-elm div img{
             width: 16px;
@@ -188,6 +198,15 @@ const style = `
         .new-pdp-elm div span{
             font-size: 10px;
             line-height: 12px;
+        }
+        ._ks_text{
+            font-size: 12px;
+        }
+        #m-1681240900071 #bcpo .bcpo-title {
+            font-size: 12px;
+        }
+        #m-1681240900071 #bcpo .bcpo-value {
+            font-size: 12px;
         }
     }
 </style>
