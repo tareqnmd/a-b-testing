@@ -9,7 +9,7 @@ const star_svg = `
 `;
 const style = `
 <style>
-    #r-1698334340291, #m-1681222740762, #e-1701779074874 {
+    #r-1698334340291, #m-1681222740762, #e-1701779074874, #r-1698331910893, #r-1680958187116 {
         display: none!important;
     }
     #c-1631095168934 #r-1698334184777 {
@@ -47,6 +47,37 @@ const style = `
         color: black;
         font-size: 14px !important;
         line-height: 14px !important;
+        border-radius: 4px !important;
+    }
+    #m-1681240900071 #bcpo .bcpo-title {
+        font-size: 16px;
+        font-weight: 400;
+    }
+    #m-1681240900071 #bcpo .bcpo-value {
+        font-size: 16px;
+        font-weight: 600;
+    }
+    #m-1681240900071 #bcpo .bcpo-images input:checked + label {
+        border: 2px solid #253368 !important;;
+        box-shadow: none !important;
+    }
+    #m-1681240900071 #bcpo .bcpo-images .bcpo-medium-swatches div.bcpo-image-parent {
+        padding: 0;
+        border: 1px solid #E1E1E1;
+        border-radius: 4px;
+        width: 64px;
+        overflow: hidden;
+    }
+    #m-1681240900071 .bcpo-label {
+        margin-bottom: 8px;
+    }
+    #c-1631157248483 #m-1680957036368 .gf_add-to-cart {
+        border-radius: 4px!important;
+    }
+    .bcpo-buttons .bcpo-label {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
     .new-rev-elm {
         display: flex;
@@ -63,6 +94,30 @@ const style = `
         color: #4B5563;
         text-decoration: underline;
     }
+    .new-pdp-elm {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0;
+    }
+    .new-pdp-elm div {
+        display: flex;
+        align-items: center;
+        border-right: 1px solid;
+        gap: 6px;
+        padding: 0 10px;
+    }
+    .new-pdp-elm div:last-child {
+        border: 0;
+    }
+    .new-pdp-elm div img{
+        width: 24px;
+    }
+    .new-pdp-elm div span{
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 16px;
+    }
 </style>
 `;
 
@@ -74,12 +129,49 @@ const new_elm_html = `
 </div>
 `;
 
+const new_elm_html_sec = `
+<div class="new-pdp-elm">
+    <div>
+        <img src="https://ucarecdn.com/acf20fcc-bbda-4d3c-ae1e-dd840006969e/-/format/auto/-/preview/3000x3000/-/quality/lighter/Icon%20Spedizione%20Gratuita%20Cupido.png" alt="" />
+        <span>Made In Italy</span>
+    </div>
+    <div>
+        <img src="https://ucarecdn.com/afe8f111-1052-4189-8bbd-3dcec57e4e14/-/format/auto/-/preview/3000x3000/-/quality/lighter/Icon%20Pagamento%20Sicuro%20Cupido.png" alt="" />
+        <span>Secure Payment</span>
+    </div>
+    <div>
+        <img src="https://ucarecdn.com/131f2e4a-5013-402e-9ead-2a89029dc92c/-/format/auto/-/preview/3000x3000/-/quality/lighter/Installments%20Payments%20_1_.png" alt="" />
+        <span>Payment by rate</span>
+    </div>
+</div>
+`;
+
 const interval = setInterval(() => {
 	const exist_elm = document.querySelector('#m-1680957036358');
+	const exist_elm_pay = document.querySelector('#r-1680958187116');
+	const title_lab_btn = document.querySelector('.bcpo-buttons .bcpo-label');
+	const size_modal = document.querySelector(
+		'.ks-chart-container.sizing-chart-container.ks-container-with-modal'
+	);
+	const title_btn = document.querySelector('.bcpo-buttons .bcpo-title');
+	const title_img = document.querySelector('.bcpo-images .bcpo-title');
 	const head = document.querySelector('head');
-	if (exist_elm && head && !document.querySelector('.new-rev-elm')) {
+	if (
+		exist_elm &&
+		exist_elm_pay &&
+		title_btn &&
+		title_img &&
+		head &&
+		title_lab_btn &&
+		size_modal &&
+		!document.querySelector('.new-rev-elm')
+	) {
 		head.insertAdjacentHTML('beforeend', style);
+		title_btn.innerHTML = 'CHOOSE: (height x width):';
+		title_img.innerHTML = 'CHOOSE: Product type:';
+		title_lab_btn.insertAdjacentElement('beforeend', size_modal);
 		exist_elm.insertAdjacentHTML('beforebegin', new_elm_html);
+		exist_elm_pay.insertAdjacentHTML('beforebegin', new_elm_html_sec);
 		clearInterval(interval);
 	}
 }, 10);
