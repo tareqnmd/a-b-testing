@@ -82,6 +82,9 @@ const style = `
     .ks-chart-container.sizing-chart-container.ks-container-with-modal {
         width: max-content;
     }
+    .ks-chart-modal-link.sizing-chart-modal-link.with-icon {
+        margin: 0;
+    }
     .new-rev-elm {
         display: flex;
         align-items: center;
