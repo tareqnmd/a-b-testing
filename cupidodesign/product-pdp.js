@@ -145,7 +145,7 @@ const style = `
     .extra-rev {
         display: flex;
         align-items: baseline;
-        margin: 16px 0;
+        margin-top: 20px;
         gap: 10px;
     }
     .extra-rev svg{
