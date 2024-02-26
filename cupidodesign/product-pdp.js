@@ -79,6 +79,9 @@ const style = `
         align-items: center;
         justify-content: space-between;
     }
+    .ks-chart-container.sizing-chart-container.ks-container-with-modal {
+        width: max-content;
+    }
     .new-rev-elm {
         display: flex;
         align-items: center;
