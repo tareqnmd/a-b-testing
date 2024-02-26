@@ -181,3 +181,28 @@ const interval = setInterval(() => {
 		clearInterval(interval);
 	}
 }, 10);
+
+function numberOnly(string) {
+	return parseFloat(string.replace(/[^0-9\-+\.]/g, ''));
+}
+
+function currencyOnly(string) {
+	return string.replace(/[0-9,. ]/g, '');
+}
+
+let dis_prev_price = null;
+
+const price_chk_int = setInterval(() => {
+	const dis_select = document.querySelector('.gf_pq-discount-selector .gf_pq-discount');
+	const comp_price = document.querySelector(
+		'.gf_product-compare-price'
+	).innerText;
+	const prod_price = document.querySelector('.gf_product-price').innerText;
+	const dis_price = numberOnly(comp_price) - numberOnly(prod_price);
+	const currency = currencyOnly(prod_price);
+
+	if (dis_select && dis_price && currency && dis_price !== dis_prev_price) {
+		dis_prev_price = dis_price;
+		dis_select.innerHTML = `Save ${currency}${dis_price}`;
+	}
+}, 500);
