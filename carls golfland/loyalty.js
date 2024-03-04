@@ -100,6 +100,11 @@ const gift_html = `
             font-size: 20px!important;
         }
     }
+    @media only screen and (max-width:375px){
+        #product-addtocart-button{
+            font-size: 20px;
+        }
+    }
 </style>
 <a class="gift-link" href="https://www.carlsgolfland.com/gift-cards">
     <span class="close-gift">x</span>
