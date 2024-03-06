@@ -90,7 +90,7 @@ const style = `
 	}
 	.extra-add-cart .price-cart strong {
 		font-size: 20px;
-		line-height: 22px;
+		line-height: 24px;
 		font-weight: 900;
 		color: #0d0c22;
 	}
