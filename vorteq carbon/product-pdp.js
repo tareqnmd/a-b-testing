@@ -10,6 +10,43 @@ const five_star_svg = `
 
 const style = `
 <style>
+#shopify-block-0ea9ebc0-7253-46a7-9047-dbfee3f45c63 {
+    display: none!important;
+}
+.product-icons-text-container .icons-text-box:last-child {
+    display: none;
+}
+.main-product-white-bg .product__info-wrapper .product-icons-text-container .icons-text-box p {
+    max-width: unset!important;
+}
+.price--on-sale > .badge.price__badge-sale {
+    background: none!important;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 0 0 !important;
+}
+.price--on-sale > .badge.price__badge-sale .you-save {
+    background: #DCF8EF;    
+    padding: 6px 8px;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #009E6E;
+}
+.price--on-sale > .badge.price__badge-sale .badge.price__badge-sale {
+    background: none;
+    font-size: 15px;
+    font-weight: 600;
+    color: #009E6E;
+    padding: 0;
+}
+.price--on-sale > dl .price__sale .you-now {
+    color: #F5222D;
+    font-size: 18px;
+    font-weight: 600;
+    margin-right: 6px;
+}
 .new-rev-elm{
     display: flex;
     align-items: center;
@@ -39,10 +76,31 @@ const new_elm_html = `
 
 const interval = setInterval(() => {
 	const exist_elm = document.querySelector('.product__title');
+	const price_sale = document.querySelector(
+		'.price--on-sale > dl .price__sale'
+	);
+	const price_badge_sale = document.querySelector(
+		'.price--on-sale .badge.price__badge-sale'
+	);
+	const price_badge_sale_price = price_badge_sale.querySelector(
+		'.badge.price__badge-sale'
+	);
 	const head = document.querySelector('head');
 	if (exist_elm && head && !document.querySelector('.new-rev-elm')) {
 		head.insertAdjacentHTML('beforeend', style);
 		exist_elm.insertAdjacentHTML('beforebegin', new_elm_html);
+		price_badge_sale.insertAdjacentHTML(
+			'afterbegin',
+			'<span class="you-save">You Saved</span>'
+		);
+		price_badge_sale_price.innerText = price_badge_sale_price.innerText.replace(
+			' OFF',
+			''
+		);
+		price_sale.insertAdjacentHTML(
+			'beforeend',
+			'<span class="you-now">Now</span>'
+		);
 		clearInterval(interval);
 	}
 }, 10);
