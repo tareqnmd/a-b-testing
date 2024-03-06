@@ -63,6 +63,34 @@ const style = `
     font-weight: 500;
     text-decoration: underline;
 }
+.extra-add-cart
+    background: #F1F2F7;
+    padding: 8px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.extra-add-cart .price-cart{
+    display: grid;
+}
+.extra-add-cart .price-cart span{
+    font-size: 12px;
+    font-weight: 500;
+    color: #0D0C22;
+}
+.extra-add-cart .price-cart strong{
+    font-size: 20px;
+    font-weight: 900;
+    color: #0D0C22;
+}
+.extra-add-cart button{
+    background: #131A29;
+    border-radius: 30px;
+    padding: 16px 28px;
+    font-size: 15px;
+    font-weight: 400;
+    color: white;
+}
 </style>
 `;
 
@@ -71,6 +99,16 @@ const new_elm_html = `
     <strong>4.9/5</strong>
     ${five_star_svg}
     <span>Over 500+ customers love</span>
+</div>
+`;
+
+const extra_cart = (price) => `
+<div class="extra-add-cart">
+    <div class="price-cart">
+        <span>Price</span>
+        <strong>${price}</strong>
+    </div>
+    <button onclick="document.querySelector('.product-form__submit').click()">ADD TO CART</button>
 </div>
 `;
 
@@ -85,8 +123,19 @@ const interval = setInterval(() => {
 	const price_badge_sale_price = price_badge_sale.querySelector(
 		'.badge.price__badge-sale'
 	);
+	const item_price = document.querySelector(
+		'.price-item.price-item--sale'
+	).innerText;
+	const product_info_wrapper = document.querySelector(
+		'.product__info-wrapper'
+	).innerText;
 	const head = document.querySelector('head');
-	if (exist_elm && head && !document.querySelector('.new-rev-elm')) {
+	if (
+		exist_elm &&
+		item_price &&
+		head &&
+		!document.querySelector('.new-rev-elm')
+	) {
 		head.insertAdjacentHTML('beforeend', style);
 		exist_elm.insertAdjacentHTML('beforebegin', new_elm_html);
 		price_badge_sale.insertAdjacentHTML(
@@ -101,6 +150,7 @@ const interval = setInterval(() => {
 			'beforeend',
 			'<span class="you-now">Now</span>'
 		);
+		product_info_wrapper.insertAdjacentHTML('afterend', extra_cart(item_price));
 		clearInterval(interval);
 	}
 }, 10);
