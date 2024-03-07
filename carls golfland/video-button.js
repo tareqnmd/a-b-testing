@@ -37,13 +37,16 @@ const int = setInterval(() => {
 }, 10);
 
 const click_int = setInterval(() => {
+	const vid_btn = document.querySelector('.watch-video');
 	const video_btn = document.querySelector(
 		'.fotorama__nav__frame.fotorama__nav__frame--thumb.video-thumb-icon'
 	);
-	if (video_btn) {
-		video_btn.addEventListener('click', () => {
+	const video_con = document.querySelector('.fotorama-video-container');
+	if (vid_btn && video_btn && video_con) {
+		vid_btn.addEventListener('click', () => {
+			vid_btn.click();
 			setTimeout(() => {
-				document.querySelector('.fotorama-video-container').click();
+				video_con.click();
 			}, 1000);
 		});
 		clearInterval(click_int);
