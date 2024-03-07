@@ -1,7 +1,3 @@
-const video_links = {
-	FTJ51075: 'https://www.youtube.com/embed/wCkVEAFTMQI',
-};
-
 const style = `
 <style>
     .watch-video{
@@ -21,30 +17,53 @@ const style = `
     .watch-video img{
         height: 40px;
     }
-    .vid-area{
-        position: absolute;
-        top: 0;
-        bottom: 0;
+    .popup-vid {
+        position: fixed;
+        top: -100vh;
         left: 0;
-        z-index: 111;
         right: 0;
-    }
-    .vid-area button{
-        border-radius: 50%;
+        bottom: 0;
+        width: 100vw;
+        height: 100vh;
         display: grid;
-        width: 30px;
-        place-content: center;
-        background: black;
-        border: none;
-        position: absolute;
-        top: 10px;
-        color: white;
-        height: 30px;
-        right: 10px;
+        place-items: center;
+        background-color: #dfdfdf66;
+        transition: 0.1s;
+        z-index: 999;
+        cursor: pointer;
     }
-    .vid-area iframe{
+    .popup-vid-wrap {
+        position: relative;
+        width: 500px;
+        height: 500px;
+        margin: auto;
+    }
+    .popup-vid-wrap > button {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        height: 30px;
+        width: 30px;
+        font-size: 12px;
+        font-weight: bold;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        background: white;
+        display: grid;
+        place-content: center;
+    }
+    .popup-vid iframe {
         width: 100%;
         height: 100%;
+        background: #000;
+    }
+    
+    @media only screen and (max-width:540px){
+        .popup-vid-wrap {
+          width: 300px;
+          height: 300px;
+      }
     }
 </style>
 `;
@@ -56,18 +75,40 @@ const product_html = `
 </div>
 `;
 
-const vid_area = (url) => `
-<div class="vid-area">
-    <button class="close-vid">X</button>
-    <iframe id="vid_iframe" src=${`${url}?autoplay=1`} title="FootJoy HyperFlex White/Lime/Blue Golf Shoes" frameborder="0" allowfullscreen></iframe>
+const vid_area = (url, title) => `
+<div class="popup-vid">
+	<div class="popup-vid-wrap">
+		<button>X</button>
+        <iframe
+            id="vid_iframe"
+            src=${url}
+            title=${title}
+            frameborder="0"
+            allowfullscreen=""
+        ></iframe>
+	</div>
 </div>
 `;
 
 const int = setInterval(() => {
 	const product_media = document.querySelector('.column.main .product.media');
+	const url = document
+		.querySelector('.product-video')
+		.getAttribute('data-code');
+	const title = document.querySelector('.page-title').innerText;
+	const body = document.querySelector('body');
 	const head = document.querySelector('head');
-	if (product_media && head && !document.querySelector('.watch-video')) {
+	if (
+		product_media &&
+		head &&
+		url &&
+		body &&
+		title &&
+		!document.querySelector('.watch-video')
+	) {
+		const youtube_url = `https://www.youtube.com/embed/${url}`;
 		head.insertAdjacentHTML('beforeend', style);
+		body.insertAdjacentHTML('afterbegin', vid_area(youtube_url, title));
 		product_media.insertAdjacentHTML('beforeend', product_html);
 		clearInterval(int);
 	}
@@ -75,28 +116,14 @@ const int = setInterval(() => {
 
 const click_int = setInterval(() => {
 	const video_btn = document.querySelector('.watch-video');
-	const fotorama_stage = document.querySelector('.fotorama__stage');
-	const sku = document.querySelector('.product.attribute.sku .value').innerText;
-	if (video_btn && fotorama_stage) {
+	const video_area = document.querySelector('.popup-vid');
+	if (video_btn && video_area) {
 		video_btn.addEventListener('click', () => {
-			if (!document.querySelector('.vid-area')) {
-				video_btn.disabled = true;
-				fotorama_stage.insertAdjacentHTML(
-					'afterbegin',
-					vid_area(video_links[sku])
-				);
-			}
+			video_area.style.top = '0';
 		});
-		document
-			.querySelector('.vid-area button')
-			.addEventListener('click', (e) => {
-				if (document.querySelector('.vid-area')) {
-					e.preventDefault();
-					e.stopPropagation();
-					video_btn.disabled = false;
-					document.querySelector('.vid-area').remove();
-				}
-			});
+		video_area.addEventListener('click', () => {
+			video_area.style.top = '-100vh';
+		});
 		clearInterval(click_int);
 	}
 }, 10);
