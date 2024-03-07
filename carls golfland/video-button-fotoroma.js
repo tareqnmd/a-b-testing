@@ -79,19 +79,23 @@ const click_int = setInterval(() => {
 	const sku = document.querySelector('.product.attribute.sku .value').innerText;
 	if (video_btn && fotorama_stage) {
 		video_btn.addEventListener('click', () => {
-			video_btn.disabled = true;
-			fotorama_stage.insertAdjacentHTML(
-				'afterbegin',
-				vid_area(video_links[sku])
-			);
+			if (!document.querySelector('.vid-area')) {
+				video_btn.disabled = true;
+				fotorama_stage.insertAdjacentHTML(
+					'afterbegin',
+					vid_area(video_links[sku])
+				);
+			}
 		});
 		document
 			.querySelector('.vid-area button')
 			.addEventListener('click', (e) => {
-				e.preventDefault();
-				e.stopPropagation();
-				video_btn.disabled = false;
-				document.querySelector('.vid-area').remove();
+				if (document.querySelector('.vid-area')) {
+					e.preventDefault();
+					e.stopPropagation();
+					video_btn.disabled = false;
+					document.querySelector('.vid-area').remove();
+				}
 			});
 		clearInterval(click_int);
 	}
