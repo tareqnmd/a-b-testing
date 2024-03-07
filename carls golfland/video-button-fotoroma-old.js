@@ -102,7 +102,7 @@ const click_int = setInterval(() => {
 			setTimeout(() => {
 				video_btn.disabled = false;
 				document.querySelector('.vid-area').remove();
-			}, 12000);
+			}, 10000);
 		});
 		clearInterval(click_int);
 	}
