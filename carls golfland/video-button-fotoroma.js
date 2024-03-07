@@ -22,7 +22,6 @@ const style = `
         height: 40px;
     }
     .vid-area{
-        display: none;
         position: absolute;
         top: 0;
         bottom: 0;
@@ -30,12 +29,22 @@ const style = `
         z-index: 111;
         right: 0;
     }
+    .vid-area button{
+        border-radius: 50%;
+        display: grid;
+        width: 30px;
+        place-content: center;
+        background: black;
+        border: none;
+        position: absolute;
+        top: 10px;
+        color: white;
+        height: 30px;
+        right: 10px;
+    }
     .vid-area iframe{
         width: 100%;
         height: 100%;
-    }
-    .vid-area.show-vid{
-        display: block;
     }
 </style>
 `;
@@ -49,39 +58,41 @@ const product_html = `
 
 const vid_area = (url) => `
 <div class="vid-area">
-    <iframe src=${url} title="FootJoy HyperFlex White/Lime/Blue Golf Shoes" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <button class="close-vid">X</button>
+    <iframe id="vid_iframe" src=${`${url}?autoplay=1`} title="FootJoy HyperFlex White/Lime/Blue Golf Shoes" frameborder="0" allowfullscreen></iframe>
 </div>
 `;
 
 const int = setInterval(() => {
 	const product_media = document.querySelector('.column.main .product.media');
-	const fotorama_stage = document.querySelector('.fotorama__stage');
-	const sku = document.querySelector('.product.attribute.sku .value').innerText;
 	const head = document.querySelector('head');
-	if (
-		product_media &&
-		fotorama_stage &&
-		head &&
-		sku &&
-		!document.querySelector('.watch-video')
-	) {
+	if (product_media && head && !document.querySelector('.watch-video')) {
 		head.insertAdjacentHTML('beforeend', style);
 		product_media.insertAdjacentHTML('beforeend', product_html);
-		fotorama_stage.insertAdjacentHTML('afterbegin', vid_area(video_links[sku]));
 		clearInterval(int);
 	}
 }, 10);
 
 const click_int = setInterval(() => {
 	const video_btn = document.querySelector('.watch-video');
-	const vid_area = document.querySelector('.vid-area');
-	if (video_btn && vid_area) {
+	const fotorama_stage = document.querySelector('.fotorama__stage');
+	const sku = document.querySelector('.product.attribute.sku .value').innerText;
+	if (video_btn && fotorama_stage) {
 		video_btn.addEventListener('click', () => {
-			vid_area.classList.add('show-vid');
-			setTimeout(() => {
-				vid_area.classList.remove('show-vid');
-			}, 10000);
+			video_btn.disabled = true;
+			fotorama_stage.insertAdjacentHTML(
+				'afterbegin',
+				vid_area(video_links[sku])
+			);
 		});
+		document
+			.querySelector('.vid-area button')
+			.addEventListener('click', (e) => {
+				e.preventDefault();
+				e.stopPropagation();
+				video_btn.disabled = false;
+				document.querySelector('.vid-area').remove();
+			});
 		clearInterval(click_int);
 	}
 }, 10);
