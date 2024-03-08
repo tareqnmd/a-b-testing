@@ -5,11 +5,15 @@ const style = `
 	}
 	.product-link {
 		display: grid!important;
+		grid-template-columns: 1fr 1fr;
 		gap: 6px;
 	}
 	.product-link * {
 		margin: 0!important;
 		padding: 0!important;
+	}
+	.product-info, .image-cont {
+		grid-column: span 2;
 	}
 	.product-link .inner {
 		width: 100%!important;
