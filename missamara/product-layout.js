@@ -53,10 +53,14 @@ const style = `
 	}
 	.ss__toolbar.ss__toolbar--top{
 		grid-column: span 3;
+		margin: 0;
 	}
 	.collection-listing .product-block {
 		margin: 0!important;
 		width: 100%!important;
+	}
+	.product-block .image-cont img {
+		max-height: 400px!important;
 	}
 	@media only screen and (max-width:991px){
 		#bc-sf-filter-products > div > div:nth-last-of-type(1) {
@@ -72,6 +76,16 @@ const style = `
 		}
 		.ss__toolbar.ss__toolbar--top{
 			grid-column: span 1;
+		}
+	}
+	@media screen and (min-width: 1200px) {
+		#bc-sf-filter-products .ss__toolbar .ss__toolbar__row {
+			margin-bottom: 0!important;
+		}
+	}
+	@media screen and (min-width: 768px) {
+		.collection-template .collection-listing .product-list {
+			max-width:1400px!important;
 		}
 	}
 </style>
