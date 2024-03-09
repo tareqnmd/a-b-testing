@@ -94,10 +94,15 @@ const style = `
 const interval = setInterval(() => {
 	const product_infos = [...document.querySelectorAll('.product-link')];
 	const head = document.querySelector('head');
-	if (product_infos.length > 0 && head) {
+	if (
+		product_infos.length > 0 &&
+		head &&
+		!document.querySelector('.new-product_link')
+	) {
 		product_infos.forEach((item) => {
 			const price = item.querySelector('.ss-current-price');
 			item.insertAdjacentElement('beforeend', price);
+			item.classList.add('new-product_link');
 		});
 		head.insertAdjacentHTML('beforeend', style);
 		clearInterval(interval);
