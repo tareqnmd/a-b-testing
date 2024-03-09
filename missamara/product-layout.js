@@ -59,8 +59,9 @@ const style = `
 		margin: 0!important;
 		width: 100%!important;
 	}
-	.product-block .image-cont img {
+	.product-block .image-cont div div img {
 		max-height: 400px!important;
+		height: 400px!important;
 	}
 	@media only screen and (max-width:991px){
 		#bc-sf-filter-products > div > div:nth-last-of-type(1) {
