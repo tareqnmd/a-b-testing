@@ -18,6 +18,7 @@ const product_style = `
 		color: white;
 		text-align: center;
     	text-transform: uppercase;
+		padding: 0 4px;
 	}
     .new-cta-btn span:last-child {
 		font-weight: 400;
