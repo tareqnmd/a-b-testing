@@ -1,5 +1,11 @@
 const product_style = `
 <style>
+	.grid-product__price.price_on_sale{
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 0 10px;
+	}
 	.new-save{
 		border-radius: 4px;
 		padding: 4px 8px;
@@ -22,12 +28,14 @@ const interval = setInterval(() => {
 	if (products.length > 0 && head && !document.querySelector('.new-save')) {
 		head.insertAdjacentHTML('beforeend', product_style);
 		products.map((item) => {
-			const price_parent = item.querySelector('.grid-product__price ');
+			const price_parent = item.querySelector('.grid-product__price');
 			const save_child = item.querySelector(
 				'.grid-product__price_saving_wrapper'
 			);
-			save_child.classList.add('new-save');
-			price_parent.insertAdjacentElement('beforeend', save_child);
+			if (save_child && price_parent) {
+				save_child.classList.add('new-save');
+				price_parent.insertAdjacentElement('beforeend', save_child);
+			}
 		});
 		clearInterval(interval);
 	}
