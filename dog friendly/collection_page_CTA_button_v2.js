@@ -1,28 +1,53 @@
 const product_style = `
 <style>
-
+	.new-save{
+		font-size: 16px;
+		font-weight: 500;
+		background: #99D6EA;
+		border-radius: 4px;
+		padding: 2px 8px;
+		display: flex;
+		gap: 10px;
+		align-items: center;
+		text-transform: uppercase;
+	}
 </style>
 `;
 
-const new_elm_html = (link, price) => `
-<a href=${link} class="new-cta-btn">
-    <span>SHOP NOW</span>
-    <span>${price}</span>
-</a>
+const save_price_elm = (price, currency) => `
+<div class="new-save">
+	<span>Save</span>
+	<span>${currency} ${price.toFixed(2)}</span>
+</div>
 `;
+
+function numberOnly(string) {
+	return parseFloat(string.replace(',', '.').replace(/[^0-9\-+\.]/g, ''));
+}
+
+function currencyOnly(string) {
+	return string.replace(/[0-9,. ]/g, '');
+}
 
 const interval = setInterval(() => {
 	const products = [...document.querySelectorAll('.grid-product__content')];
 	const head = document.querySelector('head');
-	if (products.length > 0 && head && !document.querySelector('.new-cta-btn')) {
+	if (products.length > 0 && head && !document.querySelector('.new-save')) {
 		head.insertAdjacentHTML('beforeend', product_style);
 		products.map((item) => {
-			const link = item.querySelector('a').href;
+			const price_parent = item.querySelector('.grid-product__price ');
+			const regular_price = item.querySelector('.product-regular-price');
 			const price_elm = item.querySelector('.price_on_sale');
-			const price =
+			const sale_price =
 				price_elm.querySelector('.money') ||
 				price_elm.querySelector('.product-sales-price');
-			item.insertAdjacentHTML('beforeend', new_elm_html(link, price.innerText));
+			const price =
+				numberOnly(regular_price.innerText) - numberOnly(sale_price.innerText);
+			const currency = currencyOnly(regular_price.innerText);
+			price_parent.insertAdjacentHTML(
+				'beforeend',
+				save_price_elm(price, currency)
+			);
 		});
 		clearInterval(interval);
 	}
