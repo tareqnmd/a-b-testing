@@ -1,14 +1,18 @@
 const product_style = `
 <style>
 	.new-save{
-		font-size: 16px;
-		font-weight: 500;
-		background: #99D6EA;
 		border-radius: 4px;
 		padding: 2px 8px;
 		display: flex;
 		gap: 10px;
 		align-items: center;
+		background: #99D6EA;
+		width: max-content;
+	}
+	.new-save span{
+		font-size: 16px;
+		line-height: 16px;
+		font-weight: 500;
 		text-transform: uppercase;
 	}
 </style>
