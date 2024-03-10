@@ -4,15 +4,16 @@ const product_style = `
 		border-radius: 4px;
 		padding: 2px 8px;
 		display: flex;
-		gap: 10px;
+		gap: 6px;
 		align-items: center;
 		background: #99D6EA;
 		width: max-content;
+		font-family: Poppins;
 	}
 	.new-save span{
-		font-size: 16px;
-		line-height: 16px;
-		font-weight: 500;
+		font-size: 12px;
+		line-height: 12px;
+		font-weight: 700;
 		text-transform: uppercase;
 	}
 </style>
