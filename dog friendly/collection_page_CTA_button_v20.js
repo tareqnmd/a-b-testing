@@ -41,10 +41,18 @@ const interval = setInterval(() => {
 		head.insertAdjacentHTML('beforeend', product_style);
 		products.map((item) => {
 			const price_parent = item.querySelector('.grid-product__price ');
-			const save_child = item.querySelector(
-				'.grid-product__price_saving_wrapper'
+			const regular_price = item.querySelector('.product-regular-price');
+			const price_elm = item.querySelector('.price_on_sale');
+			const sale_price =
+				price_elm.querySelector('.money') ||
+				price_elm.querySelector('.product-sales-price');
+			const price =
+				numberOnly(regular_price.innerText) - numberOnly(sale_price.innerText);
+			const currency = currencyOnly(regular_price.innerText);
+			price_parent.insertAdjacentHTML(
+				'beforeend',
+				save_price_elm(price, currency)
 			);
-			price_parent.insertAdjacentElement('beforeend', save_child);
 		});
 		clearInterval(interval);
 	}
