@@ -10,6 +10,7 @@ const product_style = `
 		border-radius: 8px;
 		padding:12px 20px;
 		background: #0B0B21;
+		margin-top: 10px;
     }
     .new-cta-btn span {
 		font-size: 18px;
