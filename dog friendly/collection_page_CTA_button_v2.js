@@ -1,29 +1,6 @@
 const product_style = `
 <style>
-    .grid-product__content .price_on_sale {
-        display: none !important;
-    }
-    .new-cta-btn{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        align-items: center;
-		border-radius: 8px;
-		padding:12px 20px;
-		background: #0B0B21;
-		margin-top: 10px;
-    }
-    .new-cta-btn span {
-		font-size: 12px;
-		font-weight: 500;
-		color: white;
-		text-align: center;
-    	text-transform: uppercase;
-		padding: 0 4px;
-	}
-    .new-cta-btn span:last-child {
-		font-weight: 400;
-		border-left: 1px solid white;
-	}
+
 </style>
 `;
 
