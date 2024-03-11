@@ -19,16 +19,19 @@ const new_easy_step = `
     }
     .new-easy-step .easy-step-imgs a{
         display: grid;
+        align-self: baseline;
         gap: 10px;
     }
     .easy-step-header {
         font-size: 20px;
         margin-bottom: 20px;
+        text-align: center;
     }
     .img-txt {
         font-size: 12px;
         font-family: Lato;
         text-align: center;
+        margin: 0;
     }
     @media only screen and (max-width:1200px){
         .new-easy-step .easy-step-imgs > img{
@@ -39,6 +42,12 @@ const new_easy_step = `
         }
         .new-easy-step {
             width: 90%;
+        }
+        .img-txt {
+            font-size: 10px;
+        }
+        .easy-step-header {
+            font-size: 16px;
         }
     }
     @media only screen and (max-width:767px){
@@ -54,8 +63,14 @@ const new_easy_step = `
         .easy-step-header {
             margin-bottom: 10px;
         }
+        .img-txt {
+            font-size: 8px;
+        }
     }
     @media only screen and (max-width:480px){
+        .easy-step-header {
+            font-size: 12px;
+        }
         .new-easy-step .easy-step-imgs > img{
             width: 20px;
         }
@@ -64,6 +79,9 @@ const new_easy_step = `
         }
         .easy-step-header {
             margin-bottom: 6px;
+        }
+        .img-txt {
+            font-size: 6px;
         }
     }
 </style>
