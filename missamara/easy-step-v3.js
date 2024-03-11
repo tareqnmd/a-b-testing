@@ -17,11 +17,7 @@ const new_easy_step = `
         justify-content: space-between;
         gap: 30px;
     }
-    .new-easy-step .easy-step-imgs > img{
-        margin-bottom: 30px;
-    }
     .new-easy-step .easy-step-imgs a{
-        align-self: flex-start;
         display: grid;
         gap: 10px;
     }
@@ -62,9 +58,6 @@ const new_easy_step = `
     @media only screen and (max-width:480px){
         .new-easy-step .easy-step-imgs > img{
             width: 20px;
-        }
-        .new-easy-step .easy-step-imgs > img{
-            margin-bottom: 20px;
         }
         .new-easy-step {
             margin: 12px auto;
