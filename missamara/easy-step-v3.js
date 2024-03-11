@@ -26,6 +26,7 @@ const new_easy_step = `
         font-size: 20px;
         margin-bottom: 20px;
         text-align: center;
+        font-weight: 600;
     }
     .img-txt {
         font-size: 12px;
