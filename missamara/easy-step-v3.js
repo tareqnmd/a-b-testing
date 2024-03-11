@@ -22,10 +22,17 @@ const new_easy_step = `
     }
     .new-easy-step .easy-step-imgs a{
         align-self: flex-start;
+        display: grid;
+        gap: 10px;
     }
     .easy-step-header {
-        width: 50%;
+        font-size: 20px;
         margin-bottom: 20px;
+    }
+    .img-txt {
+        font-size: 12px;
+        font-family: Lato;
+        text-align: center;
     }
     @media only screen and (max-width:1200px){
         .new-easy-step .easy-step-imgs > img{
