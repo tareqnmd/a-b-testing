@@ -33,6 +33,9 @@ const new_easy_step = `
         text-align: center;
         margin: 0;
     }
+    .new-easy-step .easy-step-imgs > img{
+        margin-bottom: 30px;
+    }
     @media only screen and (max-width:1200px){
         .new-easy-step .easy-step-imgs > img{
             width: 60px;
@@ -45,9 +48,6 @@ const new_easy_step = `
         }
         .img-txt {
             font-size: 10px;
-        }
-        .easy-step-header {
-            font-size: 16px;
         }
     }
     @media only screen and (max-width:767px){
@@ -66,8 +66,14 @@ const new_easy_step = `
         .img-txt {
             font-size: 8px;
         }
+        .easy-step-header {
+            font-size: 16px;
+        }
     }
     @media only screen and (max-width:480px){
+        .new-easy-step .easy-step-imgs > img{
+            margin-bottom: 20px;
+        }
         .easy-step-header {
             font-size: 12px;
         }
