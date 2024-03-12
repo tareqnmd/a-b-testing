@@ -14,15 +14,15 @@ const bills_value = document.querySelector(
 
 //es5 code
 function test() {
-	const checkedItems = [];
-	const checkboxes = document.querySelectorAll(
+	var checkedItems = [];
+	var checkboxes = document.querySelectorAll(
 		'input[name="q_debt_types"]:checked'
 	);
-	for (let i = 0; i < checkboxes.length; i++) {
+	for (var i = 0; i < checkboxes.length; i++) {
 		checkedItems.push(checkboxes[i].value);
 	}
-	let joinedValues = '';
-	for (let i = 0; i < checkedItems.length; i++) {
+	var joinedValues = '';
+	for (var i = 0; i < checkedItems.length; i++) {
 		joinedValues += checkedItems[i];
 		if (i < checkedItems.length - 1) {
 			joinedValues += ',';
