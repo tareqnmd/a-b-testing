@@ -13,7 +13,7 @@ const bills_value = document.querySelector(
 ).value;
 
 //es5 code
-function test() {
+function debt_types() {
 	var checkedItems = [];
 	var checkboxes = document.querySelectorAll(
 		'input[name="q_debt_types"]:checked'
@@ -30,4 +30,26 @@ function test() {
 	}
 	return joinedValues;
 }
-test();
+
+const financial_solution = document.querySelector(
+	'input[name="q_financial_situation"]:checked'
+).value;
+
+//es5 code
+function debt_types() {
+	var checkedItems = [];
+	var checkboxes = document.querySelectorAll(
+		'input[name="q_hardships"]:checked'
+	);
+	for (var i = 0; i < checkboxes.length; i++) {
+		checkedItems.push(checkboxes[i].value);
+	}
+	var joinedValues = '';
+	for (var i = 0; i < checkedItems.length; i++) {
+		joinedValues += checkedItems[i];
+		if (i < checkedItems.length - 1) {
+			joinedValues += ',';
+		}
+	}
+	return joinedValues;
+}
