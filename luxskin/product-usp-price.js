@@ -29,19 +29,28 @@ const style = `
     gap: 10px;
 }
 .qtybox{
-    border-radius: 8px; 
+    border-radius: 8px;
+    border: 1px solid #E9E9E9;
 }
-.qtybox .btnqty{
+.box_quantity .qtydiv{
+    height: auto!important;
+    background: none!important;
+}
+.qtybox {
     background: #F5F5F5; 
 }
 .qtybox input{
     background: #FFFFFF!important;
+    border: none!important;
 }
-.box_quantity .product-single__add-to-cart button{
-    background: #FF437B;
+#AddToCart--product-template{
+    background: #FF437B !important;
     padding: 16px 24px;
-    gap: 10px;
+    border-left: none !important;
     border-radius: 8px; 
+}
+#AddToCart--product-template span{
+    color: #fff !important;
 }
 @media screen and (min-width: 591px){
     .product-single__title {
