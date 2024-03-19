@@ -179,7 +179,7 @@ const interval = setInterval(() => {
 	const existing_html = document.querySelector('.page-width--cart');
 	const main = document.querySelector('#MainContent');
 	const sub_total = document.querySelector(
-		'.cart__item-sub cart__item-row.cart__item--subtotal'
+		'form .cart__page .cart__item-sub.cart__item-row.cart__item--subtotal'
 	);
 	const head = document.querySelector('head');
 	if (
