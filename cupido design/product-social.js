@@ -201,7 +201,7 @@ const style = `
         display: grid;
         grid-template-columns: auto 1fr;
         padding: 6px 20px 6px 10px;
-        gap: 6px 10px;
+        gap: 0px 10px;
         align-items: end;
         border-radius: 0px 40px 40px 0px;
         background: #FF437A;
