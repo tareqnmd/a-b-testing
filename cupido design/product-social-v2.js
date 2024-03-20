@@ -32,7 +32,7 @@ const star_svg = `
 `;
 const style = `
 <style>
-    #r-1710603885718, #e-1701779074874 #r-1698334340291, #m-1681222740762, #r-1698331910893, #r-1680958187116, #r-1698333112570, #r-1698337581076 {
+    #r-1710603885718, #e-1701779074874, #r-1698334340291, #m-1681222740762, #r-1698331910893, #r-1680958187116, #r-1698333112570, #r-1698337581076 {
         display: none!important;
     }
     #c-1631095168934 #r-1698334184777 {
@@ -302,6 +302,7 @@ const style = `
         position: relative;
         padding: 10px 16px 10px 16px;
         border-radius: 4px;
+        margin-top: 20px;
     }
     .top-message strong {
         font-size: 16px;
@@ -342,7 +343,7 @@ const top_message = `
     <strong>
         <span>15% di sconto</span> flash su tutto con il codice: [FLASH15] l'offerta può terminare in qualsiasi momento senza preavviso
     </strong>
-    <button>
+    <button type="button">
         <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M7.5 0.5H1.5C0.95 0.5 0.5 0.95 0.5 1.5V8.5H1.5V1.5H7.5V0.5ZM9 2.5H3.5C2.95 2.5 2.5 2.95 2.5 3.5V10.5C2.5 11.05 2.95 11.5 3.5 11.5H9C9.55 11.5 10 11.05 10 10.5V3.5C10 2.95 9.55 2.5 9 2.5ZM9 10.5H3.5V3.5H9V10.5Z" fill="black"/>
         </svg>
@@ -468,3 +469,22 @@ const price_chk_int = setInterval(() => {
 		dis_select.innerHTML = `Risparmia ${currency}${dis_price.toFixed(2)}`;
 	}
 }, 500);
+
+const copy_interval = setInterval(() => {
+	const copy_text = 'FLASH15';
+	const copy_code = document.querySelector('.top-message button');
+	const copy_code_span = document.querySelector('.top-message button span');
+	const copy_code_svg = document.querySelector('.top-message button svg');
+	if (copy_code_span && copy_code) {
+		copy_code.addEventListener('click', () => {
+			navigator.clipboard.writeText(copy_text);
+			copy_code_span.innerHTML = 'Copied!';
+			copy_code_svg.style.display = 'none';
+			setTimeout(() => {
+				copy_code_span.innerHTML = 'Copy Code';
+				copy_code_svg.style.display = 'block';
+			}, 2500);
+		});
+		clearInterval(copy_interval);
+	}
+}, 10);
