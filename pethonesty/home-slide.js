@@ -1,6 +1,13 @@
 /* CUSTOM CODE */
 var myHtml = `
-		<div class="slick-slide slick-cloned"></div>
+        <style>
+        @media only screen and (min-width:1240px){
+            .lg-none{
+                display: none;
+            }
+        }
+        </style>
+		<div class="slick-slide slick-cloned  lg-none"></div>
         <div class="slick-slide slick-current slick-active" data-slick-index="1" aria-hidden="false"
             style="width: 240px;">
             <div>
