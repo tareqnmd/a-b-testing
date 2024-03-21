@@ -175,13 +175,14 @@ const top_message = `
         <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M7.5 0.5H1.5C0.95 0.5 0.5 0.95 0.5 1.5V8.5H1.5V1.5H7.5V0.5ZM9 2.5H3.5C2.95 2.5 2.5 2.95 2.5 3.5V10.5C2.5 11.05 2.95 11.5 3.5 11.5H9C9.55 11.5 10 11.05 10 10.5V3.5C10 2.95 9.55 2.5 9 2.5ZM9 10.5H3.5V3.5H9V10.5Z" fill="black"/>
         </svg>
-        <span>Copy Code</span>
+        <span>Copia codice</span>
     </button>
 </div>
 `;
 
 const interval = setInterval(() => {
 	const existing_html = document.querySelector('.page-width--cart');
+	const lang = document.querySelector('input[name="locale_code"]').value;
 	const main = document.querySelector('#MainContent');
 	const sub_total = document.querySelector(
 		'form .cart__page .cart__item-sub.cart__item-row.cart__item--subtotal'
@@ -191,6 +192,7 @@ const interval = setInterval(() => {
 		existing_html &&
 		sub_total &&
 		main &&
+		lang === 'it' &&
 		head &&
 		!document.querySelector('.top-message')
 	) {
@@ -209,7 +211,7 @@ const copy_interval = setInterval(() => {
 	if (copy_code_span && copy_code) {
 		copy_code.addEventListener('click', () => {
 			navigator.clipboard.writeText(copy_text);
-			copy_code_span.innerHTML = 'Copied!';
+			copy_code_span.innerHTML = 'Copiato!';
 			copy_code_svg.style.display = 'none';
 			setTimeout(() => {
 				copy_code_span.innerHTML = 'Copy Code';
