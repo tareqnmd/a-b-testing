@@ -10,6 +10,9 @@ const star = `
 
 const style = `
 <style>
+    #shopify-section-1658745910cd7c7b95 {
+        display: none
+    }
     .new-area {
         background: white;
         padding: 40px 20px;
