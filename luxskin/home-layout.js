@@ -12,6 +12,9 @@ const style = `
 <style>
     .new-area {
         background: white;
+        padding: 40px 20px;
+        display: grid;
+        gap: 40px;
     }
     .new-hero-elm{
         display: grid;
@@ -20,6 +23,7 @@ const style = `
         background: #F3F3F3;
         padding: 20px 40px;
         max-width: 1400px;
+        width: 100%;
         margin:auto;
     }
     .new-hero-elm img {
@@ -43,7 +47,7 @@ const style = `
         font-size: 36px;
         font-weight: 400;
         margin:0;
-        letter-spacing: 4px;
+        letter-spacing: 0px;
     }
     .hero-area a {
         padding: 20px 100px;
@@ -60,14 +64,13 @@ const style = `
     .hero-area .rev {
         display: flex;
         align-items: center;
-        gap: 6px;
+        gap: 12px;
         margin: 6px 16px;
     }
     .hero-area .rev strong{
         font-family: Montserrat;
         font-size: 20px;
         font-weight: 800;
-        line-height: 28px;
         color: #3D3D4E;
     }
     .hero-area .rev span{
@@ -75,14 +78,14 @@ const style = `
         font-family: Montserrat;
         font-size: 20px;
         font-weight: 500;
-        line-height: 28px;
+        text-decoration: underline;
     }
     .new-usp-elm{
         display: grid;
         place-items: center;
         gap:20px;
-        padding:40px 0;
         max-width: 1400px;
+        width: 100%;
         margin:auto;
     }
     .new-usp-elm h3{
@@ -92,8 +95,54 @@ const style = `
         font-weight: 600;
         text-align: center;
         margin:0;
+        letter-spacing: 0px;
     }
     .new-usp-elm .new-usp-img{
+    }
+    @media only screen and (max-width:767px){
+        .new-area {
+            padding: 20px;
+            gap: 20px;
+        }
+        .new-hero-elm{
+            grid-template-columns: 1fr;
+            padding: 20px 20px;
+            gap:20px;
+        }
+        .new-hero-elm img {
+            margin: auto;
+        }
+        .hero-area {
+            max-width: 100%;
+        }
+        .hero-area span {
+            font-size: 12px;
+            line-height: 18px;
+        }
+        .hero-area h4 {
+            font-size: 24px;
+        }
+        .hero-area a {
+            padding: 10px 40px;
+            font-size: 12px;
+            margin-top: 12px;
+        }
+        .hero-area .rev {
+            gap: 10px;
+            margin: 4px 12px;
+        }
+        .hero-area .rev strong{
+            font-size: 12px;
+        }
+        .hero-area .rev span{
+            font-size: 12px;
+        }
+        .new-usp-elm{
+            gap:10px;
+        }
+        .new-usp-elm h3{
+            font-size: 20px;
+        }
     }
 </style>
 `;
@@ -104,7 +153,7 @@ const new_elm_html = `
         <div class="hero-area">
             <span>With orders over $100</span>
             <h4>Get A FREE Neck Face Sculptor Today!</h4>
-            <a href="">SHOP BUNDLES</a>
+            <a href="/collections/bundles">SHOP BUNDLES</a>
             <div class="rev">
                 ${star}
                 <strong>4.9/5</strong>
