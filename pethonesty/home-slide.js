@@ -95,6 +95,8 @@ const interval = setInterval(() => {
 	const existing_html = document.querySelector(
 		'#shopify-section-f4e1370c-c2a7-40f0-9f85-78654b169044 > section > div.shop-need-inner.inner-restraints.slick-initialized.slick-slider > div > div'
 	);
-	existing_html.innerHTML = myHtml;
-	clearInterval(interval);
+	if (existing_html) {
+		existing_html.innerHTML = myHtml;
+		clearInterval(interval);
+	}
 }, 10);
