@@ -78,6 +78,7 @@ const style = `
 		left: 0;
 		right: 0;
         transition: 1s;
+		z-index: 99;
 	}
 	.extra-add-cart .price-cart {
 		display: grid;
@@ -148,9 +149,8 @@ const interval = setInterval(() => {
 		document.querySelector('.price--on-sale .badge.price__badge-sale') ?? null;
 	const price_badge_sale_price =
 		price_badge_sale?.querySelector('.badge.price__badge-sale') ?? null;
-	const item_price = document.querySelector(
-		'.price-item.price-item--sale'
-	).innerText;
+	const item_price =
+		document.querySelector('.price-item.price-item--sale').innerText ?? '';
 	const features = document.querySelector(
 		'.product__accordion.accordion:nth-of-type(3) .accordion__content'
 	);
@@ -170,6 +170,7 @@ const interval = setInterval(() => {
 		inventory.insertAdjacentHTML('beforebegin', feature_header);
 		inventory.insertAdjacentElement('beforebegin', features);
 		exist_elm.insertAdjacentHTML('beforebegin', new_elm_html);
+		body.insertAdjacentHTML('beforeend', extra_cart(item_price));
 		if (price_badge_sale) {
 			price_badge_sale.insertAdjacentHTML(
 				'afterbegin',
@@ -180,11 +181,12 @@ const interval = setInterval(() => {
 			price_badge_sale_price.innerText =
 				price_badge_sale_price.innerText.replace(' OFF', '');
 		}
-		price_sale.insertAdjacentHTML(
-			'beforeend',
-			'<span class="you-now">Now</span>'
-		);
-		body.insertAdjacentHTML('beforeend', extra_cart(item_price));
+		if (price_sale) {
+			price_sale.insertAdjacentHTML(
+				'beforeend',
+				'<span class="you-now">Now</span>'
+			);
+		}
 		clearInterval(interval);
 	}
 }, 10);
