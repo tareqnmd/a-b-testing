@@ -140,6 +140,7 @@ const extra_cart = (price) => `
     <button onclick="document.querySelector('.product-form__submit').click()">ADD TO CART</button>
 </div>
 `;
+
 const interval = setInterval(() => {
 	const exist_elm = document.querySelector('.product__title');
 	const price_sale = document.querySelector(
@@ -193,10 +194,12 @@ const interval = setInterval(() => {
 window.addEventListener('scroll', function () {
 	const float = document.querySelector('.extra-add-cart');
 	const exist = document.querySelector('.product-form__submit');
-	const topOffset = exist.getBoundingClientRect().bottom;
-	if (topOffset <= 0) {
-		float.style.bottom = '0';
-	} else {
-		float.style.bottom = '-200px';
+	if (float && exist) {
+		const topOffset = exist.getBoundingClientRect().bottom;
+		if (topOffset <= 0) {
+			float.style.bottom = '0';
+		} else {
+			float.style.bottom = '-200px';
+		}
 	}
 });
