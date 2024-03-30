@@ -114,6 +114,9 @@ const style = `
 		font-family: GT-America-Bold;
 		color: #31261d;
 	}
+	.feature-content li {
+		font-size: 14px;
+	}
 </style>
 `;
 
@@ -164,6 +167,7 @@ const interval = setInterval(() => {
 	) {
 		head.insertAdjacentHTML('beforeend', style);
 		inventory.insertAdjacentHTML('beforebegin', feature_header);
+		features.classList.add('feature-content');
 		inventory.insertAdjacentElement('beforebegin', features);
 		exist_elm.insertAdjacentHTML('beforebegin', new_elm_html);
 		body.insertAdjacentHTML('beforeend', extra_cart(item_price));
