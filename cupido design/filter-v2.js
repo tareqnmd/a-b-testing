@@ -6,7 +6,6 @@ const style = `
     .collection-filter__inner{
         padding: 8px 12px;
         border-radius: 6px;
-        background: #F0F0F0;
     }
     .new-filter-elm{
         display: none;
@@ -17,6 +16,18 @@ const style = `
         font-size: 16px;
         font-weight: 700;
         color: #1B1B1B;
+    }
+    .new-top-elm{
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        border-radius: 8px;
+        background: #EEEEEE;
+        padding: 6px 12px;
+    }
+    .new-top-elm span{
+        font-size: 12px;
+        font-weight: 600;
     }
     .grid-item__content{
         box-shadow: 0px 4px 12px 0px #0000001F;
@@ -51,13 +62,27 @@ const new_elm_html = `
 </div>
 `;
 
+const new_top_elm_html = `
+<div class="new-top-elm">
+    <img src="https://i.ibb.co/7X6rNW7/FILTER.png">
+    <span>You can easily find your desired art by filtering them </span>
+</div>
+`;
+
 const interval = setInterval(() => {
 	const exist_elm_count = document.querySelector(
 		'.collection-filter__item.collection-filter__item--count'
 	);
+	const filter = document.querySelector('.collection-filter');
 	const head = document.querySelector('head');
-	if (exist_elm_count && head && !document.querySelector('.new-filter-elm')) {
+	if (
+		filter &&
+		exist_elm_count &&
+		head &&
+		!document.querySelector('.new-filter-elm')
+	) {
 		head.insertAdjacentHTML('beforeend', style);
+		filter.insertAdjacentHTML('beforebegin', new_top_elm_html);
 		exist_elm_count.insertAdjacentHTML('beforebegin', new_elm_html);
 		clearInterval(interval);
 	}
