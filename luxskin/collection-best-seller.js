@@ -14,7 +14,7 @@ const style = `
         gap: 10px;
         border-radius: 40px;
         background: #FF437B;
-        font-size: 16px;
+        font-size: 12px;
         font-weight: 600;
         text-align: left;
         color: white;
@@ -23,7 +23,7 @@ const style = `
         color: #FF437B;
     }
     .grid-product__sub-title{
-        font-size: 14px;
+        font-size: 12px;
         font-weight: 400;
         text-align: center;
         color: #7A7A7A;
@@ -36,7 +36,7 @@ const style = `
     }
     .grid-product__wrapper .grid-product__meta .grid-product__price{
         color: #0D0C22;
-        font-size: 20px;
+        font-size: 16px;
         font-weight: 600;
     }
     div#CollectionSection .grid-product__wrapper{
@@ -52,6 +52,9 @@ const style = `
     }
     .grid-product__wrapper .grid-product__meta{
         padding: 10px 0 0;
+    }
+    .stamped-badge-caption{
+        font-size: 12px;
     }
 </style>
 `;
