@@ -98,6 +98,7 @@ const style = `
 		margin-left: auto;
 		margin-right: auto;
 		max-width: 1400px;
+		padding: 0 40px;
 		width: 100%;
     }
     .new-review-elm *{
@@ -106,10 +107,13 @@ const style = `
     }
     .new-review-elm h1{
         text-align: center;
+		color: #09324f;
+		font-size: 32px;
     }
     .new-review-elm h6{
-        margin:12px 0;
+        margin:12px 0 36px;
         text-align: center;
+		font-size: 16px;
     }
     .reviews-section{
         position: relative;
@@ -119,12 +123,21 @@ const style = `
         position: absolute;
         top:50%;
         transform: translateY(-50%);
+		border: none;
+		background: none;
+    }
+    .reviews-section button:active{
+        box-shadow: none;
+    }
+    .reviews-section button svg{
+        width: 40px;
+		height: 40px;
     }
     .reviews-section button.next{
-        right:0px;
+        right:-40px;
     }
     .reviews-section button.prev{
-        left:0px;
+        left: -40px;
     }
     .all-reviews {
         display: grid;
@@ -143,16 +156,32 @@ const style = `
         display: grid;
     }
     .single-review strong{
+		font-size: 16px;
     }
     .single-review h3{
         margin: 12px 0 6px;
+		font-size: 20px;
     }
     .single-review p{
+		font-weight: 500;
     }
 	@media only screen and (max-width:991px){
 		.all-reviews {
 			grid-template-columns: repeat(12, 48%);
 			gap: 4%;
+		}
+		.reviews-section button.next{
+			right:-30px;
+		}
+		.reviews-section button.prev{
+			left: -30px;
+		}
+		.reviews-section button svg{
+			width: 32px;
+			height: 32px;
+		}
+		.new-review-elm{
+			padding: 0 30px;
 		}
 	}
 	@media only screen and (max-width:480px){
@@ -169,8 +198,16 @@ const new_elm_html = `
     <h1>Over XX,XXX Golfers Served Since 1958</h1>
     <h6>16000+ Reviews - 94% 5-Stars</h6>
     <div class="reviews-section">
-        <button class="prev">Prev</button>
-        <button class="next">Next</button>
+        <button class="prev">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="#000000" width="800px" height="800px" viewBox="0 0 32 32" version="1.1">
+				<path d="M23.505 0c0.271 0 0.549 0.107 0.757 0.316 0.417 0.417 0.417 1.098 0 1.515l-14.258 14.264 14.050 14.050c0.417 0.417 0.417 1.098 0 1.515s-1.098 0.417-1.515 0l-14.807-14.807c-0.417-0.417-0.417-1.098 0-1.515l15.015-15.022c0.208-0.208 0.486-0.316 0.757-0.316z"/>
+			</svg>
+		</button>
+        <button class="next">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="#000000" width="800px" height="800px" viewBox="0 0 32 32" version="1.1">
+				<path d="M8.489 31.975c-0.271 0-0.549-0.107-0.757-0.316-0.417-0.417-0.417-1.098 0-1.515l14.258-14.264-14.050-14.050c-0.417-0.417-0.417-1.098 0-1.515s1.098-0.417 1.515 0l14.807 14.807c0.417 0.417 0.417 1.098 0 1.515l-15.015 15.022c-0.208 0.208-0.486 0.316-0.757 0.316z"/>
+			</svg>
+		</button>
         <div class="all-reviews">
             ${reviews?.map((review) => getSingleRev(review)).join('')}
         </div>
