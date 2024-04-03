@@ -73,7 +73,7 @@ const new_elm_html = `
         <button class="prev">Prev</button>
         <button class="next">Next</button>
         <div class="all-reviews">
-            ${reviews?.map((review) => getSingleRev(review)).join()}
+            ${reviews?.map((review) => getSingleRev(review)).join('')}
         </div>
     </div>
 </div>
