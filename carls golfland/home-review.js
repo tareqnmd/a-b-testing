@@ -101,6 +101,13 @@ const style = `
 		padding: 0 40px;
 		width: 100%;
     }
+	.small-line{
+		width: 160px;
+		display: block;
+		background: #dfdfdf;
+		height: 1px;
+		margin: 12px auto 0;
+	}
     .new-review-elm *{
         margin:0;
         padding:0;
@@ -202,6 +209,7 @@ const style = `
 const new_elm_html = `
 <div class="new-review-elm">
     <h1>Over XX,XXX Golfers Served Since 1958</h1>
+	<span class="small-line"></span>
     <h6>16000+ Reviews - 94% 5-Stars</h6>
     <div class="reviews-section">
         <button class="prev">
