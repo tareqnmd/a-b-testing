@@ -93,7 +93,6 @@ const getSingleRev = (rev) => `
 const style = `
 <style>
     .new-review-elm{
-        display: grid;
         margin: 30px 10px;
     }
     .new-review-elm *{
@@ -109,6 +108,7 @@ const style = `
     }
     .reviews-section{
         position: relative;
+        width:100%;
     }
     .reviews-section button{
         position: absolute;
@@ -116,10 +116,10 @@ const style = `
         transform: translateY(-50%);
     }
     .reviews-section button.next{
-        right:10px;
+        right:0px;
     }
     .reviews-section button.prev{
-        left:10px;
+        left:0px;
     }
     .all-reviews {
         display: grid;
@@ -127,7 +127,12 @@ const style = `
         gap: 2%;
         overflow-y: auto;
         scroll-snap-type: x mandatory;
+		scrollbar-width: none;
+		ms-overflow-style: none; 
     }
+	.all-reviews::-webkit-scrollbar {
+		display: none;
+	}
     .single-review{
         scroll-snap-align: start;
         display: grid;
@@ -139,6 +144,18 @@ const style = `
     }
     .single-review p{
     }
+	@media only screen and (max-width:991px){
+		.all-reviews {
+			grid-template-columns: repeat(12, 48%);
+			gap: 4%;
+		}
+	}
+	@media only screen and (max-width:480px){
+		.all-reviews {
+			grid-template-columns: repeat(12, 100%);
+			gap: 0;
+		}
+	}
 </style>
 `;
 
@@ -163,5 +180,26 @@ const interval = setInterval(() => {
 		head.insertAdjacentHTML('beforeend', style);
 		exist_elm.insertAdjacentHTML('afterend', new_elm_html);
 		clearInterval(interval);
+	}
+}, 10);
+
+const btn_interval = setInterval(() => {
+	const next_btn = document.querySelector('.reviews-section .next');
+	const prev_btn = document.querySelector('.reviews-section .prev');
+	const all_revs = document.querySelector('.reviews-section .all-reviews');
+	if (next_btn && prev_btn && all_revs) {
+		prev_btn.addEventListener('click', () => {
+			all_revs.scrollBy({
+				left: -20,
+				behavior: 'smooth',
+			});
+		});
+		next_btn.addEventListener('click', () => {
+			all_revs.scrollBy({
+				left: 20,
+				behavior: 'smooth',
+			});
+		});
+		clearInterval(btn_interval);
 	}
 }, 10);
