@@ -34,6 +34,41 @@ const reviews = [
 		description:
 			'Putter was delivered fast and in perfect condition. Love the selection , will be ordering more clubs from Carls',
 	},
+	{
+		user: 'Marita',
+		title: 'Perfect!!!!',
+		description:
+			'Rating Great Big Bertha ladies - ordered online from Switzerland, delivery our House on time 4 days after ordering. Great price, great service - perfect - thank you',
+	},
+	{
+		user: 'Brian M',
+		title: 'Cobra Radspeed Driver',
+		description:
+			'Just purchased a Cobra Radspeed XB driver. Driver came as promised. Excellent shipping package. Driver in pristine condition and would highly recommend this seller.',
+	},
+	{
+		user: 'David R.',
+		title: "Carl's should have a loyalty",
+		description:
+			"Carl's should have a loyalty program for people such as myself who buy a ton of stuff there.",
+	},
+	{
+		user: 'Kimberly T.',
+		title: "Women's Golf Shoes",
+		description:
+			"Fantastic selection and quick delivery on my golf shoes! I would order from Carl's Golfland again!",
+	},
+	{
+		user: 'Harriet W.',
+		title: 'Order arrived on time. Great',
+		description: 'Order arrived on time. Great shoes for a great price.',
+	},
+	{
+		user: 'Ben B.',
+		title: 'Putter was delivered fast and in perfect condition',
+		description:
+			'Putter was delivered fast and in perfect condition. Love the selection , will be ordering more clubs from Carls',
+	},
 ];
 
 const star_svg = `
@@ -59,8 +94,50 @@ const style = `
 <style>
     .new-review-elm{
         display: grid;
-        align-items: center;
         margin: 30px 10px;
+    }
+    .new-review-elm *{
+        margin:0;
+        padding:0;
+    }
+    .new-review-elm h1{
+        text-align: center;
+    }
+    .new-review-elm h6{
+        margin:12px 0;
+        text-align: center;
+    }
+    .reviews-section{
+        position: relative;
+    }
+    .reviews-section button{
+        position: absolute;
+        top:50%;
+        transform: translateY(-50%);
+    }
+    .reviews-section button.next{
+        right:10px;
+    }
+    .reviews-section button.prev{
+        left:10px;
+    }
+    .all-reviews {
+        display: grid;
+        grid-template-columns: repeat(12, 32%);
+        gap: 2%;
+        overflow-y: auto;
+        scroll-snap-type: x mandatory;
+    }
+    .single-review{
+        scroll-snap-align: start;
+        display: grid;
+    }
+    .single-review strong{
+    }
+    .single-review h3{
+        margin: 12px 0 6px;
+    }
+    .single-review p{
     }
 </style>
 `;
