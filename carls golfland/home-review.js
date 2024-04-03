@@ -93,7 +93,12 @@ const getSingleRev = (rev) => `
 const style = `
 <style>
     .new-review-elm{
-        margin: 30px 10px;
+        margin: 30px 0px;
+		box-sizing: border-box;
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 1400px;
+		width: 100%;
     }
     .new-review-elm *{
         margin:0;
