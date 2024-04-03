@@ -106,7 +106,7 @@ const style = `
 		display: block;
 		background: #dfdfdf;
 		height: 1px;
-		margin: 12px auto 0;
+		margin: 12px auto 0!important;
 	}
     .new-review-elm *{
         margin:0;
@@ -139,6 +139,7 @@ const style = `
     .reviews-section button svg{
         width: 40px;
 		height: 40px;
+		fill: #999999;
     }
     .reviews-section button.next{
         right:-40px;
