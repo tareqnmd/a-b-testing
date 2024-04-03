@@ -149,8 +149,8 @@ const style = `
     }
     .all-reviews {
         display: grid;
-        grid-template-columns: repeat(12, 32%);
-        gap: 2%;
+        grid-template-columns: repeat(12, 24%);
+        gap: 1.7%;
         overflow-y: auto;
         scroll-snap-type: x mandatory;
 		scrollbar-width: none;
@@ -173,6 +173,12 @@ const style = `
     .single-review p{
 		font-weight: 500;
     }
+	@media only screen and (max-width:1200px){
+		.all-reviews {
+			grid-template-columns: repeat(12, 32%);
+			gap: 2%;
+		}
+	}
 	@media only screen and (max-width:991px){
 		.all-reviews {
 			grid-template-columns: repeat(12, 48%);
