@@ -183,11 +183,17 @@ const style = `
 		.new-review-elm{
 			padding: 0 30px;
 		}
+		.new-review-elm h1{
+			font-size: 26px;
+		}
 	}
 	@media only screen and (max-width:480px){
 		.all-reviews {
 			grid-template-columns: repeat(12, 100%);
 			gap: 0;
+		}
+		.new-review-elm h1{
+			font-size: 20px;
 		}
 	}
 </style>
