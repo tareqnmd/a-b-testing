@@ -1,7 +1,7 @@
 const style = `
 <style>
     .product_info_image, .product__tax.caption.rte{
-        display: none;
+        display: none!important;
     }
     .pay_free{
         padding: 0 0 1rem!important;
