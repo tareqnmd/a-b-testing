@@ -7,16 +7,6 @@ const style = `
         padding: 8px 12px;
         border-radius: 6px;
     }
-    .new-filter-elm{
-        display: none;
-        align-items: center;
-        gap: 8px;
-    }
-    .new-filter-elm span{
-        font-size: 16px;
-        font-weight: 700;
-        color: #1B1B1B;
-    }
     .new-top-elm{
         display: flex;
         align-items: center;
@@ -37,9 +27,6 @@ const style = `
         margin: 12px 6px !important;
     }
     @media only screen and (max-width:767px){
-        .new-filter-elm{
-            display: flex;
-        }
         .collection-filter__inner{
             justify-content: space-between;
         }
@@ -51,15 +38,21 @@ const style = `
 `;
 
 const new_elm_html = `
-<div class="new-filter-elm">
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <line y1="4" x2="16" y2="4" stroke="black" stroke-width="2"/>
-    <line y1="12" x2="16" y2="12" stroke="black" stroke-width="2"/>
-    <circle cx="6" cy="4" r="3" fill="white" stroke="black" stroke-width="2"/>
-    <circle cx="10" cy="12" r="3" fill="white" stroke="black" stroke-width="2"/>
+    <svg
+    aria-hidden="true"
+    focusable="false"
+    role="presentation"
+    class="new-filter-elm icon icon-filter"
+    viewBox="0 0 64 64"
+    >
+        <path d="M48 42h10">.</path>
+        <path d="M48 42a5 5 0 1 1-5-5 5 5 0 0 1 5 5Z"></path>
+        <path d="M7 42h31">.</path>
+        <path d="M16 22H6">.</path>
+        <path d="M16 22a5 5 0 1 1 5 5 5 5 0 0 1-5-5Z"> </path>
+        <path d="M57 22H26">.</path>
     </svg>
-    <span>Filter your search</span>
-</div>
+    Filter your search
 `;
 
 const new_top_elm_html = `
@@ -71,7 +64,7 @@ const new_top_elm_html = `
 
 const interval = setInterval(() => {
 	const exist_elm_count = document.querySelector(
-		'.collection-filter__item.collection-filter__item--count'
+		'.collection-filter__btn.text-link'
 	);
 	const filter = document.querySelector('.collection-filter');
 	const head = document.querySelector('head');
@@ -83,7 +76,7 @@ const interval = setInterval(() => {
 	) {
 		head.insertAdjacentHTML('beforeend', style);
 		filter.insertAdjacentHTML('beforebegin', new_top_elm_html);
-		exist_elm_count.insertAdjacentHTML('beforebegin', new_elm_html);
+		exist_elm_count.innerHTML = new_elm_html;
 		clearInterval(interval);
 	}
 }, 10);
