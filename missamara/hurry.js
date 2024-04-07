@@ -71,7 +71,7 @@ const social_proof = (views) => `
 </div>
 `;
 
-const checkSku = (sku) => products_sku.find((product) => product?.sku === sku);
+const checkSku = (sku) => products_sku.find((product) => product.sku === sku);
 
 const interval = setInterval(() => {
 	const exist_elm = document.querySelector(
