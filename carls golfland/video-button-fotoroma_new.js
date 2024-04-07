@@ -107,7 +107,7 @@ const int = setInterval(() => {
 		title &&
 		!document.querySelector('.watch-video')
 	) {
-		const youtube_url = `https://www.youtube.com/embed/${url}?autoplay=1&amp;rel=0&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fwww.carlsgolfland.com&amp;widgetid=1`;
+		const youtube_url = `https://www.youtube.com/embed/${url}?&loop=1&playlist=${url};rel=0&controls=1&autoplay=1&mute=1&start=0`;
 		head.insertAdjacentHTML('beforeend', style);
 		body.insertAdjacentHTML('afterbegin', vid_area(youtube_url, title));
 		product_media.insertAdjacentHTML('beforeend', product_html);
