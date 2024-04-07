@@ -75,41 +75,37 @@ const product_html = `
 </div>
 `;
 
-const vid_area = (url, title) => `
+const vid_area = `
 <div class="popup-vid">
 	<div class="popup-vid-wrap">
 		<button>X</button>
-		<iframe
-			frameborder="0"
-			allowfullscreen=""
-			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-			title="${title}"
-			src="${url}"
-			id="vid_iframe"
-		></iframe>
 	</div>
 </div>
 `;
 
+const vid = (url, title) => `
+<iframe
+    frameborder="0"
+    allowfullscreen=""
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    title="${title}"
+    src="${url}"
+    id="vid_iframe"
+></iframe>
+`;
+
 const int = setInterval(() => {
 	const product_media = document.querySelector('.column.main .product.media');
-	const url = document
-		.querySelector('.product-video')
-		.getAttribute('data-code');
-	const title = document.querySelector('.page-title').innerText;
 	const body = document.querySelector('body');
 	const head = document.querySelector('head');
 	if (
 		product_media &&
 		head &&
-		url &&
 		body &&
-		title &&
 		!document.querySelector('.watch-video')
 	) {
-		const youtube_url = `https://www.youtube.com/embed/${url}?&loop=1&playlist=${url};rel=0&controls=1&autoplay=1&mute=1&start=0`;
 		head.insertAdjacentHTML('beforeend', style);
-		body.insertAdjacentHTML('afterbegin', vid_area(youtube_url, title));
+		body.insertAdjacentHTML('afterbegin', vid_area);
 		product_media.insertAdjacentHTML('beforeend', product_html);
 		clearInterval(int);
 	}
@@ -118,12 +114,27 @@ const int = setInterval(() => {
 const click_int = setInterval(() => {
 	const video_btn = document.querySelector('.watch-video');
 	const video_area = document.querySelector('.popup-vid');
-	if (video_btn && video_area) {
+	const video_wrap_area = document.querySelector('.popup-vid-wrap');
+	const url = document
+		.querySelector('.product-video')
+		.getAttribute('data-code');
+	const title = document.querySelector('.page-title').innerText;
+	if (video_btn && url && title && video_area) {
+		const youtube_url = `https://www.youtube.com/embed/${url}?&loop=1&playlist=${url};rel=0&controls=1&autoplay=1&mute=1&start=0`;
 		video_btn.addEventListener('click', () => {
 			video_area.style.top = '0';
+			if (!document.querySelector('#vid_iframe')) {
+				video_wrap_area.insertAdjacentHTML(
+					'beforeend',
+					vid(youtube_url, title)
+				);
+			}
 		});
 		video_area.addEventListener('click', () => {
 			video_area.style.top = '-100vh';
+			if (document.querySelector('#vid_iframe')) {
+				document.querySelector('#vid_iframe').remove();
+			}
 		});
 		clearInterval(click_int);
 	}
