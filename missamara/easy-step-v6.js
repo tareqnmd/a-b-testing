@@ -13,7 +13,7 @@ const new_easy_step = `
     }
     .new-easy-step .easy-step-imgs{
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         justify-content: space-between;
         gap: 30px;
     }
@@ -61,6 +61,7 @@ const new_easy_step = `
         }
         .new-easy-step .easy-step-imgs a h3 {
             text-align: center;
+            font-weight: normal;
         }
     }
     @media only screen and (max-width:480px){
