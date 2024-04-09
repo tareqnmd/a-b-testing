@@ -39,6 +39,7 @@ const style = `
     }
     .mob-img-slider img{
         width: 100px;
+        cursor: pointer;
     }
     .mob-img-slider::-webkit-scrollbar {
         display: none;
@@ -94,7 +95,7 @@ const btn_interval = setInterval(() => {
 	const all_imgs = document.querySelector(
 		'.mob-img-slider-area .mob-img-slider'
 	);
-	const slide_first_img = document.querySelectorAll(
+	const slide_first_img = document.querySelector(
 		'.flex .relative .Swiper_swiperCommon__TaNb5 .swiper-wrapper img'
 	);
 	if (next_btn && prev_btn && all_imgs) {
@@ -114,6 +115,7 @@ const btn_interval = setInterval(() => {
 			if (e.target.tagName === 'IMG') {
 				const src = e.target.src;
 				slide_first_img.src = src;
+				slide_first_img.srcset = src;
 			}
 		});
 		clearInterval(btn_interval);
