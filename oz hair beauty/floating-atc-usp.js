@@ -379,12 +379,26 @@ const float_elm_html = (title, rating) => `
 </div>
 `;
 
+const sec_interval = setInterval(() => {
+	const width = window.innerWidth;
+	const product_area = document.querySelector(
+		'.ProductInformation_container__V6QIL > div'
+	);
+	const img_area = document.querySelector(
+		'.flex.justify-center.gap-8'
+	).parentNode;
+	if (width < 768 && product_area && img_area) {
+		product_area.insertAdjacentElement('afterbegin', img_area);
+		clearInterval(sec_interval);
+	}
+}, 10);
+
 const interval = setInterval(() => {
 	const exist_elm = document.querySelector('#product-detail-action');
 	const head = document.querySelector('head');
 	const body = document.querySelector('body');
-	const rating = document.querySelector("[itemprop='ratingValue']").innerText;
-	const title = document.querySelector('h1.Title_title__rAIlq').innerText;
+	const rating = document.querySelector("[itemprop='ratingValue']");
+	const title = document.querySelector('h1.Title_title__rAIlq');
 	if (
 		exist_elm &&
 		title &&
@@ -394,7 +408,10 @@ const interval = setInterval(() => {
 		!document.querySelector('.new-usp-elm')
 	) {
 		head.insertAdjacentHTML('beforeend', style);
-		body.insertAdjacentHTML('beforeend', float_elm_html(title, rating));
+		body.insertAdjacentHTML(
+			'beforeend',
+			float_elm_html(title.innerText, rating.innerText)
+		);
 		exist_elm.insertAdjacentHTML('afterend', new_elm_html);
 		clearInterval(interval);
 	}
