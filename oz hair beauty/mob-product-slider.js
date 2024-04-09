@@ -1,11 +1,10 @@
 const style = `
 <style>
-    .img-show-area{
-        margin-bottom: 20px;
-    }
     .mob-img-slider-area{
         position: relative;
         width:100%;
+        margin-top: 20px;
+        display: none;
     }
     .mob-img-slider-area button{
         position: absolute;
@@ -30,7 +29,6 @@ const style = `
     .mob-img-slider {
         display: flex;
         align-items: center;
-        justify-content: center;
         gap: 20px;
         overflow-y: auto;
         scroll-snap-type: x mandatory;
@@ -40,9 +38,15 @@ const style = `
     .mob-img-slider img{
         width: 100px;
         cursor: pointer;
+        scroll-snap-align: start;
     }
     .mob-img-slider::-webkit-scrollbar {
         display: none;
+    }
+    @media only screen and (max-width:767px){
+        .mob-img-slider-area{
+            display: block;
+        }
     }
 </style>
 `;
@@ -98,7 +102,7 @@ const btn_interval = setInterval(() => {
 	const slide_first_img = document.querySelector(
 		'.flex .relative .Swiper_swiperCommon__TaNb5 .swiper-wrapper img'
 	);
-	if (next_btn && prev_btn && all_imgs) {
+	if (next_btn && prev_btn && all_imgs && slide_first_img) {
 		prev_btn.addEventListener('click', () => {
 			all_imgs.scrollBy({
 				left: -100,
