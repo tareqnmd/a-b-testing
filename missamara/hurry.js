@@ -77,7 +77,7 @@ const interval = setInterval(() => {
 	const exist_elm = document.querySelector(
 		'.main-image.main-image-discount-wrapper'
 	);
-	const exist_elm_mob = document.querySelector('.mobile-slideshow .slick-list');
+	const exist_elm_mob = document.querySelector('.mobile-slideshow');
 	const sku = document.querySelector('.detail .sku__value').innerText;
 	const head = document.querySelector('head');
 	if (
