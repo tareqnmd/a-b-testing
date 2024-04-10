@@ -7,6 +7,20 @@ const style = `
     .main-image-wrapper{
         width: 98%!important;
     }
+    #thumbscroll{
+        width: 98%!important;
+        display: flex;
+        align-items: center;
+    }
+    #pdp-carousel{
+        height: auto!important;
+        width: 100%!important;
+    }
+    #pdp-carousel ul{
+        top: 0!important;
+        height: 60px!important;
+        display: flex;
+    }
 }
 </style>
 `;
