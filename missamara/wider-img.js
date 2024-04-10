@@ -18,12 +18,11 @@ const style = `
     #pdp-carousel{
         height: auto!important;
         width: 100%!important;
-        overflow-x: auto!important;
     }
-    #pdp-carousel::-webkit-scrollbar {
+    #pdp-carousel ul::-webkit-scrollbar {
         display: none;
     }
-    #pdp-carousel {
+    #pdp-carousel ul {
         -ms-overflow-style: none;  
         scrollbar-width: none;  
     }
@@ -31,6 +30,7 @@ const style = `
         top: 0!important;
         height: 60px!important;
         display: flex;
+        overflow-x: auto!important;
     }
     .product-detail .gallery .thumbnails li a img{
         width: 60px!important;
@@ -109,13 +109,13 @@ const btn_interval = setInterval(() => {
 	if (next_btn && prev_btn && lis) {
 		prev_btn.addEventListener('click', () => {
 			lis.scrollBy({
-				left: -20,
+				left: -60,
 				behavior: 'smooth',
 			});
 		});
 		next_btn.addEventListener('click', () => {
 			lis.scrollBy({
-				left: 20,
+				left: 60,
 				behavior: 'smooth',
 			});
 		});
