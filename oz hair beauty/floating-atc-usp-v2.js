@@ -107,6 +107,10 @@ const style = `
         color: white;
         flex-shrink: 0;
     }
+	
+	.mob-product-rating{
+		display: none;
+	}
 
     @media only screen and (max-width:767px){
         .float-cart{
@@ -156,6 +160,7 @@ const style = `
         }
         .float-cart{
             padding: 12px 6px;
+			flex-direction: column;
             gap: 10px;
         }
     
@@ -180,7 +185,7 @@ const style = `
             font-size: 8px;
             line-height: 14px;
         }
-    
+		
         .float-cart button{
             font-size: 10px;
             line-height: 10px;
@@ -190,6 +195,16 @@ const style = `
 		.float-cart .product-info{
             display: none;
         }
+		.mob-product-rating{
+			display: flex;
+			align-items: center;
+            justify-content: center;
+			gap:0 4px;
+		}
+		.mob-product-rating strong{
+			display: flex;
+			line-height: 14px;
+		}
     }
 </style>
 `;
@@ -380,6 +395,10 @@ const float_elm_html = (title, rating) => `
         </div>
     </div>
     <button onclick="document.querySelector('.AddToCart_btn-add-to-cart___RRI8.button').click()">ADD TO CART</button>
+	<div class="mob-product-rating">
+            <strong>${rating}/5.0</strong>
+            ${star_svg}
+    </div>
 </div>
 `;
 
