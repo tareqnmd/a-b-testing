@@ -34,6 +34,9 @@ const style = `
 .rating-elm{
     margin-bottom: 3rem!important;
 }
+product__accordion accordion quick-add-hidden{
+    display: none!important;;
+}
 </style>
 `;
 
