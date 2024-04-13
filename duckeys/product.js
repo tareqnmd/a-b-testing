@@ -17,19 +17,22 @@ const style = `
 <style>
 .gift-elm{
     background: #FFF1EA;
-    padding: 8px 16px 8px 16px;
+    padding: 16px;
     display: flex;
     align-items: center;
     gap: 8px;
     border-radius: 8px;
+    margin: 20px 0;
 }
 .gift-elm strong{
-    font-family: Roboto;
     font-size: 16px;
     font-weight: 700;
     line-height: 18px;
     text-align: left;
     color: #0D0C22;
+}
+.rating-elm{
+    margin-bottom: 3rem!important;
 }
 </style>
 `;
@@ -56,7 +59,9 @@ const interval = setInterval(() => {
 	) {
 		head.insertAdjacentHTML('beforeend', style);
 		title.insertAdjacentElement('beforebegin', rating);
+		details.classList.add('rating-elm');
 		price.insertAdjacentElement('afterend', details);
+		price.insertAdjacentHTML('afterend', gift_elm);
 		clearInterval(interval);
 	}
 }, 10);
