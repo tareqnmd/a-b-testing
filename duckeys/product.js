@@ -3,17 +3,13 @@ const style = `
 </style>
 `;
 
-const new_elm_html = `
-<div class="new-elm">
-</div>
-`;
-
 const interval = setInterval(() => {
-	const exist_elm = document.querySelector('.exist-elm');
+	const title = document.querySelector('.product__title');
+	const rating = document.querySelector('#shopify-block-loox-rating');
 	const head = document.querySelector('head');
-	if (exist_elm && head && !document.querySelector('.new-elm')) {
+	if (title && rating && head) {
 		head.insertAdjacentHTML('beforeend', style);
-		exist_elm.insertAdjacentHTML('beforeend', new_elm_html);
+		title.insertAdjacentElement('beforebegin', rating);
 		clearInterval(interval);
 	}
 }, 10);
