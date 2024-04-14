@@ -81,6 +81,9 @@ const style = `
 .swatch-option-name{
     font-weight: bold;
 }
+.quantity-cart{
+    
+}
 </style>
 `;
 
@@ -104,20 +107,26 @@ const interval = setInterval(() => {
 	const details = document.querySelector('.accordion__content.rte ul');
 	const price = document.querySelector('.price.price--large').parentNode;
 	const slider = document.querySelector('.slider-mobile-gutter');
+	const quantity = document.querySelector(
+		'.product-form__input.product-form__quantity'
+	);
+	const add_to_cart = document.querySelector('.product-form').parentNode;
+
 	const head = document.querySelector('head');
-	if (
-		title &&
-		rating &&
-		price &&
-		head &&
-		!document.querySelector('.gift-elm')
-	) {
+	const check =
+		title && rating && price && details && slider && quantity && add_to_cart;
+	if (check && head && !document.querySelector('.gift-elm')) {
 		head.insertAdjacentHTML('beforeend', style);
 		title.insertAdjacentElement('beforebegin', rating);
 		details.classList.add('details-elm');
 		price.insertAdjacentElement('afterend', details);
 		price.insertAdjacentHTML('afterend', gift_elm);
 		slider.insertAdjacentHTML('beforeend', sold_elm);
+		const new_div = document.createElement('div');
+		quantity.insertAdjacentElement('afterend', new_div);
+		new_div.classList.add('quantity-cart');
+		new_div.insertAdjacentElement('afterbegin', quantity);
+		new_div.insertAdjacentElement('afterbegin', add_to_cart);
 		clearInterval(interval);
 	}
 }, 10);
