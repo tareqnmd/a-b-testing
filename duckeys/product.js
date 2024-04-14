@@ -62,11 +62,21 @@ const style = `
     line-height: 14px;
     text-align: left;
 }
-.rating-elm{
-    margin-bottom: 3rem!important;
+.details-elm{
+    margin: 3rem 0!important;
 }
 .product__accordion.accordion.quick-add-hidden{
     display: none!important;;
+}
+.price-item.price-item--regular{
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 28px;
+    text-align: left;
+    color: #FF437A;
+}
+.swatch-option-name{
+    font-weight: bold;
 }
 </style>
 `;
@@ -101,7 +111,7 @@ const interval = setInterval(() => {
 	) {
 		head.insertAdjacentHTML('beforeend', style);
 		title.insertAdjacentElement('beforebegin', rating);
-		details.classList.add('rating-elm');
+		details.classList.add('details-elm');
 		price.insertAdjacentElement('afterend', details);
 		price.insertAdjacentHTML('afterend', gift_elm);
 		slider.insertAdjacentHTML('beforeend', sold_elm);
