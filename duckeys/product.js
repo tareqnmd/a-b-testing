@@ -82,7 +82,22 @@ const style = `
     font-weight: bold;
 }
 .quantity-cart{
-
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.product-form__input.product-form__quantity{
+    flex: 0;
+    margin: 0;
+}
+.product-form__input.product-form__quantity .form__label{
+    display: none;
+}
+.product-form__input.product-form__quantity .quantity{
+    padding: 24px 0;
+}
+.form-elm{
+    width: -webkit-fill-available;
 }
 </style>
 `;
@@ -125,8 +140,9 @@ const interval = setInterval(() => {
 		const new_div = document.createElement('div');
 		quantity.insertAdjacentElement('afterend', new_div);
 		new_div.classList.add('quantity-cart');
-		new_div.insertAdjacentElement('afterbegin', quantity);
+		add_to_cart.classList.add('form-elm');
 		new_div.insertAdjacentElement('afterbegin', add_to_cart);
+		new_div.insertAdjacentElement('afterbegin', quantity);
 		clearInterval(interval);
 	}
 }, 10);
