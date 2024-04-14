@@ -55,7 +55,7 @@ const style = `
     display: flex;
     align-items: center;
     gap: 4px;
-    z-index: 99;
+    z-index: 2;
     border-radius: 0px 20px 20px 0px;
 }
 .sold-elm span{
@@ -82,7 +82,7 @@ const style = `
     font-weight: bold;
 }
 .quantity-cart{
-    
+
 }
 </style>
 `;
