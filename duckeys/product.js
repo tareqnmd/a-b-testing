@@ -50,7 +50,10 @@ const style = `
     position: absolute;
     bottom: 20px;
     left: 0px;
-    padding: 10px 16px;
+    padding: 10px;
+    background: white;
+    display: flex;
+    align-items: center;
     gap: 4px;
     z-index: 99;
     border-radius: 0px 20px 20px 0px;
