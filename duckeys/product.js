@@ -13,6 +13,21 @@ const gift_svg = `
 </svg>
 `;
 
+const fire_svg = `
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g clip-path="url(#clip0_2590_240)">
+    <path d="M10.625 15C12.1875 14.7367 13.4852 13.4375 13.75 11.875" stroke="#FF437A" stroke-linecap="round" stroke-linejoin="round"/>
+    <path opacity="0.2" d="M8.75 7.5L10.8023 1.875C12.4891 3.275 16.25 6.88672 16.25 11.25C16.25 12.9076 15.5915 14.4973 14.4194 15.6694C13.2473 16.8415 11.6576 17.5 10 17.5C8.3424 17.5 6.75269 16.8415 5.58058 15.6694C4.40848 14.4973 3.75 12.9076 3.75 11.25C3.75 8.86172 4.87656 6.69844 6.17188 5L8.75 7.5Z" fill="#FF437A"/>
+    <path d="M8.75 7.5L10.8023 1.875C12.4891 3.275 16.25 6.88672 16.25 11.25C16.25 12.9076 15.5915 14.4973 14.4194 15.6694C13.2473 16.8415 11.6576 17.5 10 17.5C8.3424 17.5 6.75269 16.8415 5.58058 15.6694C4.40848 14.4973 3.75 12.9076 3.75 11.25C3.75 8.86172 4.87656 6.69844 6.17188 5L8.75 7.5Z" stroke="#FF437A" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <defs>
+    <clipPath id="clip0_2590_240">
+    <rect width="20" height="20" fill="white"/>
+    </clipPath>
+    </defs>
+</svg>
+`;
+
 const style = `
 <style>
 .gift-elm{
@@ -31,6 +46,22 @@ const style = `
     text-align: left;
     color: #0D0C22;
 }
+.sold-elm {
+    position: absolute;
+    bottom: 20px;
+    left: 0px;
+    padding: 10px 16px;
+    gap: 4px;
+    z-index: 99;
+    border-radius: 0px 20px 20px 0px;
+}
+.sold-elm span{
+    color: #FF437A;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 14px;
+    text-align: left;
+}
 .rating-elm{
     margin-bottom: 3rem!important;
 }
@@ -47,11 +78,19 @@ const gift_elm = `
 </div>
 `;
 
+const sold_elm = `
+<div class="sold-elm">
+    ${fire_svg}
+    <span>200 items sold in last 24 hours</span>
+</div>
+`;
+
 const interval = setInterval(() => {
 	const title = document.querySelector('.product__title');
 	const rating = document.querySelector('#shopify-block-loox-rating');
 	const details = document.querySelector('.accordion__content.rte ul');
 	const price = document.querySelector('.price.price--large').parentNode;
+	const slider = document.querySelector('.slider-mobile-gutter');
 	const head = document.querySelector('head');
 	if (
 		title &&
@@ -65,6 +104,7 @@ const interval = setInterval(() => {
 		details.classList.add('rating-elm');
 		price.insertAdjacentElement('afterend', details);
 		price.insertAdjacentHTML('afterend', gift_elm);
+		slider.insertAdjacentHTML('beforeend', sold_elm);
 		clearInterval(interval);
 	}
 }, 10);
