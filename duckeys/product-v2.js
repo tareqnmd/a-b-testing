@@ -81,7 +81,7 @@ const style = `
 .form-elm{
     width: -webkit-fill-available;
 }
-.shippingInfo,product__text:nth-of-type(2){
+.shippingInfo,.product__text:nth-of-type(2){
     display: none!important;
 }
 </style>
@@ -115,7 +115,7 @@ const interval = setInterval(() => {
 		document.querySelector('.product__text:nth-of-type(2)') &&
 		document.querySelector('.product__text:nth-of-type(2)').innerHTML
 	) {
-		shipping_info = document.querySelector('.product__text').innerHTML;
+		shipping_info = document.querySelector('.product__text:nth-of-type(2)').innerHTML;
 	} else if (
 		document.querySelector('.shippingInfo a') &&
 		document.querySelector('.shippingInfo a').innerHTML
