@@ -48,6 +48,8 @@ span#price-off{
     display: flex;
     align-items: center;
     background: #FFFFFF;
+}
+.copy-code button span{
     color: #0D0C22;
     font-size: 12px;
     font-weight: 600;
@@ -56,6 +58,27 @@ span#price-off{
     color: #FF437A;
     font-size: 24px;
     font-weight: 700;
+}
+@media only screen and (max-width:480px){
+    .meta_save{
+        padding: 10px;
+    }
+    .new-elm strong{
+        font-size: 12px;
+    }
+    #ProductPrices{
+        font-size: 18px;
+    }
+    .copy-code span{
+        font-size: 10px;
+    }
+    .copy-code button{
+        gap: 4px;
+        padding: 2px 6px;
+    }
+    .copy-code button span{
+        font-size: 10px;
+    }
 }
 </style>
 `;
@@ -92,5 +115,24 @@ const interval = setInterval(() => {
 		price_elm.innerHTML = new_elm_html;
 		product_meta.insertAdjacentElement('afterbegin', meta_save);
 		clearInterval(interval);
+	}
+}, 10);
+
+const copy_interval = setInterval(() => {
+	const copy_text = 'SKIN20';
+	const copy_code = document.querySelector('.copy-code button');
+	const copy_code_span = document.querySelector('.copy-code button span');
+	const copy_code_svg = document.querySelector('.copy-code button svg');
+	if (copy_code_span && copy_code) {
+		copy_code.addEventListener('click', () => {
+			navigator.clipboard.writeText(copy_text);
+			copy_code_span.innerHTML = 'Copied!';
+			copy_code_svg.style.display = 'none';
+			setTimeout(() => {
+				copy_code_span.innerHTML = 'Copy Code';
+				copy_code_svg.style.display = 'block';
+			}, 2500);
+		});
+		clearInterval(copy_interval);
 	}
 }, 10);
