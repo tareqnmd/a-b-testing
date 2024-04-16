@@ -111,9 +111,11 @@ const interval = setInterval(() => {
 	);
 	const add_to_cart = document.querySelector('.product-form').parentNode;
 	let shipping_info;
-	if(
-		document.querySelector('.product__text')){shipping_info=document.querySelector('.product__text').innerHTML} else if(
-		document.querySelector('.shippingInfo a')){shipping_info=document.querySelector('.shippingInfo a').innerHTML};
+	if (document.querySelector('.product__text').innerHTML) {
+		shipping_info = document.querySelector('.product__text').innerHTML;
+	} else if (document.querySelector('.shippingInfo a').innerHTML) {
+		shipping_info = document.querySelector('.shippingInfo a').innerHTML;
+	}
 
 	const head = document.querySelector('head');
 	const check =
