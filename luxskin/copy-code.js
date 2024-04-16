@@ -27,6 +27,10 @@ span#price-off{
     background: none;
     padding:0;
 }
+.new-elm{
+    display: grid;
+    gap: 4px;
+}
 .new-elm strong{
     font-size: 14px;
     font-weight: 700;
@@ -47,6 +51,11 @@ span#price-off{
     color: #0D0C22;
     font-size: 12px;
     font-weight: 600;
+}
+#ProductPrices{
+    color: #FF437A;
+    font-size: 24px;
+    font-weight: 700;
 }
 </style>
 `;
