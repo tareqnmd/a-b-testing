@@ -81,7 +81,7 @@ const style = `
 .form-elm{
     width: -webkit-fill-available;
 }
-.shippingInfo{
+.shippingInfo,product__text:nth-of-type(2){
     display: none!important;
 }
 </style>
@@ -112,8 +112,8 @@ const interval = setInterval(() => {
 	const add_to_cart = document.querySelector('.product-form').parentNode;
 	let shipping_info;
 	if (
-		document.querySelector('.product__text') &&
-		document.querySelector('.product__text').innerHTML
+		document.querySelector('.product__text:nth-of-type(2)') &&
+		document.querySelector('.product__text:nth-of-type(2)').innerHTML
 	) {
 		shipping_info = document.querySelector('.product__text').innerHTML;
 	} else if (
