@@ -110,9 +110,10 @@ const interval = setInterval(() => {
 		'.product-form__input.product-form__quantity'
 	);
 	const add_to_cart = document.querySelector('.product-form').parentNode;
-	const shipping_info =
-		document.querySelector('.product__text').innerHTML ||
-		document.querySelector('.shippingInfo a').innerHTML;
+	let shipping_info;
+	if(
+		document.querySelector('.product__text')){shipping_info=document.querySelector('.product__text').innerHTML} else if(
+		document.querySelector('.shippingInfo a')){shipping_info=document.querySelector('.shippingInfo a').innerHTML};
 
 	const head = document.querySelector('head');
 	const check =
