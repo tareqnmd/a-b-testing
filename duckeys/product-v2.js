@@ -119,21 +119,16 @@ const interval = setInterval(() => {
 
 	const head = document.querySelector('head');
 	const check =
-		title &&
-		rating &&
-		price &&
-		details &&
-		slider &&
-		quantity &&
-		add_to_cart &&
-		shipping_info;
+		title && rating && price && details && slider && quantity && add_to_cart;
 	if (check && head && !document.querySelector('.gift-elm')) {
 		const random_num = Math.floor(Math.random() * (30 - 20 + 1)) + 20;
 		head.insertAdjacentHTML('beforeend', style);
 		title.insertAdjacentElement('beforebegin', rating);
 		details.classList.add('details-elm');
 		price.insertAdjacentElement('afterend', details);
-		price.insertAdjacentHTML('afterend', gift_elm(shipping_info));
+		if (shipping_info) {
+			price.insertAdjacentHTML('afterend', gift_elm(shipping_info));
+		}
 		slider.insertAdjacentHTML('beforeend', sold_elm(random_num));
 		const new_div = document.createElement('div');
 		quantity.insertAdjacentElement('afterend', new_div);
