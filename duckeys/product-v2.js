@@ -115,13 +115,18 @@ const interval = setInterval(() => {
 		document.querySelector('.product__text:nth-of-type(2)') &&
 		document.querySelector('.product__text:nth-of-type(2)').innerHTML
 	) {
-		shipping_info = document.querySelector('.product__text:nth-of-type(2)').innerHTML;
+		shipping_info = document.querySelector(
+			'.product__text:nth-of-type(2)'
+		).innerHTML;
 	} else if (
 		document.querySelector('.shippingInfo a') &&
 		document.querySelector('.shippingInfo a').innerHTML
 	) {
 		shipping_info = document.querySelector('.shippingInfo a').innerHTML;
 	}
+
+	const except_pathname =
+		window.location.pathname !== '/products/keycap-puller';
 
 	const head = document.querySelector('head');
 	const check =
@@ -132,7 +137,7 @@ const interval = setInterval(() => {
 		title.insertAdjacentElement('beforebegin', rating);
 		details.classList.add('details-elm');
 		price.insertAdjacentElement('afterend', details);
-		if (shipping_info) {
+		if (shipping_info && except_pathname) {
 			price.insertAdjacentHTML('afterend', gift_elm(shipping_info));
 		}
 		slider.insertAdjacentHTML('beforeend', sold_elm(random_num));
