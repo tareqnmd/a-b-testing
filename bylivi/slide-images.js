@@ -22,14 +22,14 @@ const style = `
 const interval = setInterval(() => {
 	const dots = [...document.querySelectorAll('.flickity-page-dots button')];
 	const images = [
-		...document.querySelectorAll('.flickity-slider .AspectRatio > img'),
+		...document.querySelectorAll('.Product__SlideshowNavScroller a > img'),
 	];
 	const head = document.querySelector('head');
 	if (dots && head && images && !document.querySelector('.dot-img')) {
 		try {
 			head.insertAdjacentHTML('beforeend', style);
 			dots.map((item, index) => {
-				item.innerHTML = `<img class="dot-image" src="${images[index].dataset.srcset}">`;
+				item.innerHTML = `<img class="dot-image" src="${images[index].src}">`;
 			});
 		} catch (error) {
 			console.log(error);
