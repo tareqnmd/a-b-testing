@@ -33,7 +33,7 @@ const style = `
     .save-elm{
         border: 1px solid #B780F0;
         background: #B780F0;
-        margin-left: 10px;
+        margin-left: 8px;
         padding: 2px 4px;
         border-radius: 4px;
         font-size: 10px;
@@ -41,6 +41,22 @@ const style = `
         font-weight: 700;
         color: white;
     }
+	@media only screen and (max-width:480px){
+		.save-elm{
+			margin-left: 4px;
+			font-size: 8px;
+			line-height: 8px;
+			padding: 2px;
+			font-weight: 500;
+		}
+		.Product_product-previous-price__KJGV7{
+			margin-left: 4px;
+			font-size: 10px;
+		}
+		.Product_product-price__RQNb_{
+			font-size: 10px;
+		}
+	}
 </style>
 `;
 
@@ -55,9 +71,7 @@ const interval = setInterval(() => {
 	const products = [
 		...document.querySelectorAll('.Product_product-thumbnail__najOP'),
 	];
-	const head = document.querySelector('head');
-	if (products.length > 0 && head) {
-		head.insertAdjacentHTML('beforeend', style);
+	if (products.length > 0) {
 		products.map((product) => {
 			try {
 				if (!product.querySelector('.ab-test-added')) {
@@ -84,5 +98,13 @@ const interval = setInterval(() => {
 				console.log(error);
 			}
 		});
+	}
+}, 10);
+
+const styleInterval = setInterval(() => {
+	const head = document.querySelector('head');
+	if (head) {
+		head.insertAdjacentHTML('beforeend', style);
+		clearInterval(styleInterval);
 	}
 }, 10);
