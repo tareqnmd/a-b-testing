@@ -81,6 +81,7 @@ const usp_html = `
 		}
 	}
 </style>
+
 <div class="usp-area">
 	<div class="page-width">
 		<div class="new-usp-area">
