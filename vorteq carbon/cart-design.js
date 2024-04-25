@@ -14,22 +14,22 @@ const style = `
         background: linear-gradient(90deg, #FEF8F3 0%, #FFE5D3 100%);
         border-radius: 8px;
         padding: 8px 16px;
+        margin-bottom: 12px;
     }
     .new-coupon-elm div{
         display: grid;
     }
     .new-coupon-elm div strong{
-        color: #FF437A;
+        color: #FF437A!importan;
         font-size: 18px;
         font-weight: 700;
         line-height: 28px;
     }
     .new-coupon-elm div span{
-        font-family: Inter;
         font-size: 10px;
         font-weight: 400;
         line-height: 12px;
-        color: #000000;
+        color: #000000!importan;
     }
     .new-coupon-elm button{
         background: #FFFFFF;
@@ -41,7 +41,7 @@ const style = `
         border:none;
     }
     .new-coupon-elm button span{
-        color: #0D0C22;
+        color: #0D0C22!importan;
         font-size: 10px;
         font-weight: 600;
     }
@@ -52,9 +52,9 @@ const new_elm_html = `
 <div class="new-coupon-elm">
     <div>
         <strong>Additional 10% Off</strong>
-        <span>Additional 10% Off</span>
+        <span> Use coupon CODE "SPRING10"</span>
     </div>
-    <button>
+    <button role="button" >
         <span>Copy Code</span>
         ${copy_svg}
     </button>
@@ -68,5 +68,24 @@ const interval = setInterval(() => {
 		head.insertAdjacentHTML('beforeend', style);
 		exist_elm.insertAdjacentHTML('beforebegin', new_elm_html);
 		clearInterval(interval); 
+	}
+}, 10);
+
+const copy_interval = setInterval(() => {
+	const copy_text = 'SPRING10';
+	const copy_code = document.querySelector('.new-coupon-elm button');
+	const copy_code_span = document.querySelector('.new-coupon-elm button span');
+	const copy_code_svg = document.querySelector('.new-coupon-elm button svg');
+	if (copy_code_span && copy_code) {
+		copy_code.addEventListener('click', () => {
+			navigator.clipboard.writeText(copy_text);
+			copy_code_span.innerHTML = 'Copied!';
+			copy_code_svg.style.display = 'none';
+			setTimeout(() => {
+				copy_code_span.innerHTML = 'Copy Code';
+				copy_code_svg.style.display = 'block';
+			}, 2500);
+		});
+		clearInterval(copy_interval);
 	}
 }, 10);
