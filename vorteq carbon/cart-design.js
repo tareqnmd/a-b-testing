@@ -18,18 +18,19 @@ const style = `
     }
     .new-coupon-elm div{
         display: grid;
+        gap: 6px;
     }
     .new-coupon-elm div strong{
-        color: #FF437A!importan;
+        color: #FF437A!important;
         font-size: 18px;
         font-weight: 700;
-        line-height: 28px;
+        line-height: 18px;
     }
     .new-coupon-elm div span{
         font-size: 10px;
         font-weight: 400;
-        line-height: 12px;
-        color: #000000!importan;
+        line-height: 10px;
+        color: #000000!important;
     }
     .new-coupon-elm button{
         background: #FFFFFF;
@@ -39,9 +40,10 @@ const style = `
         display: flex;
         align-items: center;
         border:none;
+        cursor: pointer;
     }
     .new-coupon-elm button span{
-        color: #0D0C22!importan;
+        color: #0D0C22!important;
         font-size: 10px;
         font-weight: 600;
     }
@@ -62,30 +64,31 @@ const new_elm_html = `
 `;
 
 const interval = setInterval(() => {
-	const exist_elm = document.querySelector('#cart .button-container');
-	const head = document.querySelector('head');
-	if (exist_elm && head && !document.querySelector('.new-coupon-elm')) {
-		head.insertAdjacentHTML('beforeend', style);
-		exist_elm.insertAdjacentHTML('beforebegin', new_elm_html);
-		clearInterval(interval); 
-	}
+    const exist_elm = document.querySelector('#cart .button-container');
+    const head = document.querySelector('head');
+    if (exist_elm && head && !document.querySelector('.new-coupon-elm')) {
+        head.insertAdjacentHTML('beforeend', style);
+        exist_elm.insertAdjacentHTML('beforebegin', new_elm_html);
+        clearInterval(interval);
+    }
 }, 10);
 
 const copy_interval = setInterval(() => {
-	const copy_text = 'SPRING10';
-	const copy_code = document.querySelector('.new-coupon-elm button');
-	const copy_code_span = document.querySelector('.new-coupon-elm button span');
-	const copy_code_svg = document.querySelector('.new-coupon-elm button svg');
-	if (copy_code_span && copy_code) {
-		copy_code.addEventListener('click', () => {
-			navigator.clipboard.writeText(copy_text);
-			copy_code_span.innerHTML = 'Copied!';
-			copy_code_svg.style.display = 'none';
-			setTimeout(() => {
-				copy_code_span.innerHTML = 'Copy Code';
-				copy_code_svg.style.display = 'block';
-			}, 2500);
-		});
-		clearInterval(copy_interval);
-	}
+    const copy_text = 'SPRING10';
+    const copy_code = document.querySelector('.new-coupon-elm button');
+    const copy_code_span = document.querySelector('.new-coupon-elm button span');
+    const copy_code_svg = document.querySelector('.new-coupon-elm button svg');
+    if (copy_code_span && copy_code) {
+        copy_code.addEventListener('click', (e) => {
+            e.preventDefault();
+            navigator.clipboard.writeText(copy_text);
+            copy_code_span.innerHTML = 'Copied!';
+            copy_code_svg.style.display = 'none';
+            setTimeout(() => {
+                copy_code_span.innerHTML = 'Copy Code';
+                copy_code_svg.style.display = 'block';
+            }, 2500);
+        });
+        clearInterval(copy_interval);
+    }
 }, 10);
