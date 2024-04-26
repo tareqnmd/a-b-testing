@@ -5,6 +5,59 @@ const copy_svg = `
 </svg>
 `;
 
+const extra_style = `
+.mini-cart__inner {
+    background-color: #ffffff!important;
+    color: black !important;
+} 
+.mini-cart__inner * {
+    color: black !important;
+}
+
+.cart-recommendations{
+    display: none !important;
+}
+
+.mini-cart__action summary>span {
+  align-items: flex-end!important;
+}
+
+.pw-route-protection .pw-container:not(.legacy).dark-ui .pw-row-3 .capsule * {
+  color: white !important;
+}
+
+.mini-cart__footer .button-container{
+  display: grid!important;
+}
+
+.mini-cart__footer .button-container .button {
+  width: 100% !important;
+}
+
+.mini-cart__footer .button-container .button:first-child {
+  background: black !important;
+  color: white !important;
+}
+.mini-cart__footer .button-container a {
+  background: none !important;
+  border: none !important;
+  text-decoration: underline;
+}
+.mini-cart__footer .button-container a:hover {
+  background: none !important;
+  color: black !important;
+}
+.mini-cart__footer .button-container a::after,.taxes-discounts,.mini-cart__actions > details:nth-of-type(2){
+ 	display:none!important;
+} 
+.mini-cart__actions *{
+  color: white !important;
+}
+.mini-cart__actions .button{
+  color: black !important;
+}
+`;
+
 const style = `
 <style>
     .new-coupon-elm{
@@ -64,31 +117,31 @@ const new_elm_html = `
 `;
 
 const interval = setInterval(() => {
-    const exist_elm = document.querySelector('#cart .button-container');
-    const head = document.querySelector('head');
-    if (exist_elm && head && !document.querySelector('.new-coupon-elm')) {
-        head.insertAdjacentHTML('beforeend', style);
-        exist_elm.insertAdjacentHTML('beforebegin', new_elm_html);
-        clearInterval(interval);
-    }
+	const exist_elm = document.querySelector('#cart .button-container');
+	const head = document.querySelector('head');
+	if (exist_elm && head && !document.querySelector('.new-coupon-elm')) {
+		head.insertAdjacentHTML('beforeend', style);
+		exist_elm.insertAdjacentHTML('beforebegin', new_elm_html);
+		clearInterval(interval);
+	}
 }, 10);
 
 const copy_interval = setInterval(() => {
-    const copy_text = 'SPRING10';
-    const copy_code = document.querySelector('.new-coupon-elm button');
-    const copy_code_span = document.querySelector('.new-coupon-elm button span');
-    const copy_code_svg = document.querySelector('.new-coupon-elm button svg');
-    if (copy_code_span && copy_code) {
-        copy_code.addEventListener('click', (e) => {
-            e.preventDefault();
-            navigator.clipboard.writeText(copy_text);
-            copy_code_span.innerHTML = 'Copied!';
-            copy_code_svg.style.display = 'none';
-            setTimeout(() => {
-                copy_code_span.innerHTML = 'Copy Code';
-                copy_code_svg.style.display = 'block';
-            }, 2500);
-        });
-        clearInterval(copy_interval);
-    }
+	const copy_text = 'SPRING10';
+	const copy_code = document.querySelector('.new-coupon-elm button');
+	const copy_code_span = document.querySelector('.new-coupon-elm button span');
+	const copy_code_svg = document.querySelector('.new-coupon-elm button svg');
+	if (copy_code_span && copy_code) {
+		copy_code.addEventListener('click', (e) => {
+			e.preventDefault();
+			navigator.clipboard.writeText(copy_text);
+			copy_code_span.innerHTML = 'Copied!';
+			copy_code_svg.style.display = 'none';
+			setTimeout(() => {
+				copy_code_span.innerHTML = 'Copy Code';
+				copy_code_svg.style.display = 'block';
+			}, 2500);
+		});
+		clearInterval(copy_interval);
+	}
 }, 10);
