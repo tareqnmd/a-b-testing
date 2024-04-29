@@ -75,6 +75,7 @@ ul.key-point{
     align-items: center;
     gap:2px;
     justify-content: space-between;
+    margin-bottom: 20px;
 }
 .new-usps .single-usp{
     display: flex;
@@ -90,6 +91,23 @@ ul.key-point{
     width: 1px;
     height: 20px;
     background: black;
+}
+.product-single__meta--wrapper{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+@media screen and (max-width: 590px){
+    .product-single__meta--wrapper{
+        margin: 0;
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 480px){
+    .new-usps .single-usp span{
+        font-size: 8px;
+    }
 }
 </style>
 `;
