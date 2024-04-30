@@ -97,6 +97,45 @@ ul.key-point{
     padding-right: 10px;
 }
 
+.box_quantity{
+    gap: 20px;
+}
+
+#AddToCart--product-template{
+    gap: 10px;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #FF437B 0%, #EA2661 100%)!important;
+    color: white!important;
+}
+
+.box_quantity .qtydiv{
+    background: none!important;
+}
+
+.qtybox {
+    background: #F5F5F5!important;
+    border: 1px solid #E9E9E9!important;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+#ProductSelect ~ .box_quantity:hover *{
+    background: #F5F5F5!important;
+}
+
+#ProductSelect ~ .box_quantity:hover input{
+    background: #ffffff!important;
+}
+
+#ProductSelect ~ .box_quantity:hover button{
+    background: linear-gradient(90deg, #FF437B 0%, #EA2661 100%)!important;
+}
+
+.qtybox input{
+    background: #ffffff!important;
+    border:0!important;
+}
+
 @media screen and (max-width: 590px){
     .product-single__meta--wrapper{
         margin: 0;
@@ -148,12 +187,19 @@ const interval = setInterval(() => {
 	try {
 		const exist_elm = document.querySelector('.key-point');
 		const form_elm = document.querySelector('#AddToCartForm--product-template');
+		const add_cart = document.querySelector('#AddToCart--product-template');
+		const product_price = document.querySelector('#ProductPrice');
+		const single_img = document.querySelector(
+			'.product-single__photo-wrapper img'
+		);
 		const head = document.querySelector('head');
 		if (exist_elm && head && !document.querySelector('.new-points-elm')) {
 			head.insertAdjacentHTML('beforeend', style);
 			exist_elm.previousElementSibling.style.display = 'none';
 			exist_elm.insertAdjacentHTML('beforebegin', new_elm_html);
 			form_elm.insertAdjacentHTML('afterend', new_usps);
+			single_img.src = '';
+			add_cart.innerHTML = `ADD TO CART | ${product_price.innerText}`;
 			clearInterval(interval);
 		}
 	} catch (error) {
