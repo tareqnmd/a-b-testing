@@ -31,6 +31,27 @@ const style = `
     #CartDrawer .drawer__inner{
         background: #fff!important;
     }
+    .cart-item__details .product-option {
+        display: none!important;
+    }
+    .cart-item__details .cart-item__name {
+        margin-bottom: 6px;
+    }
+    .cart-item__details > s {
+        font-size: 12px!important;
+    }
+    .cart-item__details > div:not(.product-option) {
+        font-size: 10px!important;
+        line-height: 10px!important;
+        font-weight: 700!important;
+        color: #FF4387!important;
+        border: 1px solid #FF3981!important;
+    }
+    .cart-drawer .tax-note{
+        font-size: 12px!important;
+        text-align: left!important;
+        margin: 10px 0!important;
+    }
 </style>
 `;
 
