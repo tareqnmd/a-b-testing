@@ -95,6 +95,47 @@ const style = `
         font-weight: 600;
         text-align: center;
     }
+	.social_fr{
+		list-style: none;
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		justify-content: center;
+		margin: 20px 0!important;
+		padding: 0!important;
+	}
+	#NavDrawer{
+		background: #F9F5F1;
+	}
+	.mobile-nav__item--secondary{
+		width: 100%;
+		border: none!important;
+	}
+	.mobile-nav>.mobile-nav__item{
+		background: #F9F5F1;
+	}
+	.mobile-nav > li{
+		border-bottom: 1px solid #EAE1D8!important;
+	}
+	.mobile-nav > li:last-child{
+		border-bottom: none!important;
+	}
+	.mobile-nav > li a{
+		padding: 15px 0!important;
+	}
+	.mobile-nav > li a::after{
+		display: none!important;
+	}
+	ul.mobile-nav{
+		margin: 0 15px!important;
+		padding: 15px 0!important;
+	}
+	li.social_fr img{
+		width: 20px!important;
+	}
+	li.social_fr a{
+		margin: 0!important;
+	}
 </style>
 `;
 
@@ -115,9 +156,13 @@ const interval = setInterval(() => {
 	const exist_elm = document.querySelector(
 		'.drawer__inner.drawer-left__inner .mobile-nav'
 	);
+	const social = document.querySelector(
+		'.drawer__inner.drawer-left__inner .social_fr'
+	);
 	const head = document.querySelector('head');
 	if (exist_elm && head && !document.querySelector('.new-rev-elm')) {
 		head.insertAdjacentHTML('beforeend', style);
+		exist_elm.insertAdjacentElement('afterend', social);
 		exist_elm.insertAdjacentHTML('afterend', new_elm_html);
 		clearInterval(interval);
 	}
