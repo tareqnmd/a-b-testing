@@ -97,8 +97,7 @@ const style = `
 #s-7b2efbab-1d0d-4677-94be-c3a43d51a057>.shg-box-overlay,#s-8c00b443-f71a-4ef3-b17a-af126387b6d5>.shg-box-overlay,
 #s-1773b37f-d8a0-47b6-8224-59cd35a4767d>.shg-box-overlay,
 #s-6df03fb6-bbd9-4b79-b41f-c4fefcf54ec6>.shg-box-overlay,
-#slider-s-3c5b648b-4675-427d-a0f1-fd03d77ab1e7 .shg-sld-item .shg-box-overlay
-#slider-s-e6a46a22-2e91-4e9a-baab-fa7f1d2a35c7 .shg-sld-item .shg-box-overlay
+#s-3c5b648b-4675-427d-a0f1-fd03d77ab1e7 .shg-sld-item .shg-box-overlay
 {
     opacity: 0.5!important;
 }
