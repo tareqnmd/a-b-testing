@@ -46,27 +46,54 @@ const style = `
     min-height:175px;
     object-fit: cover;
 }
-#s-f66a8593-6a71-4cd3-849c-382fc3bd04a0 .shg-btn-wrapper a{
-    background: #FF0000;
-    font-size: 24px;
-    font-weight: 500;
+
+.large-slide-h1{
+    font-size: 64px!important;
+    font-weight: 1000!important;
+    line-height: 76.8px!important;
+    color: white!important;
+}
+.large-slide-h2{
+    font-size: 36px!important;
+    font-weight: 700!important;
+    line-height: 43.2px!important;
+    color: #7CC243!important;
+}
+.large-slide-a{
+    font-size: 24px!important;
+    font-weight: 500!important;
     line-height: 28.8px;
-    text-align: center;
-    border-radius: 0;
-    color: white;
+    color: white !important;
+    padding: 20px 100px!important;
+    width: max-content;
+    margin: auto!important;
+    border-radius: 0!important;
+    background: #FF0000!important;
+    margin-top: 40px!important;
 }
-#s-f66a8593-6a71-4cd3-849c-382fc3bd04a0 .shg-default-text-content p{
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 40px;
-    color: #7EC042;
+
+.small-slide-h2{
+    font-size: 40px!important;
+    font-weight: 1000!important;
+    line-height: 40px!important;
+    color: white!important;
 }
-#s-f66a8593-6a71-4cd3-849c-382fc3bd04a0 .shogun-heading-component h2{
-    font-size: 40px;
-    font-weight: 1000;
-    line-height: 40px;
-    color: white;
+.small-slide-p{
+    font-size: 24px!important;
+    font-weight: 700!important;
+    line-height: 40px!important;
+    color: #7CC243!important;
 }
+.small-slide-a{
+    font-size: 24px!important;
+    font-weight: 500!important;
+    line-height: 28.8px!important;
+    text-align: center!important;
+    border-radius: 0!important;
+    color: white!important;
+    background: #FF0000!important;
+}
+
 @media (max-width:1400px){
     .new-link-elm span{
         width: min-content;
@@ -155,18 +182,21 @@ const interval = setInterval(() => {
 		try {
 			first_box.map((item) => {
 				const headings = [
-					...item.querySelectorAll('.shogun-heading-component h2'),
+					...item.querySelectorAll('.shogun-heading-component h1'),
 				];
 				headings.map((item) => {
+					item.classList.add('large-slide-h1');
 					item.innerHTML = 'Carpet & Tile Mart';
 				});
-				const sub = [...item.querySelectorAll('.shg-default-text-content p')];
+				const sub = [...item.querySelectorAll('.shogun-heading-component h2')];
 				sub.map((item) => {
+					item.classList.add('large-slide-h2');
 					item.innerHTML =
 						'<span>Available. Affordable.</span><span>At Your Service.</span>';
 				});
 				const btns = [...item.querySelectorAll('.shg-btn-wrapper a')];
 				btns.map((item) => {
+					item.classList.add('large-slide-a');
 					item.innerHTML = 'Find a Store';
 				});
 			});
@@ -178,11 +208,18 @@ const interval = setInterval(() => {
 					...item.querySelectorAll('.shogun-heading-component h2'),
 				];
 				headings.map((item) => {
+					item.classList.add('small-slide-h2');
 					item.innerHTML = 'Rugs';
 				});
 				const sub = [...item.querySelectorAll('.shg-default-text-content p')];
 				sub.map((item) => {
+					item.classList.add('small-slide-p');
 					item.innerHTML = 'Up to 50% off MSRP';
+				});
+
+				const btns = [...item.querySelectorAll('.shg-btn-wrapper a')];
+				btns.map((item) => {
+					item.classList.add('small-slide-a');
 				});
 			});
 		} catch (error) {}
@@ -193,11 +230,17 @@ const interval = setInterval(() => {
 					...item.querySelectorAll('.shogun-heading-component h2'),
 				];
 				headings.map((item) => {
+					item.classList.add('small-slide-h2');
 					item.innerHTML = 'Luxury Vinyl';
 				});
 				const sub = [...item.querySelectorAll('.shg-default-text-content p')];
 				sub.map((item) => {
+					item.classList.add('small-slide-p');
 					item.innerHTML = 'The easiest waterproof flooring solution.';
+				});
+				const btns = [...item.querySelectorAll('.shg-btn-wrapper a')];
+				btns.map((item) => {
+					item.classList.add('small-slide-a');
 				});
 			});
 		} catch (error) {}
