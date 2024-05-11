@@ -134,7 +134,8 @@ const style = `
 	}
 	.usp-details{
 		background: linear-gradient(130.82deg, #6EA73A 10.64%, #5A8028 53.57%);
-		display: flex;
+		display: grid;
+		grid-template-columns: 1fr 3fr;
 		align-items:center;
 		justify-content: center;
 		gap:20px;
@@ -146,6 +147,9 @@ const style = `
 		font-size: 36px;
 		font-weight: 700;
 		line-height: 43px;
+	}
+	.usp-details svg{
+		margin-left: auto;
 	}
 	@media (max-width:991px){
 		.new-elm{
@@ -166,6 +170,13 @@ const style = `
 		.usp-store{
 			grid-template-columns: 1fr;
 		}
+		.usp-details{
+			padding: 32px;
+		}
+		.usp-details span{
+			font-size: 28px;
+			line-height: 32px;
+		}
 	}
 	@media (max-width:480px){
 		.cat-wrapper{
@@ -173,6 +184,13 @@ const style = `
 		}
 		.cat-wrapper.cat-equal{
 			grid-template-columns: 1fr;
+		}
+		.usp-details{
+			padding: 20px;
+		}
+		.usp-details span{
+			font-size: 24px;
+			line-height: 28px;
 		}
 	}
 </style>
