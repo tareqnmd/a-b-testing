@@ -69,6 +69,22 @@ const uspDetails = (svg = '', text = '', link = '') => `
 
 const style = `
 <style>
+	.cat-header h2{
+		color: #000000;
+		font-size: 36px;
+		font-weight: 900;
+		line-height: 43.2px;
+		position: relative;
+		overflow: hidden;
+		margin: 0;
+	}
+	.cat-header h2::after{
+		content: '';
+		position: absolute;
+		top: 50%;
+		width: 100%;
+		border-top: 3px solid #ff0000;
+	}
 	.shogun-root
 		> div:nth-of-type(2)
 		> div:nth-of-type(1)
@@ -177,6 +193,10 @@ const style = `
 			font-size: 28px;
 			line-height: 32px;
 		}
+		.cat-header h2{
+			font-size: 24px;
+			line-height: 28px;
+		}
 	}
 	@media (max-width:480px){
 		.cat-wrapper{
@@ -191,6 +211,10 @@ const style = `
 		.usp-details span{
 			font-size: 24px;
 			line-height: 28px;
+		}
+		.cat-header h2{
+			font-size: 20px;
+			line-height: 24px;
 		}
 	}
 </style>
