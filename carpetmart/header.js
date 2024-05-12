@@ -32,7 +32,7 @@ const style = `
 		background: #5A8028!important;
 		margin-top: 30px;
 	}
-	#menu *{
+	#menu .navPage-subMenu ,#menu ul.navPage-childList{
 		background: #5A8028!important;
 	}
 	#menu a{
