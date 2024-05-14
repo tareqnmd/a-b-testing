@@ -42,6 +42,28 @@ const style = `
 	.cart-slider.free-shipping strong {
 		font-size: 16px;
 	}
+    @media (max-width:480px){
+        .cart-slider {
+            padding: 4px;
+		    max-width: 75px;
+        }
+        .cart-slider span {
+            font-size: 8px;
+            line-height: 10px;
+            font-weight: 500;
+        }
+        .cart-slider::after {
+            width: 10px;
+            height: 10px;
+            left: calc(100% - 5px);
+        }
+        .cart-slider.free-shipping {
+            gap: 2px;
+        }
+        .cart-slider.free-shipping strong {
+            font-size: 14px;
+        }
+    }
 </style>
 `;
 
