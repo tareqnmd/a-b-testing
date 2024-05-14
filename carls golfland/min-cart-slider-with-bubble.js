@@ -1,3 +1,56 @@
+const cart_usp_html = `
+  <div class="min-cart-usps">
+    <div class="min-cart-usp">
+      <img src="https://res.cloudinary.com/dti1vttec/image/upload/v1709824339/cgl-price-lock_wq82ka.png">
+      <span>30-Day Price Protection</span>
+    </div>
+    <div class="min-cart-usp">
+      <img src="https://res.cloudinary.com/dti1vttec/image/upload/v1709824338/cgl-shipping_neue81.png">
+      <span>Most Orders Ship Same-Day</span>
+    </div>
+  </div>
+`;
+
+const fixed_div = `<div class="minicart-back" onclick="document.querySelector('body').click()"></div>`;
+
+setInterval(() => {
+	const cart_promo = document.querySelector('.minicart-promo');
+	if (cart_promo && !document.querySelector('.new-cart-promo')) {
+		cart_promo.classList.add('new-cart-promo');
+		cart_promo.innerText = 'See Promotions +  Discounted Price in Checkout >';
+	}
+}, 10);
+
+const view_cart_change = setInterval(() => {
+	const mini_cart = document.querySelector('#ui-id-1');
+	const cart_checkout = document.querySelector('#top-cart-btn-checkout');
+	const cart_view = document.querySelector('.action.primary.viewcart');
+	if (
+		cart_checkout &&
+		cart_view &&
+		mini_cart &&
+		!document.querySelector('.min-cart-usps')
+	) {
+		mini_cart.insertAdjacentHTML('afterbegin', fixed_div);
+		cart_checkout.insertAdjacentHTML('afterend', cart_usp_html);
+		cart_checkout.insertAdjacentElement('afterend', cart_view);
+		clearInterval(view_cart_change);
+	}
+}, 10);
+
+setInterval(() => {
+	const span_elm = document.querySelector(
+		'.minicart-wrapper .action.showcart .counter.qty'
+	);
+	if (span_elm) {
+		span_elm.style.animationPlayState = 'running';
+		const timeout_animation = setTimeout(() => {
+			span_elm.style.animationPlayState = 'paused';
+			clearTimeout(timeout_animation);
+		}, 1000);
+	}
+}, 5000);
+
 const style = `
 <style>
     .minicart-wrapper {
@@ -42,6 +95,11 @@ const style = `
 	.cart-slider.free-shipping strong {
 		font-size: 16px;
 	}
+    @media (max-width:575px){
+		.page-header .header.content .logo img{
+			width: 160px!important;
+		}
+	}
     @media (max-width:480px){
         .cart-slider {
             padding: 4px;
@@ -64,6 +122,11 @@ const style = `
             font-size: 14px;
         }
     }
+	@media (max-width:400px){
+		.page-header .header.content .logo img{
+			width: 120px!important;
+		}
+	}
 </style>
 `;
 
