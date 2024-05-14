@@ -9,7 +9,7 @@ const style = `
 		border: 2px solid #257d0d;
 		background-color: #e5fae0;
 		padding: 6px;
-		max-width: 85px;
+		max-width: 110px;
 		border-radius: 4px;
 		position: relative;
 		display: flex;
@@ -37,7 +37,7 @@ const style = `
 	.cart-slider.free-shipping {
 		gap: 4px;
 		padding-left: 2px;
-		max-width: 90px;
+		max-width: 95px;
 	}
 	.cart-slider.free-shipping strong {
 		font-size: 16px;
@@ -77,31 +77,45 @@ const new_elm_html = (free, amountRemaining) => `
         ${
 					free
 						? `<span>Your order will ship free!</span>`
-						: `<span>You're $${amountRemaining} from Free Shipping.</span>`
+						: `<span>You're $${amountRemaining.toFixed(
+								2
+						  )} from Free Shipping.</span>`
 				}
  </div>
 `;
+
+let cartPrice = 0;
 
 const interval = setInterval(() => {
 	try {
 		const exist_elm = document.querySelector('.minicart-wrapper');
 		const head = document.querySelector('head');
-		if (exist_elm && head && !document.querySelector('.cart-slider')) {
-			head.insertAdjacentHTML('beforeend', style);
-			const cartSubTotalValueStr =
-				document.querySelector('#minicart-content-wrapper .subtotal .price')
-					?.innerText ?? '0';
-			const cartSubTotalValue = numberOnly(cartSubTotalValueStr);
-			if (cartSubTotalValue > 0) {
+		const cartSubTotalValueStr =
+			document.querySelector('#minicart-content-wrapper .subtotal .price')
+				?.innerText ?? '0';
+		const cartSubTotalValue = numberOnly(cartSubTotalValueStr);
+		if (
+			exist_elm &&
+			head &&
+			cartSubTotalValue > 0 &&
+			cartPrice !== cartSubTotalValue
+		) {
+			cartPrice = cartSubTotalValue;
+			if (document.querySelector('.cart-slider')) {
+				document.querySelector('.cart-slider').remove();
+				exist_elm.insertAdjacentHTML(
+					'afterbegin',
+					new_elm_html(cartSubTotalValue >= 80, 80 - cartSubTotalValue)
+				);
+			} else {
+				head.insertAdjacentHTML('beforeend', style);
 				exist_elm.insertAdjacentHTML(
 					'afterbegin',
 					new_elm_html(cartSubTotalValue >= 80, 80 - cartSubTotalValue)
 				);
 			}
-			clearInterval(interval);
 		}
 	} catch (error) {
 		console.log(error);
-		clearInterval(interval);
 	}
 }, 10);
