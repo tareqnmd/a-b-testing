@@ -1,7 +1,4 @@
-const goAnotherPage = (e) => {
-	e.preventDefault();
-	e.stopPropagation();
-	e.stopImmediatePropagation();
+const goAnotherPage = () => {
 	location.href = 'https://www.carlsgolfland.com/checkout/cart/';
 };
 
@@ -24,18 +21,16 @@ const styleInterval = setInterval(() => {
 const intervalMinCart = setInterval(() => {
 	const miniCart = document.querySelector('.header-wrapper-right .minicart-wrapper');
 	if (miniCart) {
-		miniCart.addEventListener('click', (e) => goAnotherPage(e), true);
+		miniCart.addEventListener('click', () => goAnotherPage(), true);
 		clearInterval(intervalMinCart);
 	}
 }, 10);
 
 const addedCartInterval = setInterval(() => {
-	const cartForm = document.querySelector('#product-add-form form');
-	if (cartForm) {
-		const timeout = setTimeout(() => {
-			cartForm.addEventListener('onsubmit', (e) => goAnotherPage(e), true);
-			clearTimeout(timeout);
-		}, 1000);
+	const cartButton = document.querySelector('#product-addtocart-button');
+	const cartTitle = cartButton?.title ?? '';
+	if (cartButton && cartTitle === 'Added') {
+		goAnotherPage();
 		clearInterval(addedCartInterval);
 	}
 }, 10);
