@@ -1,0 +1,14 @@
+.product-single__description .station-tabs-tabset {
+	background: #fff3f7;
+	padding: 20px !important;
+}
+.product-single__description .station-tabs-tabset .station-tabs-tabtitle {
+	background: #ffffff;
+	padding: 10px !important;
+}
+.product-single__description
+	.station-tabs-tabset
+	.station-tabs-tabpanel {
+	background: #ffffff;
+	padding: 10px !important;
+}
