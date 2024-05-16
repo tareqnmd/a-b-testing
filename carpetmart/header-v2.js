@@ -32,7 +32,27 @@ const style = `
 		background: #5A8028!important;
 	}
 	.header-bottom{
-		margin-bottom: 30px;
+		height:auto!important;
+		max-width: 1200px;
+		display: grid;
+		grid-template-columns: 5fr 2fr;
+		margin: 20px auto;
+	}
+	.header-logo.hidden-mobile .measure{
+		display: none!important;
+	}
+	.header-bottom .container{
+		width:inherit!important;
+		display: flex;
+		align-items:center;
+		gap:10px;
+	}
+	.header-bottom .container:last-child .right-bottom{
+		gap:12px;
+	}
+	.header-bottom .container:last-child .header-left ul {
+		display: flex;
+		gap:12px;
 	}
 	#menu .navPage-subMenu ,#menu ul.navPage-childList{
 		background: #5A8028!important;
@@ -42,6 +62,9 @@ const style = `
 		font-weight: 700!important;
 		line-height: 18px!important;
 		color: white!important;
+	}
+	.header-bottom .container:first-child .header-left .cta{
+		display: none;
 	}
 	@media (min-width: 320px) {
 		.body .container_page {
@@ -56,9 +79,22 @@ const interval = setInterval(() => {
 	const couponElm = document.querySelector(
 		'#s-9afc4307-eebc-4a4a-bba7-9b2edeceb35d-root'
 	);
+	const headerTopContainer = document.querySelector('.header-top > .container');
+	const headerBottomContainer = document.querySelector(
+		'.header-bottom > .container'
+	);
+
 	const head = document.querySelector('head');
-	if (couponElm && headerElm && head && !document.querySelector('.new-elm')) {
+	if (
+		couponElm &&
+		headerElm &&
+		headerTopContainer &&
+		headerBottomContainer &&
+		head &&
+		!document.querySelector('.new-elm')
+	) {
 		headerElm.insertAdjacentElement('beforebegin', couponElm);
+		headerBottomContainer.insertAdjacentElement('afterend', headerTopContainer);
 		head.insertAdjacentHTML('beforeend', style);
 		clearInterval(interval);
 	}
