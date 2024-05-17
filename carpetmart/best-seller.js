@@ -80,7 +80,7 @@ const getSingleSeller = (seller) => `
 <div class="single-product">
     <img src=${seller.src}>
     <strong>${seller.title}</strong>
-    <a href=${seller.link}>${seller.title}</a>
+    <a class="info" href=${seller.link}>${seller.title}</a>
     <a href=${seller.link}>VIEW</a>
 </div>
 `;
@@ -90,7 +90,32 @@ const style = `
     #s-56dceeca-b58c-4d7a-88c4-4270f6bf464a{
         display: none!important;
     }
-    .new-seller-elm {}
+    .new-seller-elm {
+        background: white;
+        margin: 30px 0;
+        padding: 30px 0;
+        position: relative;
+    }
+    .new-seller-elm::after {
+        content: '';
+        position: absolute;
+        background: #fff;
+        right: -100%;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        z-index: 999;
+    }
+    .new-seller-elm::before {
+        content: '';
+        position: absolute;
+        background: #fff;
+        left: -100%;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        z-index: 999;
+    }
     .new-seller-elm *{
         margin:0;
         padding:0;
@@ -98,12 +123,37 @@ const style = `
     .new-seller-elm .header-best{
         display: flex;
         align-items: center;
+        gap:20px;
         justify-content: space-between;
+        margin-bottom: 20px;
     }
-    .new-seller-elm .header-best h1{}
-    .new-seller-elm .header-best span{}
-    .new-seller-elm .header-best .rotate-btns{}
-    .new-seller-elm .header-best .rotate-btns button{}
+    .new-seller-elm .header-best h1{
+        font-size: 32px;
+        font-weight: 900;
+        line-height: 38px;
+        text-align: left;
+    }
+    .new-seller-elm .header-best span{
+        border: 1px solid #FF0000;
+        flex-grow: 1;
+    }
+    .new-seller-elm .header-best .rotate-btns{
+        display: flex;
+    }
+    .new-seller-elm .header-best .rotate-btns button{
+        display: grid;
+        place-items: center;
+        border:1px solid #000000;
+        width:40px;
+        height:40px;
+    }
+    .new-seller-elm .header-best .rotate-btns button:last-child{
+        border-left: none;
+    }
+    .new-seller-elm .header-best .rotate-btns button svg{
+        width: 20px;
+        height: 20px;
+    }
     .new-seller-elm .sellers-section{
         position: relative;
         width:100%;
@@ -115,7 +165,7 @@ const style = `
         overflow-y: auto;
         scroll-snap-type: x mandatory;
 		scrollbar-width: none;
-		ms-overflow-style: none;
+		padding: 10px 0;
     }
     .new-seller-elm .all-sellers::-webkit-scrollbar {
 		display: none;
@@ -123,14 +173,43 @@ const style = `
     .new-seller-elm .all-sellers .single-product{
         scroll-snap-align: start;
         display: grid;
+        gap: 20px;
+        padding:20px;
+        background: white;
+        border-radius: 6px;
+        box-shadow: 0px 2px 6px 0px #ccc;
     }
-    .new-seller-elm .all-sellers .single-product img{}
-    .new-seller-elm .all-sellers .single-product strong{}
-    .new-seller-elm .all-sellers .single-product a:first-child{}
-    .new-seller-elm .all-sellers .single-product a:last-child{}
+    .new-seller-elm .all-sellers .single-product img{
+        width: 100%;
+    }
+    .new-seller-elm .all-sellers .single-product strong{
+        font-size: 16px;
+        font-weight: 500;
+        text-align: center;
+        color: #000;
+    }
+    .new-seller-elm .all-sellers .single-product a.info{
+        font-size: 16px;
+        font-weight: 500;
+        color: #777;
+        text-decoration: underline;
+        text-align: center;
+    }
+    .new-seller-elm .all-sellers .single-product a:last-child{
+        color: #fff;
+        background-color: #627e36;
+        padding: 20px;
+        text-align: center;
+        font-weight: 700;
+        font-size: 20px;
+        display:none;
+    }
+    .new-seller-elm .all-sellers .single-product:hover a:last-child{
+        display:block;
+    }
     @media only screen and (max-width:1200px){
 		.new-seller-elm .all-sellers {
-			grid-template-columns: repeat(12, 32%);
+			grid-template-columns: repeat(15, 32%);
 			gap: 2%;
 		}
 	}
@@ -145,6 +224,11 @@ const style = `
 			grid-template-columns: repeat(15, 100%);
 			gap: 0;
 		}
+        .new-seller-elm .header-best h1{
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 22px;
+        }
 	}
 </style>
 `;
@@ -187,7 +271,7 @@ const new_elm_html = `
 	</div>
 	<div class="sellers-section">
 		<div class="all-sellers">
-			${bellSeller?.map((seller) => getSingleSeller(seller)).join('')}
+			${bellSeller.map((seller) => getSingleSeller(seller)).join('')}
 		</div>
 	</div>
 </div>
@@ -206,10 +290,14 @@ const interval = setInterval(() => {
 }, 10);
 
 const btn_interval = setInterval(() => {
-	const next_btn = document.querySelector('.new-seller-elm .header-best .rotate-btns .next');
-	const prev_btn = document.querySelector('.new-seller-elm .header-best .rotate-btns .prev');
-	const all_revs = document.querySelector('.sellers-section .all-sellers');
-	if (next_btn && prev_btn && all_revs) {
+	const next_btn = document.querySelector(
+		'.new-seller-elm .header-best .rotate-btns .next'
+	);
+	const prev_btn = document.querySelector(
+		'.new-seller-elm .header-best .rotate-btns .prev'
+	);
+	const all_sell = document.querySelector('.sellers-section .all-sellers');
+	if (next_btn && prev_btn && all_sell) {
 		prev_btn.addEventListener('click', () => {
 			all_revs.scrollBy({
 				left: -20,
