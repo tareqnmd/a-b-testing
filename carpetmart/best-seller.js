@@ -104,10 +104,13 @@ const style = `
     .new-seller-elm .header-best span{}
     .new-seller-elm .header-best .rotate-btns{}
     .new-seller-elm .header-best .rotate-btns button{}
-    .new-seller-elm .sellers-section{}
+    .new-seller-elm .sellers-section{
+        position: relative;
+        width:100%;
+    }
     .new-seller-elm .all-sellers{
         display: grid;
-        grid-template-columns: repeat(12, 24%);
+        grid-template-columns: repeat(15, 24%);
         gap: 1.7%;
         overflow-y: auto;
         scroll-snap-type: x mandatory;
@@ -133,13 +136,13 @@ const style = `
 	}
 	@media only screen and (max-width:991px){
 		.new-seller-elm .all-sellers {
-			grid-template-columns: repeat(12, 48%);
+			grid-template-columns: repeat(15, 48%);
 			gap: 4%;
 		}
 	}
 	@media only screen and (max-width:480px){
 		.new-seller-elm .all-sellers {
-			grid-template-columns: repeat(12, 100%);
+			grid-template-columns: repeat(15, 100%);
 			gap: 0;
 		}
 	}
@@ -199,5 +202,26 @@ const interval = setInterval(() => {
 		head.insertAdjacentHTML('beforeend', style);
 		exist_elm.insertAdjacentHTML('afterend', new_elm_html);
 		clearInterval(interval);
+	}
+}, 10);
+
+const btn_interval = setInterval(() => {
+	const next_btn = document.querySelector('.new-seller-elm .header-best .rotate-btns .next');
+	const prev_btn = document.querySelector('.new-seller-elm .header-best .rotate-btns .prev');
+	const all_revs = document.querySelector('.sellers-section .all-sellers');
+	if (next_btn && prev_btn && all_revs) {
+		prev_btn.addEventListener('click', () => {
+			all_revs.scrollBy({
+				left: -20,
+				behavior: 'smooth',
+			});
+		});
+		next_btn.addEventListener('click', () => {
+			all_revs.scrollBy({
+				left: 20,
+				behavior: 'smooth',
+			});
+		});
+		clearInterval(btn_interval);
 	}
 }, 10);
