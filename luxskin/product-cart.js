@@ -43,6 +43,19 @@ const style = `
     background: #ffffff!important;
     border:0!important;
 }
+
+@media screen and (max-width: 590px){
+    .product-single__meta--wrapper{
+        margin: 0;
+        padding: 0;
+    }
+}
+@media screen and (max-width: 410px){
+    #AddToCart--product-template{
+        font-size:10px;
+        padding: 14px;
+    }
+}
 </style>
 `;
 
