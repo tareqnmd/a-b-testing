@@ -78,7 +78,7 @@ const bellSeller = [
 
 const getSingleSeller = (seller) => `
 <div class="single-product">
-    <img src=${seller.src}/>
+    <img src=${seller.src}>
     <strong>${seller.title}</strong>
     <a href=${seller.link}>${seller.title}</a>
     <a href=${seller.link}>VIEW</a>
