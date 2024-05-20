@@ -299,13 +299,13 @@ const btn_interval = setInterval(() => {
 	const all_sell = document.querySelector('.sellers-section .all-sellers');
 	if (next_btn && prev_btn && all_sell) {
 		prev_btn.addEventListener('click', () => {
-			all_revs.scrollBy({
+			all_sell.scrollBy({
 				left: -20,
 				behavior: 'smooth',
 			});
 		});
 		next_btn.addEventListener('click', () => {
-			all_revs.scrollBy({
+			all_sell.scrollBy({
 				left: 20,
 				behavior: 'smooth',
 			});
