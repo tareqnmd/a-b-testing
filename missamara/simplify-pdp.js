@@ -47,6 +47,9 @@ const style = `
     #shopify-section-product-template .product-detail .product-form .input-row .swatch input:checked+label .unchecked{
         display:none;
     }
+    h1.title{
+        text-align: left!important;
+    }
 </style>
 `;
 
@@ -62,8 +65,17 @@ const labelCheckbox = `
 const interval = setInterval(() => {
 	const head = document.querySelector('head');
 	const labels = [...document.querySelectorAll('.swatchwrapper label')];
-	if (head && labels.length > 0 && !document.querySelector('svg.checked')) {
+	const price_wrap = document.querySelector('.product-price-wrapper');
+	const title = document.querySelector('h1.title');
+	if (
+		head &&
+		price_wrap &&
+		title &&
+		labels.length > 0 &&
+		!document.querySelector('svg.checked')
+	) {
 		head.insertAdjacentHTML('beforeend', style);
+		price_wrap.insertAdjacentElement('beforebegin', title);
 		labels.map((label) =>
 			label.insertAdjacentHTML('afterbegin', labelCheckbox)
 		);
