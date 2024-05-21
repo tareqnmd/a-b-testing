@@ -60,6 +60,11 @@ const style = `
     .attribute-badges-section{
         margin-bottom: 20px!important;
     }
+    .attribute-badges-section{
+        background: #FFF6F4;
+        padding: 20px;
+        border-radius: 8px;
+    }
     .product-details-background-wrapper{
         background: none!important;
         border-radius: 8px;
