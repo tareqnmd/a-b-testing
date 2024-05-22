@@ -61,12 +61,13 @@ const style = `
         font-weight: 600;
         line-height: 40px;
         color: #0D0C22;
+        margin: 0!important;
     }
     .collections-wrapper{
         width: 100%;
         overflow-x:auto;
     }
-    .collections-wrapper::webkit-scrollbar{
+    .collections-wrapper::-webkit-scrollbar{
         display:none;
     }
     .all-collections{
