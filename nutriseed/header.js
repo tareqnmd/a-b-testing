@@ -1,18 +1,75 @@
 const style = `
 <style>
-    .hero__detail .hero__top-title,.hero__detail .hero__title,.section.hero.mobile_layout .hero__mobile-content,.section.hero.mobile_layout .hero__top-title  {
+    #content .mobile-title,#content .desktop-title, #content .ns-20-text-content {
         display: none!important;
     }
-    .newHero h5{}
-    .newHero h5 small{}
-    .newHero h5 strong{}
-    .newHero h5 span{}
-    .newHero h1{}
+    .header-main-message {
+        display: grid;
+        margin: 12px 0;
+    }
+    .header-main-message small{
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: -0.01em;
+        text-align: center;
+        color: #00594E;
+    }
+    .header-main-message strong{
+        font-size: 48px;
+        line-height: 48px;
+        font-weight: 400;
+        letter-spacing: -0.01em;
+        text-align: center;
+        color: #00594E;
+    }
+    .header-main-message span{
+        font-size: 48px;
+        line-height: 48px;
+        font-weight: 200;
+        letter-spacing: -0.01em;
+        text-align: center;
+        color: #00594E;
+    }
+    .header-secondary-message{
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 0.04em;
+        text-align: center;
+        color: #212529;
+    }
+    .header-main-message.small{
+        display: none;
+    }
+    @media (max-width:1000px){
+        .header-main-message.small{
+            display: grid;
+            margin: 30px 0;
+        }
+        .header-main-message.large{
+            display: none;
+        }
+    }
+    @media (max-width:480px){
+        .header-main-message small{
+            font-size: 18px;
+            line-height: 18px;
+        }
+        .header-main-message strong{
+            font-size: 36px;
+            line-height: 36px;
+        }
+        .header-main-message span{
+            font-size: 36px;
+            line-height: 36px;
+        }
+    }
 </style>
 `;
 
-const mainHeader = `
-<h1 class="header-main-message">
+const mainHeader = (type = 'small') => `
+<h1 class="header-main-message ${type}">
     <small>Healthy living made easy</small>
     <strong>Reach your goals</strong>
     <span>and stay there</span>
@@ -27,28 +84,18 @@ const secondaryHeader = `
 
 const interval = setInterval(() => {
 	try {
-		const heroDetail = document.querySelector('.hero__detail');
-		const mobileDetail = document.querySelector('.section.hero.mobile_layout');
+		const heroDetail = document.querySelector('#content .mobile-title');
+		const imgDetails = document.querySelector('#content img');
 		const head = document.querySelector('head');
 		if (
 			heroDetail &&
-			mobileDetail &&
 			head &&
 			!document.querySelector('.header-secondary-message')
 		) {
 			head.insertAdjacentHTML('beforeend', style);
-			mobileDetail
-				.querySelector('.hero__img')
-				.insertAdjacentHTML('beforebegin', mainHeader);
-			mobileDetail
-				.querySelector('.hero__img')
-				.insertAdjacentHTML('afterend', secondaryHeader);
-			heroDetail
-				.querySelector('.hero__cards')
-				.insertAdjacentHTML('beforebegin', mainHeader);
-			heroDetail
-				.querySelector('.hero__cards')
-				.insertAdjacentHTML('beforebegin', secondaryHeader);
+			imgDetails.insertAdjacentHTML('beforebegin', mainHeader('small'));
+			heroDetail.insertAdjacentHTML('beforebegin', mainHeader('large'));
+			heroDetail.insertAdjacentHTML('beforebegin', secondaryHeader);
 			clearInterval(interval);
 		}
 	} catch (error) {
