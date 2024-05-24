@@ -62,9 +62,11 @@ const style = `
         line-height: 40px;
         color: #0D0C22;
         margin: 0!important;
+        text-decoration: underline;
     }
     .collections-wrapper{
         width: 100%;
+        max-width: 1400px;
         overflow-x:auto;
     }
     .collections-wrapper::-webkit-scrollbar{
@@ -97,6 +99,13 @@ const style = `
     @media (max-width:991px){
         .all-collections{
             width: max-content;
+        }
+        .new-collection-elm h3{
+            font-size: 18px;
+            line-height: 20px;
+        }
+        .all-collections a{
+            max-width: 200px;
         }
     }
 </style>
