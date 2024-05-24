@@ -11,6 +11,11 @@ const detailInfo = {
 
 const style = `
 <style>
+.single-option-radio__label{
+    display: flex!important;
+    justify-content: space-between;
+    align-items: center;
+}
 .usp_area {
     margin-bottom: 30px;
     margin-top: 25px;
@@ -278,13 +283,20 @@ const interval = setInterval(() => {
 		const cartForm = document.querySelector('.product-single__form');
 		const head = document.querySelector('head');
 		const productName = window.location.pathname.split('/products/')[1];
+		const sizeLabel = document.querySelector('.single-option-radio__label');
+		const sizeGuide = document.querySelector(
+			"[data-app='eastsideco_sizeGuides']"
+		);
 		if (
+			sizeLabel &&
+			sizeGuide &&
 			productName &&
 			cartForm &&
 			head &&
 			!document.querySelector('.new-elm')
 		) {
 			head.insertAdjacentHTML('beforeend', style);
+			sizeLabel.insertAdjacentElement('beforeend', sizeGuide);
 			cartForm.insertAdjacentHTML(
 				'afterend',
 				new_elm_html(detailInfo[productName])
