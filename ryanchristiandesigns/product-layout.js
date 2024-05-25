@@ -11,6 +11,9 @@ const detailInfo = {
 
 const style = `
 <style>
+.product-single__description.rte{
+    display: none!important;
+}
 .single-option-radio__label{
     display: flex!important;
     justify-content: space-between;
@@ -63,6 +66,9 @@ const style = `
     letter-spacing: 0em;
     text-align: left;
     padding-bottom: 20px;
+}
+.grid__item.large--seven-twelfths.medium--seven-twelfths.text-center{
+    position: sticky;
 }
 </style>
 `;
@@ -310,8 +316,10 @@ const interval = setInterval(() => {
 
 const tabInterval = setInterval(() => {
 	try {
-		const tabContents = [...document.querySelectorAll('.tab-content-item')];
-		if (tabContents) {
+		const tabContents = [
+			...document.querySelectorAll('.tab-content-area .tab-content-item'),
+		];
+		if (tabContents.length > 0) {
 			tabContents.map((item) => {
 				const tabTitle = item.querySelector('.tab-title');
 				const tabTitlePlus = tabTitle.querySelector('.plus_icon');
@@ -336,3 +344,16 @@ const tabInterval = setInterval(() => {
 		console.log('error', error);
 	}
 }, 10);
+
+document.addEventListener('scroll', () => {
+	try {
+		const slider = document.querySelector(
+			'.grid__item.large--seven-twelfths.medium--seven-twelfths.text-center'
+		);
+		if (slider) {
+			slider.style.top = `${window.scrollY}px`;
+		}
+	} catch (error) {
+		console.log('error', error);
+	}
+});
