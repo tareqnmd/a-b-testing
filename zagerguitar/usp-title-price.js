@@ -35,7 +35,7 @@ const style = `
         display: flex;
         align-items: center;
         gap:6px;
-        margin: 20px 0;
+        margin: 10px 0;
     }
     .price-new del{
         font-size: 20px;
