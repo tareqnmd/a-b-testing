@@ -264,7 +264,7 @@ const goAnotherPage = (e) => {
 
 const intervalMinCart = setInterval(() => {
 	const miniCart = document.querySelector(
-		'.header-wrapper-right .minicart-wrapper'
+		'.header-wrapper-right .minicart-wrapper a'
 	);
 	if (miniCart) {
 		miniCart.addEventListener('click', (e) => goAnotherPage(e), true);
