@@ -27,16 +27,23 @@ const style = `
     color: #A5A5A5;
 }
 
-.price-elm{
-    background: #0D0C22;
+.new-price-elm{
+    color: #0D0C22;
     font-size: 16px;
     font-weight: 700;
     line-height: 16px;
     margin-bottom: 10px;
 }
 
-.new-price-elm{
+.price-elm{
     align-self: center;
+}
+
+.slow-price{
+    color: #0D0C22;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 16px;
 }
 
 #sidebar-footer .mx-auto.mt-4{
@@ -103,12 +110,11 @@ const interval = setInterval(() => {
 					'.cursor-pointer.underline.underline-offset-2'
 				);
 				const info = item.querySelector('.flex-1');
-				const price = item.querySelector(
-					'.mt-3.text-xs span.font-bold'
-				).innerText;
+				const price = item.querySelector('.mt-3.text-xs span.font-bold');
+				price.classList.add('slow-price');
 				const newDiv = document.createElement('div');
 				newDiv.classList.add('price-elm');
-				newDiv.insertAdjacentHTML('beforeend', new_elm_html(price));
+				newDiv.insertAdjacentHTML('beforeend', new_elm_html(price.innerText));
 				newDiv.insertAdjacentElement('beforeend', removeItem);
 				info.insertAdjacentElement('afterend', newDiv);
 			});
