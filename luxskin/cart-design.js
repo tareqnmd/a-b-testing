@@ -94,6 +94,19 @@ const style = `
     font-weight: 500;
     line-height: 16px;
 }
+.new-like-elm .side-products{
+    flex-direction: row!important;
+    overflow: auto;
+}
+.new-like-elm .side-products > div{
+    width: 320px!important;
+}
+.new-like-elm .side-products::-webkit-scrollbar{
+    display: none!important;
+}
+.Sidebar_sidebar__leoJc .absolute.flex.h-screen.flex-col.bg-white{
+    display: none!important;
+}
 </style>
 `;
 
@@ -144,6 +157,7 @@ const interval = setInterval(() => {
 
 			const liveDiv = document.createElement('div');
 			liveDiv.classList.add('new-like-elm');
+			sideProducts.classList.add('side-products');
 			liveDiv.insertAdjacentElement('afterbegin', sideProducts);
 			liveDiv.insertAdjacentHTML('afterbegin', new_like_html);
 			sidebarContainer.insertAdjacentElement('beforeend', liveDiv);
