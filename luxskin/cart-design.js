@@ -82,6 +82,14 @@ const style = `
     line-height: 16px;
     color: #0D0C22;
 }
+
+.new-like-elm{
+    padding: 20px;
+    background: #FAF4FF;
+}
+.new-like-elm h4{
+    margin-bottom: 16px;
+}
 </style>
 `;
 
@@ -91,21 +99,30 @@ const new_elm_html = (price) => `
 </div>
 `;
 
+const new_like_html = `
+<h4>you may also like</h4>
+`;
+
 const interval = setInterval(() => {
 	try {
 		const exist_elms = document.querySelectorAll(
 			'.SidebarLayout_container__fGitD .style_container__2w1Ui'
 		);
+		const sideProducts = document.querySelector(
+			'.Sidebar_sidebar__leoJc .ozscroll .flex'
+		);
+		const sidebarFooter = document.querySelector('#sidebar-footer');
 		const head = document.querySelector('head');
 		if (
 			exist_elms.length > 0 &&
+			sideProducts &&
+			sidebarFooter &&
 			head &&
 			!document.querySelector('.new-price-elm')
 		) {
 			console.log('exist_elms', exist_elms);
 			head.insertAdjacentHTML('beforeend', style);
 			exist_elms.forEach((item) => {
-				console.log('item', item);
 				const removeItem = item.querySelector(
 					'.cursor-pointer.underline.underline-offset-2'
 				);
@@ -118,6 +135,12 @@ const interval = setInterval(() => {
 				newDiv.insertAdjacentElement('beforeend', removeItem);
 				info.insertAdjacentElement('afterend', newDiv);
 			});
+
+			const liveDiv = document.createElement('div');
+			liveDiv.classList.add('new-like-elm');
+			liveDiv.insertAdjacentElement('afterbegin', sideProducts);
+			liveDiv.insertAdjacentHTML('afterbegin', new_like_html);
+			sidebarFooter.insertAdjacentElement('beforebegin', liveDiv);
 			clearInterval(interval);
 		}
 	} catch (error) {
