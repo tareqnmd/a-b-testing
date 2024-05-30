@@ -100,6 +100,7 @@ const style = `
 }
 .new-like-elm .side-products > div{
     width: 320px!important;
+    flex-shrink: 0;
 }
 .new-like-elm .side-products::-webkit-scrollbar{
     display: none!important;
