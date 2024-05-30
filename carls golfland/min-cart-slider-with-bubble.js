@@ -131,7 +131,7 @@ const style = `
 `;
 
 const numberOnly = (string) => {
-	return parseFloat(string.replace(',', '.').replace(/[^0-9\-+\.]/g, ''));
+	return parseFloat(string.replace(/[^\d\-+\.]/g, ""));
 };
 
 const new_elm_html = (free, amountRemaining) => `
