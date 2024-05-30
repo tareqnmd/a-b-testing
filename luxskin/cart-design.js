@@ -89,6 +89,10 @@ const style = `
 }
 .new-like-elm h4{
     margin-bottom: 16px;
+    color: #0D0C22;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 16px;
 }
 </style>
 `;
@@ -111,12 +115,14 @@ const interval = setInterval(() => {
 		const sideProducts = document.querySelector(
 			'.Sidebar_sidebar__leoJc .ozscroll .flex'
 		);
-		const sidebarFooter = document.querySelector('#sidebar-footer');
+		const sidebarContainer = document.querySelector(
+			'.SidebarLayout_container__fGitD'
+		);
 		const head = document.querySelector('head');
 		if (
 			exist_elms.length > 0 &&
 			sideProducts &&
-			sidebarFooter &&
+			sidebarContainer &&
 			head &&
 			!document.querySelector('.new-price-elm')
 		) {
@@ -140,7 +146,7 @@ const interval = setInterval(() => {
 			liveDiv.classList.add('new-like-elm');
 			liveDiv.insertAdjacentElement('afterbegin', sideProducts);
 			liveDiv.insertAdjacentHTML('afterbegin', new_like_html);
-			sidebarFooter.insertAdjacentElement('beforebegin', liveDiv);
+			sidebarContainer.insertAdjacentElement('beforeend', liveDiv);
 			clearInterval(interval);
 		}
 	} catch (error) {
