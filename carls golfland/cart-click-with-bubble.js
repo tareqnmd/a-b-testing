@@ -1,13 +1,9 @@
-const goAnotherPage = () => {
-	location.href = 'https://www.carlsgolfland.com/checkout/cart/';
-};
-
 const style = `
 <style>
-	#ui-id-1{
-		display: none!important
+	#ui-id-1 {
+		display: none !important;
 	}
-	.minicart-wrapper .action.showcart .counter.qty{
+	.minicart-wrapper .action.showcart .counter.qty {
 		left: -4px;
 		top: -4px;
 		background: green;
@@ -21,54 +17,55 @@ const style = `
 		animation: moveUpDown 0.25s linear infinite;
 		animation-play-state: paused;
 	}
-	.block.block-minicart.ui-dialog-content.ui-widget-content{
+	.block.block-minicart.ui-dialog-content.ui-widget-content {
 		position: fixed;
 		top: 0;
 		right: 0;
 		left: calc(100% - 400px);
-		width: 400px!important;
+		width: 400px !important;
 		min-width: 400px;
 		bottom: 0;
 		border: 0;
 		background: #fafafa;
 		overflow: scroll;
 	}
-	.block.block-minicart.ui-dialog-content.ui-widget-content .actions .primary{
+	.block.block-minicart.ui-dialog-content.ui-widget-content .actions .primary {
 		margin-bottom: 20px;
 	}
-	.block.block-minicart.ui-dialog-content.ui-widget-content .minicart-items-wrapper{
+	.block.block-minicart.ui-dialog-content.ui-widget-content
+		.minicart-items-wrapper {
 		background: #ffffff;
 	}
-	.minicart-wrapper .block-minicart .block-content .subtotal{
-		background:none;
+	.minicart-wrapper .block-minicart .block-content .subtotal {
+		background: none;
 		font-weight: 700;
-		margin-bottom: 10px!important;
+		margin-bottom: 10px !important;
 	}
-	.action.primary.viewcart{
-		background: none!important;
-		color: #333!important;
+	.action.primary.viewcart {
+		background: none !important;
+		color: #333 !important;
 		text-decoration: underline;
-		text-transform: capitalize!important;
-		font-size: 16px!important;
-		font-weight: 500!important;
-		margin-bottom: 0!important;
+		text-transform: capitalize !important;
+		font-size: 16px !important;
+		font-weight: 500 !important;
+		margin-bottom: 0 !important;
 	}
-	.new-cart-promo{
+	.new-cart-promo {
 		background: #d8fad1;
-		color: #78a46b!important;
+		color: #78a46b !important;
 		font-size: 12px;
 		margin: 10px;
-		border: 1px dashed!important;
+		border: 1px dashed !important;
 		border-radius: 4px;
-		text-transform: none!important;
+		text-transform: none !important;
 	}
-	#top-cart-btn-checkout{
+	#top-cart-btn-checkout {
 		border-radius: 6px;
 		width: 75%;
 		margin: auto;
-		font-size:18px;
+		font-size: 18px;
 	}
-	.min-cart-usps{
+	.min-cart-usps {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		align-items: center;
@@ -76,38 +73,39 @@ const style = `
 		border-bottom: 1px solid #dfdfdf;
 		margin: 10px 0;
 	}
-	.min-cart-usp{
+	.min-cart-usp {
 		display: flex;
 		gap: 4px;
 		align-items: center;
 		justify-content: center;
 		padding: 6px;
 	}
-	.min-cart-usp img{
+	.min-cart-usp img {
 		width: 30px;
 	}
-	.min-cart-usp span{
+	.min-cart-usp span {
 		font-size: 10px;
 		font-weight: bold;
 	}
-	.min-cart-usps .min-cart-usp:first-child{
+	.min-cart-usps .min-cart-usp:first-child {
 		border-right: 1px solid #dfdfdf;
 	}
-	.paypal.paypal-cart.checkout.paypal-logo.braintree-paypal-logo.braintree-paypal-mini-cart-container{
+	.paypal.paypal-cart.checkout.paypal-logo.braintree-paypal-logo.braintree-paypal-mini-cart-container {
 		margin-bottom: 10px;
 	}
-	.block-minicart-head{
-		background: #ffffff!important;
-		border-bottom: 1px solid #dfdfdf!important;
+	.block-minicart-head {
+		background: #ffffff !important;
+		border-bottom: 1px solid #dfdfdf !important;
 		padding: 5px 0;
 	}
-	.block-minicart-head-title,#btn-minicart-close{
-		color: #000!important;
+	.block-minicart-head-title,
+	#btn-minicart-close {
+		color: #000 !important;
 	}
-	.action.delete.delete-custom{
-		text-transform: none!important;
+	.action.delete.delete-custom {
+		text-transform: none !important;
 	}
-	.action.delete.delete-custom i{
+	.action.delete.delete-custom i {
 		background: #6f6f6f;
 		width: 16px;
 		height: 16px;
@@ -115,17 +113,17 @@ const style = `
 		place-content: center;
 		border-radius: 50%;
 		color: #fff;
-		font-size: 12px!important;
+		font-size: 12px !important;
 	}
-	.action.delete.delete-custom span{
-		margin-right: 2px!important;
+	.action.delete.delete-custom span {
+		margin-right: 2px !important;
 	}
-	a.minicart-item-img{
+	a.minicart-item-img {
 		border: 1px solid #dfdfdf;
 		padding: 6px;
 		border-radius: 4px;
 	}
-	.minicart-back{
+	.minicart-back {
 		position: fixed;
 		top: 0;
 		bottom: 0;
@@ -134,27 +132,42 @@ const style = `
 		background: #99999999;
 		z-index: 10;
 	}
-	#minicart-content-wrapper{
-		background: #fafafa!important;
+	#minicart-content-wrapper {
+		background: #fafafa !important;
 		position: relative;
 		height: 100%;
 		z-index: 11;
 		overflow-x: hidden;
 	}
-	#ui-id-1{
+	#ui-id-1 {
 		overflow-y: auto;
 		overflow-x: hidden;
 	}
-	.minicart-wrapper .block-minicart .block-content .minicart-items-wrapper .minicart-items>.product-item .minicart-item .minicart-item-details .minicart-item-details-left{
+	.minicart-wrapper
+		.block-minicart
+		.block-content
+		.minicart-items-wrapper
+		.minicart-items
+		> .product-item
+		.minicart-item
+		.minicart-item-details
+		.minicart-item-details-left {
 		padding-right: 10px;
 	}
-	.minicart-wrapper .block-minicart .block-content .minicart-items-wrapper .minicart-items>.product-item .minicart-item .minicart-item-details{
-		padding-left:10px;
+	.minicart-wrapper
+		.block-minicart
+		.block-content
+		.minicart-items-wrapper
+		.minicart-items
+		> .product-item
+		.minicart-item
+		.minicart-item-details {
+		padding-left: 10px;
 	}
-	.minicart-wrapper .block-minicart .block-content .minicart-items-wrapper{
+	.minicart-wrapper .block-minicart .block-content .minicart-items-wrapper {
 		padding: 10px;
 		max-height: calc(100vh - 455px);
-		border-bottom: solid 1px #d5d5d5
+		border-bottom: solid 1px #d5d5d5;
 	}
 	@keyframes moveUpDown {
 		0% {
@@ -173,13 +186,13 @@ const style = `
 			transform: translateY(0);
 		}
 	}
-	
-	@media only screen and (max-width:480px){
-		.block.block-minicart.ui-dialog-content.ui-widget-content{
+
+	@media only screen and (max-width: 480px) {
+		.block.block-minicart.ui-dialog-content.ui-widget-content {
 			left: calc(100% - 340px);
-			width: 340px!important;
+			width: 340px !important;
 			min-width: 340px;
-	  }
+		}
 	}
 </style>
 `;
@@ -189,25 +202,6 @@ const styleInterval = setInterval(() => {
 	if (head) {
 		head.insertAdjacentHTML('beforeend', style);
 		clearInterval(styleInterval);
-	}
-}, 10);
-
-const intervalMinCart = setInterval(() => {
-	const miniCart = document.querySelector(
-		'.header-wrapper-right .minicart-wrapper'
-	);
-	if (miniCart) {
-		miniCart.addEventListener('click', () => goAnotherPage(), true);
-		clearInterval(intervalMinCart);
-	}
-}, 10);
-
-const addedCartInterval = setInterval(() => {
-	const cartButton = document.querySelector('#product-addtocart-button');
-	const cartTitle = cartButton?.title ?? '';
-	if (cartButton && cartTitle === 'Added') {
-		goAnotherPage();
-		clearInterval(addedCartInterval);
 	}
 }, 10);
 
@@ -263,3 +257,26 @@ setInterval(() => {
 		}, 1000);
 	}
 }, 5000);
+
+const goAnotherPage = () => {
+	location.href = 'https://www.carlsgolfland.com/checkout/cart/';
+};
+
+const intervalMinCart = setInterval(() => {
+	const miniCart = document.querySelector(
+		'.header-wrapper-right .minicart-wrapper'
+	);
+	if (miniCart) {
+		miniCart.addEventListener('click', () => goAnotherPage(), true);
+		clearInterval(intervalMinCart);
+	}
+}, 10);
+
+const addedCartInterval = setInterval(() => {
+	const cartButton = document.querySelector('#product-addtocart-button');
+	const cartTitle = cartButton?.title ?? '';
+	if (cartButton && cartTitle === 'Added') {
+		goAnotherPage();
+		clearInterval(addedCartInterval);
+	}
+}, 10);
