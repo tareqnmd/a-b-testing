@@ -92,11 +92,7 @@ const firstInterval = setInterval(() => {
 			'#content .mobile_layout .hero__img'
 		);
 		const head = document.querySelector('head');
-		if (
-			heroDetail &&
-			head &&
-			!document.querySelector('.header-secondary-message')
-		) {
+		if (heroDetail && head) {
 			head.insertAdjacentHTML('beforeend', style);
 			heroDetail.insertAdjacentHTML('beforebegin', mainHeader('large'));
 			heroDetail.insertAdjacentHTML('beforebegin', secondaryHeader);
@@ -114,11 +110,7 @@ const secondInterval = setInterval(() => {
 		const heroDetail = document.querySelector('#content .mobile-title');
 		const imgDetails = document.querySelector('#content img');
 		const head = document.querySelector('head');
-		if (
-			heroDetail &&
-			head &&
-			!document.querySelector('.header-secondary-message')
-		) {
+		if (heroDetail && head) {
 			head.insertAdjacentHTML('beforeend', style);
 			imgDetails.insertAdjacentHTML('beforebegin', mainHeader('small'));
 			heroDetail.insertAdjacentHTML('beforebegin', mainHeader('large'));
