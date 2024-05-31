@@ -122,8 +122,13 @@ const style = `
 .new-like-elm .side-products > div .flex-grow button.mt-1.hidden.text-sm{
     display: none!important;
 }
+.new-like-elm .side-products > div .flex-grow{
+    position: relative!important;
+}
 .side-products .live-cart{
-    margin-left: auto;
+    position: absolute;
+    bottom: 0;
+    right: 0;
     width: max-content;
 }
 .side-products div > div{
