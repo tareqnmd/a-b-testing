@@ -52,8 +52,11 @@ const style = `
             padding: 3px 6px;
             top: calc(100% + 15px);
         }
-        form.LogoAndSearch_search-form__MN6Rg{
-            margin-right: 130px;
+        .LogoAndSearch_content__omI4r form{
+            margin-right: 136px;
+			margin-right: 140px;
+			border-radius: 8px;
+			height: 38px;
         }
         .cart-slider::after{
             width: 8px;
