@@ -101,12 +101,42 @@ const style = `
 .new-like-elm .side-products > div{
     width: 320px!important;
     flex-shrink: 0;
+    background: #FFFFFF;
+    border: 1px solid #ECE4F4;
+    width: 220px;
+    border-radius: 4px;
+    padding:10px;
 }
 .new-like-elm .side-products::-webkit-scrollbar{
     display: none!important;
 }
 .Sidebar_sidebar__leoJc .absolute.flex.h-screen.flex-col.bg-white{
     display: none!important;
+}
+.new-like-elm .side-products > div .flex-grow .text-xs.font-semibold{
+    display: none!important;
+}
+.new-like-elm .side-products > div .flex-grow .hideZeroData{
+    display: none!important;
+}
+.new-like-elm .side-products > div .flex-grow button.mt-1.hidden.text-sm{
+    display: none!important;
+}
+.side-products .live-cart{
+    margin-left: auto;
+    width: max-content;
+}
+.side-products .mt-2.flex.gap-4.text-base div{
+    color: #0D0C22;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 12px;
+}
+.side-products .mt-1.text-xs a{
+    color: #0D0C22;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16.8px;
 }
 </style>
 `;
@@ -118,51 +148,109 @@ const new_elm_html = (price) => `
 `;
 
 const new_like_html = `
-<h4>you may also like</h4>
+<h4 class="new-h4-elm">you may also like</h4>
 `;
 
-const interval = setInterval(() => {
+const styleInterval = setInterval(() => {
 	try {
-		const exist_elms = document.querySelectorAll(
-			'.SidebarLayout_container__fGitD .style_container__2w1Ui'
-		);
-		const sideProducts = document.querySelector(
+		const head = document.querySelector('head');
+		if (head) {
+			head.insertAdjacentHTML('beforeend', style);
+			clearInterval(styleInterval);
+		}
+	} catch (error) {
+		console.log('error', error);
+	}
+}, 10);
+
+const sideInterval = setInterval(() => {
+	try {
+		const sideProduct = document.querySelector(
 			'.Sidebar_sidebar__leoJc .ozscroll .flex'
 		);
 		const sidebarContainer = document.querySelector(
 			'.SidebarLayout_container__fGitD'
 		);
-		const head = document.querySelector('head');
+		const sideProducts = document.querySelectorAll(
+			'.Sidebar_sidebar__leoJc .ozscroll .flex > div'
+		);
 		if (
-			exist_elms.length > 0 &&
-			sideProducts &&
+			sideProduct &&
 			sidebarContainer &&
-			head &&
-			!document.querySelector('.new-price-elm')
+			!document.querySelector('.new-h4-elm')
 		) {
-			console.log('exist_elms', exist_elms);
-			head.insertAdjacentHTML('beforeend', style);
-			exist_elms.forEach((item) => {
-				const removeItem = item.querySelector(
-					'.cursor-pointer.underline.underline-offset-2'
-				);
-				const info = item.querySelector('.flex-1');
-				const price = item.querySelector('.mt-3.text-xs span.font-bold');
-				price.classList.add('slow-price');
-				const newDiv = document.createElement('div');
-				newDiv.classList.add('price-elm');
-				newDiv.insertAdjacentHTML('beforeend', new_elm_html(price.innerText));
-				newDiv.insertAdjacentElement('beforeend', removeItem);
-				info.insertAdjacentElement('afterend', newDiv);
+			sideProducts.forEach((item) => {
+				if (!item.querySelector('.live-cart')) {
+					const button =
+						item.querySelector(
+							'.cursor-pointer.rounded.border.border-primary.bg-primary.text-center.text-white.duration-200'
+						)?.parentNode?.parentNode ?? null;
+					const prodArea = item.querySelector('.flex-grow');
+					if (button && prodArea) {
+						button.classList.add('live-cart');
+						button.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0.5" y="0.5" width="23" height="23" rx="3.5" fill="white"/>
+                        <rect x="0.5" y="0.5" width="23" height="23" rx="3.5" stroke="#9440EC"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M11 13V18H13V13H18V11H13V6H11V11H6V13H11Z" fill="#9440EC"/>
+                        </svg>
+                        `;
+						prodArea.insertAdjacentElement('beforeend', button);
+					}
+				}
 			});
-
 			const liveDiv = document.createElement('div');
 			liveDiv.classList.add('new-like-elm');
-			sideProducts.classList.add('side-products');
-			liveDiv.insertAdjacentElement('afterbegin', sideProducts);
+			sideProduct.classList.add('side-products');
+			liveDiv.insertAdjacentElement('afterbegin', sideProduct);
 			liveDiv.insertAdjacentHTML('afterbegin', new_like_html);
 			sidebarContainer.insertAdjacentElement('beforeend', liveDiv);
-			clearInterval(interval);
+			clearInterval(sideInterval);
+		}
+	} catch (error) {
+		console.log('error', error);
+	}
+}, 10);
+
+const numberOnly = (string) => {
+	return parseFloat(string.replace(/[^\d\-+\.]/g, ''));
+};
+
+let oldSubTotal;
+const subInterval = setInterval(() => {
+	try {
+		const exist_elms = document.querySelectorAll(
+			'.SidebarLayout_container__fGitD .style_container__2w1Ui'
+		);
+		const subTotal = document.querySelector(
+			'#sidebar-footer .text-base span:last-child'
+		);
+		if (subTotal) {
+			const subTotalPrice = numberOnly(subTotal.innerText);
+			if (exist_elms.length > 0 && subTotalPrice !== oldSubTotal) {
+				oldSubTotal = subTotalPrice;
+				exist_elms.forEach((item) => {
+					const price = item.querySelector('.mt-3.text-xs span.font-bold');
+					if (item.querySelector('.price-elm')) {
+						const newPrice = item.querySelector('.new-price-elm');
+						console.log('newPrice', newPrice);
+						newPrice.innerText = price.innerText;
+					} else {
+						const removeItem = item.querySelector(
+							'.cursor-pointer.underline.underline-offset-2'
+						);
+						const info = item.querySelector('.flex-1');
+						price.classList.add('slow-price');
+						const newDiv = document.createElement('div');
+						newDiv.classList.add('price-elm');
+						newDiv.insertAdjacentHTML(
+							'beforeend',
+							new_elm_html(price.innerText)
+						);
+						newDiv.insertAdjacentElement('beforeend', removeItem);
+						info.insertAdjacentElement('afterend', newDiv);
+					}
+				});
+			}
 		}
 	} catch (error) {
 		console.log('error', error);
