@@ -126,6 +126,11 @@ const style = `
     margin-left: auto;
     width: max-content;
 }
+.side-products div > div{
+    background: none!important;
+    padding: 0!important;
+    border: none!important;
+}
 .side-products .mt-2.flex.gap-4.text-base div{
     color: #0D0C22;
     font-size: 12px;
@@ -181,20 +186,25 @@ const sideInterval = setInterval(() => {
 		) {
 			sideProducts.forEach((item) => {
 				if (!item.querySelector('.live-cart')) {
-					const button =
-						item.querySelector(
-							'.cursor-pointer.rounded.border.border-primary.bg-primary.text-center.text-white.duration-200'
-						)?.parentNode?.parentNode ?? null;
+					const button = item.querySelector(
+						'.cursor-pointer.rounded.border.border-primary.bg-primary.text-center.text-white.duration-200'
+					);
 					const prodArea = item.querySelector('.flex-grow');
 					if (button && prodArea) {
-						button.classList.add('live-cart');
 						button.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect x="0.5" y="0.5" width="23" height="23" rx="3.5" fill="white"/>
                         <rect x="0.5" y="0.5" width="23" height="23" rx="3.5" stroke="#9440EC"/>
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M11 13V18H13V13H18V11H13V6H11V11H6V13H11Z" fill="#9440EC"/>
                         </svg>
                         `;
-						prodArea.insertAdjacentElement('beforeend', button);
+						const buttonParent =
+							item.querySelector(
+								'.cursor-pointer.rounded.border.border-primary.bg-primary.text-center.text-white.duration-200'
+							)?.parentNode?.parentNode ?? null;
+						if (buttonParent) {
+							buttonParent.classList.add('live-cart');
+							prodArea.insertAdjacentElement('beforeend', buttonParent);
+						}
 					}
 				}
 			});
