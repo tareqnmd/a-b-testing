@@ -7,6 +7,9 @@ const free_svg = `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xm
 
 const style = `
 <style>
+	#sidebar-cart-link{
+		position: relative;
+	}
 	.cart-slider {
 		border: 1px solid #9747FF;
 		background-color: #f9f2ff;
@@ -63,7 +66,7 @@ const style = `
 `;
 
 const numberOnly = (string) => {
-	return parseFloat(string.replace(',', '.').replace(/[^0-9\-+\.]/g, ''));
+	return parseFloat(string.replace(/[^\d\-+\.]/g, ''));
 };
 
 const new_elm_html = (free, amountRemaining) => `
@@ -79,35 +82,43 @@ const new_elm_html = (free, amountRemaining) => `
  </div>
 `;
 
-let cartPrice = 0;
+let cartPrice;
 
 const interval = setInterval(() => {
 	try {
-		const exist_elm = document.querySelector('#sidebar-cart-link,.LogoAndSearch_cart-icon__jzm7b');
-		const head = document.querySelector('head');
+		const exist_elm = document.querySelectorAll(
+			'#sidebar-cart-link,.LogoAndSearch_cart-icon__jzm7b'
+		);
 		const cartSubTotalValueStr =
 			document.querySelector('#sidebar-cart-link .text-xs')?.innerText ?? '0';
 		const cartSubTotalValue = numberOnly(cartSubTotalValueStr);
 		if (
-			exist_elm &&
-			head &&
+			exist_elm.length > 0 &&
 			cartSubTotalValue > 0 &&
 			cartPrice !== cartSubTotalValue
 		) {
 			cartPrice = cartSubTotalValue;
-			if (document.querySelector('.cart-slider')) {
-				document.querySelector('.cart-slider').remove();
-				exist_elm.insertAdjacentHTML(
+			exist_elm.forEach((item) => {
+				if (item.querySelector('.cart-slider')) {
+					item.querySelector('.cart-slider').remove();
+				}
+				item.insertAdjacentHTML(
 					'afterbegin',
 					new_elm_html(cartSubTotalValue >= 49, 49 - cartSubTotalValue)
 				);
-			} else {
-				head.insertAdjacentHTML('beforeend', style);
-				exist_elm.insertAdjacentHTML(
-					'afterbegin',
-					new_elm_html(cartSubTotalValue >= 49, 49 - cartSubTotalValue)
-				);
-			}
+			});
+		}
+	} catch (error) {
+		console.log(error);
+	}
+}, 10);
+
+const styleInterval = setInterval(() => {
+	try {
+		const head = document.querySelector('head');
+		if (head) {
+			head.insertAdjacentHTML('beforeend', style);
+			clearInterval(styleInterval);
 		}
 	} catch (error) {
 		console.log(error);
