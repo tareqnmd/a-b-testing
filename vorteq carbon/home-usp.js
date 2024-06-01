@@ -67,7 +67,9 @@ const usps = [
 const style = `
 <style>
 .new-usp-elm{
-    
+    display: grid;
+    gap: 16px;
+    margin: 20px 0;
 }
 .new-usp-elm h2{
     font-size: 36px;
@@ -79,6 +81,20 @@ const style = `
 .usp-elm-area{
     background: #1F2128;
     border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+}
+.usp-elm-area .usp-elm{
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    place-content: center;
+    gap:2px 6px;
+}
+.usp-elm-area .usp-elm svg{
+    grid-row: span 2;
 }
 </style>
 `;
@@ -87,7 +103,7 @@ const new_elm_html = `
 <div class="new-usp-elm">
     <h2>Why 10,000+ customers Love our products</h2>
     <div class="usp-elm-area">
-        ${usps.map(item=>{
+        ${usps.map(item=>
             `
             <div class="usp-elm">
                 ${item.svg}
@@ -95,7 +111,7 @@ const new_elm_html = `
                 <small>${item.span}</small>
             </div>
             `
-        }).join('')}
+        ).join('')}
     </div>
 </div>
 `;
