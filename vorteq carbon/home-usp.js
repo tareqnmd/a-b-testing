@@ -77,6 +77,13 @@ const style = `
     line-height: 28px;
     text-align: center;
     color: #FFFFFF;
+    margin: 0;
+}
+.usp-elm-wrapper{
+    overflow: auto;
+}
+.usp-elm-wrapper::-webkit-scrollbar{
+    display: none;
 }
 .usp-elm-area{
     background: #1F2128;
@@ -85,16 +92,57 @@ const style = `
     align-items: center;
     gap: 16px;
     padding: 16px;
+    width: max-content;
 }
 .usp-elm-area .usp-elm{
     display: grid;
     grid-template-columns: auto auto;
     align-items: center;
     place-content: center;
-    gap:2px 6px;
+    gap:2px 10px;
 }
 .usp-elm-area .usp-elm svg{
     grid-row: span 2;
+}
+.usp-elm-area .usp-elm strong{
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 20px;
+    color: white;
+}
+.usp-elm-area .usp-elm small{
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 600;
+    color: #9A9A9A;
+}
+@media (max-width:991px){
+    .usp-elm-area .usp-elm strong{
+        font-size: 16px;
+        line-height: 18px;
+    }
+    .usp-elm-area .usp-elm small{
+        font-size: 12px;
+        line-height: 14px;
+    }
+    .new-usp-elm h2{
+        font-size: 24px;
+        line-height: 28px;
+    }
+}
+@media (max-width:480px){
+    .usp-elm-area .usp-elm strong{
+        font-size: 14px;
+        line-height: 16px;
+    }
+    .usp-elm-area .usp-elm small{
+        font-size: 10px;
+        line-height: 12px;
+    }
+    .new-usp-elm h2{
+        font-size: 20px;
+        line-height: 24px;
+    }
 }
 </style>
 `;
@@ -102,16 +150,18 @@ const style = `
 const new_elm_html = `
 <div class="new-usp-elm">
     <h2>Why 10,000+ customers Love our products</h2>
-    <div class="usp-elm-area">
-        ${usps.map(item=>
-            `
-            <div class="usp-elm">
-                ${item.svg}
-                <strong>${item.strong}</strong>
-                <small>${item.span}</small>
-            </div>
-            `
-        ).join('')}
+    <div class="usp-elm-wrapper">
+        <div class="usp-elm-area">
+            ${usps.map(item=>
+                `
+                <div class="usp-elm">
+                    ${item.svg}
+                    <strong>${item.strong}</strong>
+                    <small>${item.span}</small>
+                </div>
+                `
+            ).join('')}
+        </div>
     </div>
 </div>
 `;
