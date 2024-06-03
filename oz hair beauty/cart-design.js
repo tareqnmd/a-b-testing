@@ -261,7 +261,7 @@ const subInterval = setInterval(() => {
 							'beforeend',
 							new_elm_html(price.innerText)
 						);
-						newDiv.insertAdjacentElement('beforeend', removeItem);
+						removeItem && newDiv.insertAdjacentElement('beforeend', removeItem);
 						info.insertAdjacentElement('afterend', newDiv);
 					}
 				});
