@@ -43,7 +43,7 @@ const style = `
     margin-top: 20px;
 }
 
-.slow-price{
+..mt-3.text-xs span.font-bold{
     color: #0D0C22;
     font-size: 16px;
     font-weight: 300;
@@ -243,14 +243,14 @@ const subInterval = setInterval(() => {
 		);
 		if (exist_elms.length > 0) {
 			exist_elms.forEach((item) => {
-				const price = item.querySelector('.mt-3.text-xs span.font-bold');
 				if (!item.querySelector('.price-elm')) {
 					const removeItem = item.querySelector(
 						'.cursor-pointer.underline.underline-offset-2'
 					);
-					price.classList.add('slow-price');
-					removeItem.classList.add('remove-elm');
-					removeItem.innerText = 'X';
+					if (removeItem) {
+						removeItem.classList.add('remove-elm');
+						removeItem.innerText = 'X';
+					}
 				}
 			});
 		}
