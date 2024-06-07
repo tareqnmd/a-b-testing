@@ -1,5 +1,20 @@
 const style = `
 <style>
+.nav-sections .nav-sections-items .header.links>.parent{
+    background: #fff;
+}
+.nav-sections .nav-sections-items .header.links>.parent .submenu li{
+    padding: 0 40px;
+}
+.nav-sections .nav-sections-items .header.links>.parent .submenu li a{
+    padding: 12px 6px;
+}
+.nav-sections .nav-sections-items .header.links>.parent .submenu li:not(:last-child) a{
+    border-bottom: 1px solid #d5d5d5;
+}
+.nav-sections .nav-sections-items .header.links>.parent>a::after{
+    right: 16px;
+}
 .nav-sections .nav-sections-items .header.links>.parent>a::after,.nav-sections .nav-sections-items .navigation>ul>li>.subcat-toggle::before{
     content:'>';
     background: none!important;
@@ -32,7 +47,7 @@ const style = `
 .nav-sections .nav-sections-items .navigation>ul>li.open>.subcat-toggle::before{
     content:'<';
 }
-.nav-sections .nav-sections-items .navigation>ul>li>a{
+.nav-sections .nav-sections-items .header.links>.parent>a,.nav-sections .nav-sections-items .navigation>ul>li>a{
     padding: 10px 35px;
 }
 .nav-sections .nav-sections-items .navigation>ul>li>.submenu>li>a{
@@ -43,6 +58,9 @@ const style = `
 }
 .nav-sections .nav-sections-items .navigation>ul>li.open>.submenu{
     padding: 0 40px;
+}
+.nav-sections .nav-sections-items .navigation>ul>li>.subcat-toggle{
+    height: 42px;
 }
 </style>
 `;
