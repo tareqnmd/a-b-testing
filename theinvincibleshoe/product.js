@@ -52,7 +52,7 @@ const style = `
 }
 #Quantity-product-template{
     border: 1px solid #E9E9E9;
-    border-radius: 2px!important;
+    border-radius: 6px!important;
 }
 .interest-pay{
     display: inline-flex;
@@ -135,6 +135,10 @@ const style = `
     padding: 6px;
     border-radius: 4px;
 }
+.small-form-item{
+    width: max-content;
+    margin-right: auto;
+}
 </style>
 `;
 
@@ -190,6 +194,8 @@ const interval = setInterval(() => {
 			'.price__sale dd:last-child'
 		);
 		const productBadges = document.querySelector('.product-badges-wrapper');
+		const productFormItem = document.querySelector('#Quantity-product-template')
+			.parentNode;
 		const head = document.querySelector('head');
 		if (
 			price &&
@@ -198,6 +204,7 @@ const interval = setInterval(() => {
 			priceSale &&
 			priceSaleSecond &&
 			cartButton &&
+			productFormItem &&
 			head &&
 			!document.querySelector('.interest-pay')
 		) {
@@ -211,6 +218,8 @@ const interval = setInterval(() => {
 			price.insertAdjacentHTML('afterend', shopIntPay);
 			cartButton.innerText = `ADD TO CART | ${priceItem.innerText}`;
 			productBadges.insertAdjacentHTML('afterend', newUspElms);
+			productFormItem.insertAdjacentHTML('beforeend', fewStock);
+			productFormItem.classList.add('small-form-item');
 			clearInterval(interval);
 		}
 	} catch (error) {
