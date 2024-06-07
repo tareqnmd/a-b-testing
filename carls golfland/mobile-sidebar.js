@@ -15,6 +15,10 @@ const style = `
 .nav-sections .nav-sections-items .header.links>.parent>a::after{
     right: 16px;
 }
+.nav-sections .nav-sections-items .header.links>.parent.open>a::before{
+    margin-left: -10px;
+    margin-right: 10px;
+}
 .nav-sections .nav-sections-items .header.links>.parent>a::after,.nav-sections .nav-sections-items .navigation>ul>li>.subcat-toggle::before{
     content:'>';
     background: none!important;
