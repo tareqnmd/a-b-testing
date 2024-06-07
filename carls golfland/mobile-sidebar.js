@@ -3,7 +3,7 @@ const style = `
 .nav-sections .nav-sections-items .header.links>.parent{
     background: #fff;
 }
-.nav-sections .nav-sections-items .header.links>.parent .submenu li{
+.nav-sections .nav-sections-items .header.links>.parent .submenu{
     padding: 0 40px;
 }
 .nav-sections .nav-sections-items .header.links>.parent .submenu li a{
@@ -16,8 +16,8 @@ const style = `
     right: 16px;
 }
 .nav-sections .nav-sections-items .header.links>.parent.open>a::before{
-    margin-left: -10px;
-    margin-right: 10px;
+    margin-left: -15px;
+    margin-right: 5px;
 }
 .nav-sections .nav-sections-items .header.links>.parent>a::after,.nav-sections .nav-sections-items .navigation>ul>li>.subcat-toggle::before{
     content:'>';
@@ -51,7 +51,7 @@ const style = `
 .nav-sections .nav-sections-items .navigation>ul>li.open>.subcat-toggle::before{
     content:'<';
 }
-.nav-sections .nav-sections-items .header.links>.parent>a,.nav-sections .nav-sections-items .navigation>ul>li>a{
+.nav-sections .nav-sections-items .header.links>.parent.open>a,.nav-sections .nav-sections-items .navigation>ul>li.open>a{
     padding: 10px 35px;
 }
 .nav-sections .nav-sections-items .navigation>ul>li>.submenu>li>a{
@@ -72,7 +72,8 @@ const style = `
 const interval = setInterval(() => {
 	try {
 		const head = document.querySelector('head');
-		if (head) {
+		const nav = document.querySelector('.sections.nav-sections');
+		if (nav && head) {
 			head.insertAdjacentHTML('beforeend', style);
 			clearInterval(interval);
 		}
