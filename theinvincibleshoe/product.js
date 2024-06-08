@@ -136,8 +136,8 @@ const style = `
     border-radius: 4px;
 }
 .small-form-item{
-    width: max-content;
-    margin-right: auto;
+    flex-basis: max-content;
+    margin-right: 10px;
 }
 </style>
 `;
@@ -218,7 +218,7 @@ const interval = setInterval(() => {
 			price.insertAdjacentHTML('afterend', shopIntPay);
 			cartButton.innerText = `ADD TO CART | ${priceItem.innerText}`;
 			productBadges.insertAdjacentHTML('afterend', newUspElms);
-			productFormItem.insertAdjacentHTML('beforeend', fewStock);
+			productFormItem.insertAdjacentHTML('afterend', fewStock);
 			productFormItem.classList.add('small-form-item');
 			clearInterval(interval);
 		}
