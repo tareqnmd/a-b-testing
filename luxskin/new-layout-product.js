@@ -35,10 +35,8 @@ const truckSvg = `
 const style = `
 <style>
 .new-points-elm{
-    padding: 20px;
     gap: 10px;
     border-radius: 8px;
-    background: linear-gradient(90deg, #F9EADC 0%, #F5EDE1 100%);
     display: grid;
     place-items: flex-start;
     margin-bottom: 20px;
@@ -52,24 +50,19 @@ const style = `
 .new-points-elm h6{
     color: #0D0C22;
     font-size: 14px;
-    font-weight: 600;
-    line-height: 14px;
-    text-transform: capitalize;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: left;
+    text-transform: capitalize!important;
 }
-.new-points-elm h6 span{
-    font-weight: 700;
-}
-.new-points-elm strong{
-    color: #0D0C22;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 16px;
+.new-points-elm ul{
+    margin-left: 30px;
 }
 .new-points-elm ul li{
     color: #0D0C22;
-    margin-left: 20px;
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 500;
+    line-height: 18px;
     text-align: left;
 }
 ul.key-point{
@@ -162,6 +155,10 @@ ul.key-point{
     display: block;
 }
 
+.top-message{
+    margin: 20px 0 10px;
+}
+
 @media screen and (max-width: 590px){
     .product-single__meta--wrapper{
         margin: 0;
@@ -179,13 +176,11 @@ ul.key-point{
 
 const new_elm_html = `
 <div class="new-points-elm">
-    <h6><span>What it is:</span> Most affordable and effective LED Mask on the market</h6>
-    <strong>Why it’s special:</strong>
+    <h6>The high hydration level spreads the color evenly over the lips so the tint lasts longer with a single application. Summer reds that will brighten up your face and mood!</h6>
     <ul>
-        <li>Clinically proven benefits</li>
-        <li>Reduce fine lines and wrinkles</li>
-        <li>Promote glowing, younger looking skin</li>
-        <li>Reduce skin bacteria and acne</li>
+        <li>Permanent results in 8 weeks or lesss</li>
+        <li>Quick 10 minute treatments</li>
+        <li>Can be used on all body parts</li>
     </ul>
 </div>
 `;
@@ -235,6 +230,7 @@ const interval = setInterval(() => {
 		const head = document.querySelector('head');
 		if (exist_elm && head && !document.querySelector('.new-points-elm')) {
 			head.insertAdjacentHTML('beforeend', style);
+			title.insertAdjacentHTML('afterend', newMsg);
 			title.insertAdjacentElement('afterend', rev);
 			title.insertAdjacentHTML(
 				'afterend',
