@@ -29,13 +29,14 @@ const certificateSvg = `
 </svg>
 `;
 
+// .single-product-new-guitar .single-product__col--left{
+//     flex-basis:100%!important;
+// }
+
 const style = `
 <style>
     .single-product__col.single-product__col--right{
         display: none!important;
-    }
-    .single-product-new-guitar .single-product__col--left{
-        flex-basis:100%!important;
     }
     .new-usp-elm{
         display: grid;
