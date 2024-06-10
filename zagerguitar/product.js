@@ -69,7 +69,7 @@ const style = `
             display: flex;
             border-right: none;
             border-bottom: 1px solid #424242;
-            padding: 6px;
+            padding: 12px 6px 18px;
         }
     }
 </style>
