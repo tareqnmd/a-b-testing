@@ -42,24 +42,28 @@ const style = `
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         background: #F1F6FD;
-        padding: 10px;
+        padding: 6px;
         margin: 10px 0;
     }
     .new-usp-elm .single-usp{
         border-right: 1px solid #424242;
         display: grid;
+        grid-row: span 2;
+        grid-template-rows: subgrid;
         place-items: center;
-        padding: 10px;
-        gap:10px;
+        padding: 4px;
+        gap:6px;
     }
     .new-usp-elm .single-usp:last-child{
         border: none;
     }
     .new-usp-elm .single-usp svg{
         flex-shrink: 0;
+        max-height: 40px;
     }
     .new-usp-elm .single-usp span{
-        font-size: 14px;
+        font-size: 12px;
+        line-height: 16px;
         font-weight: 600;
     }
     .single-usp-info{
@@ -75,12 +79,13 @@ const style = `
         }
         .new-usp-elm{
             grid-template-columns: 1fr;
+            padding: 0;
         }
         .new-usp-elm .single-usp{
             display: flex;
             border-right: none;
             border-bottom: 1px solid #424242;
-            padding: 12px 6px 18px;
+            padding: 12px 6px;
         }
     }
 </style>
@@ -105,7 +110,7 @@ const new_elm_html = `
     <div class="single-usp">
         ${certificateSvg}
         <span class="single-usp-info">
-            <span>Life Time</span>
+            <span>Lifetime</span>
             <span>Warranty</span>
         </span>
     </div>
@@ -113,17 +118,17 @@ const new_elm_html = `
 `;
 
 const interval = setInterval(() => {
-    try {
-        const exist_elm = document.querySelector(
-            '.single-product__col.single-product__col--left'
-        );
-        const head = document.querySelector('head');
-        if (exist_elm && head && !document.querySelector('.new-usp-elm')) {
-            head.insertAdjacentHTML('beforeend', style);
-            exist_elm.insertAdjacentHTML('beforeend', new_elm_html);
-            clearInterval(interval);
-        }
-    } catch (error) {
-        console.log('error', error);
-    }
+	try {
+		const exist_elm = document.querySelector(
+			'.single-product__col.single-product__col--left'
+		);
+		const head = document.querySelector('head');
+		if (exist_elm && head && !document.querySelector('.new-usp-elm')) {
+			head.insertAdjacentHTML('beforeend', style);
+			exist_elm.insertAdjacentHTML('beforeend', new_elm_html);
+			clearInterval(interval);
+		}
+	} catch (error) {
+		console.log('error', error);
+	}
 }, 10);
