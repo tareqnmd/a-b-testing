@@ -37,9 +37,11 @@ const style = `
 <style>
     .new-accordion-elm{
     }
+    .accordion {
+        border: 1px solid #C9C9C9;
+    }
     .accordion .header{
         background: #F8EEE9;
-        border: 1px solid #C9C9C9;
         display: flex;
         align-items: center;
         justify-space: between;
