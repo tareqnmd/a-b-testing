@@ -40,6 +40,15 @@ const style = `
     .accordion .header{
         background: #F8EEE9;
         border: 1px solid #C9C9C9;
+        display: flex;
+        align-items: center;
+        justify-space: between;
+        gap: 10px;
+    }
+    .accordion .header strong{
+        font-size: 20px;
+        font-weight: 700;
+        flex-grow: 1;
     }
     .accordion .content{
         display: none;
