@@ -81,6 +81,9 @@ const style = `
     .accordion.active .content{
         display: block;
     }
+    .accordion.active .content .wmg-instruction-wrapper{
+        padding: 0!important;
+    }
 </style>
 `;
 
@@ -143,8 +146,8 @@ const accInterval = setInterval(() => {
 	try {
 		const accordions = document.querySelectorAll('.accordion .header');
 		const machineLoad = document.querySelector('.wmg-instruction-wrapper');
-		const productTabsOne = document.querySelector('#productTabs #tab-1');
-		const productTabsTwo = document.querySelector('#productTabs #tab-2');
+		const productTabsOne = document.querySelector('#productTabs #tab-1>div');
+		const productTabsTwo = document.querySelector('#productTabs #tab-2>div');
 		const machineWashable = document.querySelector('.wmg-wrapper');
 		if (
 			accordions &&
