@@ -67,6 +67,7 @@ const style = `
     }
     .accordion .header svg{
         fill: #ffffff00;
+        flex-shrink: 0;
     }
     .accordion .content{
         display: none;
@@ -157,10 +158,12 @@ const accInterval = setInterval(() => {
 			machineLoad &&
 			productTabsOne &&
 			productTabsTwo &&
-			machineLoad
+			machineLoad &&
+			!document.querySelector('.content-added')
 		) {
 			accordions.forEach((item, index) => {
 				const parentItem = item.parentNode;
+				parentItem.classList.add('content-added');
 				parentItem
 					.querySelector('.content')
 					.insertAdjacentElement(
