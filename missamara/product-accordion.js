@@ -142,10 +142,25 @@ const mainInterval = setInterval(() => {
 const accInterval = setInterval(() => {
 	try {
 		const accordions = document.querySelectorAll('.accordion .header');
-		if (accordions) {
-			accordions.forEach((item) => {
+		const machineLoad = document.querySelector('.wmg-instruction-wrapper');
+		const productTabsOne = document.querySelector('#productTabs #tab-1');
+		const productTabsTwo = document.querySelector('#productTabs #tab-2');
+		const machineWashable = document.querySelector('.wmg-wrapper');
+		if (accordions && machineLoad) {
+			accordions.forEach((item, index) => {
 				item.addEventListener('click', () => {
-					item.parentNode.classList.toggle('active');
+					const parentItem = item.parentNode;
+					parentItem.classList.toggle('active');
+					parentItem.querySelector('.content').innerHTML =
+						index === 0
+							? machineWashable.innerHTML
+							: index === 1
+							? productTabsOne.innerHTML
+							: index === 2
+							? productTabsTwo.innerHTML
+							: index === 3
+							? machineLoad.innerHTML
+							: '';
 				});
 			});
 			clearInterval(accInterval);
