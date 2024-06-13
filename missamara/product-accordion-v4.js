@@ -59,12 +59,12 @@ const style = `
         font-family:Lato;
     }
     .accordion.active .header{
-        background: #F8EEE9;
+        background: #fff3e2;
     }
     .accordion.active .header{
         color: #d88a1c;
     }
-    .accordion.active .header svg{
+    .accordion.active .header *{
         stroke: #d88a1c;
     }
     .accordion .header strong{

@@ -59,7 +59,7 @@ const style = `
         font-family:Lato;
     }
     .accordion.active .header{
-        background: #F8EEE9;
+        background: #fff3e2;
     }
     .accordion .header strong{
         font-size: 20px;
