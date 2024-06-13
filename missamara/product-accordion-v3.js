@@ -145,8 +145,16 @@ const new_elm_html = `
 const mainInterval = setInterval(() => {
 	try {
 		const mainProduct = document.querySelector('#main-product-detail');
+		const washable = document.querySelector(
+			'.attribute-badges-section .washable'
+		);
 		const head = document.querySelector('head');
-		if (mainProduct && head && !document.querySelector('.new-accordion-elm')) {
+		if (
+			mainProduct &&
+			washable &&
+			head &&
+			!document.querySelector('.new-accordion-elm')
+		) {
 			head.insertAdjacentHTML('beforeend', style);
 			mainProduct.insertAdjacentHTML('afterend', new_elm_html);
 			clearInterval(mainInterval);
