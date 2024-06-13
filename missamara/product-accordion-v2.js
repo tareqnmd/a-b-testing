@@ -35,6 +35,9 @@ const questSvg = `
 
 const style = `
 <style>
+    #wmg-instruction-container, .detail.layout-column-half-right .product-details-background-wrapper:not(:first-child){
+        display: none!important;
+    }
     .new-accordion-elm{
         margin-bottom: 30px;
     }
