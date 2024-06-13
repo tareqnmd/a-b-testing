@@ -1,10 +1,10 @@
 const arrowUpSvg = `
-<svg class="open" width="17" height="11" viewBox="0 0 17 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg class="content-open" width="17" height="11" viewBox="0 0 17 11" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M15.875 10L8.50054 2L1.12609 10" stroke="#333333" stroke-width="2"/>
 </svg>
 `;
 const arrowDownSvg = `
-<svg class="close" width="17" height="11" viewBox="0 0 17 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg class="content-close" width="17" height="11" viewBox="0 0 17 11" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M1.12891 1L8.50336 9L15.8778 1" stroke="#333333" stroke-width="2"/>
 </svg>
 `;
@@ -36,25 +36,47 @@ const questSvg = `
 const style = `
 <style>
     .new-accordion-elm{
+        margin-bottom: 30px;
     }
     .accordion {
         border: 1px solid #C9C9C9;
+        border-bottom: 0;
+    }
+    .accordion:last-child {
+        border-bottom: 1px solid #C9C9C9;
     }
     .accordion .header{
-        background: #F8EEE9;
+        background: #ffffff;
         display: flex;
         align-items: center;
-        justify-space: between;
         gap: 10px;
+        padding: 10px;
+        cursor: pointer;
+        color: #333333;
+    }
+    .accordion.active .header{
+        background: #F8EEE9;
     }
     .accordion .header strong{
         font-size: 20px;
         font-weight: 700;
         flex-grow: 1;
     }
+    .accordion .header svg{
+        fill: #ffffff00;
+    }
     .accordion .content{
         display: none;
         padding:10px
+    }
+    .accordion .header svg.content-close{
+        display: none;
+    }
+    .accordion.active .header svg.content-open{
+        display: none;
+    }
+    .accordion.active .header svg.content-close{
+        display: block;
     }
     .accordion.active .content{
         display: block;
@@ -103,14 +125,14 @@ const new_elm_html = `
 </div>
 `;
 
-const interval = setInterval(() => {
+const mainInterval = setInterval(() => {
 	try {
 		const mainProduct = document.querySelector('#main-product-detail');
 		const head = document.querySelector('head');
 		if (mainProduct && head && !document.querySelector('.new-accordion-elm')) {
 			head.insertAdjacentHTML('beforeend', style);
 			mainProduct.insertAdjacentHTML('afterend', new_elm_html);
-			clearInterval(interval);
+			clearInterval(mainInterval);
 		}
 	} catch (error) {
 		console.log('error', error);
