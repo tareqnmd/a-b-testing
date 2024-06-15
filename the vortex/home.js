@@ -25,8 +25,94 @@ const toolSvg = `
 </svg>
 `;
 
+const googleSvg = `
+<svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_4238_11)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M3.34548 8.71433C3.34548 8.20624 3.43166 7.71913 3.58548 7.26224L0.893118 5.24908C0.36839 6.29228 0.0727539 7.46775 0.0727539 8.71433C0.0727539 9.95984 0.368027 11.1346 0.892027 12.1771L3.58294 10.16C3.43057 9.70526 3.34548 9.21993 3.34548 8.71433Z" fill="#FBBC05"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M8.0727 4.09209C9.19998 4.09209 10.2182 4.4832 11.0182 5.1232L13.3454 2.84765C11.9272 1.63876 10.1091 0.89209 8.0727 0.89209C4.91125 0.89209 2.19416 2.6624 0.893066 5.24907L3.58543 7.26222C4.20579 5.41831 5.97416 4.09209 8.0727 4.09209Z" fill="#EB4335"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M8.0727 13.3365C5.97416 13.3365 4.20579 12.0103 3.58543 10.1664L0.893066 12.1792C2.19416 14.7662 4.91125 16.5365 8.0727 16.5365C10.024 16.5365 11.8869 15.8581 13.2851 14.587L10.7294 12.6524C10.0083 13.0972 9.10034 13.3365 8.0727 13.3365Z" fill="#34A853"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M15.7091 8.71434C15.7091 8.25211 15.6364 7.75434 15.5273 7.29211H8.07275V10.3143H12.3637C12.1491 11.3447 11.5651 12.1369 10.7295 12.6525L13.2851 14.587C14.7538 13.2523 15.7091 11.264 15.7091 8.71434Z" fill="#4285F4"/>
+</g>
+<defs>
+<clipPath id="clip0_4238_11">
+<rect width="16" height="16" fill="white" transform="translate(0 0.714294)"/>
+</clipPath>
+</defs>
+</svg>
+`;
+
+const starSvg = `
+<svg width="76" height="13" viewBox="0 0 76 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6 0.714294L7.34708 4.86019H11.7063L8.17963 7.4225L9.52671 11.5684L6 9.00609L2.47329 11.5684L3.82037 7.4225L0.293661 4.86019H4.65292L6 0.714294Z" fill="black"/>
+<path d="M22 0.714294L23.3471 4.86019H27.7063L24.1796 7.4225L25.5267 11.5684L22 9.00609L18.4733 11.5684L19.8204 7.4225L16.2937 4.86019H20.6529L22 0.714294Z" fill="black"/>
+<path d="M38 0.714294L39.3471 4.86019H43.7063L40.1796 7.4225L41.5267 11.5684L38 9.00609L34.4733 11.5684L35.8204 7.4225L32.2937 4.86019H36.6529L38 0.714294Z" fill="black"/>
+<path d="M54 0.714294L55.3471 4.86019H59.7063L56.1796 7.4225L57.5267 11.5684L54 9.00609L50.4733 11.5684L51.8204 7.4225L48.2937 4.86019H52.6529L54 0.714294Z" fill="black"/>
+<path d="M70 0.714294L71.3471 4.86019H75.7063L72.1796 7.4225L73.5267 11.5684L70 9.00609L66.4733 11.5684L67.8204 7.4225L64.2937 4.86019H68.6529L70 0.714294Z" fill="black"/>
+</svg>
+`;
+
+const checkSvg = `
+<svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 11.7143L12 14.7143L22 4.71429" stroke="#019BC9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M21 12.7143V19.7143C21 20.2447 20.7893 20.7534 20.4142 21.1285C20.0391 21.5036 19.5304 21.7143 19 21.7143H5C4.46957 21.7143 3.96086 21.5036 3.58579 21.1285C3.21071 20.7534 3 20.2447 3 19.7143V5.71429C3 5.18386 3.21071 4.67515 3.58579 4.30008C3.96086 3.92501 4.46957 3.71429 5 3.71429H16" stroke="#019BC9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+`;
+
 const style = `
 <style>
+    .header-wrapper{
+        background:url();
+    }
+    .header-area{
+        margin: 60px 20px;
+        max-width: 1170px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        color: #000;
+    }
+    .details-info{
+        display: grid;
+        gap: 20px;
+    }
+    .header-area .review{
+        border: 1px solid #D1D5DB;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        background: #EFF6FF;
+        border-radius: 30px;
+        padding: 8px 16px;
+    }
+    .header-area .review strong{
+        font-size: 12px;
+        font-weight: 600;
+    }
+    .header-area .review span{
+        font-size: 12px;
+        font-weight: 600;
+    }
+    .header-area .review .head-info{
+        font-size: 38px;
+        line-height: 48px;
+        font-weight: 700;
+    }
+    .head-checks{
+        display: grid;
+        gap: 6px;
+    }
+    .head-checks span{
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 16px;
+        font-weight: 600;
+    }
+    .head-link{
+        background: #F5A623;
+        font-size: 20px;
+        font-weight: 700;
+    }
     .usp-wrapper{
         background: #FFE49E;
         overflow-x: auto;
@@ -48,14 +134,39 @@ const style = `
         gap: 0 10px;
     }
     .single-usp svg{
-        flex-shrink: 0;
         grid-row: span 2;
+    }
+    .new-elm svg{
+        flex-shrink: 0;
     }
 </style>
 `;
 
 const new_elm_html = `
 <div class="new-elm">
+    <div class="header-wrapper">
+        <div class="header-area">
+            <div class="details-info">
+                <div class="review">
+                    ${googleSvg}
+                    ${starSvg}
+                    <strong>4.8/5</strong>
+                    <span>Based on 67 reviews</span>
+                </div>
+                <h1 class="head-info">
+                    Australia's #1 Home Goods Store - Up To 30% OFF On Now!
+                </h1>
+                <div className="head-checks">
+                    <span>${checkSvg} Specialized tools for leak detection and pool maintenance</span>
+                    <span>${checkSvg} Durable and Reliable Products</span>
+                    <span>${checkSvg} Expert advice and support</span>
+                </div>
+                <a href="" className="head-link">
+                    SHOP NOW
+                </a>
+            </div>
+        </div>
+    </div>
     <div class="usp-wrapper">
         <div class="usp-elm">
             <div class="single-usp">
