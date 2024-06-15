@@ -27,15 +27,24 @@ const toolSvg = `
 
 const style = `
 <style>
+    .usp-wrapper{
+        background: #FFE49E;
+        overflow-x: auto;
+        padding: 0 20px;
+    }
     .usp-elm{
+        max-width: 1170px;
+        margin: auto;
         display: grid;
         grid-template-columns: repeat(4,1fr);
-        background: #FFE49E;
-        padding: 20px 10px;
+        gap: 20px;
+        padding: 20px 0;
+        width: max-content;
     }
     .single-usp{
         display: grid;
-        grid-template-columns: auto,1fr;
+        grid-template-columns: auto 1fr;
+        align-items: center;
         gap: 0 10px;
     }
     .single-usp svg{
@@ -47,26 +56,28 @@ const style = `
 
 const new_elm_html = `
 <div class="new-elm">
-    <div class="usp-elm">
-        <div class="single-usp">
-            ${australiaSvg}
-            <strong>Australian Owned & Operated</strong>
-            <span>Quality you can trust</span>
-        </div>
-        <div class="single-usp">
-            ${qualitySvg}
-            <strong>Highest Quality Tool</strong>
-            <span>30 day returns</span>
-        </div>
-        <div class="single-usp">
-            ${guaranteeSvg}
-            <strong>60 Day Money Back Guarantee</strong>
-            <span>Interest-free Finance</span>
-        </div>
-        <div class="single-usp">
-            ${toolSvg}
-            <strong>Easy to Use for Everyone</strong>
-            <span>We ship it fast</span>
+    <div class="usp-wrapper">
+        <div class="usp-elm">
+            <div class="single-usp">
+                ${australiaSvg}
+                <strong>Australian Owned & Operated</strong>
+                <span>Quality you can trust</span>
+            </div>
+            <div class="single-usp">
+                ${qualitySvg}
+                <strong>Highest Quality Tool</strong>
+                <span>30 day returns</span>
+            </div>
+            <div class="single-usp">
+                ${guaranteeSvg}
+                <strong>60 Day Money Back Guarantee</strong>
+                <span>Interest-free Finance</span>
+            </div>
+            <div class="single-usp">
+                ${toolSvg}
+                <strong>Easy to Use for Everyone</strong>
+                <span>We ship it fast</span>
+            </div>
         </div>
     </div>
 </div>
