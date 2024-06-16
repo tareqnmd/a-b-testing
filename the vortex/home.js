@@ -60,86 +60,120 @@ const checkSvg = `
 
 const style = `
 <style>
-    .header-wrapper{
-        background:url();
-    }
-    .header-area{
-        margin: 60px 20px;
-        max-width: 1170px;
-        margin: auto;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        color: #000;
-    }
-    .details-info{
-        display: grid;
-        gap: 20px;
-    }
-    .header-area .review{
-        border: 1px solid #D1D5DB;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        background: #EFF6FF;
-        border-radius: 30px;
-        padding: 8px 16px;
-    }
-    .header-area .review strong{
-        font-size: 12px;
-        font-weight: 600;
-    }
-    .header-area .review span{
-        font-size: 12px;
-        font-weight: 600;
-    }
-    .header-area .review .head-info{
-        font-size: 38px;
-        line-height: 48px;
-        font-weight: 700;
-    }
-    .head-checks{
-        display: grid;
-        gap: 6px;
-    }
-    .head-checks span{
-        display: flex;
-        align-items: center;
-        gap: 4px;
-        font-size: 16px;
-        font-weight: 600;
-    }
-    .head-link{
-        background: #F5A623;
-        font-size: 20px;
-        font-weight: 700;
-    }
-    .usp-wrapper{
-        background: #FFE49E;
-        overflow-x: auto;
-        padding: 0 20px;
-    }
-    .usp-elm{
-        max-width: 1170px;
-        margin: auto;
-        display: grid;
-        grid-template-columns: repeat(4,1fr);
-        gap: 20px;
-        padding: 20px 0;
-        width: max-content;
-    }
-    .single-usp{
-        display: grid;
-        grid-template-columns: auto 1fr;
-        align-items: center;
-        gap: 0 10px;
-    }
-    .single-usp svg{
-        grid-row: span 2;
-    }
-    .new-elm svg{
-        flex-shrink: 0;
-    }
+	.header-wrapper {
+		background: url('https://i.ibb.co/vm9frry/home.png');
+		padding: 60px 20px;
+		background-repeat: no-repeat;
+	}
+	.header-area {
+		max-width: 1170px;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		color: #000;
+		margin: auto;
+	}
+	.details-info {
+		display: grid;
+	}
+	.header-area .review {
+		border: 1px solid #d1d5db;
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		background: #eff6ff;
+		border-radius: 30px;
+		padding: 8px 16px;
+		width: max-content;
+	}
+	.header-area .review strong {
+		font-size: 12px;
+		font-weight: 600;
+	}
+	.header-area .review span {
+		font-size: 12px;
+		font-weight: 600;
+	}
+	.header-area .head-info {
+		font-size: 38px;
+		line-height: 48px;
+		font-weight: 700;
+	}
+	.head-checks {
+		display: grid;
+		gap: 6px;
+	}
+	.head-checks span {
+		display: flex;
+		align-items: center;
+		gap: 4px;
+		font-size: 16px;
+		font-weight: 600;
+	}
+	.head-link {
+		background: #f5a623;
+		font-size: 20px;
+		font-weight: 700;
+		text-decoration: none;
+		width: max-content;
+		border-radius: 25px;
+		padding: 10px 32px;
+		margin-top: 20px;
+	}
+	.usp-wrapper {
+		background: #ffe49e;
+		overflow-x: auto;
+		padding: 20px;
+	}
+	.usp-wrapper::-webkit-scrollbar {
+		display: none;
+	}
+
+	.usp-wrapper {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+	.usp-elm {
+		width: 1170px;
+		margin: auto;
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 20px;
+		min-width: max-content;
+	}
+	.single-usp {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		align-items: center;
+		gap: 0 10px;
+	}
+	.single-usp svg {
+		grid-row: span 2;
+	}
+	.new-elm svg {
+		flex-shrink: 0;
+	}
+	@media (max-width: 991px) {
+		.header-wrapper {
+			background: none;
+			padding: 20px;
+		}
+		.header-area {
+			grid-template-columns: 1fr;
+		}
+	}
+	@media (max-width: 575px) {
+		.head-checks span {
+			font-size: 12px;
+			font-weight: 500;
+		}
+		.header-area .head-info {
+			font-size: 24px;
+			line-height: 28px;
+			font-weight: 700;
+		}
+	}
 </style>
+
 `;
 
 const new_elm_html = `
@@ -156,12 +190,12 @@ const new_elm_html = `
                 <h1 class="head-info">
                     Australia's #1 Home Goods Store - Up To 30% OFF On Now!
                 </h1>
-                <div className="head-checks">
+                <div class="head-checks">
                     <span>${checkSvg} Specialized tools for leak detection and pool maintenance</span>
                     <span>${checkSvg} Durable and Reliable Products</span>
                     <span>${checkSvg} Expert advice and support</span>
                 </div>
-                <a href="" className="head-link">
+                <a href="" class="head-link">
                     SHOP NOW
                 </a>
             </div>
