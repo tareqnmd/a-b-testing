@@ -29,6 +29,8 @@ const style = `
 <style>
 .kaching-bundles__bars{
     border: 1px solid #EEEEEE;
+    bordrer-radius: 8px;
+    padding: 16px;
 }
 .kaching-bundles__bar{
     border-bottom: 1px solid #EEEEEE;
@@ -36,6 +38,14 @@ const style = `
 .kaching-bundles .kaching-bundles__bar :checked+.kaching-bundles__bar-container .kaching-bundles__bar-radio{
     background: rgb(0 0 0)!important;
     box-shadow: 0 0 0 2px rgb(0 0 0)!important;
+}
+.kaching-bundles .kaching-bundles__bar :checked+.kaching-bundles__bar-container {
+    background-color: none!important;
+    box-shadow: none!important;
+}
+.kaching-bundles .kaching-bundles__bar .kaching-bundles__bar-container {
+    background-color: none!important;
+    box-shadow: none!important;
 }
 .kaching-bundles .kaching-bundles__bar-radio {
     box-shadow: 0 0 0 1px rgb(0 0 0)!important;
