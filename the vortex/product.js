@@ -27,6 +27,12 @@ const guaranteeSvg = `
 
 const style = `
 <style>
+.kaching-bundles__bars{
+    border: 1px solid #EEEEEE;
+}
+.kaching-bundles__bar{
+    border-bottom: 1px solid #EEEEEE;
+}
 .kaching-bundles .kaching-bundles__bar :checked+.kaching-bundles__bar-container .kaching-bundles__bar-radio{
     background: rgb(0 0 0)!important;
     box-shadow: 0 0 0 2px rgb(0 0 0)!important;
