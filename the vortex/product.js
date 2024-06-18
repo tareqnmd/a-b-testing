@@ -1,3 +1,9 @@
+const checkSvg = `
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8 0C3.58885 0 0 3.58885 0 8C0 12.4112 3.58885 16 8 16C12.4112 16 16 12.4112 16 8C16 3.58885 12.4112 0 8 0ZM12.1635 5.31885L6.99423 11.4727C6.93753 11.5402 6.86697 11.5948 6.78734 11.6327C6.70771 11.6706 6.62087 11.6909 6.53269 11.6923H6.52231C6.43605 11.6923 6.35077 11.6741 6.27199 11.639C6.1932 11.6039 6.12268 11.5526 6.065 11.4885L3.84962 9.02692C3.79335 8.96725 3.74959 8.89693 3.72089 8.8201C3.69219 8.74327 3.67914 8.66148 3.6825 8.57953C3.68587 8.49758 3.70558 8.41714 3.74047 8.34292C3.77537 8.2687 3.82476 8.2022 3.88572 8.14734C3.94668 8.09247 4.018 8.05035 4.09548 8.02345C4.17295 7.99654 4.25502 7.98539 4.33687 7.99065C4.41872 7.99592 4.49869 8.01749 4.57208 8.0541C4.64547 8.09071 4.7108 8.14162 4.76423 8.20385L6.50615 10.1392L11.2212 4.52731C11.3269 4.40503 11.4766 4.32928 11.6377 4.31644C11.7989 4.3036 11.9586 4.35469 12.0824 4.45868C12.2062 4.56266 12.2841 4.71119 12.2993 4.87215C12.3144 5.0331 12.2656 5.19356 12.1635 5.31885Z" fill="#009E6E"/>
+</svg>
+`;
+
 const ausSvg = `
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M17.83 1.35201L16.553 6.049L13.553 3.79901L14.369 2.18401L10.439 2.563L9.80298 4.549L8.13998 3.35501L4.98998 7.368L1.09998 9.646L2.73098 16.994L4.55298 17.299L9.80298 14.299L13.29 16.741L14.303 15.424L15.803 18.799L19.875 19.474L22.901 13.549L22.619 10.516L19.553 6.8L17.83 1.35201ZM17.139 20.628L17.846 22.648L18.803 22.549L19.339 20.868L17.139 20.628Z" fill="black"></path>
@@ -21,6 +27,37 @@ const guaranteeSvg = `
 
 const style = `
 <style>
+.kaching-bundles .kaching-bundles__bar :checked+.kaching-bundles__bar-container .kaching-bundles__bar-radio{
+    background: rgb(0 0 0)!important;
+    box-shadow: 0 0 0 2px rgb(0 0 0)!important;
+}
+.kaching-bundles .kaching-bundles__bar-radio {
+    box-shadow: 0 0 0 1px rgb(0 0 0)!important;
+}
+.kaching-bundles__bar-pricing .kaching-bundles__bar-price{
+    color: #7A7A7A;
+    font-size: 16px;
+    font-weight: 400;
+}
+.kaching-bundles__bar-pricing .kaching-bundles__bar-full-price{
+    font-size: 16px;
+    font-weight: 600;
+    color: #FF6B00;
+}
+.sc-fHeRUh.ihgygX.pf-2619_ i{
+    color: #009E6E!important;
+}
+.stock-elm{
+    display: flex;
+    align-items: center;
+    gap:6px;
+    margin:10px 0;
+}
+.stock-elm span{
+    font-size: 14px;
+    font-weight: 500;
+    color: #009E6E;
+}
 .sc-jrQzAO.kXeyzY.pf-icon-right{
     display: none!important;
 }
@@ -42,6 +79,24 @@ const style = `
 .single-usp span{
     font-weight: 500;
     font-size: 12px;
+}
+.sc-bLdqUH.eCxunz.pf-2651_.pf-button-1.animate-pop.pulse{
+    background: #000000;
+    border: 3px solid #000000;
+    border-radius: 8px;
+    padding: 18px;
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 600;
+}
+.sc-bLdqUH.eCxunz.pf-2648_.pf-button-1.animate-pop.pulse{
+    background: #F5A623;
+    border: 3px solid #f5a623;
+    border-radius: 8px;
+    padding: 18px;
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 600;
 }
 </style>
 `;
@@ -65,13 +120,21 @@ const new_elm_html = `
 </div>
 `;
 
+const stock_html = `
+<div class="stock-elm">
+    ${checkSvg}
+    <span>In Stock & ready to ship</span>
+</div>
+`;
+
 const interval = setInterval(() => {
 	try {
-		const exist_elm = document.querySelector('.sc-jrQzAO.kXeyzY.pf-icon-right');
+		const formAction = document.querySelector('.sc-fHeRUh.ihgygX.pf-2647_');
 		const head = document.querySelector('head');
-		if (exist_elm && head && !document.querySelector('.usp-elm')) {
+		if (formAction && head && !document.querySelector('.usp-elm')) {
 			head.insertAdjacentHTML('beforeend', style);
-			exist_elm.insertAdjacentHTML('beforebegin', new_elm_html);
+			formAction.insertAdjacentHTML('beforebegin', stock_html);
+			formAction.insertAdjacentHTML('afterend', new_elm_html);
 			clearInterval(interval);
 		}
 	} catch (error) {
