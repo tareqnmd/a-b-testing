@@ -26,21 +26,20 @@ const style = `
 }
 .usp-elm{
     display: flex;
-    align-items: center;
-    gap:12px;
+    align-items: stretch;
+    gap:6px;
     margin:20px 0;
 }
 .usp-elm .divider{
     border-right: 1px solid #000000;
-    height: 16px;
 }
 .single-usp{
     display: flex;
     align-items: center;
-    gap:12px;
+    gap:6px;
 }
 .single-usp span{
-    font-weight: medium;
+    font-weight: 500;
     font-size: 12px;
 }
 </style>
