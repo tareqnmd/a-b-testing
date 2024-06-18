@@ -51,7 +51,7 @@ const style = `
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 10px 20px;
+    margin: 10px 20px 0;
     gap: 8px;
     padding: 4px 12px;
 }
