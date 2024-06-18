@@ -138,12 +138,12 @@ const style = `
     padding: 2px 10px;
     border-radius: 4px;
 }
-.sc-fkJVfC.cpknaP.pf-2629_.pf-text-1.pf-sm-hide div:first-child{
+.sc-fkJVfC.cpknaP.pf-2629_.pf-text-1.pf-sm-hide .pf-2630_{
     font-size: 24px;
     font-weight: 700;
     color: #FF6B00;
 }
-.sc-fkJVfC.cpknaP.pf-2629_.pf-text-1.pf-sm-hide div:last-child{
+.sc-fkJVfC.cpknaP.pf-2629_.pf-text-1.pf-sm-hide .pf-2631_{
     color: #9A9A9A;
     font-size: 18px;
     font-weight: 400;
