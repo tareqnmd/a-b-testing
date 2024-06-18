@@ -27,11 +27,12 @@ const style = `
 .usp-elm{
     display: flex;
     align-items: stretch;
-    gap:6px;
+    justify-content: space-between;
+    gap:8px;
     margin:20px 0;
 }
 .usp-elm .divider{
-    border-right: 1px solid #000000;
+    border: 1px solid #000000;
 }
 .single-usp{
     display: flex;
