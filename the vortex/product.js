@@ -27,6 +27,13 @@ const guaranteeSvg = `
 
 const style = `
 <style>
+.kaching-bundles .kaching-bundles__block-title::after, .kaching-bundles .kaching-bundles__block-title::before {
+    display: none!important;
+
+}
+.kaching-bundles .kaching-bundles__block-title {
+    align-items: flex-start;
+}
 .kaching-bundles__bars{
     border: 1px solid #EEEEEE;
     bordrer-radius: 12px;
@@ -114,6 +121,38 @@ const style = `
     font-size: 18px;
     font-weight: 600;
 }
+.sc-fkJVfC.cpknaP.pf-2629_.pf-text-1.pf-sm-hide{
+    gap: 12px;
+    align-items: center;
+    padding-left: 0;
+}
+.sc-fkJVfC.cpknaP.pf-2629_.pf-text-1.pf-sm-hide *{
+    margin: 0;
+    padding: 0;
+}
+.sc-fkJVfC.cpknaP.pf-2629_.pf-text-1.pf-sm-hide .save-elm{
+    background: #E500531F;
+    font-size: 14px;
+    font-weight: 700;
+    color: #FF437A;
+    padding: 2px 10px;
+    border-radius: 4px;
+}
+.sc-fkJVfC.cpknaP.pf-2629_.pf-text-1.pf-sm-hide div:first-child{
+    font-size: 24px;
+    font-weight: 700;
+    color: #FF6B00;
+}
+.sc-fkJVfC.cpknaP.pf-2629_.pf-text-1.pf-sm-hide div:last-child{
+    color: #9A9A9A;
+    font-size: 18px;
+    font-weight: 400;
+}
+.sc-fkJVfC.cpknaP.pf-2629_.pf-text-1.pf-sm-hide .now-elm{
+    font-size: 20px;
+    font-weight: 500;
+    color: #FF6B00;
+}
 </style>
 `;
 
@@ -143,12 +182,34 @@ const stock_html = `
 </div>
 `;
 
+const numberOnly = (string) => {
+	return parseFloat(string.replace(/[^\d\-+\.]/g, ''));
+};
+
 const interval = setInterval(() => {
 	try {
 		const formAction = document.querySelector('.sc-fHeRUh.ihgygX.pf-2647_');
+		const price = document.querySelector(
+			'.sc-fkJVfC.cpknaP.pf-2629_.pf-text-1.pf-sm-hide'
+		);
 		const head = document.querySelector('head');
-		if (formAction && head && !document.querySelector('.usp-elm')) {
+		const disPrice = numberOnly(
+			price.querySelector('div:first-child').innerText
+		);
+		const originalPrice = numberOnly(
+			price.querySelector('div:last-child').innerText
+		);
+		const savePrice = (originalPrice - disPrice).toFixed(2);
+		if (formAction && price && head && !document.querySelector('.usp-elm')) {
 			head.insertAdjacentHTML('beforeend', style);
+			price.insertAdjacentHTML(
+				'afterbegin',
+				`<span class="now-elm">Now</span>`
+			);
+			price.insertAdjacentHTML(
+				'beforeend',
+				`<span class="save-elm">Save $${savePrice}</span>`
+			);
 			formAction.insertAdjacentHTML('beforebegin', stock_html);
 			formAction.insertAdjacentHTML('afterend', new_elm_html);
 			clearInterval(interval);
