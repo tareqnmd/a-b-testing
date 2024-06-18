@@ -58,6 +58,9 @@ const style = `
 .drawer__inner-section+.drawer__inner-section{
     border-top: none!important;
 }
+.drawer__inner-section+.drawer__inner-section .mobile-nav__item:first-child{
+    display: none!important;
+}
 .drawer__inner-section+.drawer__inner-section .mobile-nav__item:last-child{
     border-bottom: none!important;
 }
