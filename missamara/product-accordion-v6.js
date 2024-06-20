@@ -109,8 +109,11 @@ const style = `
     #shopify-section-pdp-education {
         display: none!important;
     }
-    .accordion .content-added:last-child{
+    .accordion.content-added:last-child{
         border-bottom: 1px solid #C9C9C9;
+    }
+    .accordion.content-added .badge-accordian-description{
+        padding:0;
     }    
 </style>
 `;
