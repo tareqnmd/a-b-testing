@@ -1,7 +1,7 @@
 const arrowUpSvg = `
 <svg class="content-open" width="17" height="11" viewBox="0 0 17 11" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M15.875 10L8.50054 2L1.12609 10" stroke="#333333" stroke-width="2"/>
-</svg>
+</svg> 
 `;
 const arrowDownSvg = `
 <svg class="content-close" width="17" height="11" viewBox="0 0 17 11" fill="none" xmlns="http://www.w3.org/2000/svg">
