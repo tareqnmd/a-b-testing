@@ -1,7 +1,7 @@
 const arrowUpSvg = `
 <svg class="content-open" width="17" height="11" viewBox="0 0 17 11" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M15.875 10L8.50054 2L1.12609 10" stroke="#333333" stroke-width="2"/>
-</svg> 
+</svg>
 `;
 const arrowDownSvg = `
 <svg class="content-close" width="17" height="11" viewBox="0 0 17 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -35,39 +35,56 @@ const questSvg = `
 
 const style = `
 <style>
-    .new-accordion-elm{
-        margin-bottom: 30px;
+    #wmg-instruction-container, .detail.layout-column-half-right .product-details-background-wrapper:not(:first-child){
+        display: none!important;
     }
-    .accordion {
+    .new-accordion-elm .accordion {
         border: 1px solid #C9C9C9;
         border-bottom: 0;
+        display: none;
     }
-    .accordion:last-child {
-        border-bottom: 1px solid #C9C9C9;
+    .accordion.content-added{
+        display: block;
     }
     .accordion .header{
         background: #ffffff;
         display: flex;
         align-items: center;
         gap: 10px;
-        padding: 10px;
+        padding: 20px;
         cursor: pointer;
         color: #333333;
+        font-family:Lato;
     }
     .accordion.active .header{
-        background: #F8EEE9;
+        background: #fff3e2;
+    }
+    .accordion.active .header{
+        color: #d88a1c;
+    }
+    .accordion.active .header *{
+        stroke: #d88a1c;
     }
     .accordion .header strong{
         font-size: 20px;
         font-weight: 700;
         flex-grow: 1;
+        font-family: Lato;
+        line-height: 24px;
     }
     .accordion .header svg{
         fill: #ffffff00;
+        flex-shrink: 0;
+    }
+    .accordion .header img{
+        max-width: 24px;
+    }
+    .accordion.active .header img{
+        filter: invert(53%) sepia(70%) saturate(2128%) hue-rotate(8deg) brightness(103%) contrast(78%);
     }
     .accordion .content{
         display: none;
-        padding:10px
+        padding:20px;
     }
     .accordion .header svg.content-close{
         display: none;
@@ -81,10 +98,27 @@ const style = `
     .accordion.active .content{
         display: block;
     }
+    .accordion.active .content .wmg-instruction-wrapper{
+        padding: 0!important;
+    }
+    svg.content-open, svg.content-close{
+        width: 14px!important;
+        height: 14px!important;
+    }
+    .accordion .wmg-header, .accordion .wmg-check-wrapper, #pdp-education-accordian-container .pdp-education-container,
+    #shopify-section-pdp-education {
+        display: none!important;
+    }
+    .accordion.content-added:last-child{
+        border-bottom: 1px solid #C9C9C9;
+    }
+    .accordion.content-added .badge-accordian-description{
+        padding:0;
+    }    
 </style>
 `;
 
-const new_elm_html = `
+const new_elm_html = (existingContent) => `
 <div class="new-accordion-elm container">
     <div class="accordion">
         <div class="header">
@@ -93,7 +127,7 @@ const new_elm_html = `
             ${arrowUpSvg}
             ${arrowDownSvg}
         </div>
-        <div class="content">c1</div>
+        <div class="content"></div>
     </div>
     <div class="accordion">
         <div class="header">
@@ -102,7 +136,7 @@ const new_elm_html = `
             ${arrowUpSvg}
             ${arrowDownSvg}
         </div>
-        <div class="content">c2</div>
+        <div class="content"></div>
     </div>
     <div class="accordion">
         <div class="header">
@@ -111,7 +145,7 @@ const new_elm_html = `
             ${arrowUpSvg}
             ${arrowDownSvg}
         </div>
-        <div class="content">c2</div>
+        <div class="content"></div>
     </div>
     <div class="accordion">
         <div class="header">
@@ -120,7 +154,22 @@ const new_elm_html = `
             ${arrowUpSvg}
             ${arrowDownSvg}
         </div>
-        <div class="content">c2</div>
+        <div class="content"></div>
+    </div>
+    ${existingContent}
+</div>
+`;
+
+const addElm = (img, title, content) => `
+<div class="accordion">
+    <div class="header existing">
+        <img src=${img} alt="" />
+        <strong>${title}</strong>
+        ${arrowUpSvg}
+        ${arrowDownSvg}
+    </div>
+    <div class="content">
+        ${content}
     </div>
 </div>
 `;
@@ -128,10 +177,27 @@ const new_elm_html = `
 const mainInterval = setInterval(() => {
 	try {
 		const mainProduct = document.querySelector('#main-product-detail');
+		const pdpEducation =
+			document.querySelectorAll(
+				'#shopify-section-pdp-education .accordion-item'
+			) ?? null;
 		const head = document.querySelector('head');
 		if (mainProduct && head && !document.querySelector('.new-accordion-elm')) {
 			head.insertAdjacentHTML('beforeend', style);
-			mainProduct.insertAdjacentHTML('afterend', new_elm_html);
+			let existingContent = '';
+			if (pdpEducation) {
+				pdpEducation.forEach((item) => {
+					const headerImg = item.querySelector(
+						'.accordion-header-content img'
+					).src;
+					const headerTitle = item.querySelector(
+						'.accordion-header-content p'
+					).innerText;
+					const accordionBody = item.querySelector('.accordion-body').innerHTML;
+					existingContent += addElm(headerImg, headerTitle, accordionBody);
+				});
+			}
+			mainProduct.insertAdjacentHTML('afterend', new_elm_html(existingContent));
 			clearInterval(mainInterval);
 		}
 	} catch (error) {
@@ -141,26 +207,60 @@ const mainInterval = setInterval(() => {
 
 const accInterval = setInterval(() => {
 	try {
-		const accordions = document.querySelectorAll('.accordion .header');
-		const machineLoad = document.querySelector('.wmg-instruction-wrapper');
-		const productTabsOne = document.querySelector('#productTabs #tab-1');
-		const productTabsTwo = document.querySelector('#productTabs #tab-2');
-		const machineWashable = document.querySelector('.wmg-wrapper');
-		if (accordions && machineLoad) {
+		const accordions = document.querySelectorAll('.accordion .header') ?? null;
+		const machineLoad =
+			document.querySelector('.wmg-instruction-wrapper') ?? null;
+		const productTabsOne =
+			document.querySelector('#productTabs #tab-1>div') ?? null;
+		const productTabsTwo =
+			document.querySelector('#productTabs #tab-2>div') ?? null;
+		const machineWashable = document.querySelector('.wmg-wrapper') ?? null;
+
+		let active = 0;
+		if (accordions && !document.querySelector('.content-added')) {
 			accordions.forEach((item, index) => {
+				const parentItem = item.parentNode;
+				if (!parentItem.querySelector('.existing')) {
+					if (index === 0 && machineWashable) {
+						parentItem.classList.add('content-added');
+						active === 0 ? parentItem.classList.add('active') : null;
+						active = 1;
+						parentItem
+							.querySelector('.content')
+							.insertAdjacentElement('afterbegin', machineWashable);
+					}
+					if (index === 1 && productTabsOne) {
+						parentItem.classList.add('content-added');
+						active === 0 ? parentItem.classList.add('active') : null;
+						active = 1;
+						parentItem
+							.querySelector('.content')
+							.insertAdjacentElement('afterbegin', productTabsOne);
+					}
+					if (index === 2 && productTabsTwo) {
+						parentItem.classList.add('content-added');
+						active === 0 ? parentItem.classList.add('active') : null;
+						active = 1;
+						parentItem
+							.querySelector('.content')
+							.insertAdjacentElement('afterbegin', productTabsTwo);
+					}
+					if (index === 3 && machineLoad) {
+						parentItem.classList.add('content-added');
+						active === 0 ? parentItem.classList.add('active') : null;
+						active = 1;
+						parentItem
+							.querySelector('.content')
+							.insertAdjacentElement('afterbegin', machineLoad);
+					}
+				} else {
+					parentItem.classList.add('content-added');
+				}
 				item.addEventListener('click', () => {
-					const parentItem = item.parentNode;
-					parentItem.classList.toggle('active');
-					parentItem.querySelector('.content').innerHTML =
-						index === 0
-							? machineWashable.innerHTML
-							: index === 1
-							? productTabsOne.innerHTML
-							: index === 2
-							? productTabsTwo.innerHTML
-							: index === 3
-							? machineLoad.innerHTML
-							: '';
+					accordions.forEach((item) => {
+						item.parentNode.classList.remove('active');
+					});
+					parentItem.classList.add('active');
 				});
 			});
 			clearInterval(accInterval);
