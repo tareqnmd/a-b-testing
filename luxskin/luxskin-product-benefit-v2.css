@@ -1,0 +1,32 @@
+#shopify-section-product-template
+	.station-tabs-tabset.mod-vertical
+	.station-tabs-tab {
+	border: none !important;
+	border-top: 1px solid #eeeeee !important;
+}
+.station-tabs-tabset::after {
+	content: '';
+	position: absolute;
+	background: #fff3f7;
+	right: -100%;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	z-index: 999;
+}
+.station-tabs-tabset::before {
+	content: '';
+	position: absolute;
+	background: #fff3f7;
+	left: -100%;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	z-index: 999;
+}
+.station-tabs-tabset {
+	background: #ffffff;
+	padding: 16px !important;
+	margin: 20px !important;
+	border-radius: 8px;
+}
