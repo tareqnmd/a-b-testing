@@ -142,6 +142,17 @@ const style = `
     font-weight: 400;
     color: #5d5956 ! important;
 }
+.product-info__add-to-cart.flex{
+    flex-wrap: wrap;
+}
+.product-info__add-to-cart.flex quantity-input{
+    flex: 1;
+    max-width: 120px;
+}
+.product-info__add-to-cart.flex .product-info__add-button{
+    margin-left: 0;
+    margin-top: 10px;
+}
 #shopify-section-sections--20989124510027__icons_with_text_3xjEpL{
 display: none!important;
 }
@@ -177,14 +188,30 @@ const interval = setInterval(() => {
 		const saveElm = document.querySelector(
 			'.block.product-info__block.product-info__block--sm'
 		);
+		const quantityInput = document.querySelector(
+			'.product-info__add-to-cart.flex quantity-input'
+		);
+		const productInventory = document.querySelector(
+			'product-inventory.product-inventory'
+		);
+		const inventoryText = productInventory.querySelector(
+			'.product-inventory__text span:last-child p'
+		);
 		const head = document.querySelector('head');
 		if (
 			priceDefault &&
+			quantityInput &&
+			productInventory &&
 			priceCart &&
+			inventoryText &&
 			head &&
 			!document.querySelector('.new-usp')
 		) {
 			head.insertAdjacentHTML('beforeend', style);
+			if (inventoryText.innerText === 'Only a few left') {
+				inventoryText.innerText = 'Selling Fast. Only Few Items Left!';
+			}
+			quantityInput.insertAdjacentElement('afterend', productInventory);
 			priceDefault.insertAdjacentHTML('afterbegin', nowElm);
 			priceDefault.insertAdjacentElement('beforeend', saveElm);
 			priceCart.insertAdjacentHTML('afterend', uspElm);
