@@ -35,7 +35,7 @@ const style = `
     background: #3C9342;
 }
 .qty-input.qty-input--combined{
-    border: 1px solid #E9E9E9;
+    border: 1px solid #E9E9E9!important;
     border-radius: 8px;
 }
 .qty-input.qty-input--combined button{
@@ -148,6 +148,10 @@ const style = `
 .product-info__add-to-cart.flex quantity-input{
     flex: 1;
     max-width: 120px;
+}
+.product-info__add-to-cart.flex quantity-input .qty-input{
+    outline: none!important;
+    box-shadow: none!important;
 }
 .product-info__add-to-cart.flex .product-info__add-button{
     margin-left: 0;
