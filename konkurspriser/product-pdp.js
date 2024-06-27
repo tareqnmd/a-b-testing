@@ -82,15 +82,13 @@ const style = `
 }
 .new-usp .single-usp{
     display: grid;
-    grid-template-columns: auto 1fr;
     background: #F6F6F6;
     padding: 8px;
     border-radius: 8px;
-    gap: 0px 12px;
-    align-items: center;
+    place-items: center;
 }
 .new-usp .single-usp svg{
-    grid-row: span 2;
+    margin-bottom: 4px;
 }
 .new-usp .single-usp strong{
     font-size: 11px;
