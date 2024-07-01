@@ -26,7 +26,7 @@ const style = `
     .top-revs .single-rev div{
         display: flex;
         align-items: center;
-        gap: 2px;
+        gap: 4px;
     }
     .top-revs .single-rev svg{
         color: #fea760;
