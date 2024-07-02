@@ -188,7 +188,7 @@ const numberOnly = (string) => {
 
 const interval = setInterval(() => {
 	try {
-		const formAction = document.querySelector('.sc-dkYRCH.jKtCIg.pf-796_');
+		const formAction = document.querySelector('.sc-fHeRUh.ihgygX.pf-825_');
 		const price = document.querySelector(
 			'.sc-fkJVfC.cpknaP.pf-807_.pf-text-1.pf-sm-hide'
 		);
