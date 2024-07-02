@@ -103,7 +103,7 @@ const style = `
     font-weight: 500;
     font-size: 12px;
 }
-.sc-bLdqUH.eCxunz.pf-2651_.pf-button-1.animate-pop.pulse{
+.sc-bLdqUH.eCxunz.pf-826_.pf-button-1.animate-pop.pulse{
     background: #000000;
     border: 3px solid #000000;
     border-radius: 8px;
@@ -112,25 +112,26 @@ const style = `
     font-size: 18px;
     font-weight: 600;
 }
-.sc-bLdqUH.eCxunz.pf-2648_.pf-button-1.animate-pop.pulse{
-    background: #F5A623;
-    border: 3px solid #f5a623;
+.sc-bLdqUH.eCxunz.pf-829_.pf-button-1.animate-pop.pulse{
+    background: #23a5fd;
+    border: 3px solid #23a5fd;
     border-radius: 8px;
     padding: 18px;
     color: #FFFFFF;
     font-size: 18px;
     font-weight: 600;
 }
-.sc-fkJVfC.cpknaP.pf-2629_.pf-text-1.pf-sm-hide{
+.sc-fkJVfC.cpknaP.pf-807_.pf-text-1.pf-sm-hide{
+    display: flex!important;
     gap: 12px;
     align-items: center;
     padding-left: 0;
 }
-.sc-fkJVfC.cpknaP.pf-2629_.pf-text-1.pf-sm-hide *{
+.sc-fkJVfC.cpknaP.pf-807_.pf-text-1.pf-sm-hide *{
     margin: 0;
     padding: 0;
 }
-.sc-fkJVfC.cpknaP.pf-2629_.pf-text-1.pf-sm-hide .save-elm{
+.sc-fkJVfC.cpknaP.pf-807_.pf-text-1.pf-sm-hide .save-elm{
     background: #E500531F;
     font-size: 14px;
     font-weight: 700;
@@ -138,17 +139,17 @@ const style = `
     padding: 2px 10px;
     border-radius: 4px;
 }
-.sc-fkJVfC.cpknaP.pf-2629_.pf-text-1.pf-sm-hide .pf-2630_{
+.sc-fkJVfC.cpknaP.pf-807_.pf-text-1.pf-sm-hide .pf-2630_{
     font-size: 24px;
     font-weight: 700;
     color: #FF6B00;
 }
-.sc-fkJVfC.cpknaP.pf-2629_.pf-text-1.pf-sm-hide .pf-2631_{
+.sc-fkJVfC.cpknaP.pf-807_.pf-text-1.pf-sm-hide .pf-2631_{
     color: #9A9A9A;
     font-size: 18px;
     font-weight: 400;
 }
-.sc-fkJVfC.cpknaP.pf-2629_.pf-text-1.pf-sm-hide .now-elm{
+.sc-fkJVfC.cpknaP.pf-807_.pf-text-1.pf-sm-hide .now-elm{
     font-size: 20px;
     font-weight: 500;
     color: #FF6B00;
