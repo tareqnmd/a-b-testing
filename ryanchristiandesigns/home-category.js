@@ -41,10 +41,35 @@ const style = `
     .category-header{
         display: grid;
         gap: 10px;
+        overflow: hidden;
     }
     .category-header h2{
         font-size: 24px;
+        text-align: center;
         font-weight: 700;
+        position: relative;
+        width: max-content;
+        margin: 0 auto;
+    }
+    .category-header h2::after{
+        border: 1px solid #000000;
+        content: '';
+        position: absolute;
+        height: 1px;
+        width: 100px;
+        right: -120px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .category-header h2::before{
+        border: 1px solid #000000;
+        content: '';
+        position: absolute;
+        height: 1px;
+        width: 100px;
+        left: -120px;
+        top: 50%;
+        transform: translateY(-50%);
     }
     .category-content{
         display: grid;
