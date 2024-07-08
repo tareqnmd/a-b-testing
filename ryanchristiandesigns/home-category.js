@@ -78,7 +78,6 @@ const style = `
     }
     .category-item{
         position: relative;
-        height: 300px;
         overflow: hidden;
         display: flex;
         flex-direction: column;
@@ -89,18 +88,14 @@ const style = `
         width: 100%;
         height: 100%;
         object-fit: cover;
-        position: absolute;
     }
-    .category-item span{
+    .category-item strong{
         font-size: 32px;
         font-weight: 800;
         text-align: left;
         color: #FFFFFF;
-        position: relative;
-        z-index: 1;
-        margin-left: 16px;
     }
-    .category-item a{
+    .category-item small{
         width: max-content;
         display: flex;
         align-items: center;
@@ -112,26 +107,24 @@ const style = `
         font-family: Montserrat;
         font-size: 16px;
         font-weight: 500;
-        position: relative;
-        z-index: 1;
+    }
+    .category-info{
         margin: 0 0 16px 16px;
+        position: absolute;
     }
     @media (max-width: 1024px) {
         .category-content{
             grid-template-columns: repeat(2, 1fr);
         }
-        .category-content a{
+        .category-content .category-info a{
             display: none;
-        }
-        .category-item span{
-            margin: 0 0 16px 16px;
         }
     }
     @media (max-width: 640px) {
-        .category-item span{
+         .category-info{
             margin: 0 0 10px 10px;
         }
-        .category-item span{
+        .category-item strong{
             font-size: 20px;
             font-weight: 500;
         }
@@ -140,11 +133,15 @@ const style = `
 `;
 
 const category = (item) => `
-    <div class="category-item">
+    <a href=${item.link} class="category-item">
         <img src=${item.image} alt=${item.title} />
-        <span>${item.title}</span>
-        <a href=${item.link}>SHOP NOW ${rightArrow}</a>
-    </div>
+        <span class="category-info">
+            <strong>${item.title}</strong>
+            <small>
+                SHOP NOW ${rightArrow}
+            </small>
+        </span>
+    </a>
 `;
 
 const new_elm_html = `
