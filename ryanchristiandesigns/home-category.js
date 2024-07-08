@@ -116,7 +116,7 @@ const style = `
         .category-content{
             grid-template-columns: repeat(2, 1fr);
         }
-        .category-content .category-info a{
+        .category-content .category-info small{
             display: none;
         }
     }
