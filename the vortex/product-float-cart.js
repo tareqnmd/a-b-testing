@@ -16,7 +16,7 @@ const style = `
     	align-items: center;
     	flex-direction: column;
 		gap: 4px;
-		box-shadow: 0px -4px 3px #dcdcdc40;
+		box-shadow: 0px -3px 2px #dcdcdc40;
 	}
 	.float-cart-btn button{
 		position: static!important;
@@ -40,7 +40,7 @@ const interval = setInterval(() => {
 				const newDiv = document.createElement('div');
 				newDiv.classList.add('float-cart-btn');
 				newDiv.insertAdjacentElement('afterbegin', productFloatBtn);
-				newDiv.insertAdjacentElement('afterbegin', productRev);
+				newDiv.insertAdjacentHTML('afterbegin', productRev.outerHTML);
 				floatCartBtnParent.insertAdjacentElement('beforeend', newDiv);
 				clearInterval(interval);
 			}
