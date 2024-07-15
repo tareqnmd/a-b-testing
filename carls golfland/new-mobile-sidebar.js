@@ -2,6 +2,7 @@ const style = `
 <style>
 .nav-sections .nav-sections-items .header.links>.parent.open>.submenu{
     left: 0!important;
+    top: auto !important;
 }
 .nav-sections .nav-sections-items .header.links>.parent>.submenu{
     position: fixed;
@@ -11,6 +12,8 @@ const style = `
     transition: all 0.4s ease-in-out;
     display: block!important;
     z-index: 1;
+    height: 100%;
+    overflow: auto;
 }
 
 .nav-sections .nav-sections-items .navigation>ul>li>.submenu{
@@ -20,11 +23,14 @@ const style = `
     background: #fff;
     transition: all 0.4s ease-in-out;
     display: block!important;
-     z-index: 1;
+    z-index: 1;
+    height: 100%;
+    overflow: auto;
 }
 
 .nav-sections .nav-sections-items .navigation>ul>li.open>.submenu{
     left: 0!important;
+    top: auto !important;
 }
 
 .nav-sections .nav-sections-items .header.links>.parent{
