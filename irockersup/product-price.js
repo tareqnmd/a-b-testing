@@ -15,6 +15,11 @@ const style = `
     }
 	@media (max-width:420px){
 		.rev-area .yotpo-star-rating-reviews-summary-text {
+			font-size: 12px;
+		}
+	}
+	@media (max-width:380px){
+		.rev-area .yotpo-star-rating-reviews-summary-text {
 			font-size: 10px;
 		}
 	}
