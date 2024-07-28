@@ -1,8 +1,5 @@
 const style = `
 <style>
-    .limited-qty{
-        display: none!important;
-    }
     .rev-area .yotpo-bottom-line-scroll-panel{
         align-items: center!important;
     }
@@ -12,10 +9,15 @@ const style = `
         gap: 4px;
     }
     .price-elm{
-        color: red;
+        color: #db614b;
         font-size: 24px;
         line-height: 24px;
     }
+	@media (max-width:420px){
+		.rev-area .yotpo-star-rating-reviews-summary-text {
+			font-size: 10px;
+		}
+	}
 </style>
 `;
 
@@ -41,13 +43,21 @@ const interval = setInterval(() => {
 		const priceText = document.querySelector(
 			'#product-form-main-product [data-product-price]'
 		).innerText;
+		const oldPrice = document.querySelector(
+			'#product-form-main-product div:nth-of-type(4)'
+		);
+		const paymentOption = document.querySelector(
+			'#product-form-main-product div:nth-of-type(7)'
+		);
 		const head = document.querySelector('head');
 
-		if (!document.querySelector('.new-elm')) {
+		if (!document.querySelector('.finance-area')) {
 			head.insertAdjacentHTML('beforeend', style);
 			rating.classList.add('rev-area');
-			limitedQuantity.classList.add('limited-qty');
+			limitedQuantity.classList.add('hidden');
+			oldPrice.classList.add('hidden');
 			title.insertAdjacentElement('beforebegin', rating);
+			title.insertAdjacentElement('afterend', paymentOption);
 			title.insertAdjacentHTML('afterend', financeElm(priceText));
 			title.insertAdjacentElement('afterend', freeVibe);
 			clearInterval(interval);
