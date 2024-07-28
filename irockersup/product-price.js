@@ -45,15 +45,13 @@ const interval = setInterval(() => {
 		);
 		const freeVibe = headerSection.querySelector('span:nth-of-type(1)');
 		const title = headerSection.querySelector('.product_title');
-		const priceText = document.querySelector(
-			'#product-form-main-product [data-product-price]'
-		).innerText;
 		const oldPrice = document.querySelector(
-			'#product-form-main-product div:nth-of-type(4)'
-		);
+			'#product-form-main-product  .price__savings'
+		).parentNode;
+		const priceText = oldPrice.querySelector('[data-product-price]').innerText;
 		const paymentOption = document.querySelector(
-			'#product-form-main-product div:nth-of-type(7)'
-		);
+			'#product-form-main-product shopify-payment-terms'
+		).parentNode;
 		const head = document.querySelector('head');
 
 		if (!document.querySelector('.finance-area')) {
