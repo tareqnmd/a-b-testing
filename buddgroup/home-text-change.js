@@ -6,7 +6,7 @@ const interval = setInterval(() => {
 		const heroBtn = document.querySelector(
 			'.wrapper.ban .button1.trigger.w-button'
 		);
-		if (topBtn && !document.querySelector('.new-elm')) {
+		if (topBtn && heroBtn) {
 			topBtn.innerText = 'Request a Quote';
 			heroBtn.innerText = 'Request a Quote';
 			clearInterval(interval);
