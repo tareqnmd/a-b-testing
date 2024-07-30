@@ -65,7 +65,7 @@ const new_elm_html = `
 const interval = setInterval(() => {
 	try {
 		const head = document.querySelector('head');
-		const gpButton = document.querySelector('.gp-product-button');
+		const gpButton = document.querySelector('gp-product-button.gp-product-button');
 		if (head && !document.querySelector('.usp-elm')) {
 			head.insertAdjacentHTML('beforeend', style);
 			gpButton.insertAdjacentHTML('afterend', new_elm_html);
