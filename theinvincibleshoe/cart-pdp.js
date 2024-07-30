@@ -59,7 +59,7 @@ const interval = setInterval(() => {
 	try {
 		const exist_elm = document.querySelector('.rebuy-cart__flyout-actions');
 		const head = document.querySelector('head');
-		if (exist_elm && head && !document.querySelector('.new-elm')) {
+		if (exist_elm && head && !document.querySelector('.cart-pdps')) {
 			head.insertAdjacentHTML('beforeend', style);
 			exist_elm.insertAdjacentHTML('afterend', new_elm_html);
 			clearInterval(interval);

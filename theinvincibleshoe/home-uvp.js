@@ -189,9 +189,11 @@ const new_elm_html = `
 
 const interval = setInterval(() => {
 	try {
-		const exist_elm = document.querySelector('header.site-header');
+		const exist_elm = document.querySelector(
+			'.template-index header.site-header'
+		);
 		const head = document.querySelector('head');
-		if (exist_elm && head && !document.querySelector('.new-elm')) {
+		if (exist_elm && head && !document.querySelector('.new-home-elm')) {
 			head.insertAdjacentHTML('beforeend', style);
 			exist_elm.insertAdjacentHTML('beforeend', new_elm_html);
 			clearInterval(interval);
