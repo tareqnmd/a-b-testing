@@ -77,6 +77,12 @@ const interval = setInterval(() => {
 		const navActionsLast = navActions.querySelector('li:last-child');
 		const tabNav = document.querySelector('.site-nav--compress#AccessibleNav');
 		const tabCartIcon = tabNav.querySelector('li:nth-child(9)');
+		const mobileLink = document.querySelector(
+			'.site-header-mobile .site-nav--mobile.text-right.custom_cart'
+		);
+		const mobileLinkIcon = mobileLink.querySelector(
+			'.site-nav__link.cart-link.js-drawer-open-button-right'
+		);
 		const head = document.querySelector('head');
 		if (
 			navActions &&
@@ -90,6 +96,8 @@ const interval = setInterval(() => {
 			tabNav.insertAdjacentElement('afterbegin', tabCartIcon);
 			tabCartIcon.insertAdjacentHTML('afterbegin', new_elm_html);
 			clearInterval(interval);
+			mobileLink.insertAdjacentElement('afterbegin', mobileLinkIcon);
+            mobileLinkIcon.insertAdjacentHTML('afterbegin', new_elm_html);
 		}
 	} catch (error) {
 		console.log('error', error);
