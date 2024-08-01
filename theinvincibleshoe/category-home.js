@@ -36,6 +36,7 @@ const categoryStyle = `
         border: 1px solid #F36523;
         border-radius: 16px;
         display: grid;
+        overflow: hidden;
     }
     .category-product .image-area{
         background: #F3652321;
@@ -59,7 +60,7 @@ const categoryStyle = `
         text-align: center;
         margin-BOTTOM: 30px 10px;
     }
-    @media (max-width: 991px) {
+    @media (max-width: 768px) {
         .category-title{
             font-size: 24px;
             line-height: 30px;
