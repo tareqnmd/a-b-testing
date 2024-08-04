@@ -131,7 +131,7 @@ const newDeskHomeElm = `
                 <strong>Made from bamboo, cornstarch, and cellulose</strong>
             </li>
         </ul>
-        <a href="">
+        <a href="/collections/best-sellers">
             SHOP NOW
         </a>
     </div>
