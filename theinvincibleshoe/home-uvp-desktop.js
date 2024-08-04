@@ -1,17 +1,17 @@
 const fiveStarDeskHome = `
-<svg width="78" height="15" viewBox="0 0 78 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M7 0.5L9.05725 4.66844L13.6574 5.33688L10.3287 8.58156L11.1145 13.1631L7 11L2.8855 13.1631L3.6713 8.58156L0.342604 5.33688L4.94275 4.66844L7 0.5Z" fill="white"/>
-<path d="M23 0.5L25.0572 4.66844L29.6574 5.33688L26.3287 8.58156L27.1145 13.1631L23 11L18.8855 13.1631L19.6713 8.58156L16.3426 5.33688L20.9428 4.66844L23 0.5Z" fill="white"/>
-<path d="M39 0.5L41.0572 4.66844L45.6574 5.33688L42.3287 8.58156L43.1145 13.1631L39 11L34.8855 13.1631L35.6713 8.58156L32.3426 5.33688L36.9428 4.66844L39 0.5Z" fill="white"/>
-<path d="M55 0.5L57.0572 4.66844L61.6574 5.33688L58.3287 8.58156L59.1145 13.1631L55 11L50.8855 13.1631L51.6713 8.58156L48.3426 5.33688L52.9428 4.66844L55 0.5Z" fill="white"/>
-<path d="M71 0.5L73.0572 4.66844L77.6574 5.33688L74.3287 8.58156L75.1145 13.1631L71 11L66.8855 13.1631L67.6713 8.58156L64.3426 5.33688L68.9428 4.66844L71 0.5Z" fill="white"/>
+<svg width="98" height="18" viewBox="0 0 98 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 0L11.645 5.35942L17.5595 6.21885L13.2798 10.3906L14.2901 16.2812L9 13.5L3.70993 16.2812L4.72025 10.3906L0.440492 6.21885L6.35497 5.35942L9 0Z" fill="#FAAD14"/>
+<path d="M29 0L31.645 5.35942L37.5595 6.21885L33.2798 10.3906L34.2901 16.2812L29 13.5L23.7099 16.2812L24.7202 10.3906L20.4405 6.21885L26.355 5.35942L29 0Z" fill="#FAAD14"/>
+<path d="M49 0L51.645 5.35942L57.5595 6.21885L53.2798 10.3906L54.2901 16.2812L49 13.5L43.7099 16.2812L44.7202 10.3906L40.4405 6.21885L46.355 5.35942L49 0Z" fill="#FAAD14"/>
+<path d="M69 0L71.645 5.35942L77.5595 6.21885L73.2798 10.3906L74.2901 16.2812L69 13.5L63.7099 16.2812L64.7202 10.3906L60.4405 6.21885L66.355 5.35942L69 0Z" fill="#FAAD14"/>
+<path d="M89 0L91.645 5.35942L97.5595 6.21885L93.2798 10.3906L94.2901 16.2812L89 13.5L83.7099 16.2812L84.7202 10.3906L80.4405 6.21885L86.355 5.35942L89 0Z" fill="#FAAD14"/>
 </svg>
 `;
 
 const checkSvgDeskHome = `
-<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="8" cy="8" r="8" fill="#F36523"/>
-<path d="M11.3335 5.5L6.7502 10.0833L4.66687 8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="25" height="25" rx="12.5" fill="#F36523"/>
+<path d="M17.5 10L10.625 16.25L7.5 13.4091" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
 `;
 
@@ -26,8 +26,10 @@ const styleDeskHome = `
     }
     .index-desk-hero{
         display: grid;
-        grid-template-columns: 1fr 2fr;
+        grid-template-columns: 2fr 3fr;
         margin-bottom: 20px;
+        background: #000;
+        align-items: stretch;
     }
     .index-desk-hero img{
         width: 100%;
@@ -36,7 +38,6 @@ const styleDeskHome = `
         padding: 6px;
         display: flex;
         align-items: center;
-        justify-content: center;
         gap:10px;
     }
     .index-desk-hero .revs strong{
@@ -52,7 +53,7 @@ const styleDeskHome = `
         color:white;
     }
     .index-desk-hero .details{
-        padding: 16px;  
+        padding: 48px 16px;  
         display: grid;
         gap: 16px;
     }
@@ -70,12 +71,12 @@ const styleDeskHome = `
     }
     .index-desk-hero .details .features{
         display: grid;
-        gap: 4px;
+        gap: 12px;
     }
     .index-desk-hero .details .features li{
         display: flex;
         align-items: center;
-        gap: 4px;
+        gap: 6px;
     }
     .index-desk-hero .details .features li strong{
         font-size: 18px;
@@ -83,10 +84,13 @@ const styleDeskHome = `
         font-weight: 400;
         color: #ffffff;
     }
+    .index-desk-hero .details .features li svg{
+        flex-shrink: 0;
+    }
     .index-desk-hero .details a{
         background: #F36523;
         padding: 12px;
-        color: #0D0C22;
+        color: #fff;
         font-size: 20px;
         font-weight: 700;
         line-height: 24px;
@@ -99,7 +103,6 @@ const styleDeskHome = `
 
 const newDeskHomeElm = `
 <div class="index-desk-hero">
-    <img src="https://theinvincibleshoe.com/cdn/shop/files/Be_gentle_with_yourself._1800_x_1000_px_300x300.jpg" alt="" />
     <div class="details">
         <div class="revs">
             ${fiveStarDeskHome}
@@ -127,6 +130,7 @@ const newDeskHomeElm = `
             SHOP NOW
         </a>
     </div>
+    <img src="https://theinvincibleshoe.com/cdn/shop/files/Be_gentle_with_yourself._1800_x_1000_px.jpg" alt="" />
 </div>
 `;
 
@@ -136,7 +140,7 @@ const intervalDeskHome = setInterval(() => {
 		const head = document.querySelector('head');
 		if (header && head && !document.querySelector('.index-desk-hero')) {
 			head.insertAdjacentHTML('beforeend', styleDeskHome);
-			header.insertAdjacentHTML('beforeend', newDeskHomeElm);
+			header.insertAdjacentHTML('afterend', newDeskHomeElm);
 			clearInterval(intervalDeskHome);
 		}
 	} catch (error) {
