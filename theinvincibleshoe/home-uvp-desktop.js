@@ -33,6 +33,7 @@ const styleDeskHome = `
         grid-template-columns: 2fr 3fr;
         margin-bottom: 20px;
         align-items: stretch;
+        padding: 80px 40px;
     }
     .index-desk-hero img{
         width: 100%;
@@ -56,7 +57,7 @@ const styleDeskHome = `
         color:white;
     }
     .index-desk-hero .details{
-        padding: 48px 16px;  
+        padding: 0 15px;  
         display: grid;
         gap: 24px;
     }
