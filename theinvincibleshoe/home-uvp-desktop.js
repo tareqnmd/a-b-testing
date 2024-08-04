@@ -26,13 +26,13 @@ const styleDeskHome = `
     }
     .index-desk-hero{
         display: grid;
+        grid-template-columns: 1fr 2fr;
         margin-bottom: 20px;
     }
     .index-desk-hero img{
         width: 100%;
     }
     .index-desk-hero .revs{
-        background: #F36523;
         padding: 6px;
         display: flex;
         align-items: center;
@@ -40,12 +40,14 @@ const styleDeskHome = `
         gap:10px;
     }
     .index-desk-hero .revs strong{
-        font-size: 12px;
+        font-size: 16px;
+        line-height: 20px;
         font-weight: 700;
         color:white;
     }
     .index-desk-hero .revs span{
-        font-size: 12px;
+        font-size: 16px;
+        line-height: 20px;
         font-weight: 400;
         color:white;
     }
@@ -54,18 +56,17 @@ const styleDeskHome = `
         display: grid;
         gap: 16px;
     }
-    .index-desk-hero .details .info h2{
-        font-size: 22px;
-        line-height: 24px;
-        font-weight: 700;
-        color: #473505;
-        margin-bottom: 10px;
+    .index-desk-hero .details h2{
+        font-size: 48px;
+        line-height: 56px;
+        font-weight: 800;
+        color: #ffffff;
     }
-    .index-desk-hero .details .info p{
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 20px;
-        color: #393939;
+    .index-desk-hero .details p{
+        font-size: 24px;
+        font-weight: 300;
+        line-height: 34px;
+        color: #ffffff;
     }
     .index-desk-hero .details .features{
         display: grid;
@@ -77,20 +78,21 @@ const styleDeskHome = `
         gap: 4px;
     }
     .index-desk-hero .details .features li strong{
-        font-size: 12px;
-        font-weight: 500;
+        font-size: 18px;
         line-height: 20px;
-        color: #0D0C22;
+        font-weight: 400;
+        color: #ffffff;
     }
     .index-desk-hero .details a{
         background: #F36523;
         padding: 12px;
         color: #0D0C22;
-        font-size: 16px;
+        font-size: 20px;
         font-weight: 700;
         line-height: 24px;
         border-radius: 6px;
         text-align: center;
+        max-width: 320px;
     }
 </style>
 `;
@@ -98,16 +100,14 @@ const styleDeskHome = `
 const newDeskHomeElm = `
 <div class="index-desk-hero">
     <img src="https://theinvincibleshoe.com/cdn/shop/files/Be_gentle_with_yourself._1800_x_1000_px_300x300.jpg" alt="" />
-    <div class="revs">
-        ${fiveStarDeskHome}
-        <strong>4.6/5</strong>
-        <span>400+ verified reviews</span>
-    </div>
     <div class="details">
-        <div class="info">
-            <h2>Built To Last. Built To Protect</h2>
-            <p>Explore our custom line of safety shoes, each featuring a steel toe and nail resistant soles.</p>
+        <div class="revs">
+            ${fiveStarDeskHome}
+            <strong>4.6/5</strong>
+            <span>400+ verified reviews</span>
         </div>
+        <h2>Built To Last. Built To Protect</h2>
+        <p>Explore our custom line of safety shoes, each featuring a steel toe and nail resistant soles.</p>
         <ul class="features">
             <li>
                 ${checkSvgDeskHome}
