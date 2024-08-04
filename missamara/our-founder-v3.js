@@ -60,8 +60,6 @@ const style = `
 		font-size: 26px;
 		line-height: 35px;
 		font-family: Cardo;
-		margin-bottom: 15px;
-		margin-top: 42px;
 	}
 	@media (min-width: 768px) {
 		h3.our-founders-heading-ab {
@@ -72,7 +70,6 @@ const style = `
 			font-size: 30px;
 			line-height: 36px;
 			font-family: Lato, Bold;
-			margin-bottom: 15px;
 			width: 60%;
 		}
 	}
