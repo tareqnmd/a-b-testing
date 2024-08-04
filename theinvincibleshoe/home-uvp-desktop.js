@@ -28,6 +28,7 @@ const styleDeskHome = `
         background-color: black;
         background-image: url('https://i.ibb.co/zsXP7Rs/theinvincibleshoe-hero-desk.png');
         background-size: 100%;
+        background-position: center;
         display: grid;
         grid-template-columns: 2fr 3fr;
         margin-bottom: 20px;
