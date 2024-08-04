@@ -57,7 +57,7 @@ const styleDeskHome = `
     .index-desk-hero .details{
         padding: 48px 16px;  
         display: grid;
-        gap: 16px;
+        gap: 24px;
     }
     .index-desk-hero .details h2{
         font-size: 48px;
