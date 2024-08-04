@@ -25,10 +25,11 @@ const styleDeskHome = `
         padding: 0;
     }
     .index-desk-hero{
+        background: url('https://i.ibb.co/zsXP7Rs/theinvincibleshoe-hero-desk.png');
+        background-size: 100%;
         display: grid;
         grid-template-columns: 2fr 3fr;
         margin-bottom: 20px;
-        background: #000;
         align-items: stretch;
     }
     .index-desk-hero img{
@@ -130,7 +131,7 @@ const newDeskHomeElm = `
             SHOP NOW
         </a>
     </div>
-    <img src="https://theinvincibleshoe.com/cdn/shop/files/Be_gentle_with_yourself._1800_x_1000_px.jpg" alt="" />
+    <div></div>
 </div>
 `;
 
