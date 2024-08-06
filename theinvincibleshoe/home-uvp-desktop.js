@@ -135,9 +135,7 @@ const newDeskHomeElm = `
             SHOP NOW
         </a>
     </div>
-    <div>
-        
-    </div>
+    <div></div>
 </div>
 `;
 
